@@ -13,7 +13,7 @@
 #define NUM_TILES_I (I / S_A_I)
 #define NUM_TILES_J (J / S_A_J)
 
-#define VEC_SIZE 16
+#define VEC_SIZE 4
 
 void gemm(const hls::burst_maxi<hls::vector<float, VEC_SIZE> A_DRAM, 
     const hls::burst_maxi<hls::vector<float, VEC_SIZE> B_DRAM, 
