@@ -26,10 +26,8 @@ void gemm(const hls::burst_maxi<hls::vector<float, VEC_SIZE>> A_DRAM,
     PE systolic_array[S_A_I][S_A_J];
     #pragma HLS ARRAY_PARTITION variable=systolic_array type=complete dim=1
     #pragma HLS ARRAY_PARTITION variable=systolic_array type=complete dim=2
- 
+
     loadInputsFromDRAM(A_DRAM, B_DRAM, A_BUF, B_BUF);
- 
     runSystolicArray(A_BUF, B_BUF, C_BUF, systolic_array);
- 
     storeOutputToDRAM(C_BUF, C_DRAM);
 }

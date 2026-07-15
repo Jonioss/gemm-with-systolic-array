@@ -1,0 +1,174 @@
+
+
+================================================================
+== Vitis HLS Report for 'sink_streams_Block_entry1_proc4'
+================================================================
+* Date:           Wed Jul 15 23:35:37 2026
+
+* Version:        2023.2 (Build 4023990 on Oct 11 2023)
+* Project:        hls_project
+* Solution:       gemm2 (Vitis Kernel Flow Target)
+* Product family: versalaicore
+* Target device:  xcvc1902-vsva2197-2MP-e-S
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  3.33 ns|  0.962 ns|     0.90 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        3|        3|  9.999 ns|  9.999 ns|    3|    3|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+------+---------+--------+-----+
+|       Name      | BRAM_18K|  DSP |    FF   |   LUT  | URAM|
++-----------------+---------+------+---------+--------+-----+
+|DSP              |        -|     -|        -|       -|    -|
+|Expression       |        -|     -|        0|       4|    -|
+|FIFO             |        -|     -|        -|       -|    -|
+|Instance         |        -|     -|        -|       -|    -|
+|Memory           |        -|     -|        -|       -|    -|
+|Multiplexer      |        -|     -|        -|      24|    -|
+|Register         |        -|     -|        5|       -|    -|
++-----------------+---------+------+---------+--------+-----+
+|Total            |        0|     0|        5|      28|    0|
++-----------------+---------+------+---------+--------+-----+
+|Available        |     1934|  1968|  1799680|  899840|  463|
++-----------------+---------+------+---------+--------+-----+
+|Utilization (%)  |        0|     0|       ~0|      ~0|    0|
++-----------------+---------+------+---------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------+----------+----+---+----+------------+------------+
+    |  Variable Name  | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------+----------+----+---+----+------------+------------+
+    |ap_block_state1  |        or|   0|  0|   2|           1|           1|
+    |ap_block_state2  |        or|   0|  0|   2|           1|           1|
+    +-----------------+----------+----+---+----+------------+------------+
+    |Total            |          |   0|  0|   4|           2|           2|
+    +-----------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +--------------------+----+-----------+-----+-----------+
+    |        Name        | LUT| Input Size| Bits| Total Bits|
+    +--------------------+----+-----------+-----+-----------+
+    |A_stream_0_4_blk_n  |   2|          2|    1|          2|
+    |A_stream_1_4_blk_n  |   2|          2|    1|          2|
+    |A_stream_2_4_blk_n  |   2|          2|    1|          2|
+    |A_stream_3_4_blk_n  |   2|          2|    1|          2|
+    |B_stream_4_0_blk_n  |   2|          2|    1|          2|
+    |B_stream_4_1_blk_n  |   2|          2|    1|          2|
+    |B_stream_4_2_blk_n  |   2|          2|    1|          2|
+    |B_stream_4_3_blk_n  |   2|          2|    1|          2|
+    |ap_NS_fsm           |   6|          5|    1|          5|
+    |ap_done             |   2|          2|    1|          2|
+    +--------------------+----+-----------+-----+-----------+
+    |Total               |  24|         23|   10|         23|
+    +--------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------+---+----+-----+-----------+
+    |     Name    | FF| LUT| Bits| Const Bits|
+    +-------------+---+----+-----+-----------+
+    |ap_CS_fsm    |  4|   0|    4|          0|
+    |ap_done_reg  |  1|   0|    1|          0|
+    +-------------+---+----+-----+-----------+
+    |Total        |  5|   0|    5|          0|
+    +-------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------------+-----+-----+------------+---------------------------------+--------------+
+|          RTL Ports          | Dir | Bits|  Protocol  |          Source Object          |    C Type    |
++-----------------------------+-----+-----+------------+---------------------------------+--------------+
+|ap_clk                       |   in|    1|  ap_ctrl_hs|  sink_streams_Block_entry1_proc4|  return value|
+|ap_rst                       |   in|    1|  ap_ctrl_hs|  sink_streams_Block_entry1_proc4|  return value|
+|ap_start                     |   in|    1|  ap_ctrl_hs|  sink_streams_Block_entry1_proc4|  return value|
+|ap_done                      |  out|    1|  ap_ctrl_hs|  sink_streams_Block_entry1_proc4|  return value|
+|ap_continue                  |   in|    1|  ap_ctrl_hs|  sink_streams_Block_entry1_proc4|  return value|
+|ap_idle                      |  out|    1|  ap_ctrl_hs|  sink_streams_Block_entry1_proc4|  return value|
+|ap_ready                     |  out|    1|  ap_ctrl_hs|  sink_streams_Block_entry1_proc4|  return value|
+|A_stream_0_4_dout            |   in|   32|     ap_fifo|                     A_stream_0_4|       pointer|
+|A_stream_0_4_num_data_valid  |   in|    3|     ap_fifo|                     A_stream_0_4|       pointer|
+|A_stream_0_4_fifo_cap        |   in|    3|     ap_fifo|                     A_stream_0_4|       pointer|
+|A_stream_0_4_empty_n         |   in|    1|     ap_fifo|                     A_stream_0_4|       pointer|
+|A_stream_0_4_read            |  out|    1|     ap_fifo|                     A_stream_0_4|       pointer|
+|A_stream_1_4_dout            |   in|   32|     ap_fifo|                     A_stream_1_4|       pointer|
+|A_stream_1_4_num_data_valid  |   in|    3|     ap_fifo|                     A_stream_1_4|       pointer|
+|A_stream_1_4_fifo_cap        |   in|    3|     ap_fifo|                     A_stream_1_4|       pointer|
+|A_stream_1_4_empty_n         |   in|    1|     ap_fifo|                     A_stream_1_4|       pointer|
+|A_stream_1_4_read            |  out|    1|     ap_fifo|                     A_stream_1_4|       pointer|
+|A_stream_2_4_dout            |   in|   32|     ap_fifo|                     A_stream_2_4|       pointer|
+|A_stream_2_4_num_data_valid  |   in|    3|     ap_fifo|                     A_stream_2_4|       pointer|
+|A_stream_2_4_fifo_cap        |   in|    3|     ap_fifo|                     A_stream_2_4|       pointer|
+|A_stream_2_4_empty_n         |   in|    1|     ap_fifo|                     A_stream_2_4|       pointer|
+|A_stream_2_4_read            |  out|    1|     ap_fifo|                     A_stream_2_4|       pointer|
+|A_stream_3_4_dout            |   in|   32|     ap_fifo|                     A_stream_3_4|       pointer|
+|A_stream_3_4_num_data_valid  |   in|    3|     ap_fifo|                     A_stream_3_4|       pointer|
+|A_stream_3_4_fifo_cap        |   in|    3|     ap_fifo|                     A_stream_3_4|       pointer|
+|A_stream_3_4_empty_n         |   in|    1|     ap_fifo|                     A_stream_3_4|       pointer|
+|A_stream_3_4_read            |  out|    1|     ap_fifo|                     A_stream_3_4|       pointer|
+|B_stream_4_0_dout            |   in|   32|     ap_fifo|                     B_stream_4_0|       pointer|
+|B_stream_4_0_num_data_valid  |   in|    3|     ap_fifo|                     B_stream_4_0|       pointer|
+|B_stream_4_0_fifo_cap        |   in|    3|     ap_fifo|                     B_stream_4_0|       pointer|
+|B_stream_4_0_empty_n         |   in|    1|     ap_fifo|                     B_stream_4_0|       pointer|
+|B_stream_4_0_read            |  out|    1|     ap_fifo|                     B_stream_4_0|       pointer|
+|B_stream_4_1_dout            |   in|   32|     ap_fifo|                     B_stream_4_1|       pointer|
+|B_stream_4_1_num_data_valid  |   in|    3|     ap_fifo|                     B_stream_4_1|       pointer|
+|B_stream_4_1_fifo_cap        |   in|    3|     ap_fifo|                     B_stream_4_1|       pointer|
+|B_stream_4_1_empty_n         |   in|    1|     ap_fifo|                     B_stream_4_1|       pointer|
+|B_stream_4_1_read            |  out|    1|     ap_fifo|                     B_stream_4_1|       pointer|
+|B_stream_4_2_dout            |   in|   32|     ap_fifo|                     B_stream_4_2|       pointer|
+|B_stream_4_2_num_data_valid  |   in|    3|     ap_fifo|                     B_stream_4_2|       pointer|
+|B_stream_4_2_fifo_cap        |   in|    3|     ap_fifo|                     B_stream_4_2|       pointer|
+|B_stream_4_2_empty_n         |   in|    1|     ap_fifo|                     B_stream_4_2|       pointer|
+|B_stream_4_2_read            |  out|    1|     ap_fifo|                     B_stream_4_2|       pointer|
+|B_stream_4_3_dout            |   in|   32|     ap_fifo|                     B_stream_4_3|       pointer|
+|B_stream_4_3_num_data_valid  |   in|    3|     ap_fifo|                     B_stream_4_3|       pointer|
+|B_stream_4_3_fifo_cap        |   in|    3|     ap_fifo|                     B_stream_4_3|       pointer|
+|B_stream_4_3_empty_n         |   in|    1|     ap_fifo|                     B_stream_4_3|       pointer|
+|B_stream_4_3_read            |  out|    1|     ap_fifo|                     B_stream_4_3|       pointer|
++-----------------------------+-----+-----+------------+---------------------------------+--------------+
+

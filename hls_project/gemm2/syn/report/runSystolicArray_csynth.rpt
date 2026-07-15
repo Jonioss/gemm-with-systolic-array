@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'runSystolicArray'
 ================================================================
-* Date:           Wed Jul 15 19:37:24 2026
+* Date:           Wed Jul 15 23:35:37 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        hls_project
@@ -34,31 +34,31 @@
 
     + Detail: 
         * Instance: 
-        +------------------------------------------+---------------------------------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------+
-        |                                          |                                       |  Latency (cycles) |   Latency (absolute)  |  Interval |                 Pipeline                 |
-        |                 Instance                 |                 Module                |   min   |   max   |    min    |    max    | min | max |                   Type                   |
-        +------------------------------------------+---------------------------------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------+
-        |A_Buf_to_stream_U0                        |A_Buf_to_stream                        |       18|       18|  59.994 ns|  59.994 ns|   18|   18|                                        no|
-        |B_Buf_to_stream_U0                        |B_Buf_to_stream                        |       18|       18|  59.994 ns|  59.994 ns|   18|   18|                                        no|
-        |run_U0                                    |run                                    |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_1_U0                                  |run_1                                  |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_4_U0                                  |run_4                                  |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_2_U0                                  |run_2                                  |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_5_U0                                  |run_5                                  |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_8_U0                                  |run_8                                  |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_3_U0                                  |run_3                                  |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_6_U0                                  |run_6                                  |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_9_U0                                  |run_9                                  |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_12_U0                                 |run_12                                 |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_7_U0                                  |run_7                                  |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_10_U0                                 |run_10                                 |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_13_U0                                 |run_13                                 |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_11_U0                                 |run_11                                 |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_14_U0                                 |run_14                                 |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_15_U0                                 |run_15                                 |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |runSystolicArray_Block_entry120_proc4_U0  |runSystolicArray_Block_entry120_proc4  |        3|        3|   9.999 ns|   9.999 ns|    3|    3|                                        no|
-        |stream_to_C_Buf_U0                        |stream_to_C_Buf                        |        0|        0|       0 ns|       0 ns|    0|    0|                                        no|
-        +------------------------------------------+---------------------------------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------+
+        +--------------------+-----------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------+
+        |                    |                 |  Latency (cycles) |   Latency (absolute)  |  Interval |                 Pipeline                 |
+        |      Instance      |      Module     |   min   |   max   |    min    |    max    | min | max |                   Type                   |
+        +--------------------+-----------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------+
+        |A_Buf_to_stream_U0  |A_Buf_to_stream  |       18|       18|  59.994 ns|  59.994 ns|   18|   18|                                        no|
+        |B_Buf_to_stream_U0  |B_Buf_to_stream  |       18|       18|  59.994 ns|  59.994 ns|   18|   18|                                        no|
+        |run_U0              |run              |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |run_1_U0            |run_1            |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |run_4_U0            |run_4            |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |run_2_U0            |run_2            |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |run_5_U0            |run_5            |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |run_8_U0            |run_8            |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |run_3_U0            |run_3            |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |run_6_U0            |run_6            |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |run_9_U0            |run_9            |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |run_12_U0           |run_12           |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |run_7_U0            |run_7            |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |run_10_U0           |run_10           |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |run_13_U0           |run_13           |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |run_11_U0           |run_11           |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |run_14_U0           |run_14           |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |run_15_U0           |run_15           |        9|       10|  29.997 ns|  33.330 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |sink_streams_U0     |sink_streams     |        3|        3|   9.999 ns|   9.999 ns|    4|    4|                                  dataflow|
+        |stream_to_C_Buf_U0  |stream_to_C_Buf  |        0|        0|       0 ns|       0 ns|    0|    0|                                        no|
+        +--------------------+-----------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------+
 
         * Loop: 
         N/A
@@ -89,32 +89,32 @@
 
 + Detail: 
     * Instance: 
-    +------------------------------------------+---------------------------------------+---------+----+-----+-----+-----+
-    |                 Instance                 |                 Module                | BRAM_18K| DSP|  FF | LUT | URAM|
-    +------------------------------------------+---------------------------------------+---------+----+-----+-----+-----+
-    |A_Buf_to_stream_U0                        |A_Buf_to_stream                        |        0|   0|  109|  438|    0|
-    |B_Buf_to_stream_U0                        |B_Buf_to_stream                        |        0|   0|  109|  438|    0|
-    |run_U0                                    |run                                    |        0|   1|   18|  137|    0|
-    |runSystolicArray_Block_entry120_proc4_U0  |runSystolicArray_Block_entry120_proc4  |        0|   0|    5|   28|    0|
-    |run_1_U0                                  |run_1                                  |        0|   1|   17|  135|    0|
-    |run_10_U0                                 |run_10                                 |        0|   1|   17|  135|    0|
-    |run_11_U0                                 |run_11                                 |        0|   1|   17|  135|    0|
-    |run_12_U0                                 |run_12                                 |        0|   1|   17|  135|    0|
-    |run_13_U0                                 |run_13                                 |        0|   1|   17|  135|    0|
-    |run_14_U0                                 |run_14                                 |        0|   1|   17|  135|    0|
-    |run_15_U0                                 |run_15                                 |        0|   1|   17|  135|    0|
-    |run_2_U0                                  |run_2                                  |        0|   1|   17|  135|    0|
-    |run_3_U0                                  |run_3                                  |        0|   1|   18|  137|    0|
-    |run_4_U0                                  |run_4                                  |        0|   1|   17|  135|    0|
-    |run_5_U0                                  |run_5                                  |        0|   1|   17|  135|    0|
-    |run_6_U0                                  |run_6                                  |        0|   1|   17|  135|    0|
-    |run_7_U0                                  |run_7                                  |        0|   1|   17|  135|    0|
-    |run_8_U0                                  |run_8                                  |        0|   1|   17|  135|    0|
-    |run_9_U0                                  |run_9                                  |        0|   1|   17|  135|    0|
-    |stream_to_C_Buf_U0                        |stream_to_C_Buf                        |        0|   0|  514|  548|    0|
-    +------------------------------------------+---------------------------------------+---------+----+-----+-----+-----+
-    |Total                                     |                                       |        0|  16| 1011| 3616|    0|
-    +------------------------------------------+---------------------------------------+---------+----+-----+-----+-----+
+    +--------------------+-----------------+---------+----+-----+-----+-----+
+    |      Instance      |      Module     | BRAM_18K| DSP|  FF | LUT | URAM|
+    +--------------------+-----------------+---------+----+-----+-----+-----+
+    |A_Buf_to_stream_U0  |A_Buf_to_stream  |        0|   0|  109|  438|    0|
+    |B_Buf_to_stream_U0  |B_Buf_to_stream  |        0|   0|  109|  438|    0|
+    |run_U0              |run              |        0|   1|   18|  137|    0|
+    |run_1_U0            |run_1            |        0|   1|   17|  135|    0|
+    |run_10_U0           |run_10           |        0|   1|   17|  135|    0|
+    |run_11_U0           |run_11           |        0|   1|   17|  135|    0|
+    |run_12_U0           |run_12           |        0|   1|   17|  135|    0|
+    |run_13_U0           |run_13           |        0|   1|   17|  135|    0|
+    |run_14_U0           |run_14           |        0|   1|   17|  135|    0|
+    |run_15_U0           |run_15           |        0|   1|   17|  135|    0|
+    |run_2_U0            |run_2            |        0|   1|   17|  135|    0|
+    |run_3_U0            |run_3            |        0|   1|   18|  137|    0|
+    |run_4_U0            |run_4            |        0|   1|   17|  135|    0|
+    |run_5_U0            |run_5            |        0|   1|   17|  135|    0|
+    |run_6_U0            |run_6            |        0|   1|   17|  135|    0|
+    |run_7_U0            |run_7            |        0|   1|   17|  135|    0|
+    |run_8_U0            |run_8            |        0|   1|   17|  135|    0|
+    |run_9_U0            |run_9            |        0|   1|   17|  135|    0|
+    |sink_streams_U0     |sink_streams     |        0|   0|    5|   28|    0|
+    |stream_to_C_Buf_U0  |stream_to_C_Buf  |        0|   0|  514|  548|    0|
+    +--------------------+-----------------+---------+----+-----+-----+-----+
+    |Total               |                 |        0|  16| 1011| 3616|    0|
+    +--------------------+-----------------+---------+----+-----+-----+-----+
 
     * DSP: 
     N/A
