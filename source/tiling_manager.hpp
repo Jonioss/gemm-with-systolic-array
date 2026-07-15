@@ -1,8 +1,20 @@
 #include "constants.h"
 
+void stream_to_C_Buf(hls::stream<float> C_stream[S_A_I][S_A_J], float C_BUF[I][J]) {
+    #pragma HLS INLINE off
+    for (int i = 0; i < S_A_I; i++) {
+        #pragma HLS UNROLL
+        for (int j = 0; j < S_A_J; j++) {
+            #pragma HLS UNROLL
+            C_BUF[i][j] = C_stream[i][j].read();
+        }
+    }
+}
+
 void A_Buf_to_stream(float A_BUF[I][K], hls::stream<float> A_stream[S_A_I][S_A_J+1]) {
     #pragma HLS INLINE off
     for(int i = 0; i < S_A_I; i++) {
+        #pragma HLS PIPELINE II=1
         for(int k = 0; k < K; k++) {
             #pragma HLS UNROLL
             A_stream[i][0].write(A_BUF[i][k]);
@@ -13,6 +25,7 @@ void A_Buf_to_stream(float A_BUF[I][K], hls::stream<float> A_stream[S_A_I][S_A_J
 void B_Buf_to_stream(float B_BUF[K][J], hls::stream<float> B_stream[S_A_J+1][S_A_I]) {
     #pragma HLS INLINE off
     for(int j = 0; j < S_A_J; j++) {
+        #pragma HLS PIPELINE II=1
         for(int k = 0; k < K; k++) {
             #pragma HLS UNROLL
             B_stream[0][j].write(B_BUF[k][j]);
