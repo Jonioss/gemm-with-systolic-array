@@ -1,0 +1,230 @@
+
+
+================================================================
+== Vitis HLS Report for 'load_tile_A'
+================================================================
+* Date:           Thu Jul 16 14:01:21 2026
+
+* Version:        2023.2 (Build 4023990 on Oct 11 2023)
+* Project:        hls_project
+* Solution:       gemm2 (Vitis Kernel Flow Target)
+* Product family: versalaicore
+* Target device:  xcvc1902-vsva2197-2MP-e-S
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  3.33 ns|  1.233 ns|     0.90 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+----------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+    |   min   |   max   |    min   |    max   | min | max |   Type   |
+    +---------+---------+----------+----------+-----+-----+----------+
+    |        2|        2|  6.666 ns|  6.666 ns|    3|    3|  dataflow|
+    +---------+---------+----------+----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        +----------------------------------+-------------------------------+---------+---------+----------+----------+-----+-----+---------+
+        |                                  |                               |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+        |             Instance             |             Module            |   min   |   max   |    min   |    max   | min | max |   Type  |
+        +----------------------------------+-------------------------------+---------+---------+----------+----------+-----+-----+---------+
+        |load_tile_A_Block_entry1_proc_U0  |load_tile_A_Block_entry1_proc  |        2|        2|  6.666 ns|  6.666 ns|    2|    2|       no|
+        +----------------------------------+-------------------------------+---------+---------+----------+----------+-----+-----+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+------+---------+--------+-----+
+|       Name      | BRAM_18K|  DSP |    FF   |   LUT  | URAM|
++-----------------+---------+------+---------+--------+-----+
+|DSP              |        -|     -|        -|       -|    -|
+|Expression       |        -|     -|        -|       -|    -|
+|FIFO             |        -|     -|        -|       -|    -|
+|Instance         |        -|     -|      516|     966|    -|
+|Memory           |        -|     -|        -|       -|    -|
+|Multiplexer      |        -|     -|        -|       -|    -|
+|Register         |        -|     -|        -|       -|    -|
++-----------------+---------+------+---------+--------+-----+
+|Total            |        0|     0|      516|     966|    0|
++-----------------+---------+------+---------+--------+-----+
+|Available        |     1934|  1968|  1799680|  899840|  463|
++-----------------+---------+------+---------+--------+-----+
+|Utilization (%)  |        0|     0|       ~0|      ~0|    0|
++-----------------+---------+------+---------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +----------------------------------+-------------------------------+---------+----+-----+-----+-----+
+    |             Instance             |             Module            | BRAM_18K| DSP|  FF | LUT | URAM|
+    +----------------------------------+-------------------------------+---------+----+-----+-----+-----+
+    |load_tile_A_Block_entry1_proc_U0  |load_tile_A_Block_entry1_proc  |        0|   0|  516|  966|    0|
+    +----------------------------------+-------------------------------+---------+----+-----+-----+-----+
+    |Total                             |                               |        0|   0|  516|  966|    0|
+    +----------------------------------+-------------------------------+---------+----+-----+-----+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------+-----+-----+------------+--------------+--------------+
+|      RTL Ports     | Dir | Bits|  Protocol  | Source Object|    C Type    |
++--------------------+-----+-----+------------+--------------+--------------+
+|A_BUF_0_0_address0  |  out|    2|   ap_memory|     A_BUF_0_0|         array|
+|A_BUF_0_0_ce0       |  out|    1|   ap_memory|     A_BUF_0_0|         array|
+|A_BUF_0_0_d0        |  out|   32|   ap_memory|     A_BUF_0_0|         array|
+|A_BUF_0_0_q0        |   in|   32|   ap_memory|     A_BUF_0_0|         array|
+|A_BUF_0_0_we0       |  out|    1|   ap_memory|     A_BUF_0_0|         array|
+|A_BUF_0_0_address1  |  out|    2|   ap_memory|     A_BUF_0_0|         array|
+|A_BUF_0_0_ce1       |  out|    1|   ap_memory|     A_BUF_0_0|         array|
+|A_BUF_0_0_d1        |  out|   32|   ap_memory|     A_BUF_0_0|         array|
+|A_BUF_0_0_q1        |   in|   32|   ap_memory|     A_BUF_0_0|         array|
+|A_BUF_0_0_we1       |  out|    1|   ap_memory|     A_BUF_0_0|         array|
+|A_BUF_0_1_address0  |  out|    2|   ap_memory|     A_BUF_0_1|         array|
+|A_BUF_0_1_ce0       |  out|    1|   ap_memory|     A_BUF_0_1|         array|
+|A_BUF_0_1_d0        |  out|   32|   ap_memory|     A_BUF_0_1|         array|
+|A_BUF_0_1_q0        |   in|   32|   ap_memory|     A_BUF_0_1|         array|
+|A_BUF_0_1_we0       |  out|    1|   ap_memory|     A_BUF_0_1|         array|
+|A_BUF_0_1_address1  |  out|    2|   ap_memory|     A_BUF_0_1|         array|
+|A_BUF_0_1_ce1       |  out|    1|   ap_memory|     A_BUF_0_1|         array|
+|A_BUF_0_1_d1        |  out|   32|   ap_memory|     A_BUF_0_1|         array|
+|A_BUF_0_1_q1        |   in|   32|   ap_memory|     A_BUF_0_1|         array|
+|A_BUF_0_1_we1       |  out|    1|   ap_memory|     A_BUF_0_1|         array|
+|A_BUF_0_2_address0  |  out|    2|   ap_memory|     A_BUF_0_2|         array|
+|A_BUF_0_2_ce0       |  out|    1|   ap_memory|     A_BUF_0_2|         array|
+|A_BUF_0_2_d0        |  out|   32|   ap_memory|     A_BUF_0_2|         array|
+|A_BUF_0_2_q0        |   in|   32|   ap_memory|     A_BUF_0_2|         array|
+|A_BUF_0_2_we0       |  out|    1|   ap_memory|     A_BUF_0_2|         array|
+|A_BUF_0_2_address1  |  out|    2|   ap_memory|     A_BUF_0_2|         array|
+|A_BUF_0_2_ce1       |  out|    1|   ap_memory|     A_BUF_0_2|         array|
+|A_BUF_0_2_d1        |  out|   32|   ap_memory|     A_BUF_0_2|         array|
+|A_BUF_0_2_q1        |   in|   32|   ap_memory|     A_BUF_0_2|         array|
+|A_BUF_0_2_we1       |  out|    1|   ap_memory|     A_BUF_0_2|         array|
+|A_BUF_0_3_address0  |  out|    2|   ap_memory|     A_BUF_0_3|         array|
+|A_BUF_0_3_ce0       |  out|    1|   ap_memory|     A_BUF_0_3|         array|
+|A_BUF_0_3_d0        |  out|   32|   ap_memory|     A_BUF_0_3|         array|
+|A_BUF_0_3_q0        |   in|   32|   ap_memory|     A_BUF_0_3|         array|
+|A_BUF_0_3_we0       |  out|    1|   ap_memory|     A_BUF_0_3|         array|
+|A_BUF_0_3_address1  |  out|    2|   ap_memory|     A_BUF_0_3|         array|
+|A_BUF_0_3_ce1       |  out|    1|   ap_memory|     A_BUF_0_3|         array|
+|A_BUF_0_3_d1        |  out|   32|   ap_memory|     A_BUF_0_3|         array|
+|A_BUF_0_3_q1        |   in|   32|   ap_memory|     A_BUF_0_3|         array|
+|A_BUF_0_3_we1       |  out|    1|   ap_memory|     A_BUF_0_3|         array|
+|A_BUF_1_0_address0  |  out|    2|   ap_memory|     A_BUF_1_0|         array|
+|A_BUF_1_0_ce0       |  out|    1|   ap_memory|     A_BUF_1_0|         array|
+|A_BUF_1_0_d0        |  out|   32|   ap_memory|     A_BUF_1_0|         array|
+|A_BUF_1_0_q0        |   in|   32|   ap_memory|     A_BUF_1_0|         array|
+|A_BUF_1_0_we0       |  out|    1|   ap_memory|     A_BUF_1_0|         array|
+|A_BUF_1_0_address1  |  out|    2|   ap_memory|     A_BUF_1_0|         array|
+|A_BUF_1_0_ce1       |  out|    1|   ap_memory|     A_BUF_1_0|         array|
+|A_BUF_1_0_d1        |  out|   32|   ap_memory|     A_BUF_1_0|         array|
+|A_BUF_1_0_q1        |   in|   32|   ap_memory|     A_BUF_1_0|         array|
+|A_BUF_1_0_we1       |  out|    1|   ap_memory|     A_BUF_1_0|         array|
+|A_BUF_1_1_address0  |  out|    2|   ap_memory|     A_BUF_1_1|         array|
+|A_BUF_1_1_ce0       |  out|    1|   ap_memory|     A_BUF_1_1|         array|
+|A_BUF_1_1_d0        |  out|   32|   ap_memory|     A_BUF_1_1|         array|
+|A_BUF_1_1_q0        |   in|   32|   ap_memory|     A_BUF_1_1|         array|
+|A_BUF_1_1_we0       |  out|    1|   ap_memory|     A_BUF_1_1|         array|
+|A_BUF_1_1_address1  |  out|    2|   ap_memory|     A_BUF_1_1|         array|
+|A_BUF_1_1_ce1       |  out|    1|   ap_memory|     A_BUF_1_1|         array|
+|A_BUF_1_1_d1        |  out|   32|   ap_memory|     A_BUF_1_1|         array|
+|A_BUF_1_1_q1        |   in|   32|   ap_memory|     A_BUF_1_1|         array|
+|A_BUF_1_1_we1       |  out|    1|   ap_memory|     A_BUF_1_1|         array|
+|A_BUF_1_2_address0  |  out|    2|   ap_memory|     A_BUF_1_2|         array|
+|A_BUF_1_2_ce0       |  out|    1|   ap_memory|     A_BUF_1_2|         array|
+|A_BUF_1_2_d0        |  out|   32|   ap_memory|     A_BUF_1_2|         array|
+|A_BUF_1_2_q0        |   in|   32|   ap_memory|     A_BUF_1_2|         array|
+|A_BUF_1_2_we0       |  out|    1|   ap_memory|     A_BUF_1_2|         array|
+|A_BUF_1_2_address1  |  out|    2|   ap_memory|     A_BUF_1_2|         array|
+|A_BUF_1_2_ce1       |  out|    1|   ap_memory|     A_BUF_1_2|         array|
+|A_BUF_1_2_d1        |  out|   32|   ap_memory|     A_BUF_1_2|         array|
+|A_BUF_1_2_q1        |   in|   32|   ap_memory|     A_BUF_1_2|         array|
+|A_BUF_1_2_we1       |  out|    1|   ap_memory|     A_BUF_1_2|         array|
+|A_BUF_1_3_address0  |  out|    2|   ap_memory|     A_BUF_1_3|         array|
+|A_BUF_1_3_ce0       |  out|    1|   ap_memory|     A_BUF_1_3|         array|
+|A_BUF_1_3_d0        |  out|   32|   ap_memory|     A_BUF_1_3|         array|
+|A_BUF_1_3_q0        |   in|   32|   ap_memory|     A_BUF_1_3|         array|
+|A_BUF_1_3_we0       |  out|    1|   ap_memory|     A_BUF_1_3|         array|
+|A_BUF_1_3_address1  |  out|    2|   ap_memory|     A_BUF_1_3|         array|
+|A_BUF_1_3_ce1       |  out|    1|   ap_memory|     A_BUF_1_3|         array|
+|A_BUF_1_3_d1        |  out|   32|   ap_memory|     A_BUF_1_3|         array|
+|A_BUF_1_3_q1        |   in|   32|   ap_memory|     A_BUF_1_3|         array|
+|A_BUF_1_3_we1       |  out|    1|   ap_memory|     A_BUF_1_3|         array|
+|A_TILE_0_0          |  out|   32|      ap_vld|    A_TILE_0_0|       pointer|
+|A_TILE_0_0_ap_vld   |  out|    1|      ap_vld|    A_TILE_0_0|       pointer|
+|A_TILE_0_1          |  out|   32|      ap_vld|    A_TILE_0_1|       pointer|
+|A_TILE_0_1_ap_vld   |  out|    1|      ap_vld|    A_TILE_0_1|       pointer|
+|A_TILE_0_2          |  out|   32|      ap_vld|    A_TILE_0_2|       pointer|
+|A_TILE_0_2_ap_vld   |  out|    1|      ap_vld|    A_TILE_0_2|       pointer|
+|A_TILE_0_3          |  out|   32|      ap_vld|    A_TILE_0_3|       pointer|
+|A_TILE_0_3_ap_vld   |  out|    1|      ap_vld|    A_TILE_0_3|       pointer|
+|A_TILE_1_0          |  out|   32|      ap_vld|    A_TILE_1_0|       pointer|
+|A_TILE_1_0_ap_vld   |  out|    1|      ap_vld|    A_TILE_1_0|       pointer|
+|A_TILE_1_1          |  out|   32|      ap_vld|    A_TILE_1_1|       pointer|
+|A_TILE_1_1_ap_vld   |  out|    1|      ap_vld|    A_TILE_1_1|       pointer|
+|A_TILE_1_2          |  out|   32|      ap_vld|    A_TILE_1_2|       pointer|
+|A_TILE_1_2_ap_vld   |  out|    1|      ap_vld|    A_TILE_1_2|       pointer|
+|A_TILE_1_3          |  out|   32|      ap_vld|    A_TILE_1_3|       pointer|
+|A_TILE_1_3_ap_vld   |  out|    1|      ap_vld|    A_TILE_1_3|       pointer|
+|A_TILE_2_0          |  out|   32|      ap_vld|    A_TILE_2_0|       pointer|
+|A_TILE_2_0_ap_vld   |  out|    1|      ap_vld|    A_TILE_2_0|       pointer|
+|A_TILE_2_1          |  out|   32|      ap_vld|    A_TILE_2_1|       pointer|
+|A_TILE_2_1_ap_vld   |  out|    1|      ap_vld|    A_TILE_2_1|       pointer|
+|A_TILE_2_2          |  out|   32|      ap_vld|    A_TILE_2_2|       pointer|
+|A_TILE_2_2_ap_vld   |  out|    1|      ap_vld|    A_TILE_2_2|       pointer|
+|A_TILE_2_3          |  out|   32|      ap_vld|    A_TILE_2_3|       pointer|
+|A_TILE_2_3_ap_vld   |  out|    1|      ap_vld|    A_TILE_2_3|       pointer|
+|A_TILE_3_0          |  out|   32|      ap_vld|    A_TILE_3_0|       pointer|
+|A_TILE_3_0_ap_vld   |  out|    1|      ap_vld|    A_TILE_3_0|       pointer|
+|A_TILE_3_1          |  out|   32|      ap_vld|    A_TILE_3_1|       pointer|
+|A_TILE_3_1_ap_vld   |  out|    1|      ap_vld|    A_TILE_3_1|       pointer|
+|A_TILE_3_2          |  out|   32|      ap_vld|    A_TILE_3_2|       pointer|
+|A_TILE_3_2_ap_vld   |  out|    1|      ap_vld|    A_TILE_3_2|       pointer|
+|A_TILE_3_3          |  out|   32|      ap_vld|    A_TILE_3_3|       pointer|
+|A_TILE_3_3_ap_vld   |  out|    1|      ap_vld|    A_TILE_3_3|       pointer|
+|tileA               |   in|    1|     ap_none|         tileA|        scalar|
+|tileA_ap_vld        |   in|    1|     ap_none|         tileA|        scalar|
+|ap_clk              |   in|    1|  ap_ctrl_hs|   load_tile_A|  return value|
+|ap_rst              |   in|    1|  ap_ctrl_hs|   load_tile_A|  return value|
+|ap_start            |   in|    1|  ap_ctrl_hs|   load_tile_A|  return value|
+|ap_done             |  out|    1|  ap_ctrl_hs|   load_tile_A|  return value|
+|ap_ready            |  out|    1|  ap_ctrl_hs|   load_tile_A|  return value|
+|ap_idle             |  out|    1|  ap_ctrl_hs|   load_tile_A|  return value|
+|ap_continue         |   in|    1|  ap_ctrl_hs|   load_tile_A|  return value|
++--------------------+-----+-----+------------+--------------+--------------+
+

@@ -32,42 +32,46 @@ INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
 INFO: [HLS 200-2036] Building debug C Simulation binaries
 INFO: [SIM 211-1] CSim done with 0 errors.
 INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [HLS 200-111] Finished Command csim_design CPU user time: 1.91 seconds. CPU system time: 0.29 seconds. Elapsed time: 2.21 seconds; current allocated memory: 0.574 MB.
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 1.94 seconds. CPU system time: 0.34 seconds. Elapsed time: 2.29 seconds; current allocated memory: 0.574 MB.
 INFO: [HLS 200-1510] Running: csynth_design 
-INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.04 seconds; current allocated memory: 236.332 MB.
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 236.332 MB.
 INFO: [HLS 200-10] Analyzing design file 'source/gemm.cpp' ... 
+WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region (source/pe.h:11:9)
+WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region (source/tiling_manager.hpp:38:9)
+WARNING: [HLS 214-111] Static scalars and arrays declared inside a dataflow region will be treated like local variables (source/tiling_manager.hpp:65:15)
 WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region (source/sa_functions.hpp:6:9)
-WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region (source/sa_functions.hpp:29:9)
-WARNING: [HLS 200-471] Dataflow form checks found 2 issue(s) in file source/gemm.cpp
-WARNING: [HLS 207-5292] unused parameter 'A_BUF' (source/tiling_manager.hpp:36:24)
-WARNING: [HLS 207-5292] unused parameter 'A_TILE' (source/tiling_manager.hpp:36:43)
-WARNING: [HLS 207-5292] unused parameter 'A_BUF' (source/tiling_manager.hpp:42:17)
-WARNING: [HLS 207-5292] unused parameter 'A_stream' (source/tiling_manager.hpp:42:50)
-INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 2.42 seconds. CPU system time: 0.38 seconds. Elapsed time: 2.83 seconds; current allocated memory: 240.152 MB.
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (source/sa_functions.hpp:52:14)
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (source/sa_functions.hpp:53:32)
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (source/sa_functions.hpp:64:22)
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (source/sa_functions.hpp:64:32)
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (source/sa_functions.hpp:66:25)
+WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region (source/sa_functions.hpp:50:9)
+WARNING: [HLS 200-471] Dataflow form checks found 10 issue(s) in file source/gemm.cpp
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 2.55 seconds. CPU system time: 0.4 seconds. Elapsed time: 2.96 seconds; current allocated memory: 240.438 MB.
 INFO: [HLS 200-777] Using interface defaults for 'Vitis' flow target.
-INFO: [HLS 200-1995] There were 722 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
-INFO: [HLS 200-1995] There were 950 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
-INFO: [HLS 200-1995] There were 795 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
-INFO: [HLS 200-1995] There were 743 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
-INFO: [HLS 200-1995] There were 683 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
-INFO: [HLS 200-1995] There were 989 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
-INFO: [HLS 200-1995] There were 880 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
-INFO: [HLS 200-1995] There were 880 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
-INFO: [HLS 200-1995] There were 873 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
-INFO: [HLS 200-1995] There were 985 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
-INFO: [HLS 200-1995] There were 865 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
-INFO: [HLS 200-1995] There were 846 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
-INFO: [HLS 200-1995] There were 846 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
-INFO: [HLS 200-1995] There were 1,013 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
-INFO: [HLS 200-1995] There were 1,347 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 797 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,269 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,104 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,052 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 992 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,978 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,384 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,352 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,344 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,456 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,336 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,317 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,317 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,599 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,952 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details: /home/jonivar/Documents/Uni/DIPLOMA_THESIS/HLSProjects/gemm-with-systolic-array/hls_project/gemm2/syn/report/csynth_design_size.rpt
 INFO: [HLS 214-291] Loop 'VITIS_LOOP_48_3' is marked as complete unroll implied by the pipeline pragma (source/dram.hpp:48:30)
 INFO: [HLS 214-291] Loop 'VITIS_LOOP_29_2' is marked as complete unroll implied by the pipeline pragma (source/tiling_manager.hpp:29:19)
-INFO: [HLS 214-291] Loop 'VITIS_LOOP_18_2' is marked as complete unroll implied by the pipeline pragma (source/tiling_manager.hpp:18:19)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_54_2' is marked as complete unroll implied by the pipeline pragma (source/tiling_manager.hpp:54:19)
 INFO: [HLS 214-291] Loop 'VITIS_LOOP_25_3' is marked as complete unroll implied by the pipeline pragma (source/dram.hpp:25:30)
 INFO: [HLS 214-291] Loop 'VITIS_LOOP_10_3' is marked as complete unroll implied by the pipeline pragma (source/dram.hpp:10:30)
 INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_48_3' (source/dram.hpp:48:30) in function 'storeOutputToDRAM' completely with a factor of 4 (source/dram.hpp:40:0)
-INFO: [HLS 214-186] Unrolling loop 'calculate_matmul' (source/sa_functions.hpp:39:5) in function 'runSystolicArray' completely with a factor of 4 (source/sa_functions.hpp:27:0)
-INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_41_1' (source/sa_functions.hpp:41:19) in function 'runSystolicArray' completely with a factor of 4 (source/sa_functions.hpp:27:0)
+INFO: [HLS 214-186] Unrolling loop 'calculate_matmul' (source/sa_functions.hpp:56:9) in function 'runSystolicArray' completely with a factor of 4 (source/sa_functions.hpp:39:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_58_1' (source/sa_functions.hpp:58:19) in function 'runSystolicArray' completely with a factor of 4 (source/sa_functions.hpp:39:0)
 INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_5_1' (source/tiling_manager.hpp:5:18) in function 'stream_to_C_Buf' completely with a factor of 4 (source/tiling_manager.hpp:3:0)
 INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_7_2' (source/tiling_manager.hpp:7:18) in function 'stream_to_C_Buf' completely with a factor of 4 (source/tiling_manager.hpp:3:0)
 INFO: [HLS 214-186] Unrolling loop 'sink_b' (source/sa_functions.hpp:18:5) in function 'sink_streams' completely with a factor of 4 (source/sa_functions.hpp:4:0)
@@ -75,7 +79,9 @@ INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_20_2' (source/sa_functions.hpp:20
 INFO: [HLS 214-186] Unrolling loop 'sink_a' (source/sa_functions.hpp:9:5) in function 'sink_streams' completely with a factor of 4 (source/sa_functions.hpp:4:0)
 INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_11_1' (source/sa_functions.hpp:11:19) in function 'sink_streams' completely with a factor of 4 (source/sa_functions.hpp:4:0)
 INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_29_2' (source/tiling_manager.hpp:29:19) in function 'B_Buf_to_stream' completely with a factor of 4 (source/tiling_manager.hpp:25:0)
-INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_18_2' (source/tiling_manager.hpp:18:19) in function 'A_Buf_to_stream' completely with a factor of 4 (source/tiling_manager.hpp:14:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_54_2' (source/tiling_manager.hpp:54:19) in function 'tile_A_to_stream' completely with a factor of 4 (source/tiling_manager.hpp:49:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_40_1' (source/tiling_manager.hpp:40:19) in function 'load_tile_A' completely with a factor of 4 (source/tiling_manager.hpp:36:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_42_2' (source/tiling_manager.hpp:42:19) in function 'load_tile_A' completely with a factor of 4 (source/tiling_manager.hpp:36:0)
 INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_25_3' (source/dram.hpp:25:30) in function 'load_B' completely with a factor of 4 (source/dram.hpp:18:0)
 INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_10_3' (source/dram.hpp:10:30) in function 'load_A' completely with a factor of 4 (source/dram.hpp:3:0)
 INFO: [HLS 214-178] Inlining function 'std::__array_traits<float, 4ul>::_S_ref(float const (&) [4], unsigned long)' into 'std::array<float, 4ul>::operator[](unsigned long)' (/home/jonivar/Documents/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/array:186:0)
@@ -83,85 +89,53 @@ INFO: [HLS 214-178] Inlining function 'std::array<float, 4ul>::operator[](unsign
 INFO: [HLS 214-178] Inlining function 'std::array<float, 4ul>::operator[](unsigned long)' into 'load_B(hls::burst_maxi<hls::vector<float, 4ul> >, float (*) [4])' (source/dram.hpp:18:0)
 INFO: [HLS 214-178] Inlining function 'std::array<float, 4ul>::operator[](unsigned long)' into 'storeOutputToDRAM(float (*) [4], hls::burst_maxi<hls::vector<float, 4ul> >)' (source/dram.hpp:40:0)
 INFO: [HLS 214-178] Inlining function 'PE::PE()' into 'gemm(hls::burst_maxi<hls::vector<float, 4ul> >, hls::burst_maxi<hls::vector<float, 4ul> >, hls::burst_maxi<hls::vector<float, 4ul> >)' (source/gemm.cpp:8:0)
-INFO: [HLS 214-248] Applying array_partition to 'A_stream': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (source/sa_functions.hpp:31:21)
-INFO: [HLS 214-248] Applying array_partition to 'B_stream': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (source/sa_functions.hpp:32:24)
-INFO: [HLS 214-248] Applying array_partition to 'C_stream': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (source/sa_functions.hpp:33:24)
-INFO: [HLS 214-248] Applying array_partition to 'A_BUF': Complete partitioning on dimension 2. (source/gemm.cpp:14:8)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE': Complete partitioning on dimension 1. Complete partitioning on dimension 2. Complete partitioning on dimension 3. (source/tiling_manager.hpp:65:0)
+INFO: [HLS 214-248] Applying array_partition to 'A_stream': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (source/sa_functions.hpp:42:21)
+INFO: [HLS 214-248] Applying array_partition to 'B_stream': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (source/sa_functions.hpp:44:21)
+INFO: [HLS 214-248] Applying array_partition to 'C_stream': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (source/sa_functions.hpp:46:21)
+INFO: [HLS 214-248] Applying array_partition to 'A_BUF': Block partitioning with factor 2 on dimension 1. Complete partitioning on dimension 2. (source/gemm.cpp:14:8)
 INFO: [HLS 214-248] Applying array_partition to 'B_BUF': Complete partitioning on dimension 1. (source/gemm.cpp:18:8)
 INFO: [HLS 214-248] Applying array_partition to 'C_BUF': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (source/gemm.cpp:22:8)
 INFO: [HLS 214-248] Applying array_partition to 'systolic_array': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (source/gemm.cpp:26:5)
-INFO: [HLS 214-306] Performing burst_maxi read of length 4 and bit width 128 on bundle 'gmem0'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (source/dram.hpp:5:9)
+WARNING: [HLS 214-322] Unsuported scalar variable on pragma 'Stream', ignore it. (source/tiling_manager.hpp:66:9)
+INFO: [HLS 214-306] Performing burst_maxi read of length 8 and bit width 128 on bundle 'gmem0'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (source/dram.hpp:5:9)
 INFO: [HLS 214-306] Performing burst_maxi read of length 4 and bit width 128 on bundle 'gmem1'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (source/dram.hpp:20:9)
-INFO: [HLS 214-306] Performing burst_maxi write of length 4 and bit width 128 on bundle 'gmem2'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (source/dram.hpp:42:9)
-INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 1.9 seconds. CPU system time: 0.39 seconds. Elapsed time: 6.77 seconds; current allocated memory: 242.188 MB.
-INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 242.188 MB.
+INFO: [HLS 214-306] Performing burst_maxi write of length 8 and bit width 128 on bundle 'gmem2'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (source/dram.hpp:42:9)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 2.21 seconds. CPU system time: 0.41 seconds. Elapsed time: 7.03 seconds; current allocated memory: 242.898 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 242.898 MB.
 INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 244.508 MB.
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.05 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 245.469 MB.
 INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.07 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.07 seconds; current allocated memory: 248.051 MB.
-WARNING: [HLS 200-805] An internal stream 'A_stream' (source/sa_functions.hpp:31) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'A_stream.1' (source/sa_functions.hpp:31) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'A_stream.2' (source/sa_functions.hpp:31) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'A_stream.3' (source/sa_functions.hpp:31) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'A_stream.4' (source/sa_functions.hpp:31) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'A_stream.5' (source/sa_functions.hpp:31) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'A_stream.6' (source/sa_functions.hpp:31) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'A_stream.7' (source/sa_functions.hpp:31) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'A_stream.8' (source/sa_functions.hpp:31) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'A_stream.9' (source/sa_functions.hpp:31) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'A_stream.10' (source/sa_functions.hpp:31) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'A_stream.11' (source/sa_functions.hpp:31) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'A_stream.12' (source/sa_functions.hpp:31) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'A_stream.13' (source/sa_functions.hpp:31) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'A_stream.14' (source/sa_functions.hpp:31) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'A_stream.15' (source/sa_functions.hpp:31) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'A_stream.16' (source/sa_functions.hpp:31) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'A_stream.17' (source/sa_functions.hpp:31) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'A_stream.18' (source/sa_functions.hpp:31) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'A_stream.19' (source/sa_functions.hpp:31) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'B_stream' (source/sa_functions.hpp:32) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'B_stream.1' (source/sa_functions.hpp:32) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'B_stream.2' (source/sa_functions.hpp:32) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'B_stream.3' (source/sa_functions.hpp:32) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'B_stream.4' (source/sa_functions.hpp:32) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'B_stream.5' (source/sa_functions.hpp:32) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'B_stream.6' (source/sa_functions.hpp:32) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'B_stream.7' (source/sa_functions.hpp:32) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'B_stream.8' (source/sa_functions.hpp:32) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'B_stream.9' (source/sa_functions.hpp:32) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'B_stream.10' (source/sa_functions.hpp:32) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'B_stream.11' (source/sa_functions.hpp:32) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'B_stream.12' (source/sa_functions.hpp:32) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'B_stream.13' (source/sa_functions.hpp:32) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'B_stream.14' (source/sa_functions.hpp:32) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'B_stream.15' (source/sa_functions.hpp:32) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'B_stream.16' (source/sa_functions.hpp:32) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'B_stream.17' (source/sa_functions.hpp:32) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'B_stream.18' (source/sa_functions.hpp:32) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'B_stream.19' (source/sa_functions.hpp:32) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'C_stream' (source/sa_functions.hpp:33) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'C_stream.1' (source/sa_functions.hpp:33) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'C_stream.2' (source/sa_functions.hpp:33) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'C_stream.3' (source/sa_functions.hpp:33) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'C_stream.4' (source/sa_functions.hpp:33) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'C_stream.5' (source/sa_functions.hpp:33) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'C_stream.6' (source/sa_functions.hpp:33) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'C_stream.7' (source/sa_functions.hpp:33) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'C_stream.8' (source/sa_functions.hpp:33) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'C_stream.9' (source/sa_functions.hpp:33) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'C_stream.10' (source/sa_functions.hpp:33) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'C_stream.11' (source/sa_functions.hpp:33) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'C_stream.12' (source/sa_functions.hpp:33) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'C_stream.13' (source/sa_functions.hpp:33) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'C_stream.14' (source/sa_functions.hpp:33) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-WARNING: [HLS 200-805] An internal stream 'C_stream.15' (source/sa_functions.hpp:33) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 249.234 MB.
+WARNING: [HLS 200-805] An internal stream 'C_stream' (source/sa_functions.hpp:46) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+WARNING: [HLS 200-805] An internal stream 'C_stream.1' (source/sa_functions.hpp:46) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+WARNING: [HLS 200-805] An internal stream 'C_stream.2' (source/sa_functions.hpp:46) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+WARNING: [HLS 200-805] An internal stream 'C_stream.3' (source/sa_functions.hpp:46) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+WARNING: [HLS 200-805] An internal stream 'C_stream.4' (source/sa_functions.hpp:46) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+WARNING: [HLS 200-805] An internal stream 'C_stream.5' (source/sa_functions.hpp:46) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+WARNING: [HLS 200-805] An internal stream 'C_stream.6' (source/sa_functions.hpp:46) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+WARNING: [HLS 200-805] An internal stream 'C_stream.7' (source/sa_functions.hpp:46) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+WARNING: [HLS 200-805] An internal stream 'C_stream.8' (source/sa_functions.hpp:46) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+WARNING: [HLS 200-805] An internal stream 'C_stream.9' (source/sa_functions.hpp:46) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+WARNING: [HLS 200-805] An internal stream 'C_stream.10' (source/sa_functions.hpp:46) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+WARNING: [HLS 200-805] An internal stream 'C_stream.11' (source/sa_functions.hpp:46) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+WARNING: [HLS 200-805] An internal stream 'C_stream.12' (source/sa_functions.hpp:46) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+WARNING: [HLS 200-805] An internal stream 'C_stream.13' (source/sa_functions.hpp:46) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+WARNING: [HLS 200-805] An internal stream 'C_stream.14' (source/sa_functions.hpp:46) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+WARNING: [HLS 200-805] An internal stream 'C_stream.15' (source/sa_functions.hpp:46) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
 INFO: [XFORM 203-712] Applying dataflow to function 'loadInputsFromDRAM' (source/dram.hpp:34:1), detected/extracted 2 process function(s): 
 	 'load_A'
 	 'load_B'.
+INFO: [XFORM 203-712] Applying dataflow to function 'load_tile_A' (source/tiling_manager.hpp:38:1), detected/extracted 1 process function(s): 
+	 'load_tile_A_Block_entry1_proc'.
+INFO: [XFORM 203-712] Applying dataflow to function 'tm_A' (source/sa_functions.hpp:52:2), detected/extracted 1 process function(s): 
+	 'tm_A_Block_entry1_proc4'.
+INFO: [XFORM 203-712] Applying dataflow to function 'PE::calc' (source/pe.h:0), detected/extracted 1 process function(s): 
+	 'PE::calc_Block_entry2_proc5'.
 INFO: [XFORM 203-712] Applying dataflow to function 'sink_streams' (source/sa_functions.hpp:13:1), detected/extracted 1 process function(s): 
-	 'sink_streams_Block_entry1_proc4'.
-INFO: [XFORM 203-712] Applying dataflow to function 'runSystolicArray' (source/sa_functions.hpp:28:1), detected/extracted 20 process function(s): 
-	 'A_Buf_to_stream'
+	 'sink_streams_Block_entry1_proc6'.
+INFO: [XFORM 203-712] Applying dataflow to function 'dataflow_in_loop_tile_loop' (source/sa_functions.hpp:42:9), detected/extracted 20 process function(s): 
+	 'tm_A'
 	 'B_Buf_to_stream'
 	 'PE::run'
 	 'PE::run.1'
@@ -181,39 +155,39 @@ INFO: [XFORM 203-712] Applying dataflow to function 'runSystolicArray' (source/s
 	 'PE::run.15'
 	 'sink_streams'
 	 'stream_to_C_Buf'.
-INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.29 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.31 seconds; current allocated memory: 273.906 MB.
-WARNING: [HLS 200-1992] Performance of loop 'VITIS_LOOP_23_1'(source/pe.h:23:19) in function 'run.9' can be improved with loop rewind inference if the loop is called from a region that can be executed in overlapped fashion such as a dataflow region or the top function.
-WARNING: [HLS 200-1992] Performance of loop 'VITIS_LOOP_23_1'(source/pe.h:23:19) in function 'run.8' can be improved with loop rewind inference if the loop is called from a region that can be executed in overlapped fashion such as a dataflow region or the top function.
-WARNING: [HLS 200-1992] Performance of loop 'VITIS_LOOP_23_1'(source/pe.h:23:19) in function 'run.7' can be improved with loop rewind inference if the loop is called from a region that can be executed in overlapped fashion such as a dataflow region or the top function.
-WARNING: [HLS 200-1992] Performance of loop 'VITIS_LOOP_23_1'(source/pe.h:23:19) in function 'run.6' can be improved with loop rewind inference if the loop is called from a region that can be executed in overlapped fashion such as a dataflow region or the top function.
-WARNING: [HLS 200-1992] Performance of loop 'VITIS_LOOP_23_1'(source/pe.h:23:19) in function 'run.5' can be improved with loop rewind inference if the loop is called from a region that can be executed in overlapped fashion such as a dataflow region or the top function.
-WARNING: [HLS 200-1992] Performance of loop 'VITIS_LOOP_23_1'(source/pe.h:23:19) in function 'run.4' can be improved with loop rewind inference if the loop is called from a region that can be executed in overlapped fashion such as a dataflow region or the top function.
-WARNING: [HLS 200-1992] Performance of loop 'VITIS_LOOP_23_1'(source/pe.h:23:19) in function 'run.3' can be improved with loop rewind inference if the loop is called from a region that can be executed in overlapped fashion such as a dataflow region or the top function.
-WARNING: [HLS 200-1992] Performance of loop 'VITIS_LOOP_23_1'(source/pe.h:23:19) in function 'run.2' can be improved with loop rewind inference if the loop is called from a region that can be executed in overlapped fashion such as a dataflow region or the top function.
-WARNING: [HLS 200-1992] Performance of loop 'VITIS_LOOP_23_1'(source/pe.h:23:19) in function 'run.15' can be improved with loop rewind inference if the loop is called from a region that can be executed in overlapped fashion such as a dataflow region or the top function.
-WARNING: [HLS 200-1992] Performance of loop 'VITIS_LOOP_23_1'(source/pe.h:23:19) in function 'run.14' can be improved with loop rewind inference if the loop is called from a region that can be executed in overlapped fashion such as a dataflow region or the top function.
-WARNING: [HLS 200-1992] Performance of loop 'VITIS_LOOP_23_1'(source/pe.h:23:19) in function 'run.13' can be improved with loop rewind inference if the loop is called from a region that can be executed in overlapped fashion such as a dataflow region or the top function.
-WARNING: [HLS 200-1992] Performance of loop 'VITIS_LOOP_23_1'(source/pe.h:23:19) in function 'run.12' can be improved with loop rewind inference if the loop is called from a region that can be executed in overlapped fashion such as a dataflow region or the top function.
-WARNING: [HLS 200-1992] Performance of loop 'VITIS_LOOP_23_1'(source/pe.h:23:19) in function 'run.11' can be improved with loop rewind inference if the loop is called from a region that can be executed in overlapped fashion such as a dataflow region or the top function.
-WARNING: [HLS 200-1992] Performance of loop 'VITIS_LOOP_23_1'(source/pe.h:23:19) in function 'run.10' can be improved with loop rewind inference if the loop is called from a region that can be executed in overlapped fashion such as a dataflow region or the top function.
-WARNING: [HLS 200-1992] Performance of loop 'VITIS_LOOP_23_1'(source/pe.h:23:19) in function 'run.1' can be improved with loop rewind inference if the loop is called from a region that can be executed in overlapped fashion such as a dataflow region or the top function.
-WARNING: [HLS 200-1992] Performance of loop 'VITIS_LOOP_23_1'(source/pe.h:23:19) in function 'run' can be improved with loop rewind inference if the loop is called from a region that can be executed in overlapped fashion such as a dataflow region or the top function.
-INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_23_1' (source/pe.h:23) in function 'run.9'.
-INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_23_1' (source/pe.h:23) in function 'run.8'.
-INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_23_1' (source/pe.h:23) in function 'run.7'.
-INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_23_1' (source/pe.h:23) in function 'run.6'.
-INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_23_1' (source/pe.h:23) in function 'run.5'.
-INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_23_1' (source/pe.h:23) in function 'run.4'.
-INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_23_1' (source/pe.h:23) in function 'run.3'.
-INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_23_1' (source/pe.h:23) in function 'run.2'.
-INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_23_1' (source/pe.h:23) in function 'run.15'.
-INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_23_1' (source/pe.h:23) in function 'run.14'.
-INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_23_1' (source/pe.h:23) in function 'run.13'.
-INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_23_1' (source/pe.h:23) in function 'run.12'.
-INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_23_1' (source/pe.h:23) in function 'run.11'.
-INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_23_1' (source/pe.h:23) in function 'run.10'.
-INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_23_1' (source/pe.h:23) in function 'run.1'.
-INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_23_1' (source/pe.h:23) in function 'run'.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.37 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.39 seconds; current allocated memory: 275.914 MB.
+INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_25_1' (source/pe.h:25) in function 'run.9'.
+INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_25_1' (source/pe.h:25) in function 'run.8'.
+INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_25_1' (source/pe.h:25) in function 'run.7'.
+INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_25_1' (source/pe.h:25) in function 'run.6'.
+INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_25_1' (source/pe.h:25) in function 'run.5'.
+INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_25_1' (source/pe.h:25) in function 'run.4'.
+INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_25_1' (source/pe.h:25) in function 'run.3'.
+INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_25_1' (source/pe.h:25) in function 'run.2'.
+INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_25_1' (source/pe.h:25) in function 'run.15'.
+INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_25_1' (source/pe.h:25) in function 'run.14'.
+INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_25_1' (source/pe.h:25) in function 'run.13'.
+INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_25_1' (source/pe.h:25) in function 'run.12'.
+INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_25_1' (source/pe.h:25) in function 'run.11'.
+INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_25_1' (source/pe.h:25) in function 'run.10'.
+INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_25_1' (source/pe.h:25) in function 'run.1'.
+INFO: [XFORM 203-531] Rewinding loop 'VITIS_LOOP_25_1' (source/pe.h:25) in function 'run'.
+WARNING: [HLS 200-993] Function 'calc' (source/pe.h:0) failed dataflow checking:  A dataflow region cannot be instantiated from within a pipelined loop  (source/pe.h:11:9), pipe: (source/pe.h:26:9). Ignoring pipeline directive to allow the dataflow directive to take precedence. 
+WARNING: [HLS 200-993] Function 'calc' (source/pe.h:0) failed dataflow checking:  A dataflow region cannot be instantiated from within a pipelined loop  (source/pe.h:11:9), pipe: (source/pe.h:26:9). Ignoring pipeline directive to allow the dataflow directive to take precedence. 
+WARNING: [HLS 200-993] Function 'calc' (source/pe.h:0) failed dataflow checking:  A dataflow region cannot be instantiated from within a pipelined loop  (source/pe.h:11:9), pipe: (source/pe.h:26:9). Ignoring pipeline directive to allow the dataflow directive to take precedence. 
+WARNING: [HLS 200-993] Function 'calc' (source/pe.h:0) failed dataflow checking:  A dataflow region cannot be instantiated from within a pipelined loop  (source/pe.h:11:9), pipe: (source/pe.h:26:9). Ignoring pipeline directive to allow the dataflow directive to take precedence. 
+WARNING: [HLS 200-993] Function 'calc' (source/pe.h:0) failed dataflow checking:  A dataflow region cannot be instantiated from within a pipelined loop  (source/pe.h:11:9), pipe: (source/pe.h:26:9). Ignoring pipeline directive to allow the dataflow directive to take precedence. 
+WARNING: [HLS 200-993] Function 'calc' (source/pe.h:0) failed dataflow checking:  A dataflow region cannot be instantiated from within a pipelined loop  (source/pe.h:11:9), pipe: (source/pe.h:26:9). Ignoring pipeline directive to allow the dataflow directive to take precedence. 
+WARNING: [HLS 200-993] Function 'calc' (source/pe.h:0) failed dataflow checking:  A dataflow region cannot be instantiated from within a pipelined loop  (source/pe.h:11:9), pipe: (source/pe.h:26:9). Ignoring pipeline directive to allow the dataflow directive to take precedence. 
+WARNING: [HLS 200-993] Function 'calc' (source/pe.h:0) failed dataflow checking:  A dataflow region cannot be instantiated from within a pipelined loop  (source/pe.h:11:9), pipe: (source/pe.h:26:9). Ignoring pipeline directive to allow the dataflow directive to take precedence. 
+WARNING: [HLS 200-993] Function 'calc' (source/pe.h:0) failed dataflow checking:  A dataflow region cannot be instantiated from within a pipelined loop  (source/pe.h:11:9), pipe: (source/pe.h:26:9). Ignoring pipeline directive to allow the dataflow directive to take precedence. 
+WARNING: [HLS 200-993] Function 'calc' (source/pe.h:0) failed dataflow checking:  A dataflow region cannot be instantiated from within a pipelined loop  (source/pe.h:11:9), pipe: (source/pe.h:26:9). Ignoring pipeline directive to allow the dataflow directive to take precedence. 
+WARNING: [HLS 200-993] Function 'calc' (source/pe.h:0) failed dataflow checking:  A dataflow region cannot be instantiated from within a pipelined loop  (source/pe.h:11:9), pipe: (source/pe.h:26:9). Ignoring pipeline directive to allow the dataflow directive to take precedence. 
+WARNING: [HLS 200-993] Function 'calc' (source/pe.h:0) failed dataflow checking:  A dataflow region cannot be instantiated from within a pipelined loop  (source/pe.h:11:9), pipe: (source/pe.h:26:9). Ignoring pipeline directive to allow the dataflow directive to take precedence. 
+WARNING: [HLS 200-993] Function 'calc' (source/pe.h:0) failed dataflow checking:  A dataflow region cannot be instantiated from within a pipelined loop  (source/pe.h:11:9), pipe: (source/pe.h:26:9). Ignoring pipeline directive to allow the dataflow directive to take precedence. 
+WARNING: [HLS 200-993] Function 'calc' (source/pe.h:0) failed dataflow checking:  A dataflow region cannot be instantiated from within a pipelined loop  (source/pe.h:11:9), pipe: (source/pe.h:26:9). Ignoring pipeline directive to allow the dataflow directive to take precedence. 
+WARNING: [HLS 200-993] Function 'calc' (source/pe.h:0) failed dataflow checking:  A dataflow region cannot be instantiated from within a pipelined loop  (source/pe.h:11:9), pipe: (source/pe.h:26:9). Ignoring pipeline directive to allow the dataflow directive to take precedence. 
+WARNING: [HLS 200-993] Function 'calc' (source/pe.h:0) failed dataflow checking:  A dataflow region cannot be instantiated from within a pipelined loop  (source/pe.h:11:9), pipe: (source/pe.h:26:9). Ignoring pipeline directive to allow the dataflow directive to take precedence. 
 WARNING: [HLS 200-1449] Process run has both a predecessor and reads an input from its caller (see the GUI dataflow viewer). This may lead to lower throughput. Consider copying this input via a predecessor process.
 WARNING: [HLS 200-1450] Process run has both a successor and writes an output to its caller (see the GUI dataflow viewer). This may lead to lower throughput. Consider copying this output via a successor process.
 WARNING: [HLS 200-1449] Process run.1 has both a predecessor and reads an input from its caller (see the GUI dataflow viewer). This may lead to lower throughput. Consider copying this input via a predecessor process.
@@ -246,7 +220,8 @@ WARNING: [HLS 200-1449] Process run.14 has both a predecessor and reads an input
 WARNING: [HLS 200-1450] Process run.14 has both a successor and writes an output to its caller (see the GUI dataflow viewer). This may lead to lower throughput. Consider copying this output via a successor process.
 WARNING: [HLS 200-1449] Process run.15 has both a predecessor and reads an input from its caller (see the GUI dataflow viewer). This may lead to lower throughput. Consider copying this input via a predecessor process.
 WARNING: [HLS 200-1450] Process run.15 has both a successor and writes an output to its caller (see the GUI dataflow viewer). This may lead to lower throughput. Consider copying this output via a successor process.
-INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.25 seconds. CPU system time: 0.08 seconds. Elapsed time: 0.34 seconds; current allocated memory: 540.055 MB.
+WARNING: [HLS 200-1449] Process dataflow_in_loop_tile_loop has both a predecessor and reads an input from its caller (see the GUI dataflow viewer). This may lead to lower throughput. Consider copying this input via a predecessor process.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.35 seconds. CPU system time: 0.09 seconds. Elapsed time: 0.46 seconds; current allocated memory: 602.637 MB.
 INFO: [HLS 200-10] Starting hardware synthesis ...
 INFO: [HLS 200-10] Synthesizing 'gemm' ...
 WARNING: [SYN 201-103] Legalizing function name 'run.1' to 'run_1'.
@@ -269,13 +244,13 @@ INFO: [HLS 200-42] -- Implementing module 'load_A'
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.13 seconds; current allocated memory: 541.832 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.19 seconds. CPU system time: 0.04 seconds. Elapsed time: 0.22 seconds; current allocated memory: 604.945 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 541.832 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 604.945 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'load_B_Pipeline_VITIS_LOOP_22_2' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -283,54 +258,102 @@ INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_22_2'.
 INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'VITIS_LOOP_22_2'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.06 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.07 seconds; current allocated memory: 542.676 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 605.797 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 542.676 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 605.797 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'load_B' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 543.082 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 606.145 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 543.082 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 606.145 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'loadInputsFromDRAM' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 543.578 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.02 seconds; current allocated memory: 606.582 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 543.578 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 606.582 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'A_Buf_to_stream' 
+INFO: [HLS 200-42] -- Implementing module 'load_tile_A_Block_entry1_proc' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_16_1'.
-WARNING: [HLS 200-880] The II Violation in module 'A_Buf_to_stream' (loop 'VITIS_LOOP_16_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between fifo write operation ('A_stream_2_0_write_ln20', source/tiling_manager.hpp:20) on port 'A_stream_2_0' (source/tiling_manager.hpp:20) and fifo write operation ('A_stream_2_0_write_ln20', source/tiling_manager.hpp:20) on port 'A_stream_2_0' (source/tiling_manager.hpp:20).
-WARNING: [HLS 200-880] The II Violation in module 'A_Buf_to_stream' (loop 'VITIS_LOOP_16_1'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1) between fifo write operation ('A_stream_2_0_write_ln20', source/tiling_manager.hpp:20) on port 'A_stream_2_0' (source/tiling_manager.hpp:20) and fifo write operation ('A_stream_2_0_write_ln20', source/tiling_manager.hpp:20) on port 'A_stream_2_0' (source/tiling_manager.hpp:20).
-WARNING: [HLS 200-880] The II Violation in module 'A_Buf_to_stream' (loop 'VITIS_LOOP_16_1'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1) between fifo write operation ('A_stream_2_0_write_ln20', source/tiling_manager.hpp:20) on port 'A_stream_2_0' (source/tiling_manager.hpp:20) and fifo write operation ('A_stream_2_0_write_ln20', source/tiling_manager.hpp:20) on port 'A_stream_2_0' (source/tiling_manager.hpp:20).
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 4, Depth = 5, loop 'VITIS_LOOP_16_1'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 544.703 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.07 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 607.781 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 544.703 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 607.781 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'load_tile_A' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 608.016 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 608.016 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'tile_A_to_stream' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_52_1'.
+WARNING: [HLS 200-880] The II Violation in module 'tile_A_to_stream' (loop 'VITIS_LOOP_52_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between fifo write operation ('A_stream_2_0_write_ln56', source/tiling_manager.hpp:56) on port 'A_stream_2_0' (source/tiling_manager.hpp:56) and fifo write operation ('A_stream_2_0_write_ln56', source/tiling_manager.hpp:56) on port 'A_stream_2_0' (source/tiling_manager.hpp:56).
+WARNING: [HLS 200-880] The II Violation in module 'tile_A_to_stream' (loop 'VITIS_LOOP_52_1'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1) between fifo write operation ('A_stream_2_0_write_ln56', source/tiling_manager.hpp:56) on port 'A_stream_2_0' (source/tiling_manager.hpp:56) and fifo write operation ('A_stream_2_0_write_ln56', source/tiling_manager.hpp:56) on port 'A_stream_2_0' (source/tiling_manager.hpp:56).
+WARNING: [HLS 200-880] The II Violation in module 'tile_A_to_stream' (loop 'VITIS_LOOP_52_1'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1) between fifo write operation ('A_stream_2_0_write_ln56', source/tiling_manager.hpp:56) on port 'A_stream_2_0' (source/tiling_manager.hpp:56) and fifo write operation ('A_stream_2_0_write_ln56', source/tiling_manager.hpp:56) on port 'A_stream_2_0' (source/tiling_manager.hpp:56).
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 4, Depth = 5, loop 'VITIS_LOOP_52_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.13 seconds; current allocated memory: 609.148 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 609.148 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'tm_A_Block_entry1_proc42' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.11 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.11 seconds; current allocated memory: 613.254 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 613.254 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'tm_A' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.11 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 613.254 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 613.254 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'B_Buf_to_stream' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -341,373 +364,344 @@ WARNING: [HLS 200-880] The II Violation in module 'B_Buf_to_stream' (loop 'VITIS
 WARNING: [HLS 200-880] The II Violation in module 'B_Buf_to_stream' (loop 'VITIS_LOOP_27_1'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1) between fifo write operation ('B_stream_0_2_write_ln31', source/tiling_manager.hpp:31) on port 'B_stream_0_2' (source/tiling_manager.hpp:31) and fifo write operation ('B_stream_0_2_write_ln31', source/tiling_manager.hpp:31) on port 'B_stream_0_2' (source/tiling_manager.hpp:31).
 INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 4, Depth = 5, loop 'VITIS_LOOP_27_1'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 545.238 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.15 seconds. CPU system time: 0 seconds. Elapsed time: 0.15 seconds; current allocated memory: 613.254 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.03 seconds; current allocated memory: 545.238 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 613.254 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'calc_Block_entry2_proc5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 613.254 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.02 seconds; current allocated memory: 613.254 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'calc' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining function 'calc'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, function 'calc'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 545.328 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 613.254 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.02 seconds; current allocated memory: 545.328 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 613.254 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'run' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_23_1'.
-WARNING: [HLS 200-880] The II Violation in module 'run' (loop 'VITIS_LOOP_23_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation 0 bit ('systolic_array_0_0_constprop_write_ln25', source/pe.h:25) of variable 'call_ret', source/pe.h:25 on static variable 'systolic_array_0_0_constprop' and 'load' operation 32 bit ('systolic_array_0_0_constprop_load', source/pe.h:25) on static variable 'systolic_array_0_0_constprop'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 2, Depth = 4, loop 'VITIS_LOOP_23_1'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 545.719 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 613.254 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 545.719 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 613.254 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'run_1' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_23_1'.
-WARNING: [HLS 200-880] The II Violation in module 'run_1' (loop 'VITIS_LOOP_23_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation 0 bit ('systolic_array_0_1_constprop_write_ln25', source/pe.h:25) of variable 'call_ret', source/pe.h:25 on static variable 'systolic_array_0_1_constprop' and 'load' operation 32 bit ('systolic_array_0_1_constprop_load', source/pe.h:25) on static variable 'systolic_array_0_1_constprop'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 2, Depth = 4, loop 'VITIS_LOOP_23_1'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 546.102 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 613.594 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 546.102 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 613.594 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'run_2' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_23_1'.
-WARNING: [HLS 200-880] The II Violation in module 'run_2' (loop 'VITIS_LOOP_23_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation 0 bit ('systolic_array_0_2_constprop_write_ln25', source/pe.h:25) of variable 'call_ret', source/pe.h:25 on static variable 'systolic_array_0_2_constprop' and 'load' operation 32 bit ('systolic_array_0_2_constprop_load', source/pe.h:25) on static variable 'systolic_array_0_2_constprop'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 2, Depth = 4, loop 'VITIS_LOOP_23_1'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.04 seconds; current allocated memory: 546.375 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 614.047 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 546.375 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.02 seconds; current allocated memory: 614.047 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'run_3' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_23_1'.
-WARNING: [HLS 200-880] The II Violation in module 'run_3' (loop 'VITIS_LOOP_23_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation 0 bit ('systolic_array_0_3_constprop_write_ln25', source/pe.h:25) of variable 'call_ret', source/pe.h:25 on static variable 'systolic_array_0_3_constprop' and 'load' operation 32 bit ('systolic_array_0_3_constprop_load', source/pe.h:25) on static variable 'systolic_array_0_3_constprop'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 2, Depth = 4, loop 'VITIS_LOOP_23_1'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 546.816 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 614.309 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 546.816 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 614.309 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'run_4' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_23_1'.
-WARNING: [HLS 200-880] The II Violation in module 'run_4' (loop 'VITIS_LOOP_23_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation 0 bit ('systolic_array_1_0_constprop_write_ln25', source/pe.h:25) of variable 'call_ret', source/pe.h:25 on static variable 'systolic_array_1_0_constprop' and 'load' operation 32 bit ('systolic_array_1_0_constprop_load', source/pe.h:25) on static variable 'systolic_array_1_0_constprop'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 2, Depth = 4, loop 'VITIS_LOOP_23_1'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 547.180 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 614.754 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 547.180 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 614.754 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'run_5' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_23_1'.
-WARNING: [HLS 200-880] The II Violation in module 'run_5' (loop 'VITIS_LOOP_23_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation 0 bit ('systolic_array_1_1_constprop_write_ln25', source/pe.h:25) of variable 'call_ret', source/pe.h:25 on static variable 'systolic_array_1_1_constprop' and 'load' operation 32 bit ('systolic_array_1_1_constprop_load', source/pe.h:25) on static variable 'systolic_array_1_1_constprop'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 2, Depth = 4, loop 'VITIS_LOOP_23_1'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 547.531 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 615.059 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 547.531 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 615.059 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'run_6' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_23_1'.
-WARNING: [HLS 200-880] The II Violation in module 'run_6' (loop 'VITIS_LOOP_23_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation 0 bit ('systolic_array_1_2_constprop_write_ln25', source/pe.h:25) of variable 'call_ret', source/pe.h:25 on static variable 'systolic_array_1_2_constprop' and 'load' operation 32 bit ('systolic_array_1_2_constprop_load', source/pe.h:25) on static variable 'systolic_array_1_2_constprop'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 2, Depth = 4, loop 'VITIS_LOOP_23_1'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.04 seconds; current allocated memory: 547.891 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 615.410 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 547.891 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 615.410 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'run_7' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_23_1'.
-WARNING: [HLS 200-880] The II Violation in module 'run_7' (loop 'VITIS_LOOP_23_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation 0 bit ('systolic_array_1_3_constprop_write_ln25', source/pe.h:25) of variable 'call_ret', source/pe.h:25 on static variable 'systolic_array_1_3_constprop' and 'load' operation 32 bit ('systolic_array_1_3_constprop_load', source/pe.h:25) on static variable 'systolic_array_1_3_constprop'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 2, Depth = 4, loop 'VITIS_LOOP_23_1'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 548.141 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 615.875 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 548.141 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.02 seconds; current allocated memory: 615.875 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'run_8' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_23_1'.
-WARNING: [HLS 200-880] The II Violation in module 'run_8' (loop 'VITIS_LOOP_23_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation 0 bit ('systolic_array_2_0_constprop_write_ln25', source/pe.h:25) of variable 'call_ret', source/pe.h:25 on static variable 'systolic_array_2_0_constprop' and 'load' operation 32 bit ('systolic_array_2_0_constprop_load', source/pe.h:25) on static variable 'systolic_array_2_0_constprop'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 2, Depth = 4, loop 'VITIS_LOOP_23_1'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.04 seconds; current allocated memory: 548.586 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 616.227 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 548.586 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 616.227 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'run_9' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_23_1'.
-WARNING: [HLS 200-880] The II Violation in module 'run_9' (loop 'VITIS_LOOP_23_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation 0 bit ('systolic_array_2_1_constprop_write_ln25', source/pe.h:25) of variable 'call_ret', source/pe.h:25 on static variable 'systolic_array_2_1_constprop' and 'load' operation 32 bit ('systolic_array_2_1_constprop_load', source/pe.h:25) on static variable 'systolic_array_2_1_constprop'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 2, Depth = 4, loop 'VITIS_LOOP_23_1'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 548.895 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 616.438 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 548.895 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 616.438 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'run_10' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_23_1'.
-WARNING: [HLS 200-880] The II Violation in module 'run_10' (loop 'VITIS_LOOP_23_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation 0 bit ('systolic_array_2_2_constprop_write_ln25', source/pe.h:25) of variable 'call_ret', source/pe.h:25 on static variable 'systolic_array_2_2_constprop' and 'load' operation 32 bit ('systolic_array_2_2_constprop_load', source/pe.h:25) on static variable 'systolic_array_2_2_constprop'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 2, Depth = 4, loop 'VITIS_LOOP_23_1'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 549.309 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 616.449 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.02 seconds; current allocated memory: 549.309 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.02 seconds; current allocated memory: 616.480 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'run_11' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_23_1'.
-WARNING: [HLS 200-880] The II Violation in module 'run_11' (loop 'VITIS_LOOP_23_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation 0 bit ('systolic_array_2_3_constprop_write_ln25', source/pe.h:25) of variable 'call_ret', source/pe.h:25 on static variable 'systolic_array_2_3_constprop' and 'load' operation 32 bit ('systolic_array_2_3_constprop_load', source/pe.h:25) on static variable 'systolic_array_2_3_constprop'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 2, Depth = 4, loop 'VITIS_LOOP_23_1'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 549.633 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 617.645 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 549.633 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 617.699 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'run_12' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_23_1'.
-WARNING: [HLS 200-880] The II Violation in module 'run_12' (loop 'VITIS_LOOP_23_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation 0 bit ('systolic_array_3_0_constprop_write_ln25', source/pe.h:25) of variable 'call_ret', source/pe.h:25 on static variable 'systolic_array_3_0_constprop' and 'load' operation 32 bit ('systolic_array_3_0_constprop_load', source/pe.h:25) on static variable 'systolic_array_3_0_constprop'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 2, Depth = 4, loop 'VITIS_LOOP_23_1'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 550.043 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 618.684 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 550.043 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 618.684 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'run_13' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_23_1'.
-WARNING: [HLS 200-880] The II Violation in module 'run_13' (loop 'VITIS_LOOP_23_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation 0 bit ('systolic_array_3_1_constprop_write_ln25', source/pe.h:25) of variable 'call_ret', source/pe.h:25 on static variable 'systolic_array_3_1_constprop' and 'load' operation 32 bit ('systolic_array_3_1_constprop_load', source/pe.h:25) on static variable 'systolic_array_3_1_constprop'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 2, Depth = 4, loop 'VITIS_LOOP_23_1'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 550.410 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 619.059 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 550.410 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.03 seconds; current allocated memory: 619.059 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'run_14' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_23_1'.
-WARNING: [HLS 200-880] The II Violation in module 'run_14' (loop 'VITIS_LOOP_23_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation 0 bit ('systolic_array_3_2_constprop_write_ln25', source/pe.h:25) of variable 'call_ret', source/pe.h:25 on static variable 'systolic_array_3_2_constprop' and 'load' operation 32 bit ('systolic_array_3_2_constprop_load', source/pe.h:25) on static variable 'systolic_array_3_2_constprop'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 2, Depth = 4, loop 'VITIS_LOOP_23_1'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 550.672 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 619.383 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 550.672 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 619.383 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'run_15' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_23_1'.
-WARNING: [HLS 200-880] The II Violation in module 'run_15' (loop 'VITIS_LOOP_23_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation 0 bit ('systolic_array_3_3_constprop_write_ln25', source/pe.h:25) of variable 'call_ret', source/pe.h:25 on static variable 'systolic_array_3_3_constprop' and 'load' operation 32 bit ('systolic_array_3_3_constprop_load', source/pe.h:25) on static variable 'systolic_array_3_3_constprop'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 2, Depth = 4, loop 'VITIS_LOOP_23_1'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 551.250 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 619.641 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 551.250 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.02 seconds; current allocated memory: 619.641 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'sink_streams_Block_entry1_proc4' 
+INFO: [HLS 200-42] -- Implementing module 'sink_streams_Block_entry1_proc6' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 551.418 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 620.242 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 551.418 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 620.242 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'sink_streams' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 551.418 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 620.242 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 551.543 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 620.242 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'stream_to_C_Buf' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 551.980 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 620.789 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 552.230 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 620.848 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'dataflow_in_loop_tile_loop' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [HLS 200-871] Estimated clock period (2.944 ns) exceeds the target (target clock period: 3.333 ns, clock uncertainty: 0.900 ns, effective delay budget: 2.433 ns).
+WARNING: [HLS 200-1016] The critical path in module 'dataflow_in_loop_tile_loop' consists of the following:
+	'alloca' operation 32 bit ('A_stream', source/sa_functions.hpp:42) [221]  (1.070 ns)
+	'call' operation 0 bit ('_ln52', source/sa_functions.hpp:52) to 'tm_A' [269]  (1.874 ns)
+
+INFO: [SCHED 204-11] Finished scheduling.
+WARNING: [HLS 200-1020] Increasing the depth of FIFO start_for_sink_streams_U0 (from run_3_U0 to sink_streams_U0) to 5 to improve performance and/or avoid deadlocks.
+WARNING: [HLS 200-1020] Increasing the depth of FIFO start_for_stream_to_C_Buf_U0 (from tm_A_U0 to stream_to_C_Buf_U0) to 9 to improve performance and/or avoid deadlocks.
+WARNING: [HLS 200-1018] Consider increasing the depth of FIFO A_stream_4 (from tm_A_U0 to run_12_U0) to 5 to improve performance and/or avoid deadlocks.
+WARNING: [HLS 200-1018] Consider increasing the depth of FIFO B_stream_16 (from B_Buf_to_stream_U0 to run_3_U0) to 5 to improve performance and/or avoid deadlocks.
+WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_15 (from run_U0 to stream_to_C_Buf_U0) to 8 to improve performance and/or avoid deadlocks.
+WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_14 (from run_1_U0 to stream_to_C_Buf_U0) to 7 to improve performance and/or avoid deadlocks.
+WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_13 (from run_2_U0 to stream_to_C_Buf_U0) to 6 to improve performance and/or avoid deadlocks.
+WARNING: [HLS 200-1018] Consider increasing the depth of FIFO A_stream_15 (from run_3_U0 to sink_streams_U0) to 5 to improve performance and/or avoid deadlocks.
+WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_12 (from run_3_U0 to stream_to_C_Buf_U0) to 5 to improve performance and/or avoid deadlocks.
+WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_11 (from run_4_U0 to stream_to_C_Buf_U0) to 7 to improve performance and/or avoid deadlocks.
+WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_10 (from run_5_U0 to stream_to_C_Buf_U0) to 6 to improve performance and/or avoid deadlocks.
+WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_9 (from run_6_U0 to stream_to_C_Buf_U0) to 5 to improve performance and/or avoid deadlocks.
+WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_8 (from run_7_U0 to stream_to_C_Buf_U0) to 4 to improve performance and/or avoid deadlocks.
+WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_7 (from run_8_U0 to stream_to_C_Buf_U0) to 6 to improve performance and/or avoid deadlocks.
+WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_6 (from run_9_U0 to stream_to_C_Buf_U0) to 5 to improve performance and/or avoid deadlocks.
+WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_5 (from run_10_U0 to stream_to_C_Buf_U0) to 4 to improve performance and/or avoid deadlocks.
+WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_4 (from run_11_U0 to stream_to_C_Buf_U0) to 3 to improve performance and/or avoid deadlocks.
+WARNING: [HLS 200-1018] Consider increasing the depth of FIFO B_stream_3 (from run_12_U0 to sink_streams_U0) to 5 to improve performance and/or avoid deadlocks.
+WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_3 (from run_12_U0 to stream_to_C_Buf_U0) to 5 to improve performance and/or avoid deadlocks.
+WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_2 (from run_13_U0 to stream_to_C_Buf_U0) to 4 to improve performance and/or avoid deadlocks.
+WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_1 (from run_14_U0 to stream_to_C_Buf_U0) to 3 to improve performance and/or avoid deadlocks.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.16 seconds. CPU system time: 0 seconds. Elapsed time: 0.17 seconds; current allocated memory: 622.207 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.07 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.07 seconds; current allocated memory: 623.039 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'runSystolicArray' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-WARNING: [HLS 200-1020] Increasing the depth of FIFO start_for_sink_streams_U0 (from run_3_U0 to sink_streams_U0) to 5 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1020] Increasing the depth of FIFO start_for_stream_to_C_Buf_U0 (from run_U0 to stream_to_C_Buf_U0) to 8 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO A_stream_5 (from A_Buf_to_stream_U0 to run_4_U0) to 3 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO A_stream_10 (from A_Buf_to_stream_U0 to run_8_U0) to 4 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO A_stream_15 (from A_Buf_to_stream_U0 to run_12_U0) to 5 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO B_stream_1 (from B_Buf_to_stream_U0 to run_1_U0) to 3 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO B_stream_2 (from B_Buf_to_stream_U0 to run_2_U0) to 4 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO B_stream_3 (from B_Buf_to_stream_U0 to run_3_U0) to 5 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream (from run_U0 to stream_to_C_Buf_U0) to 8 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_1 (from run_1_U0 to stream_to_C_Buf_U0) to 7 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_2 (from run_2_U0 to stream_to_C_Buf_U0) to 6 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO A_stream_4 (from run_3_U0 to sink_streams_U0) to 5 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_3 (from run_3_U0 to stream_to_C_Buf_U0) to 5 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_4 (from run_4_U0 to stream_to_C_Buf_U0) to 7 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_5 (from run_5_U0 to stream_to_C_Buf_U0) to 6 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_6 (from run_6_U0 to stream_to_C_Buf_U0) to 5 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO A_stream_9 (from run_7_U0 to sink_streams_U0) to 4 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_7 (from run_7_U0 to stream_to_C_Buf_U0) to 4 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_8 (from run_8_U0 to stream_to_C_Buf_U0) to 6 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_9 (from run_9_U0 to stream_to_C_Buf_U0) to 5 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_10 (from run_10_U0 to stream_to_C_Buf_U0) to 4 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO A_stream_14 (from run_11_U0 to sink_streams_U0) to 3 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_11 (from run_11_U0 to stream_to_C_Buf_U0) to 3 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO B_stream_16 (from run_12_U0 to sink_streams_U0) to 5 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_12 (from run_12_U0 to stream_to_C_Buf_U0) to 5 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO B_stream_17 (from run_13_U0 to sink_streams_U0) to 4 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_13 (from run_13_U0 to stream_to_C_Buf_U0) to 4 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO B_stream_18 (from run_14_U0 to sink_streams_U0) to 3 to improve performance and/or avoid deadlocks.
-WARNING: [HLS 200-1018] Consider increasing the depth of FIFO C_stream_14 (from run_14_U0 to stream_to_C_Buf_U0) to 3 to improve performance and/or avoid deadlocks.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.15 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.16 seconds; current allocated memory: 553.578 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.15 seconds; current allocated memory: 623.965 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 554.164 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 623.965 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'storeOutputToDRAM' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.09 seconds; current allocated memory: 555.117 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.19 seconds. CPU system time: 0 seconds. Elapsed time: 0.2 seconds; current allocated memory: 624.977 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 555.117 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.04 seconds; current allocated memory: 624.977 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'gemm' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 556.359 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 626.434 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 556.359 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 626.434 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'load_A' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'load_A'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.07 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.07 seconds; current allocated memory: 557.180 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.16 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.16 seconds; current allocated memory: 627.480 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'load_B_Pipeline_VITIS_LOOP_22_2' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -725,12 +719,12 @@ WARNING: [RTGEN 206-101] Setting dangling out port 'load_B_Pipeline_VITIS_LOOP_2
 WARNING: [RTGEN 206-101] Setting dangling out port 'load_B_Pipeline_VITIS_LOOP_22_2/m_axi_gmem1_ARREGION' to 0.
 WARNING: [RTGEN 206-101] Setting dangling out port 'load_B_Pipeline_VITIS_LOOP_22_2/m_axi_gmem1_ARUSER' to 0.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'load_B_Pipeline_VITIS_LOOP_22_2'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.1 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.11 seconds; current allocated memory: 558.781 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 629.480 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'load_B' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'load_B'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 560.820 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.06 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.07 seconds; current allocated memory: 631.387 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'loadInputsFromDRAM' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -773,208 +767,255 @@ WARNING: [RTGEN 206-101] Setting dangling out port 'loadInputsFromDRAM/m_axi_gme
 WARNING: [RTGEN 206-101] Setting dangling out port 'loadInputsFromDRAM/m_axi_gmem1_WUSER' to 0.
 WARNING: [RTGEN 206-101] Setting dangling out port 'loadInputsFromDRAM/m_axi_gmem1_BREADY' to 0.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'loadInputsFromDRAM'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.22 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.24 seconds; current allocated memory: 562.543 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.23 seconds. CPU system time: 0 seconds. Elapsed time: 0.24 seconds; current allocated memory: 633.270 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'A_Buf_to_stream' 
+INFO: [HLS 200-10] -- Generating RTL for module 'load_tile_A_Block_entry1_proc' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'A_Buf_to_stream' pipeline 'VITIS_LOOP_16_1' pipeline type 'loop pipeline'
-INFO: [RTGEN 206-100] Finished creating RTL model for 'A_Buf_to_stream'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 563.641 MB.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'load_tile_A_Block_entry1_proc'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 634.328 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'load_tile_A' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'load_tile_A'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.14 seconds. CPU system time: 0 seconds. Elapsed time: 0.15 seconds; current allocated memory: 637.305 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'tile_A_to_stream' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'tile_A_to_stream' pipeline 'VITIS_LOOP_52_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_2_32_1_1': 4 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'tile_A_to_stream'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.1 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.1 seconds; current allocated memory: 638.703 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'tm_A_Block_entry1_proc42' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_1_0_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_1_0_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_1_0_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_1_0_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_1_1_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_1_1_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_1_1_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_1_1_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_1_2_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_1_2_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_1_2_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_1_2_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_1_3_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_1_3_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_1_3_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_1_3_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_0_0_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_0_0_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_0_0_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_0_0_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_0_1_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_0_1_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_0_1_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_0_1_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_0_2_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_0_2_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_0_2_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_0_2_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_0_3_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_0_3_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_0_3_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ4tm_APA4_fPA5_N3hls6streamIfLi0EEEiE6A_TILE_0_3_3' is power-on initialization.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'tm_A_Block_entry1_proc42'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.22 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.23 seconds; current allocated memory: 642.031 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'tm_A' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'tm_A'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.19 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.19 seconds; current allocated memory: 648.363 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'B_Buf_to_stream' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'B_Buf_to_stream' pipeline 'VITIS_LOOP_27_1' pipeline type 'loop pipeline'
 INFO: [RTGEN 206-100] Finished creating RTL model for 'B_Buf_to_stream'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.11 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.12 seconds; current allocated memory: 565.570 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.11 seconds. CPU system time: 0 seconds. Elapsed time: 0.12 seconds; current allocated memory: 649.461 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'calc_Block_entry2_proc5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'fmadd_32ns_32ns_32ns_32ns_32_3_primitive_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'calc_Block_entry2_proc5'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.12 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.12 seconds; current allocated memory: 651.012 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'calc' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'calc' pipeline 'calc' pipeline type 'function pipeline'
-INFO: [RTGEN 206-100] Generating core module 'fmadd_32ns_32ns_32ns_32ns_32_3_primitive_dsp_1': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'calc'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.13 seconds; current allocated memory: 567.176 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 651.695 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'run' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'run'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 568.133 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 652.367 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'run_1' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'run_1'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 569.117 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 653.367 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'run_2' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'run_2'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.06 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.08 seconds; current allocated memory: 570.148 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.09 seconds; current allocated memory: 654.367 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'run_3' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'run_3'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 571.211 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 655.355 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'run_4' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'run_4'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 572.332 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 656.355 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'run_5' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'run_5'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 573.320 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.08 seconds; current allocated memory: 657.340 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'run_6' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'run_6'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 574.352 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 658.344 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'run_7' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'run_7'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.07 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.07 seconds; current allocated memory: 575.367 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 659.328 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'run_8' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'run_8'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.08 seconds; current allocated memory: 576.430 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.09 seconds; current allocated memory: 660.328 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'run_9' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'run_9'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 577.445 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 661.270 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'run_10' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'run_10'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 578.477 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 662.281 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'run_11' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'run_11'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 579.508 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 663.281 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'run_12' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'run_12'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.08 seconds; current allocated memory: 580.523 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.08 seconds; current allocated memory: 664.281 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'run_13' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'run_13'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 581.539 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 665.238 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'run_14' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'run_14'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 582.602 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 666.254 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'run_15' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'run_15'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.08 seconds; current allocated memory: 583.617 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.09 seconds; current allocated memory: 667.250 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'sink_streams_Block_entry1_proc4' 
+INFO: [HLS 200-10] -- Generating RTL for module 'sink_streams_Block_entry1_proc6' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-100] Finished creating RTL model for 'sink_streams_Block_entry1_proc4'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 584.496 MB.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'sink_streams_Block_entry1_proc6'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 668.191 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'sink_streams' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'sink_streams'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 585.691 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 669.391 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'stream_to_C_Buf' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'stream_to_C_Buf'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.03 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.04 seconds; current allocated memory: 586.559 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.03 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.04 seconds; current allocated memory: 670.414 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'dataflow_in_loop_tile_loop' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [HLS 200-656] Deadlocks can occur since process B_Buf_to_stream is instantiated in a dataflow region with ap_ctrl_none or without start propagation and contains an auto-rewind pipeline.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'dataflow_in_loop_tile_loop'.
+INFO: [RTMG 210-285] Implementing FIFO 'A_stream_19_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'A_stream_14_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'A_stream_9_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'A_stream_4_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 't_0_c_U(gemm_fifo_w1_d9_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'B_stream_19_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'B_stream_18_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'B_stream_17_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'B_stream_16_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'A_stream_18_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'B_stream_15_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'C_stream_15_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'A_stream_17_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'B_stream_14_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'C_stream_14_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'A_stream_16_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'B_stream_13_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'C_stream_13_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'A_stream_15_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'B_stream_12_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'C_stream_12_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'A_stream_13_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'B_stream_11_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'C_stream_11_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'A_stream_12_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'B_stream_10_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'C_stream_10_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'A_stream_11_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'B_stream_9_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'C_stream_9_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'A_stream_10_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'B_stream_8_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'C_stream_8_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'A_stream_8_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'B_stream_7_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'C_stream_7_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'A_stream_7_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'B_stream_6_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'C_stream_6_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'A_stream_6_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'B_stream_5_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'C_stream_5_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'A_stream_5_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'B_stream_4_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'C_stream_4_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'A_stream_3_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'B_stream_3_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'C_stream_3_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'A_stream_2_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'B_stream_2_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'C_stream_2_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'A_stream_1_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'B_stream_1_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'C_stream_1_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'A_stream_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'B_stream_U(gemm_fifo_w32_d4_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'C_stream_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_stream_to_C_Buf_U0_U(gemm_start_for_stream_to_C_Buf_U0)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_sink_streams_U0_U(gemm_start_for_sink_streams_U0)' using Vivado Default RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.34 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.36 seconds; current allocated memory: 678.219 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'runSystolicArray' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
-WARNING: [HLS 200-656] Deadlocks can occur since process A_Buf_to_stream is instantiated in a dataflow region with ap_ctrl_none or without start propagation and contains an auto-rewind pipeline.
 WARNING: [HLS 200-656] Deadlocks can occur since process B_Buf_to_stream is instantiated in a dataflow region with ap_ctrl_none or without start propagation and contains an auto-rewind pipeline.
-WARNING: [HLS 200-656] Deadlocks can occur since process run is instantiated in a dataflow region with ap_ctrl_none or without start propagation and contains a rewind pipeline.
-WARNING: [HLS 200-656] Deadlocks can occur since process run.1 is instantiated in a dataflow region with ap_ctrl_none or without start propagation and contains a rewind pipeline.
-WARNING: [HLS 200-656] Deadlocks can occur since process run.2 is instantiated in a dataflow region with ap_ctrl_none or without start propagation and contains a rewind pipeline.
-WARNING: [HLS 200-656] Deadlocks can occur since process run.3 is instantiated in a dataflow region with ap_ctrl_none or without start propagation and contains a rewind pipeline.
-WARNING: [HLS 200-656] Deadlocks can occur since process run.4 is instantiated in a dataflow region with ap_ctrl_none or without start propagation and contains a rewind pipeline.
-WARNING: [HLS 200-656] Deadlocks can occur since process run.5 is instantiated in a dataflow region with ap_ctrl_none or without start propagation and contains a rewind pipeline.
-WARNING: [HLS 200-656] Deadlocks can occur since process run.6 is instantiated in a dataflow region with ap_ctrl_none or without start propagation and contains a rewind pipeline.
-WARNING: [HLS 200-656] Deadlocks can occur since process run.7 is instantiated in a dataflow region with ap_ctrl_none or without start propagation and contains a rewind pipeline.
-WARNING: [HLS 200-656] Deadlocks can occur since process run.8 is instantiated in a dataflow region with ap_ctrl_none or without start propagation and contains a rewind pipeline.
-WARNING: [HLS 200-656] Deadlocks can occur since process run.9 is instantiated in a dataflow region with ap_ctrl_none or without start propagation and contains a rewind pipeline.
-WARNING: [HLS 200-656] Deadlocks can occur since process run.10 is instantiated in a dataflow region with ap_ctrl_none or without start propagation and contains a rewind pipeline.
-WARNING: [HLS 200-656] Deadlocks can occur since process run.11 is instantiated in a dataflow region with ap_ctrl_none or without start propagation and contains a rewind pipeline.
-WARNING: [HLS 200-656] Deadlocks can occur since process run.12 is instantiated in a dataflow region with ap_ctrl_none or without start propagation and contains a rewind pipeline.
-WARNING: [HLS 200-656] Deadlocks can occur since process run.13 is instantiated in a dataflow region with ap_ctrl_none or without start propagation and contains a rewind pipeline.
-WARNING: [HLS 200-656] Deadlocks can occur since process run.14 is instantiated in a dataflow region with ap_ctrl_none or without start propagation and contains a rewind pipeline.
-WARNING: [HLS 200-656] Deadlocks can occur since process run.15 is instantiated in a dataflow region with ap_ctrl_none or without start propagation and contains a rewind pipeline.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'runSystolicArray'.
-INFO: [RTMG 210-285] Implementing FIFO 'A_stream_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'A_stream_5_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'A_stream_10_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'A_stream_15_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'B_stream_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'B_stream_1_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'B_stream_2_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'B_stream_3_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'A_stream_1_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'B_stream_4_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'C_stream_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'A_stream_2_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'B_stream_5_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'C_stream_1_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'A_stream_3_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'B_stream_6_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'C_stream_2_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'A_stream_4_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'B_stream_7_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'C_stream_3_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'A_stream_6_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'B_stream_8_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'C_stream_4_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'A_stream_7_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'B_stream_9_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'C_stream_5_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'A_stream_8_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'B_stream_10_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'C_stream_6_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'A_stream_9_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'B_stream_11_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'C_stream_7_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'A_stream_11_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'B_stream_12_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'C_stream_8_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'A_stream_12_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'B_stream_13_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'C_stream_9_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'A_stream_13_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'B_stream_14_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'C_stream_10_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'A_stream_14_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'B_stream_15_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'C_stream_11_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'A_stream_16_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'B_stream_16_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'C_stream_12_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'A_stream_17_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'B_stream_17_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'C_stream_13_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'A_stream_18_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'B_stream_18_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'C_stream_14_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'A_stream_19_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'B_stream_19_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'C_stream_15_U(gemm_fifo_w32_d2_A)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'start_for_stream_to_C_Buf_U0_U(gemm_start_for_stream_to_C_Buf_U0)' using Vivado Default RAMs.
-INFO: [RTMG 210-285] Implementing FIFO 'start_for_sink_streams_U0_U(gemm_start_for_sink_streams_U0)' using Vivado Default RAMs.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.42 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.45 seconds; current allocated memory: 593.316 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.18 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.19 seconds; current allocated memory: 682.984 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'storeOutputToDRAM' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_2_32_1_1': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_17_3_32_1_1': 4 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'storeOutputToDRAM'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.12 seconds. CPU system time: 0 seconds. Elapsed time: 0.12 seconds; current allocated memory: 597.598 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.16 seconds. CPU system time: 0 seconds. Elapsed time: 0.16 seconds; current allocated memory: 685.566 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'gemm' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1005,14 +1046,15 @@ WARNING: [RTGEN 206-101] Register 'systolic_array_3_3_constprop' is power-on ini
 INFO: [RTGEN 206-100] Bundling port 'A_DRAM', 'B_DRAM', 'C_DRAM' and 'return' to AXI-Lite port control.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'gemm'.
 INFO: [RTMG 210-278] Implementing memory 'gemm_A_BUF_RAM_AUTO_1R1W' using auto RAMs.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.19 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.2 seconds; current allocated memory: 602.062 MB.
-INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0.8 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.83 seconds; current allocated memory: 605.461 MB.
-INFO: [HLS 200-111] Finished Updating report files: CPU user time: 1.17 seconds. CPU system time: 0.01 seconds. Elapsed time: 1.18 seconds; current allocated memory: 621.242 MB.
+INFO: [RTMG 210-278] Implementing memory 'gemm_B_BUF_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.23 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.24 seconds; current allocated memory: 691.320 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 1.1 seconds. CPU system time: 0.03 seconds. Elapsed time: 1.12 seconds; current allocated memory: 695.172 MB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 1.54 seconds. CPU system time: 0.02 seconds. Elapsed time: 1.57 seconds; current allocated memory: 712.305 MB.
 INFO: [VHDL 208-304] Generating VHDL RTL for gemm.
 INFO: [VLOG 209-307] Generating Verilog RTL for gemm.
 INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
-INFO: [HLS 200-789] **** Estimated Fmax: 411.00 MHz
-INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 12.01 seconds. CPU system time: 1.22 seconds. Elapsed time: 17.76 seconds; current allocated memory: 387.434 MB.
+INFO: [HLS 200-789] **** Estimated Fmax: 339.67 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 15.63 seconds. CPU system time: 1.32 seconds. Elapsed time: 21.42 seconds; current allocated memory: 478.520 MB.
 INFO: [HLS 200-1510] Running: cosim_design -trace_level all -enable_dataflow_profiling 
 INFO: [COSIM 212-47] Using XSIM for RTL simulation.
 INFO: [COSIM 212-14] Instrumenting C test bench ...
@@ -1025,4 +1067,4 @@ INFO: [COSIM 212-15] Starting XSIM ...
 INFO: [COSIM 212-316] Starting C post checking ...
 INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
 INFO: [COSIM 212-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.
-INFO: [HLS 200-111] Finished Command cosim_design CPU user time: 101.32 seconds. CPU system time: 4.44 seconds. Elapsed time: 43.01 seconds; current allocated memory: 10.820 MB.
+INFO: [HLS 200-111] Finished Command cosim_design CPU user time: 108.33 seconds. CPU system time: 4.81 seconds. Elapsed time: 47.56 seconds; current allocated memory: 17.297 MB.

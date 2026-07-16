@@ -1,0 +1,162 @@
+
+
+================================================================
+== Vitis HLS Report for 'calc_Block_entry2_proc5'
+================================================================
+* Date:           Thu Jul 16 14:01:22 2026
+
+* Version:        2023.2 (Build 4023990 on Oct 11 2023)
+* Project:        hls_project
+* Solution:       gemm2 (Vitis Kernel Flow Target)
+* Product family: versalaicore
+* Target device:  xcvc1902-vsva2197-2MP-e-S
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  3.33 ns|  2.140 ns|     0.90 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        3|        3|  9.999 ns|  9.999 ns|    3|    3|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+------+---------+--------+-----+
+|       Name      | BRAM_18K|  DSP |    FF   |   LUT  | URAM|
++-----------------+---------+------+---------+--------+-----+
+|DSP              |        -|     -|        -|       -|    -|
+|Expression       |        -|     -|        0|       2|    -|
+|FIFO             |        -|     -|        -|       -|    -|
+|Instance         |        -|     1|        2|       1|    -|
+|Memory           |        -|     -|        -|       -|    -|
+|Multiplexer      |        -|     -|        -|      48|    -|
+|Register         |        -|     -|      101|       -|    -|
++-----------------+---------+------+---------+--------+-----+
+|Total            |        0|     1|      103|      51|    0|
++-----------------+---------+------+---------+--------+-----+
+|Available        |     1934|  1968|  1799680|  899840|  463|
++-----------------+---------+------+---------+--------+-----+
+|Utilization (%)  |        0|    ~0|       ~0|      ~0|    0|
++-----------------+---------+------+---------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +-----------------------------------------------------+------------------------------------------------+---------+----+---+----+-----+
+    |                       Instance                      |                     Module                     | BRAM_18K| DSP| FF| LUT| URAM|
+    +-----------------------------------------------------+------------------------------------------------+---------+----+---+----+-----+
+    |fmadd_32ns_32ns_32ns_32ns_32_3_primitive_dsp_1_U149  |fmadd_32ns_32ns_32ns_32ns_32_3_primitive_dsp_1  |        0|   1|  2|   1|    0|
+    +-----------------------------------------------------+------------------------------------------------+---------+----+---+----+-----+
+    |Total                                                |                                                |        0|   1|  2|   1|    0|
+    +-----------------------------------------------------+------------------------------------------------+---------+----+---+----+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------+----------+----+---+----+------------+------------+
+    |  Variable Name  | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------+----------+----+---+----+------------+------------+
+    |ap_block_state1  |        or|   0|  0|   2|           1|           1|
+    +-----------------+----------+----+---+----+------------+------------+
+    |Total            |          |   0|  0|   2|           1|           1|
+    +-----------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------------+----+-----------+-----+-----------+
+    |         Name         | LUT| Input Size| Bits| Total Bits|
+    +----------------------+----+-----------+-----+-----------+
+    |A_stream_3_312_blk_n  |   2|          2|    1|          2|
+    |A_stream_3_4_blk_n    |   2|          2|    1|          2|
+    |B_stream_3_3_blk_n    |   2|          2|    1|          2|
+    |B_stream_4_3_blk_n    |   2|          2|    1|          2|
+    |ap_NS_fsm             |   6|          5|    1|          5|
+    |ap_done               |   2|          2|    1|          2|
+    |this_r                |  32|          2|   32|         64|
+    +----------------------+----+-----------+-----+-----------+
+    |Total                 |  48|         17|   38|         79|
+    +----------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------------+----+----+-----+-----------+
+    |             Name            | FF | LUT| Bits| Const Bits|
+    +-----------------------------+----+----+-----+-----------+
+    |A_stream_3_312_read_reg_118  |  32|   0|   32|          0|
+    |B_stream_3_3_read_reg_123    |  32|   0|   32|          0|
+    |ap_CS_fsm                    |   4|   0|    4|          0|
+    |ap_done_reg                  |   1|   0|    1|          0|
+    |this_r_preg                  |  32|   0|   32|          0|
+    +-----------------------------+----+----+-----+-----------+
+    |Total                        | 101|   0|  101|          0|
+    +-----------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------------------------+-----+-----+------------+-------------------------+--------------+
+|           RTL Ports           | Dir | Bits|  Protocol  |      Source Object      |    C Type    |
++-------------------------------+-----+-----+------------+-------------------------+--------------+
+|ap_clk                         |   in|    1|  ap_ctrl_hs|  calc_Block_entry2_proc5|  return value|
+|ap_rst                         |   in|    1|  ap_ctrl_hs|  calc_Block_entry2_proc5|  return value|
+|ap_start                       |   in|    1|  ap_ctrl_hs|  calc_Block_entry2_proc5|  return value|
+|ap_done                        |  out|    1|  ap_ctrl_hs|  calc_Block_entry2_proc5|  return value|
+|ap_continue                    |   in|    1|  ap_ctrl_hs|  calc_Block_entry2_proc5|  return value|
+|ap_idle                        |  out|    1|  ap_ctrl_hs|  calc_Block_entry2_proc5|  return value|
+|ap_ready                       |  out|    1|  ap_ctrl_hs|  calc_Block_entry2_proc5|  return value|
+|A_stream_3_312_dout            |   in|   32|     ap_fifo|           A_stream_3_312|       pointer|
+|A_stream_3_312_num_data_valid  |   in|    3|     ap_fifo|           A_stream_3_312|       pointer|
+|A_stream_3_312_fifo_cap        |   in|    3|     ap_fifo|           A_stream_3_312|       pointer|
+|A_stream_3_312_empty_n         |   in|    1|     ap_fifo|           A_stream_3_312|       pointer|
+|A_stream_3_312_read            |  out|    1|     ap_fifo|           A_stream_3_312|       pointer|
+|B_stream_3_3_dout              |   in|   32|     ap_fifo|             B_stream_3_3|       pointer|
+|B_stream_3_3_num_data_valid    |   in|    3|     ap_fifo|             B_stream_3_3|       pointer|
+|B_stream_3_3_fifo_cap          |   in|    3|     ap_fifo|             B_stream_3_3|       pointer|
+|B_stream_3_3_empty_n           |   in|    1|     ap_fifo|             B_stream_3_3|       pointer|
+|B_stream_3_3_read              |  out|    1|     ap_fifo|             B_stream_3_3|       pointer|
+|this_read                      |   in|   32|     ap_none|                this_read|        scalar|
+|this_r                         |  out|   32|      ap_vld|                   this_r|       pointer|
+|this_r_ap_vld                  |  out|    1|      ap_vld|                   this_r|       pointer|
+|A_stream_3_4_din               |  out|   32|     ap_fifo|             A_stream_3_4|       pointer|
+|A_stream_3_4_num_data_valid    |   in|    3|     ap_fifo|             A_stream_3_4|       pointer|
+|A_stream_3_4_fifo_cap          |   in|    3|     ap_fifo|             A_stream_3_4|       pointer|
+|A_stream_3_4_full_n            |   in|    1|     ap_fifo|             A_stream_3_4|       pointer|
+|A_stream_3_4_write             |  out|    1|     ap_fifo|             A_stream_3_4|       pointer|
+|B_stream_4_3_din               |  out|   32|     ap_fifo|             B_stream_4_3|       pointer|
+|B_stream_4_3_num_data_valid    |   in|    3|     ap_fifo|             B_stream_4_3|       pointer|
+|B_stream_4_3_fifo_cap          |   in|    3|     ap_fifo|             B_stream_4_3|       pointer|
+|B_stream_4_3_full_n            |   in|    1|     ap_fifo|             B_stream_4_3|       pointer|
+|B_stream_4_3_write             |  out|    1|     ap_fifo|             B_stream_4_3|       pointer|
++-------------------------------+-----+-----+------------+-------------------------+--------------+
+

@@ -1,12 +1,12 @@
 #include "constants.h"
 
-void stream_to_C_Buf(hls::stream<float> C_stream[S_A_I][S_A_J], float C_BUF[I][J]) {
+void stream_to_C_Buf(hls::stream<float> C_stream[S_A_I][S_A_J], float C_BUF[I][J], int tileC) {
     #pragma HLS INLINE off
     for (int i = 0; i < S_A_I; i++) {
         #pragma HLS UNROLL
         for (int j = 0; j < S_A_J; j++) {
             #pragma HLS UNROLL
-            C_BUF[i][j] = C_stream[i][j].read();
+            C_BUF[tileC*S_A_I + i][j] = C_stream[i][j].read();
         }
     }
 }
@@ -33,18 +33,41 @@ void B_Buf_to_stream(float B_BUF[K][J], hls::stream<float> B_stream[S_A_J+1][S_A
     }
 }
 
-void load_tile_A(float A_BUF[I][K], float A_TILE[S_A_I][K]) {
+void load_tile_A(float A_BUF[I][K], float A_TILE[S_A_I][K], int tileA) {
     #pragma HLS INLINE off
+    #pragma HLS DATAFLOW
 
-
+    for(int i = 0; i < S_A_I; i++) {
+        #pragma HLS UNROLL
+        for(int k = 0; k < K; k++) {
+            #pragma HLS UNROLL
+            A_TILE[i][k] = A_BUF[tileA*S_A_I + i][k];
+        }
+    }
 }
 
-void tm_A(float A_BUF[I][K], hls::stream<float> &A_stream) {
+void tile_A_to_stream(float A_TILE[S_A_I][K], hls::stream<float> A_stream[S_A_I][S_A_J+1]) {
     #pragma HLS INLINE off
+    
+    for(int i = 0; i < S_A_I; i++) {
+        #pragma HLS PIPELINE II=1
+        for(int k = 0; k < K; k++) {
+            #pragma HLS UNROLL
+            A_stream[i][0].write(A_TILE[i][k]);
+        }
+    }
+}
 
-    float A_TILE[2][S_A_I][K];
-    #pragma HLS STREAM type=pipo variable=A_TILE depth=2
-
-    // load A to A_TILE
-    // send A_TILE to A_stream to be then fed into the systolic array
+void tm_A(float A_BUF[I][K], hls::stream<float> A_stream[S_A_I][S_A_J+1], int tileA) {
+    #pragma HLS INLINE off
+    #pragma HLS DATAFLOW
+ 
+    static float A_TILE[2][S_A_I][K];
+    #pragma HLS STREAM variable=A_TILE type=pipo depth=4
+    #pragma HLS ARRAY_PARTITION variable=A_TILE type=complete dim=1
+    #pragma HLS ARRAY_PARTITION variable=A_TILE type=complete dim=2
+    #pragma HLS ARRAY_PARTITION variable=A_TILE type=complete dim=3
+ 
+    load_tile_A(A_BUF, A_TILE[tileA % 2], tileA);
+    tile_A_to_stream(A_TILE[tileA % 2], A_stream);
 }

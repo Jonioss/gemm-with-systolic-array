@@ -3,7 +3,7 @@
 #include <hls_vector.h>
 #include "hls_burst_maxi.h"
 
-#define I 4
+#define I 8
 #define J 4
 #define K 4
 

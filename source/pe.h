@@ -1,13 +1,14 @@
 #include "constants.h"
 
+
 class PE {
-    
 public:
     PE(): acc(0) {}
 
     void calc(hls::stream<float> &inA_stream, hls::stream<float> &inB_stream, 
         hls::stream<float> &outA_stream, hls::stream<float> &outB_stream) {
         #pragma HLS INLINE off
+        #pragma HLS DATAFLOW
 
         float a = inA_stream.read();
         float b = inB_stream.read();
@@ -20,6 +21,7 @@ public:
         hls::stream<float> &outA_stream, hls::stream<float> &outB_stream, 
         hls::stream<float> &Cout_stream) {
             #pragma HLS INLINE off
+            clear_acc();
             for(int k = 0; k < K; k++) {
                 #pragma HLS PIPELINE II=1 rewind
                 calc(inA_stream, inB_stream, outA_stream, outB_stream);

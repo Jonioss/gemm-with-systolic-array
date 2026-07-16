@@ -1,9 +1,9 @@
 
 
 ================================================================
-== Vitis HLS Report for 'sink_streams_Block_entry1_proc4'
+== Vitis HLS Report for 'sink_streams_Block_entry1_proc6'
 ================================================================
-* Date:           Wed Jul 15 23:35:37 2026
+* Date:           Thu Jul 16 14:01:23 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        hls_project
@@ -20,7 +20,7 @@
     +--------+---------+----------+------------+
     |  Clock |  Target | Estimated| Uncertainty|
     +--------+---------+----------+------------+
-    |ap_clk  |  3.33 ns|  0.962 ns|     0.90 ns|
+    |ap_clk  |  3.33 ns|  1.070 ns|     0.90 ns|
     +--------+---------+----------+------------+
 
 + Latency: 
@@ -123,13 +123,13 @@
 +-----------------------------+-----+-----+------------+---------------------------------+--------------+
 |          RTL Ports          | Dir | Bits|  Protocol  |          Source Object          |    C Type    |
 +-----------------------------+-----+-----+------------+---------------------------------+--------------+
-|ap_clk                       |   in|    1|  ap_ctrl_hs|  sink_streams_Block_entry1_proc4|  return value|
-|ap_rst                       |   in|    1|  ap_ctrl_hs|  sink_streams_Block_entry1_proc4|  return value|
-|ap_start                     |   in|    1|  ap_ctrl_hs|  sink_streams_Block_entry1_proc4|  return value|
-|ap_done                      |  out|    1|  ap_ctrl_hs|  sink_streams_Block_entry1_proc4|  return value|
-|ap_continue                  |   in|    1|  ap_ctrl_hs|  sink_streams_Block_entry1_proc4|  return value|
-|ap_idle                      |  out|    1|  ap_ctrl_hs|  sink_streams_Block_entry1_proc4|  return value|
-|ap_ready                     |  out|    1|  ap_ctrl_hs|  sink_streams_Block_entry1_proc4|  return value|
+|ap_clk                       |   in|    1|  ap_ctrl_hs|  sink_streams_Block_entry1_proc6|  return value|
+|ap_rst                       |   in|    1|  ap_ctrl_hs|  sink_streams_Block_entry1_proc6|  return value|
+|ap_start                     |   in|    1|  ap_ctrl_hs|  sink_streams_Block_entry1_proc6|  return value|
+|ap_done                      |  out|    1|  ap_ctrl_hs|  sink_streams_Block_entry1_proc6|  return value|
+|ap_continue                  |   in|    1|  ap_ctrl_hs|  sink_streams_Block_entry1_proc6|  return value|
+|ap_idle                      |  out|    1|  ap_ctrl_hs|  sink_streams_Block_entry1_proc6|  return value|
+|ap_ready                     |  out|    1|  ap_ctrl_hs|  sink_streams_Block_entry1_proc6|  return value|
 |A_stream_0_4_dout            |   in|   32|     ap_fifo|                     A_stream_0_4|       pointer|
 |A_stream_0_4_num_data_valid  |   in|    3|     ap_fifo|                     A_stream_0_4|       pointer|
 |A_stream_0_4_fifo_cap        |   in|    3|     ap_fifo|                     A_stream_0_4|       pointer|
