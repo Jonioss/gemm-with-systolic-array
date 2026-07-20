@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'load_B_Pipeline_VITIS_LOOP_22_2'
 ================================================================
-* Date:           Thu Jul 16 14:01:21 2026
+* Date:           Mon Jul 20 14:05:05 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        hls_project
@@ -20,7 +20,7 @@
     +--------+---------+----------+------------+
     |  Clock |  Target | Estimated| Uncertainty|
     +--------+---------+----------+------------+
-    |ap_clk  |  3.33 ns|  1.504 ns|     0.90 ns|
+    |ap_clk  |  3.33 ns|  1.318 ns|     0.90 ns|
     +--------+---------+----------+------------+
 
 + Latency: 
@@ -29,7 +29,7 @@
     |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
     |   min   |   max   |    min    |    max    | min | max |   Type  |
     +---------+---------+-----------+-----------+-----+-----+---------+
-    |        6|        6|  19.998 ns|  19.998 ns|    6|    6|       no|
+    |       10|       10|  33.330 ns|  33.330 ns|   10|   10|       no|
     +---------+---------+-----------+-----------+-----+-----+---------+
 
     + Detail: 
@@ -41,7 +41,7 @@
         |                   |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
         |     Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
         +-------------------+---------+---------+----------+-----------+-----------+------+----------+
-        |- VITIS_LOOP_22_2  |        4|        4|         2|          1|          1|     4|       yes|
+        |- VITIS_LOOP_22_2  |        8|        8|         2|          1|          1|     8|       yes|
         +-------------------+---------+---------+----------+-----------+-----------+------+----------+
 
 
@@ -58,10 +58,10 @@
 |FIFO             |        -|     -|        -|       -|    -|
 |Instance         |        -|     -|        -|       -|    -|
 |Memory           |        -|     -|        -|       -|    -|
-|Multiplexer      |        -|     -|        -|      12|    -|
-|Register         |        -|     -|        9|       -|    -|
+|Multiplexer      |        -|     -|        -|      14|    -|
+|Register         |        -|     -|       10|       -|    -|
 +-----------------+---------+------+---------+--------+-----+
-|Total            |        0|     0|        9|      26|    0|
+|Total            |        0|     0|       10|      28|    0|
 +-----------------+---------+------+---------+--------+-----+
 |Available        |     1934|  1968|  1799680|  899840|  463|
 +-----------------+---------+------+---------+--------+-----+
@@ -85,12 +85,12 @@
     +---------------------------+----------+----+---+----+------------+------------+
     |       Variable Name       | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
     +---------------------------+----------+----+---+----+------------+------------+
-    |add_ln22_fu_146_p2         |         +|   0|  0|   5|           3|           1|
-    |ap_block_pp0_stage0_11001  |       and|   0|  0|   2|           1|           1|
-    |icmp_ln22_fu_152_p2        |      icmp|   0|  0|   5|           3|           4|
+    |add_ln22_fu_716_p2         |         +|   0|  0|   5|           4|           1|
+    |ap_block_pp0_stage0_01001  |       and|   0|  0|   2|           1|           1|
+    |icmp_ln22_fu_722_p2        |      icmp|   0|  0|   5|           4|           5|
     |ap_enable_pp0              |       xor|   0|  0|   2|           1|           2|
     +---------------------------+----------+----+---+----+------------+------------+
-    |Total                      |          |   0|  0|  14|           8|           8|
+    |Total                      |          |   0|  0|  14|          10|           9|
     +---------------------------+----------+----+---+----+------------+------------+
 
     * Multiplexer: 
@@ -99,11 +99,11 @@
     +-------------------------+----+-----------+-----+-----------+
     |ap_done_int              |   2|          2|    1|          2|
     |ap_enable_reg_pp0_iter1  |   2|          2|    1|          2|
-    |ap_sig_allocacmp_j_1     |   3|          2|    3|          6|
+    |ap_sig_allocacmp_j_1     |   4|          2|    4|          8|
     |gmem1_blk_n_R            |   2|          2|    1|          2|
-    |j_fu_66                  |   3|          2|    3|          6|
+    |j_fu_216                 |   4|          2|    4|          8|
     +-------------------------+----+-----------+-----+-----------+
-    |Total                    |  12|         10|    9|         18|
+    |Total                    |  14|         10|   11|         22|
     +-------------------------+----+-----------+-----+-----------+
 
     * Register: 
@@ -113,10 +113,10 @@
     |ap_CS_fsm                |  1|   0|    1|          0|
     |ap_done_reg              |  1|   0|    1|          0|
     |ap_enable_reg_pp0_iter1  |  1|   0|    1|          0|
-    |j_1_reg_275              |  3|   0|    3|          0|
-    |j_fu_66                  |  3|   0|    3|          0|
+    |j_fu_216                 |  4|   0|    4|          0|
+    |trunc_ln22_reg_937       |  3|   0|    3|          0|
     +-------------------------+---+----+-----+-----------+
-    |Total                    |  9|   0|    9|          0|
+    |Total                    | 10|   0|   10|          0|
     +-------------------------+---+----+-----+-----------+
 
 
@@ -149,8 +149,8 @@
 |m_axi_gmem1_AWUSER    |  out|    1|       m_axi|                            gmem1|       pointer|
 |m_axi_gmem1_WVALID    |  out|    1|       m_axi|                            gmem1|       pointer|
 |m_axi_gmem1_WREADY    |   in|    1|       m_axi|                            gmem1|       pointer|
-|m_axi_gmem1_WDATA     |  out|  128|       m_axi|                            gmem1|       pointer|
-|m_axi_gmem1_WSTRB     |  out|   16|       m_axi|                            gmem1|       pointer|
+|m_axi_gmem1_WDATA     |  out|  256|       m_axi|                            gmem1|       pointer|
+|m_axi_gmem1_WSTRB     |  out|   32|       m_axi|                            gmem1|       pointer|
 |m_axi_gmem1_WLAST     |  out|    1|       m_axi|                            gmem1|       pointer|
 |m_axi_gmem1_WID       |  out|    1|       m_axi|                            gmem1|       pointer|
 |m_axi_gmem1_WUSER     |  out|    1|       m_axi|                            gmem1|       pointer|
@@ -169,10 +169,10 @@
 |m_axi_gmem1_ARUSER    |  out|    1|       m_axi|                            gmem1|       pointer|
 |m_axi_gmem1_RVALID    |   in|    1|       m_axi|                            gmem1|       pointer|
 |m_axi_gmem1_RREADY    |  out|    1|       m_axi|                            gmem1|       pointer|
-|m_axi_gmem1_RDATA     |   in|  128|       m_axi|                            gmem1|       pointer|
+|m_axi_gmem1_RDATA     |   in|  256|       m_axi|                            gmem1|       pointer|
 |m_axi_gmem1_RLAST     |   in|    1|       m_axi|                            gmem1|       pointer|
 |m_axi_gmem1_RID       |   in|    1|       m_axi|                            gmem1|       pointer|
-|m_axi_gmem1_RFIFONUM  |   in|    7|       m_axi|                            gmem1|       pointer|
+|m_axi_gmem1_RFIFONUM  |   in|    8|       m_axi|                            gmem1|       pointer|
 |m_axi_gmem1_RUSER     |   in|    1|       m_axi|                            gmem1|       pointer|
 |m_axi_gmem1_RRESP     |   in|    2|       m_axi|                            gmem1|       pointer|
 |m_axi_gmem1_BVALID    |   in|    1|       m_axi|                            gmem1|       pointer|
@@ -180,21 +180,133 @@
 |m_axi_gmem1_BRESP     |   in|    2|       m_axi|                            gmem1|       pointer|
 |m_axi_gmem1_BID       |   in|    1|       m_axi|                            gmem1|       pointer|
 |m_axi_gmem1_BUSER     |   in|    1|       m_axi|                            gmem1|       pointer|
-|B_BUF_3_address0      |  out|    2|   ap_memory|                          B_BUF_3|         array|
-|B_BUF_3_ce0           |  out|    1|   ap_memory|                          B_BUF_3|         array|
-|B_BUF_3_we0           |  out|    1|   ap_memory|                          B_BUF_3|         array|
-|B_BUF_3_d0            |  out|   32|   ap_memory|                          B_BUF_3|         array|
-|B_BUF_2_address0      |  out|    2|   ap_memory|                          B_BUF_2|         array|
-|B_BUF_2_ce0           |  out|    1|   ap_memory|                          B_BUF_2|         array|
-|B_BUF_2_we0           |  out|    1|   ap_memory|                          B_BUF_2|         array|
-|B_BUF_2_d0            |  out|   32|   ap_memory|                          B_BUF_2|         array|
-|B_BUF_1_address0      |  out|    2|   ap_memory|                          B_BUF_1|         array|
-|B_BUF_1_ce0           |  out|    1|   ap_memory|                          B_BUF_1|         array|
-|B_BUF_1_we0           |  out|    1|   ap_memory|                          B_BUF_1|         array|
-|B_BUF_1_d0            |  out|   32|   ap_memory|                          B_BUF_1|         array|
-|B_BUF_0_address0      |  out|    2|   ap_memory|                          B_BUF_0|         array|
-|B_BUF_0_ce0           |  out|    1|   ap_memory|                          B_BUF_0|         array|
-|B_BUF_0_we0           |  out|    1|   ap_memory|                          B_BUF_0|         array|
-|B_BUF_0_d0            |  out|   32|   ap_memory|                          B_BUF_0|         array|
+|B_BUF_0_0             |  out|   32|      ap_vld|                        B_BUF_0_0|       pointer|
+|B_BUF_0_0_ap_vld      |  out|    1|      ap_vld|                        B_BUF_0_0|       pointer|
+|B_BUF_1_0             |  out|   32|      ap_vld|                        B_BUF_1_0|       pointer|
+|B_BUF_1_0_ap_vld      |  out|    1|      ap_vld|                        B_BUF_1_0|       pointer|
+|B_BUF_2_0             |  out|   32|      ap_vld|                        B_BUF_2_0|       pointer|
+|B_BUF_2_0_ap_vld      |  out|    1|      ap_vld|                        B_BUF_2_0|       pointer|
+|B_BUF_3_0             |  out|   32|      ap_vld|                        B_BUF_3_0|       pointer|
+|B_BUF_3_0_ap_vld      |  out|    1|      ap_vld|                        B_BUF_3_0|       pointer|
+|B_BUF_4_0             |  out|   32|      ap_vld|                        B_BUF_4_0|       pointer|
+|B_BUF_4_0_ap_vld      |  out|    1|      ap_vld|                        B_BUF_4_0|       pointer|
+|B_BUF_5_0             |  out|   32|      ap_vld|                        B_BUF_5_0|       pointer|
+|B_BUF_5_0_ap_vld      |  out|    1|      ap_vld|                        B_BUF_5_0|       pointer|
+|B_BUF_6_0             |  out|   32|      ap_vld|                        B_BUF_6_0|       pointer|
+|B_BUF_6_0_ap_vld      |  out|    1|      ap_vld|                        B_BUF_6_0|       pointer|
+|B_BUF_7_0             |  out|   32|      ap_vld|                        B_BUF_7_0|       pointer|
+|B_BUF_7_0_ap_vld      |  out|    1|      ap_vld|                        B_BUF_7_0|       pointer|
+|B_BUF_7_7             |  out|   32|      ap_vld|                        B_BUF_7_7|       pointer|
+|B_BUF_7_7_ap_vld      |  out|    1|      ap_vld|                        B_BUF_7_7|       pointer|
+|B_BUF_7_6             |  out|   32|      ap_vld|                        B_BUF_7_6|       pointer|
+|B_BUF_7_6_ap_vld      |  out|    1|      ap_vld|                        B_BUF_7_6|       pointer|
+|B_BUF_7_5             |  out|   32|      ap_vld|                        B_BUF_7_5|       pointer|
+|B_BUF_7_5_ap_vld      |  out|    1|      ap_vld|                        B_BUF_7_5|       pointer|
+|B_BUF_7_4             |  out|   32|      ap_vld|                        B_BUF_7_4|       pointer|
+|B_BUF_7_4_ap_vld      |  out|    1|      ap_vld|                        B_BUF_7_4|       pointer|
+|B_BUF_7_3             |  out|   32|      ap_vld|                        B_BUF_7_3|       pointer|
+|B_BUF_7_3_ap_vld      |  out|    1|      ap_vld|                        B_BUF_7_3|       pointer|
+|B_BUF_7_2             |  out|   32|      ap_vld|                        B_BUF_7_2|       pointer|
+|B_BUF_7_2_ap_vld      |  out|    1|      ap_vld|                        B_BUF_7_2|       pointer|
+|B_BUF_7_1             |  out|   32|      ap_vld|                        B_BUF_7_1|       pointer|
+|B_BUF_7_1_ap_vld      |  out|    1|      ap_vld|                        B_BUF_7_1|       pointer|
+|B_BUF_6_7             |  out|   32|      ap_vld|                        B_BUF_6_7|       pointer|
+|B_BUF_6_7_ap_vld      |  out|    1|      ap_vld|                        B_BUF_6_7|       pointer|
+|B_BUF_6_6             |  out|   32|      ap_vld|                        B_BUF_6_6|       pointer|
+|B_BUF_6_6_ap_vld      |  out|    1|      ap_vld|                        B_BUF_6_6|       pointer|
+|B_BUF_6_5             |  out|   32|      ap_vld|                        B_BUF_6_5|       pointer|
+|B_BUF_6_5_ap_vld      |  out|    1|      ap_vld|                        B_BUF_6_5|       pointer|
+|B_BUF_6_4             |  out|   32|      ap_vld|                        B_BUF_6_4|       pointer|
+|B_BUF_6_4_ap_vld      |  out|    1|      ap_vld|                        B_BUF_6_4|       pointer|
+|B_BUF_6_3             |  out|   32|      ap_vld|                        B_BUF_6_3|       pointer|
+|B_BUF_6_3_ap_vld      |  out|    1|      ap_vld|                        B_BUF_6_3|       pointer|
+|B_BUF_6_2             |  out|   32|      ap_vld|                        B_BUF_6_2|       pointer|
+|B_BUF_6_2_ap_vld      |  out|    1|      ap_vld|                        B_BUF_6_2|       pointer|
+|B_BUF_6_1             |  out|   32|      ap_vld|                        B_BUF_6_1|       pointer|
+|B_BUF_6_1_ap_vld      |  out|    1|      ap_vld|                        B_BUF_6_1|       pointer|
+|B_BUF_5_7             |  out|   32|      ap_vld|                        B_BUF_5_7|       pointer|
+|B_BUF_5_7_ap_vld      |  out|    1|      ap_vld|                        B_BUF_5_7|       pointer|
+|B_BUF_5_6             |  out|   32|      ap_vld|                        B_BUF_5_6|       pointer|
+|B_BUF_5_6_ap_vld      |  out|    1|      ap_vld|                        B_BUF_5_6|       pointer|
+|B_BUF_5_5             |  out|   32|      ap_vld|                        B_BUF_5_5|       pointer|
+|B_BUF_5_5_ap_vld      |  out|    1|      ap_vld|                        B_BUF_5_5|       pointer|
+|B_BUF_5_4             |  out|   32|      ap_vld|                        B_BUF_5_4|       pointer|
+|B_BUF_5_4_ap_vld      |  out|    1|      ap_vld|                        B_BUF_5_4|       pointer|
+|B_BUF_5_3             |  out|   32|      ap_vld|                        B_BUF_5_3|       pointer|
+|B_BUF_5_3_ap_vld      |  out|    1|      ap_vld|                        B_BUF_5_3|       pointer|
+|B_BUF_5_2             |  out|   32|      ap_vld|                        B_BUF_5_2|       pointer|
+|B_BUF_5_2_ap_vld      |  out|    1|      ap_vld|                        B_BUF_5_2|       pointer|
+|B_BUF_5_1             |  out|   32|      ap_vld|                        B_BUF_5_1|       pointer|
+|B_BUF_5_1_ap_vld      |  out|    1|      ap_vld|                        B_BUF_5_1|       pointer|
+|B_BUF_4_7             |  out|   32|      ap_vld|                        B_BUF_4_7|       pointer|
+|B_BUF_4_7_ap_vld      |  out|    1|      ap_vld|                        B_BUF_4_7|       pointer|
+|B_BUF_4_6             |  out|   32|      ap_vld|                        B_BUF_4_6|       pointer|
+|B_BUF_4_6_ap_vld      |  out|    1|      ap_vld|                        B_BUF_4_6|       pointer|
+|B_BUF_4_5             |  out|   32|      ap_vld|                        B_BUF_4_5|       pointer|
+|B_BUF_4_5_ap_vld      |  out|    1|      ap_vld|                        B_BUF_4_5|       pointer|
+|B_BUF_4_4             |  out|   32|      ap_vld|                        B_BUF_4_4|       pointer|
+|B_BUF_4_4_ap_vld      |  out|    1|      ap_vld|                        B_BUF_4_4|       pointer|
+|B_BUF_4_3             |  out|   32|      ap_vld|                        B_BUF_4_3|       pointer|
+|B_BUF_4_3_ap_vld      |  out|    1|      ap_vld|                        B_BUF_4_3|       pointer|
+|B_BUF_4_2             |  out|   32|      ap_vld|                        B_BUF_4_2|       pointer|
+|B_BUF_4_2_ap_vld      |  out|    1|      ap_vld|                        B_BUF_4_2|       pointer|
+|B_BUF_4_1             |  out|   32|      ap_vld|                        B_BUF_4_1|       pointer|
+|B_BUF_4_1_ap_vld      |  out|    1|      ap_vld|                        B_BUF_4_1|       pointer|
+|B_BUF_3_7             |  out|   32|      ap_vld|                        B_BUF_3_7|       pointer|
+|B_BUF_3_7_ap_vld      |  out|    1|      ap_vld|                        B_BUF_3_7|       pointer|
+|B_BUF_3_6             |  out|   32|      ap_vld|                        B_BUF_3_6|       pointer|
+|B_BUF_3_6_ap_vld      |  out|    1|      ap_vld|                        B_BUF_3_6|       pointer|
+|B_BUF_3_5             |  out|   32|      ap_vld|                        B_BUF_3_5|       pointer|
+|B_BUF_3_5_ap_vld      |  out|    1|      ap_vld|                        B_BUF_3_5|       pointer|
+|B_BUF_3_4             |  out|   32|      ap_vld|                        B_BUF_3_4|       pointer|
+|B_BUF_3_4_ap_vld      |  out|    1|      ap_vld|                        B_BUF_3_4|       pointer|
+|B_BUF_3_3             |  out|   32|      ap_vld|                        B_BUF_3_3|       pointer|
+|B_BUF_3_3_ap_vld      |  out|    1|      ap_vld|                        B_BUF_3_3|       pointer|
+|B_BUF_3_2             |  out|   32|      ap_vld|                        B_BUF_3_2|       pointer|
+|B_BUF_3_2_ap_vld      |  out|    1|      ap_vld|                        B_BUF_3_2|       pointer|
+|B_BUF_3_1             |  out|   32|      ap_vld|                        B_BUF_3_1|       pointer|
+|B_BUF_3_1_ap_vld      |  out|    1|      ap_vld|                        B_BUF_3_1|       pointer|
+|B_BUF_2_7             |  out|   32|      ap_vld|                        B_BUF_2_7|       pointer|
+|B_BUF_2_7_ap_vld      |  out|    1|      ap_vld|                        B_BUF_2_7|       pointer|
+|B_BUF_2_6             |  out|   32|      ap_vld|                        B_BUF_2_6|       pointer|
+|B_BUF_2_6_ap_vld      |  out|    1|      ap_vld|                        B_BUF_2_6|       pointer|
+|B_BUF_2_5             |  out|   32|      ap_vld|                        B_BUF_2_5|       pointer|
+|B_BUF_2_5_ap_vld      |  out|    1|      ap_vld|                        B_BUF_2_5|       pointer|
+|B_BUF_2_4             |  out|   32|      ap_vld|                        B_BUF_2_4|       pointer|
+|B_BUF_2_4_ap_vld      |  out|    1|      ap_vld|                        B_BUF_2_4|       pointer|
+|B_BUF_2_3             |  out|   32|      ap_vld|                        B_BUF_2_3|       pointer|
+|B_BUF_2_3_ap_vld      |  out|    1|      ap_vld|                        B_BUF_2_3|       pointer|
+|B_BUF_2_2             |  out|   32|      ap_vld|                        B_BUF_2_2|       pointer|
+|B_BUF_2_2_ap_vld      |  out|    1|      ap_vld|                        B_BUF_2_2|       pointer|
+|B_BUF_2_1             |  out|   32|      ap_vld|                        B_BUF_2_1|       pointer|
+|B_BUF_2_1_ap_vld      |  out|    1|      ap_vld|                        B_BUF_2_1|       pointer|
+|B_BUF_1_7             |  out|   32|      ap_vld|                        B_BUF_1_7|       pointer|
+|B_BUF_1_7_ap_vld      |  out|    1|      ap_vld|                        B_BUF_1_7|       pointer|
+|B_BUF_1_6             |  out|   32|      ap_vld|                        B_BUF_1_6|       pointer|
+|B_BUF_1_6_ap_vld      |  out|    1|      ap_vld|                        B_BUF_1_6|       pointer|
+|B_BUF_1_5             |  out|   32|      ap_vld|                        B_BUF_1_5|       pointer|
+|B_BUF_1_5_ap_vld      |  out|    1|      ap_vld|                        B_BUF_1_5|       pointer|
+|B_BUF_1_4             |  out|   32|      ap_vld|                        B_BUF_1_4|       pointer|
+|B_BUF_1_4_ap_vld      |  out|    1|      ap_vld|                        B_BUF_1_4|       pointer|
+|B_BUF_1_3             |  out|   32|      ap_vld|                        B_BUF_1_3|       pointer|
+|B_BUF_1_3_ap_vld      |  out|    1|      ap_vld|                        B_BUF_1_3|       pointer|
+|B_BUF_1_2             |  out|   32|      ap_vld|                        B_BUF_1_2|       pointer|
+|B_BUF_1_2_ap_vld      |  out|    1|      ap_vld|                        B_BUF_1_2|       pointer|
+|B_BUF_1_1             |  out|   32|      ap_vld|                        B_BUF_1_1|       pointer|
+|B_BUF_1_1_ap_vld      |  out|    1|      ap_vld|                        B_BUF_1_1|       pointer|
+|B_BUF_0_7             |  out|   32|      ap_vld|                        B_BUF_0_7|       pointer|
+|B_BUF_0_7_ap_vld      |  out|    1|      ap_vld|                        B_BUF_0_7|       pointer|
+|B_BUF_0_6             |  out|   32|      ap_vld|                        B_BUF_0_6|       pointer|
+|B_BUF_0_6_ap_vld      |  out|    1|      ap_vld|                        B_BUF_0_6|       pointer|
+|B_BUF_0_5             |  out|   32|      ap_vld|                        B_BUF_0_5|       pointer|
+|B_BUF_0_5_ap_vld      |  out|    1|      ap_vld|                        B_BUF_0_5|       pointer|
+|B_BUF_0_4             |  out|   32|      ap_vld|                        B_BUF_0_4|       pointer|
+|B_BUF_0_4_ap_vld      |  out|    1|      ap_vld|                        B_BUF_0_4|       pointer|
+|B_BUF_0_3             |  out|   32|      ap_vld|                        B_BUF_0_3|       pointer|
+|B_BUF_0_3_ap_vld      |  out|    1|      ap_vld|                        B_BUF_0_3|       pointer|
+|B_BUF_0_2             |  out|   32|      ap_vld|                        B_BUF_0_2|       pointer|
+|B_BUF_0_2_ap_vld      |  out|    1|      ap_vld|                        B_BUF_0_2|       pointer|
+|B_BUF_0_1             |  out|   32|      ap_vld|                        B_BUF_0_1|       pointer|
+|B_BUF_0_1_ap_vld      |  out|    1|      ap_vld|                        B_BUF_0_1|       pointer|
 +----------------------+-----+-----+------------+---------------------------------+--------------+
 

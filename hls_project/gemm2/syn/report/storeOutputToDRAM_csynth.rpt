@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'storeOutputToDRAM'
 ================================================================
-* Date:           Thu Jul 16 14:01:24 2026
+* Date:           Mon Jul 20 14:05:23 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        hls_project
@@ -29,7 +29,7 @@
     |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
     |   min   |   max   |    min   |    max   | min | max |   Type  |
     +---------+---------+----------+----------+-----+-----+---------+
-    |       76|       76|  0.253 us|  0.253 us|   76|   76|       no|
+    |      132|      132|  0.440 us|  0.440 us|  132|  132|       no|
     +---------+---------+----------+----------+-----+-----+---------+
 
     + Detail: 
@@ -41,7 +41,7 @@
         |                   |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
         |     Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
         +-------------------+---------+---------+----------+-----------+-----------+------+----------+
-        |- VITIS_LOOP_43_1  |        8|        8|         1|          -|          -|     8|        no|
+        |- VITIS_LOOP_43_1  |       64|       64|         2|          -|          -|    32|        no|
         +-------------------+---------+---------+----------+-----------+-----------+------+----------+
 
 
@@ -54,14 +54,14 @@
 |       Name      | BRAM_18K|  DSP |    FF   |   LUT  | URAM|
 +-----------------+---------+------+---------+--------+-----+
 |DSP              |        -|     -|        -|       -|    -|
-|Expression       |        -|     -|        0|      12|    -|
+|Expression       |        -|     -|        0|      13|    -|
 |FIFO             |        -|     -|        -|       -|    -|
-|Instance         |        -|     -|        0|     372|    -|
+|Instance         |        -|     -|        0|    2816|    -|
 |Memory           |        -|     -|        -|       -|    -|
-|Multiplexer      |        -|     -|        -|      96|    -|
-|Register         |        -|     -|       73|       -|    -|
+|Multiplexer      |        -|     -|        -|      97|    -|
+|Register         |        -|     -|      332|       -|    -|
 +-----------------+---------+------+---------+--------+-----+
-|Total            |        0|     0|       73|     480|    0|
+|Total            |        0|     0|      332|    2926|    0|
 +-----------------+---------+------+---------+--------+-----+
 |Available        |     1934|  1968|  1799680|  899840|  463|
 +-----------------+---------+------+---------+--------+-----+
@@ -70,16 +70,20 @@
 
 + Detail: 
     * Instance: 
-    +----------------------------+-----------------------+---------+----+---+----+-----+
-    |          Instance          |         Module        | BRAM_18K| DSP| FF| LUT| URAM|
-    +----------------------------+-----------------------+---------+----+---+----+-----+
-    |sparsemux_17_3_32_1_1_U504  |sparsemux_17_3_32_1_1  |        0|   0|  0|  93|    0|
-    |sparsemux_17_3_32_1_1_U505  |sparsemux_17_3_32_1_1  |        0|   0|  0|  93|    0|
-    |sparsemux_17_3_32_1_1_U506  |sparsemux_17_3_32_1_1  |        0|   0|  0|  93|    0|
-    |sparsemux_17_3_32_1_1_U507  |sparsemux_17_3_32_1_1  |        0|   0|  0|  93|    0|
-    +----------------------------+-----------------------+---------+----+---+----+-----+
-    |Total                       |                       |        0|   0|  0| 372|    0|
-    +----------------------------+-----------------------+---------+----+---+----+-----+
+    +-----------------------------+-----------------------+---------+----+---+-----+-----+
+    |           Instance          |         Module        | BRAM_18K| DSP| FF| LUT | URAM|
+    +-----------------------------+-----------------------+---------+----+---+-----+-----+
+    |sparsemux_65_5_32_1_1_U2194  |sparsemux_65_5_32_1_1  |        0|   0|  0|  352|    0|
+    |sparsemux_65_5_32_1_1_U2195  |sparsemux_65_5_32_1_1  |        0|   0|  0|  352|    0|
+    |sparsemux_65_5_32_1_1_U2196  |sparsemux_65_5_32_1_1  |        0|   0|  0|  352|    0|
+    |sparsemux_65_5_32_1_1_U2197  |sparsemux_65_5_32_1_1  |        0|   0|  0|  352|    0|
+    |sparsemux_65_5_32_1_1_U2198  |sparsemux_65_5_32_1_1  |        0|   0|  0|  352|    0|
+    |sparsemux_65_5_32_1_1_U2199  |sparsemux_65_5_32_1_1  |        0|   0|  0|  352|    0|
+    |sparsemux_65_5_32_1_1_U2200  |sparsemux_65_5_32_1_1  |        0|   0|  0|  352|    0|
+    |sparsemux_65_5_32_1_1_U2201  |sparsemux_65_5_32_1_1  |        0|   0|  0|  352|    0|
+    +-----------------------------+-----------------------+---------+----+---+-----+-----+
+    |Total                        |                       |        0|   0|  0| 2816|    0|
+    +-----------------------------+-----------------------+---------+----+---+-----+-----+
 
     * DSP: 
     N/A
@@ -91,38 +95,45 @@
     N/A
 
     * Expression: 
-    +---------------------+----------+----+---+----+------------+------------+
-    |    Variable Name    | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
-    +---------------------+----------+----+---+----+------------+------------+
-    |add_ln43_fu_473_p2   |         +|   0|  0|   5|           4|           1|
-    |ap_block_state2_io   |       and|   0|  0|   2|           1|           1|
-    |icmp_ln43_fu_479_p2  |      icmp|   0|  0|   5|           4|           5|
-    +---------------------+----------+----+---+----+------------+------------+
-    |Total                |          |   0|  0|  12|           9|           7|
-    +---------------------+----------+----+---+----+------------+------------+
+    +----------------------+----------+----+---+----+------------+------------+
+    |     Variable Name    | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------+----------+----+---+----+------------+------------+
+    |add_ln43_fu_2761_p2   |         +|   0|  0|   6|           6|           1|
+    |icmp_ln43_fu_2767_p2  |      icmp|   0|  0|   7|           6|           7|
+    +----------------------+----------+----+---+----+------------+------------+
+    |Total                 |          |   0|  0|  13|          12|           8|
+    +----------------------+----------+----+---+----+------------+------------+
 
     * Multiplexer: 
     +----------------+----+-----------+-----+-----------+
     |      Name      | LUT| Input Size| Bits| Total Bits|
     +----------------+----+-----------+-----+-----------+
-    |ap_NS_fsm       |  86|         70|    1|         70|
+    |ap_NS_fsm       |  86|         71|    1|         71|
     |gmem2_blk_n_AW  |   2|          2|    1|          2|
     |gmem2_blk_n_B   |   2|          2|    1|          2|
     |gmem2_blk_n_W   |   2|          2|    1|          2|
-    |i_fu_144        |   4|          2|    4|          8|
+    |i_fu_640        |   5|          2|    6|         12|
     +----------------+----+-----------+-----+-----------+
-    |Total           |  96|         78|    8|         84|
+    |Total           |  97|         79|   10|         89|
     +----------------+----+-----------+-----+-----------+
 
     * Register: 
-    +-----------+----+----+-----+-----------+
-    |    Name   | FF | LUT| Bits| Const Bits|
-    +-----------+----+----+-----+-----------+
-    |ap_CS_fsm  |  69|   0|   69|          0|
-    |i_fu_144   |   4|   0|    4|          0|
-    +-----------+----+----+-----+-----------+
-    |Total      |  73|   0|   73|          0|
-    +-----------+----+----+-----+-----------+
+    +----------------+----+----+-----+-----------+
+    |      Name      | FF | LUT| Bits| Const Bits|
+    +----------------+----+----+-----+-----------+
+    |ap_CS_fsm       |  70|   0|   70|          0|
+    |i_fu_640        |   6|   0|    6|          0|
+    |tmp_1_reg_4968  |  32|   0|   32|          0|
+    |tmp_2_reg_4973  |  32|   0|   32|          0|
+    |tmp_3_reg_4978  |  32|   0|   32|          0|
+    |tmp_4_reg_4983  |  32|   0|   32|          0|
+    |tmp_5_reg_4988  |  32|   0|   32|          0|
+    |tmp_6_reg_4993  |  32|   0|   32|          0|
+    |tmp_7_reg_4998  |  32|   0|   32|          0|
+    |tmp_reg_4963    |  32|   0|   32|          0|
+    +----------------+----+----+-----+-----------+
+    |Total           | 332|   0|  332|          0|
+    +----------------+----+----+-----+-----------+
 
 
 
@@ -143,34 +154,258 @@
 |C_BUF_0_1_val         |   in|   32|     ap_none|      C_BUF_0_1_val|        scalar|
 |C_BUF_0_2_val         |   in|   32|     ap_none|      C_BUF_0_2_val|        scalar|
 |C_BUF_0_3_val         |   in|   32|     ap_none|      C_BUF_0_3_val|        scalar|
+|C_BUF_0_4_val         |   in|   32|     ap_none|      C_BUF_0_4_val|        scalar|
+|C_BUF_0_5_val         |   in|   32|     ap_none|      C_BUF_0_5_val|        scalar|
+|C_BUF_0_6_val         |   in|   32|     ap_none|      C_BUF_0_6_val|        scalar|
+|C_BUF_0_7_val         |   in|   32|     ap_none|      C_BUF_0_7_val|        scalar|
 |C_BUF_1_0_val         |   in|   32|     ap_none|      C_BUF_1_0_val|        scalar|
 |C_BUF_1_1_val         |   in|   32|     ap_none|      C_BUF_1_1_val|        scalar|
 |C_BUF_1_2_val         |   in|   32|     ap_none|      C_BUF_1_2_val|        scalar|
 |C_BUF_1_3_val         |   in|   32|     ap_none|      C_BUF_1_3_val|        scalar|
+|C_BUF_1_4_val         |   in|   32|     ap_none|      C_BUF_1_4_val|        scalar|
+|C_BUF_1_5_val         |   in|   32|     ap_none|      C_BUF_1_5_val|        scalar|
+|C_BUF_1_6_val         |   in|   32|     ap_none|      C_BUF_1_6_val|        scalar|
+|C_BUF_1_7_val         |   in|   32|     ap_none|      C_BUF_1_7_val|        scalar|
 |C_BUF_2_0_val         |   in|   32|     ap_none|      C_BUF_2_0_val|        scalar|
 |C_BUF_2_1_val         |   in|   32|     ap_none|      C_BUF_2_1_val|        scalar|
 |C_BUF_2_2_val         |   in|   32|     ap_none|      C_BUF_2_2_val|        scalar|
 |C_BUF_2_3_val         |   in|   32|     ap_none|      C_BUF_2_3_val|        scalar|
+|C_BUF_2_4_val         |   in|   32|     ap_none|      C_BUF_2_4_val|        scalar|
+|C_BUF_2_5_val         |   in|   32|     ap_none|      C_BUF_2_5_val|        scalar|
+|C_BUF_2_6_val         |   in|   32|     ap_none|      C_BUF_2_6_val|        scalar|
+|C_BUF_2_7_val         |   in|   32|     ap_none|      C_BUF_2_7_val|        scalar|
 |C_BUF_3_0_val         |   in|   32|     ap_none|      C_BUF_3_0_val|        scalar|
 |C_BUF_3_1_val         |   in|   32|     ap_none|      C_BUF_3_1_val|        scalar|
 |C_BUF_3_2_val         |   in|   32|     ap_none|      C_BUF_3_2_val|        scalar|
 |C_BUF_3_3_val         |   in|   32|     ap_none|      C_BUF_3_3_val|        scalar|
+|C_BUF_3_4_val         |   in|   32|     ap_none|      C_BUF_3_4_val|        scalar|
+|C_BUF_3_5_val         |   in|   32|     ap_none|      C_BUF_3_5_val|        scalar|
+|C_BUF_3_6_val         |   in|   32|     ap_none|      C_BUF_3_6_val|        scalar|
+|C_BUF_3_7_val         |   in|   32|     ap_none|      C_BUF_3_7_val|        scalar|
 |C_BUF_4_0_val         |   in|   32|     ap_none|      C_BUF_4_0_val|        scalar|
 |C_BUF_4_1_val         |   in|   32|     ap_none|      C_BUF_4_1_val|        scalar|
 |C_BUF_4_2_val         |   in|   32|     ap_none|      C_BUF_4_2_val|        scalar|
 |C_BUF_4_3_val         |   in|   32|     ap_none|      C_BUF_4_3_val|        scalar|
+|C_BUF_4_4_val         |   in|   32|     ap_none|      C_BUF_4_4_val|        scalar|
+|C_BUF_4_5_val         |   in|   32|     ap_none|      C_BUF_4_5_val|        scalar|
+|C_BUF_4_6_val         |   in|   32|     ap_none|      C_BUF_4_6_val|        scalar|
+|C_BUF_4_7_val         |   in|   32|     ap_none|      C_BUF_4_7_val|        scalar|
 |C_BUF_5_0_val         |   in|   32|     ap_none|      C_BUF_5_0_val|        scalar|
 |C_BUF_5_1_val         |   in|   32|     ap_none|      C_BUF_5_1_val|        scalar|
 |C_BUF_5_2_val         |   in|   32|     ap_none|      C_BUF_5_2_val|        scalar|
 |C_BUF_5_3_val         |   in|   32|     ap_none|      C_BUF_5_3_val|        scalar|
+|C_BUF_5_4_val         |   in|   32|     ap_none|      C_BUF_5_4_val|        scalar|
+|C_BUF_5_5_val         |   in|   32|     ap_none|      C_BUF_5_5_val|        scalar|
+|C_BUF_5_6_val         |   in|   32|     ap_none|      C_BUF_5_6_val|        scalar|
+|C_BUF_5_7_val         |   in|   32|     ap_none|      C_BUF_5_7_val|        scalar|
 |C_BUF_6_0_val         |   in|   32|     ap_none|      C_BUF_6_0_val|        scalar|
 |C_BUF_6_1_val         |   in|   32|     ap_none|      C_BUF_6_1_val|        scalar|
 |C_BUF_6_2_val         |   in|   32|     ap_none|      C_BUF_6_2_val|        scalar|
 |C_BUF_6_3_val         |   in|   32|     ap_none|      C_BUF_6_3_val|        scalar|
+|C_BUF_6_4_val         |   in|   32|     ap_none|      C_BUF_6_4_val|        scalar|
+|C_BUF_6_5_val         |   in|   32|     ap_none|      C_BUF_6_5_val|        scalar|
+|C_BUF_6_6_val         |   in|   32|     ap_none|      C_BUF_6_6_val|        scalar|
+|C_BUF_6_7_val         |   in|   32|     ap_none|      C_BUF_6_7_val|        scalar|
 |C_BUF_7_0_val         |   in|   32|     ap_none|      C_BUF_7_0_val|        scalar|
 |C_BUF_7_1_val         |   in|   32|     ap_none|      C_BUF_7_1_val|        scalar|
 |C_BUF_7_2_val         |   in|   32|     ap_none|      C_BUF_7_2_val|        scalar|
 |C_BUF_7_3_val         |   in|   32|     ap_none|      C_BUF_7_3_val|        scalar|
+|C_BUF_7_4_val         |   in|   32|     ap_none|      C_BUF_7_4_val|        scalar|
+|C_BUF_7_5_val         |   in|   32|     ap_none|      C_BUF_7_5_val|        scalar|
+|C_BUF_7_6_val         |   in|   32|     ap_none|      C_BUF_7_6_val|        scalar|
+|C_BUF_7_7_val         |   in|   32|     ap_none|      C_BUF_7_7_val|        scalar|
+|C_BUF_8_0_val         |   in|   32|     ap_none|      C_BUF_8_0_val|        scalar|
+|C_BUF_8_1_val         |   in|   32|     ap_none|      C_BUF_8_1_val|        scalar|
+|C_BUF_8_2_val         |   in|   32|     ap_none|      C_BUF_8_2_val|        scalar|
+|C_BUF_8_3_val         |   in|   32|     ap_none|      C_BUF_8_3_val|        scalar|
+|C_BUF_8_4_val         |   in|   32|     ap_none|      C_BUF_8_4_val|        scalar|
+|C_BUF_8_5_val         |   in|   32|     ap_none|      C_BUF_8_5_val|        scalar|
+|C_BUF_8_6_val         |   in|   32|     ap_none|      C_BUF_8_6_val|        scalar|
+|C_BUF_8_7_val         |   in|   32|     ap_none|      C_BUF_8_7_val|        scalar|
+|C_BUF_9_0_val         |   in|   32|     ap_none|      C_BUF_9_0_val|        scalar|
+|C_BUF_9_1_val         |   in|   32|     ap_none|      C_BUF_9_1_val|        scalar|
+|C_BUF_9_2_val         |   in|   32|     ap_none|      C_BUF_9_2_val|        scalar|
+|C_BUF_9_3_val         |   in|   32|     ap_none|      C_BUF_9_3_val|        scalar|
+|C_BUF_9_4_val         |   in|   32|     ap_none|      C_BUF_9_4_val|        scalar|
+|C_BUF_9_5_val         |   in|   32|     ap_none|      C_BUF_9_5_val|        scalar|
+|C_BUF_9_6_val         |   in|   32|     ap_none|      C_BUF_9_6_val|        scalar|
+|C_BUF_9_7_val         |   in|   32|     ap_none|      C_BUF_9_7_val|        scalar|
+|C_BUF_10_0_val        |   in|   32|     ap_none|     C_BUF_10_0_val|        scalar|
+|C_BUF_10_1_val        |   in|   32|     ap_none|     C_BUF_10_1_val|        scalar|
+|C_BUF_10_2_val        |   in|   32|     ap_none|     C_BUF_10_2_val|        scalar|
+|C_BUF_10_3_val        |   in|   32|     ap_none|     C_BUF_10_3_val|        scalar|
+|C_BUF_10_4_val        |   in|   32|     ap_none|     C_BUF_10_4_val|        scalar|
+|C_BUF_10_5_val        |   in|   32|     ap_none|     C_BUF_10_5_val|        scalar|
+|C_BUF_10_6_val        |   in|   32|     ap_none|     C_BUF_10_6_val|        scalar|
+|C_BUF_10_7_val        |   in|   32|     ap_none|     C_BUF_10_7_val|        scalar|
+|C_BUF_11_0_val        |   in|   32|     ap_none|     C_BUF_11_0_val|        scalar|
+|C_BUF_11_1_val        |   in|   32|     ap_none|     C_BUF_11_1_val|        scalar|
+|C_BUF_11_2_val        |   in|   32|     ap_none|     C_BUF_11_2_val|        scalar|
+|C_BUF_11_3_val        |   in|   32|     ap_none|     C_BUF_11_3_val|        scalar|
+|C_BUF_11_4_val        |   in|   32|     ap_none|     C_BUF_11_4_val|        scalar|
+|C_BUF_11_5_val        |   in|   32|     ap_none|     C_BUF_11_5_val|        scalar|
+|C_BUF_11_6_val        |   in|   32|     ap_none|     C_BUF_11_6_val|        scalar|
+|C_BUF_11_7_val        |   in|   32|     ap_none|     C_BUF_11_7_val|        scalar|
+|C_BUF_12_0_val        |   in|   32|     ap_none|     C_BUF_12_0_val|        scalar|
+|C_BUF_12_1_val        |   in|   32|     ap_none|     C_BUF_12_1_val|        scalar|
+|C_BUF_12_2_val        |   in|   32|     ap_none|     C_BUF_12_2_val|        scalar|
+|C_BUF_12_3_val        |   in|   32|     ap_none|     C_BUF_12_3_val|        scalar|
+|C_BUF_12_4_val        |   in|   32|     ap_none|     C_BUF_12_4_val|        scalar|
+|C_BUF_12_5_val        |   in|   32|     ap_none|     C_BUF_12_5_val|        scalar|
+|C_BUF_12_6_val        |   in|   32|     ap_none|     C_BUF_12_6_val|        scalar|
+|C_BUF_12_7_val        |   in|   32|     ap_none|     C_BUF_12_7_val|        scalar|
+|C_BUF_13_0_val        |   in|   32|     ap_none|     C_BUF_13_0_val|        scalar|
+|C_BUF_13_1_val        |   in|   32|     ap_none|     C_BUF_13_1_val|        scalar|
+|C_BUF_13_2_val        |   in|   32|     ap_none|     C_BUF_13_2_val|        scalar|
+|C_BUF_13_3_val        |   in|   32|     ap_none|     C_BUF_13_3_val|        scalar|
+|C_BUF_13_4_val        |   in|   32|     ap_none|     C_BUF_13_4_val|        scalar|
+|C_BUF_13_5_val        |   in|   32|     ap_none|     C_BUF_13_5_val|        scalar|
+|C_BUF_13_6_val        |   in|   32|     ap_none|     C_BUF_13_6_val|        scalar|
+|C_BUF_13_7_val        |   in|   32|     ap_none|     C_BUF_13_7_val|        scalar|
+|C_BUF_14_0_val        |   in|   32|     ap_none|     C_BUF_14_0_val|        scalar|
+|C_BUF_14_1_val        |   in|   32|     ap_none|     C_BUF_14_1_val|        scalar|
+|C_BUF_14_2_val        |   in|   32|     ap_none|     C_BUF_14_2_val|        scalar|
+|C_BUF_14_3_val        |   in|   32|     ap_none|     C_BUF_14_3_val|        scalar|
+|C_BUF_14_4_val        |   in|   32|     ap_none|     C_BUF_14_4_val|        scalar|
+|C_BUF_14_5_val        |   in|   32|     ap_none|     C_BUF_14_5_val|        scalar|
+|C_BUF_14_6_val        |   in|   32|     ap_none|     C_BUF_14_6_val|        scalar|
+|C_BUF_14_7_val        |   in|   32|     ap_none|     C_BUF_14_7_val|        scalar|
+|C_BUF_15_0_val        |   in|   32|     ap_none|     C_BUF_15_0_val|        scalar|
+|C_BUF_15_1_val        |   in|   32|     ap_none|     C_BUF_15_1_val|        scalar|
+|C_BUF_15_2_val        |   in|   32|     ap_none|     C_BUF_15_2_val|        scalar|
+|C_BUF_15_3_val        |   in|   32|     ap_none|     C_BUF_15_3_val|        scalar|
+|C_BUF_15_4_val        |   in|   32|     ap_none|     C_BUF_15_4_val|        scalar|
+|C_BUF_15_5_val        |   in|   32|     ap_none|     C_BUF_15_5_val|        scalar|
+|C_BUF_15_6_val        |   in|   32|     ap_none|     C_BUF_15_6_val|        scalar|
+|C_BUF_15_7_val        |   in|   32|     ap_none|     C_BUF_15_7_val|        scalar|
+|C_BUF_16_0_val        |   in|   32|     ap_none|     C_BUF_16_0_val|        scalar|
+|C_BUF_16_1_val        |   in|   32|     ap_none|     C_BUF_16_1_val|        scalar|
+|C_BUF_16_2_val        |   in|   32|     ap_none|     C_BUF_16_2_val|        scalar|
+|C_BUF_16_3_val        |   in|   32|     ap_none|     C_BUF_16_3_val|        scalar|
+|C_BUF_16_4_val        |   in|   32|     ap_none|     C_BUF_16_4_val|        scalar|
+|C_BUF_16_5_val        |   in|   32|     ap_none|     C_BUF_16_5_val|        scalar|
+|C_BUF_16_6_val        |   in|   32|     ap_none|     C_BUF_16_6_val|        scalar|
+|C_BUF_16_7_val        |   in|   32|     ap_none|     C_BUF_16_7_val|        scalar|
+|C_BUF_17_0_val        |   in|   32|     ap_none|     C_BUF_17_0_val|        scalar|
+|C_BUF_17_1_val        |   in|   32|     ap_none|     C_BUF_17_1_val|        scalar|
+|C_BUF_17_2_val        |   in|   32|     ap_none|     C_BUF_17_2_val|        scalar|
+|C_BUF_17_3_val        |   in|   32|     ap_none|     C_BUF_17_3_val|        scalar|
+|C_BUF_17_4_val        |   in|   32|     ap_none|     C_BUF_17_4_val|        scalar|
+|C_BUF_17_5_val        |   in|   32|     ap_none|     C_BUF_17_5_val|        scalar|
+|C_BUF_17_6_val        |   in|   32|     ap_none|     C_BUF_17_6_val|        scalar|
+|C_BUF_17_7_val        |   in|   32|     ap_none|     C_BUF_17_7_val|        scalar|
+|C_BUF_18_0_val        |   in|   32|     ap_none|     C_BUF_18_0_val|        scalar|
+|C_BUF_18_1_val        |   in|   32|     ap_none|     C_BUF_18_1_val|        scalar|
+|C_BUF_18_2_val        |   in|   32|     ap_none|     C_BUF_18_2_val|        scalar|
+|C_BUF_18_3_val        |   in|   32|     ap_none|     C_BUF_18_3_val|        scalar|
+|C_BUF_18_4_val        |   in|   32|     ap_none|     C_BUF_18_4_val|        scalar|
+|C_BUF_18_5_val        |   in|   32|     ap_none|     C_BUF_18_5_val|        scalar|
+|C_BUF_18_6_val        |   in|   32|     ap_none|     C_BUF_18_6_val|        scalar|
+|C_BUF_18_7_val        |   in|   32|     ap_none|     C_BUF_18_7_val|        scalar|
+|C_BUF_19_0_val        |   in|   32|     ap_none|     C_BUF_19_0_val|        scalar|
+|C_BUF_19_1_val        |   in|   32|     ap_none|     C_BUF_19_1_val|        scalar|
+|C_BUF_19_2_val        |   in|   32|     ap_none|     C_BUF_19_2_val|        scalar|
+|C_BUF_19_3_val        |   in|   32|     ap_none|     C_BUF_19_3_val|        scalar|
+|C_BUF_19_4_val        |   in|   32|     ap_none|     C_BUF_19_4_val|        scalar|
+|C_BUF_19_5_val        |   in|   32|     ap_none|     C_BUF_19_5_val|        scalar|
+|C_BUF_19_6_val        |   in|   32|     ap_none|     C_BUF_19_6_val|        scalar|
+|C_BUF_19_7_val        |   in|   32|     ap_none|     C_BUF_19_7_val|        scalar|
+|C_BUF_20_0_val        |   in|   32|     ap_none|     C_BUF_20_0_val|        scalar|
+|C_BUF_20_1_val        |   in|   32|     ap_none|     C_BUF_20_1_val|        scalar|
+|C_BUF_20_2_val        |   in|   32|     ap_none|     C_BUF_20_2_val|        scalar|
+|C_BUF_20_3_val        |   in|   32|     ap_none|     C_BUF_20_3_val|        scalar|
+|C_BUF_20_4_val        |   in|   32|     ap_none|     C_BUF_20_4_val|        scalar|
+|C_BUF_20_5_val        |   in|   32|     ap_none|     C_BUF_20_5_val|        scalar|
+|C_BUF_20_6_val        |   in|   32|     ap_none|     C_BUF_20_6_val|        scalar|
+|C_BUF_20_7_val        |   in|   32|     ap_none|     C_BUF_20_7_val|        scalar|
+|C_BUF_21_0_val        |   in|   32|     ap_none|     C_BUF_21_0_val|        scalar|
+|C_BUF_21_1_val        |   in|   32|     ap_none|     C_BUF_21_1_val|        scalar|
+|C_BUF_21_2_val        |   in|   32|     ap_none|     C_BUF_21_2_val|        scalar|
+|C_BUF_21_3_val        |   in|   32|     ap_none|     C_BUF_21_3_val|        scalar|
+|C_BUF_21_4_val        |   in|   32|     ap_none|     C_BUF_21_4_val|        scalar|
+|C_BUF_21_5_val        |   in|   32|     ap_none|     C_BUF_21_5_val|        scalar|
+|C_BUF_21_6_val        |   in|   32|     ap_none|     C_BUF_21_6_val|        scalar|
+|C_BUF_21_7_val        |   in|   32|     ap_none|     C_BUF_21_7_val|        scalar|
+|C_BUF_22_0_val        |   in|   32|     ap_none|     C_BUF_22_0_val|        scalar|
+|C_BUF_22_1_val        |   in|   32|     ap_none|     C_BUF_22_1_val|        scalar|
+|C_BUF_22_2_val        |   in|   32|     ap_none|     C_BUF_22_2_val|        scalar|
+|C_BUF_22_3_val        |   in|   32|     ap_none|     C_BUF_22_3_val|        scalar|
+|C_BUF_22_4_val        |   in|   32|     ap_none|     C_BUF_22_4_val|        scalar|
+|C_BUF_22_5_val        |   in|   32|     ap_none|     C_BUF_22_5_val|        scalar|
+|C_BUF_22_6_val        |   in|   32|     ap_none|     C_BUF_22_6_val|        scalar|
+|C_BUF_22_7_val        |   in|   32|     ap_none|     C_BUF_22_7_val|        scalar|
+|C_BUF_23_0_val        |   in|   32|     ap_none|     C_BUF_23_0_val|        scalar|
+|C_BUF_23_1_val        |   in|   32|     ap_none|     C_BUF_23_1_val|        scalar|
+|C_BUF_23_2_val        |   in|   32|     ap_none|     C_BUF_23_2_val|        scalar|
+|C_BUF_23_3_val        |   in|   32|     ap_none|     C_BUF_23_3_val|        scalar|
+|C_BUF_23_4_val        |   in|   32|     ap_none|     C_BUF_23_4_val|        scalar|
+|C_BUF_23_5_val        |   in|   32|     ap_none|     C_BUF_23_5_val|        scalar|
+|C_BUF_23_6_val        |   in|   32|     ap_none|     C_BUF_23_6_val|        scalar|
+|C_BUF_23_7_val        |   in|   32|     ap_none|     C_BUF_23_7_val|        scalar|
+|C_BUF_24_0_val        |   in|   32|     ap_none|     C_BUF_24_0_val|        scalar|
+|C_BUF_24_1_val        |   in|   32|     ap_none|     C_BUF_24_1_val|        scalar|
+|C_BUF_24_2_val        |   in|   32|     ap_none|     C_BUF_24_2_val|        scalar|
+|C_BUF_24_3_val        |   in|   32|     ap_none|     C_BUF_24_3_val|        scalar|
+|C_BUF_24_4_val        |   in|   32|     ap_none|     C_BUF_24_4_val|        scalar|
+|C_BUF_24_5_val        |   in|   32|     ap_none|     C_BUF_24_5_val|        scalar|
+|C_BUF_24_6_val        |   in|   32|     ap_none|     C_BUF_24_6_val|        scalar|
+|C_BUF_24_7_val        |   in|   32|     ap_none|     C_BUF_24_7_val|        scalar|
+|C_BUF_25_0_val        |   in|   32|     ap_none|     C_BUF_25_0_val|        scalar|
+|C_BUF_25_1_val        |   in|   32|     ap_none|     C_BUF_25_1_val|        scalar|
+|C_BUF_25_2_val        |   in|   32|     ap_none|     C_BUF_25_2_val|        scalar|
+|C_BUF_25_3_val        |   in|   32|     ap_none|     C_BUF_25_3_val|        scalar|
+|C_BUF_25_4_val        |   in|   32|     ap_none|     C_BUF_25_4_val|        scalar|
+|C_BUF_25_5_val        |   in|   32|     ap_none|     C_BUF_25_5_val|        scalar|
+|C_BUF_25_6_val        |   in|   32|     ap_none|     C_BUF_25_6_val|        scalar|
+|C_BUF_25_7_val        |   in|   32|     ap_none|     C_BUF_25_7_val|        scalar|
+|C_BUF_26_0_val        |   in|   32|     ap_none|     C_BUF_26_0_val|        scalar|
+|C_BUF_26_1_val        |   in|   32|     ap_none|     C_BUF_26_1_val|        scalar|
+|C_BUF_26_2_val        |   in|   32|     ap_none|     C_BUF_26_2_val|        scalar|
+|C_BUF_26_3_val        |   in|   32|     ap_none|     C_BUF_26_3_val|        scalar|
+|C_BUF_26_4_val        |   in|   32|     ap_none|     C_BUF_26_4_val|        scalar|
+|C_BUF_26_5_val        |   in|   32|     ap_none|     C_BUF_26_5_val|        scalar|
+|C_BUF_26_6_val        |   in|   32|     ap_none|     C_BUF_26_6_val|        scalar|
+|C_BUF_26_7_val        |   in|   32|     ap_none|     C_BUF_26_7_val|        scalar|
+|C_BUF_27_0_val        |   in|   32|     ap_none|     C_BUF_27_0_val|        scalar|
+|C_BUF_27_1_val        |   in|   32|     ap_none|     C_BUF_27_1_val|        scalar|
+|C_BUF_27_2_val        |   in|   32|     ap_none|     C_BUF_27_2_val|        scalar|
+|C_BUF_27_3_val        |   in|   32|     ap_none|     C_BUF_27_3_val|        scalar|
+|C_BUF_27_4_val        |   in|   32|     ap_none|     C_BUF_27_4_val|        scalar|
+|C_BUF_27_5_val        |   in|   32|     ap_none|     C_BUF_27_5_val|        scalar|
+|C_BUF_27_6_val        |   in|   32|     ap_none|     C_BUF_27_6_val|        scalar|
+|C_BUF_27_7_val        |   in|   32|     ap_none|     C_BUF_27_7_val|        scalar|
+|C_BUF_28_0_val        |   in|   32|     ap_none|     C_BUF_28_0_val|        scalar|
+|C_BUF_28_1_val        |   in|   32|     ap_none|     C_BUF_28_1_val|        scalar|
+|C_BUF_28_2_val        |   in|   32|     ap_none|     C_BUF_28_2_val|        scalar|
+|C_BUF_28_3_val        |   in|   32|     ap_none|     C_BUF_28_3_val|        scalar|
+|C_BUF_28_4_val        |   in|   32|     ap_none|     C_BUF_28_4_val|        scalar|
+|C_BUF_28_5_val        |   in|   32|     ap_none|     C_BUF_28_5_val|        scalar|
+|C_BUF_28_6_val        |   in|   32|     ap_none|     C_BUF_28_6_val|        scalar|
+|C_BUF_28_7_val        |   in|   32|     ap_none|     C_BUF_28_7_val|        scalar|
+|C_BUF_29_0_val        |   in|   32|     ap_none|     C_BUF_29_0_val|        scalar|
+|C_BUF_29_1_val        |   in|   32|     ap_none|     C_BUF_29_1_val|        scalar|
+|C_BUF_29_2_val        |   in|   32|     ap_none|     C_BUF_29_2_val|        scalar|
+|C_BUF_29_3_val        |   in|   32|     ap_none|     C_BUF_29_3_val|        scalar|
+|C_BUF_29_4_val        |   in|   32|     ap_none|     C_BUF_29_4_val|        scalar|
+|C_BUF_29_5_val        |   in|   32|     ap_none|     C_BUF_29_5_val|        scalar|
+|C_BUF_29_6_val        |   in|   32|     ap_none|     C_BUF_29_6_val|        scalar|
+|C_BUF_29_7_val        |   in|   32|     ap_none|     C_BUF_29_7_val|        scalar|
+|C_BUF_30_0_val        |   in|   32|     ap_none|     C_BUF_30_0_val|        scalar|
+|C_BUF_30_1_val        |   in|   32|     ap_none|     C_BUF_30_1_val|        scalar|
+|C_BUF_30_2_val        |   in|   32|     ap_none|     C_BUF_30_2_val|        scalar|
+|C_BUF_30_3_val        |   in|   32|     ap_none|     C_BUF_30_3_val|        scalar|
+|C_BUF_30_4_val        |   in|   32|     ap_none|     C_BUF_30_4_val|        scalar|
+|C_BUF_30_5_val        |   in|   32|     ap_none|     C_BUF_30_5_val|        scalar|
+|C_BUF_30_6_val        |   in|   32|     ap_none|     C_BUF_30_6_val|        scalar|
+|C_BUF_30_7_val        |   in|   32|     ap_none|     C_BUF_30_7_val|        scalar|
+|C_BUF_31_0_val        |   in|   32|     ap_none|     C_BUF_31_0_val|        scalar|
+|C_BUF_31_1_val        |   in|   32|     ap_none|     C_BUF_31_1_val|        scalar|
+|C_BUF_31_2_val        |   in|   32|     ap_none|     C_BUF_31_2_val|        scalar|
+|C_BUF_31_3_val        |   in|   32|     ap_none|     C_BUF_31_3_val|        scalar|
+|C_BUF_31_4_val        |   in|   32|     ap_none|     C_BUF_31_4_val|        scalar|
+|C_BUF_31_5_val        |   in|   32|     ap_none|     C_BUF_31_5_val|        scalar|
+|C_BUF_31_6_val        |   in|   32|     ap_none|     C_BUF_31_6_val|        scalar|
+|C_BUF_31_7_val        |   in|   32|     ap_none|     C_BUF_31_7_val|        scalar|
 |m_axi_gmem2_AWVALID   |  out|    1|       m_axi|              gmem2|       pointer|
 |m_axi_gmem2_AWREADY   |   in|    1|       m_axi|              gmem2|       pointer|
 |m_axi_gmem2_AWADDR    |  out|   64|       m_axi|              gmem2|       pointer|
@@ -186,8 +421,8 @@
 |m_axi_gmem2_AWUSER    |  out|    1|       m_axi|              gmem2|       pointer|
 |m_axi_gmem2_WVALID    |  out|    1|       m_axi|              gmem2|       pointer|
 |m_axi_gmem2_WREADY    |   in|    1|       m_axi|              gmem2|       pointer|
-|m_axi_gmem2_WDATA     |  out|  128|       m_axi|              gmem2|       pointer|
-|m_axi_gmem2_WSTRB     |  out|   16|       m_axi|              gmem2|       pointer|
+|m_axi_gmem2_WDATA     |  out|  256|       m_axi|              gmem2|       pointer|
+|m_axi_gmem2_WSTRB     |  out|   32|       m_axi|              gmem2|       pointer|
 |m_axi_gmem2_WLAST     |  out|    1|       m_axi|              gmem2|       pointer|
 |m_axi_gmem2_WID       |  out|    1|       m_axi|              gmem2|       pointer|
 |m_axi_gmem2_WUSER     |  out|    1|       m_axi|              gmem2|       pointer|
@@ -206,7 +441,7 @@
 |m_axi_gmem2_ARUSER    |  out|    1|       m_axi|              gmem2|       pointer|
 |m_axi_gmem2_RVALID    |   in|    1|       m_axi|              gmem2|       pointer|
 |m_axi_gmem2_RREADY    |  out|    1|       m_axi|              gmem2|       pointer|
-|m_axi_gmem2_RDATA     |   in|  128|       m_axi|              gmem2|       pointer|
+|m_axi_gmem2_RDATA     |   in|  256|       m_axi|              gmem2|       pointer|
 |m_axi_gmem2_RLAST     |   in|    1|       m_axi|              gmem2|       pointer|
 |m_axi_gmem2_RID       |   in|    1|       m_axi|              gmem2|       pointer|
 |m_axi_gmem2_RFIFONUM  |   in|    9|       m_axi|              gmem2|       pointer|
