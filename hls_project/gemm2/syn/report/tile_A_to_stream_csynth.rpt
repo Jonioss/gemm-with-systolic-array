@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'tile_A_to_stream'
 ================================================================
-* Date:           Mon Jul 20 14:05:07 2026
+* Date:           Mon Jul 20 18:30:02 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        hls_project
@@ -20,7 +20,7 @@
     +--------+---------+----------+------------+
     |  Clock |  Target | Estimated| Uncertainty|
     +--------+---------+----------+------------+
-    |ap_clk  |  3.33 ns|  1.117 ns|     0.90 ns|
+    |ap_clk  |  3.33 ns|  1.954 ns|     0.90 ns|
     +--------+---------+----------+------------+
 
 + Latency: 
@@ -53,10 +53,10 @@
 |FIFO             |        -|     -|        -|       -|    -|
 |Instance         |        -|     -|        -|       -|    -|
 |Memory           |        -|     -|        -|       -|    -|
-|Multiplexer      |        -|     -|        -|    1306|    -|
-|Register         |        -|     -|        8|       -|    -|
+|Multiplexer      |        -|     -|        -|    1308|    -|
+|Register         |        -|     -|        9|       -|    -|
 +-----------------+---------+------+---------+--------+-----+
-|Total            |        0|     0|        8|    1310|    0|
+|Total            |        0|     0|        9|    1312|    0|
 +-----------------+---------+------+---------+--------+-----+
 |Available        |     1934|  1968|  1799680|  899840|  463|
 +-----------------+---------+------+---------+--------+-----+
@@ -107,18 +107,20 @@
     |A_stream_7_0_blk_n  |    2|          2|    1|          2|
     |A_stream_7_0_din    |  160|          9|   32|        288|
     |ap_NS_fsm           |   10|          9|    1|          9|
+    |ap_done             |    2|          2|    1|          2|
     +--------------------+-----+-----------+-----+-----------+
-    |Total               | 1306|         97|  265|       2329|
+    |Total               | 1308|         99|  266|       2331|
     +--------------------+-----+-----------+-----+-----------+
 
     * Register: 
-    +-----------+---+----+-----+-----------+
-    |    Name   | FF| LUT| Bits| Const Bits|
-    +-----------+---+----+-----+-----------+
-    |ap_CS_fsm  |  8|   0|    8|          0|
-    +-----------+---+----+-----+-----------+
-    |Total      |  8|   0|    8|          0|
-    +-----------+---+----+-----+-----------+
+    +-------------+---+----+-----+-----------+
+    |     Name    | FF| LUT| Bits| Const Bits|
+    +-------------+---+----+-----+-----------+
+    |ap_CS_fsm    |  8|   0|    8|          0|
+    |ap_done_reg  |  1|   0|    1|          0|
+    +-------------+---+----+-----+-----------+
+    |Total        |  9|   0|    9|          0|
+    +-------------+---+----+-----+-----------+
 
 
 
@@ -133,72 +135,9 @@
 |ap_rst                       |   in|    1|  ap_ctrl_hs|  tile_A_to_stream|  return value|
 |ap_start                     |   in|    1|  ap_ctrl_hs|  tile_A_to_stream|  return value|
 |ap_done                      |  out|    1|  ap_ctrl_hs|  tile_A_to_stream|  return value|
+|ap_continue                  |   in|    1|  ap_ctrl_hs|  tile_A_to_stream|  return value|
 |ap_idle                      |  out|    1|  ap_ctrl_hs|  tile_A_to_stream|  return value|
 |ap_ready                     |  out|    1|  ap_ctrl_hs|  tile_A_to_stream|  return value|
-|A_TILE_0_0_val               |   in|   32|     ap_none|    A_TILE_0_0_val|        scalar|
-|A_TILE_0_1_val               |   in|   32|     ap_none|    A_TILE_0_1_val|        scalar|
-|A_TILE_0_2_val               |   in|   32|     ap_none|    A_TILE_0_2_val|        scalar|
-|A_TILE_0_3_val               |   in|   32|     ap_none|    A_TILE_0_3_val|        scalar|
-|A_TILE_0_4_val               |   in|   32|     ap_none|    A_TILE_0_4_val|        scalar|
-|A_TILE_0_5_val               |   in|   32|     ap_none|    A_TILE_0_5_val|        scalar|
-|A_TILE_0_6_val               |   in|   32|     ap_none|    A_TILE_0_6_val|        scalar|
-|A_TILE_0_7_val               |   in|   32|     ap_none|    A_TILE_0_7_val|        scalar|
-|A_TILE_1_0_val               |   in|   32|     ap_none|    A_TILE_1_0_val|        scalar|
-|A_TILE_1_1_val               |   in|   32|     ap_none|    A_TILE_1_1_val|        scalar|
-|A_TILE_1_2_val               |   in|   32|     ap_none|    A_TILE_1_2_val|        scalar|
-|A_TILE_1_3_val               |   in|   32|     ap_none|    A_TILE_1_3_val|        scalar|
-|A_TILE_1_4_val               |   in|   32|     ap_none|    A_TILE_1_4_val|        scalar|
-|A_TILE_1_5_val               |   in|   32|     ap_none|    A_TILE_1_5_val|        scalar|
-|A_TILE_1_6_val               |   in|   32|     ap_none|    A_TILE_1_6_val|        scalar|
-|A_TILE_1_7_val               |   in|   32|     ap_none|    A_TILE_1_7_val|        scalar|
-|A_TILE_2_0_val               |   in|   32|     ap_none|    A_TILE_2_0_val|        scalar|
-|A_TILE_2_1_val               |   in|   32|     ap_none|    A_TILE_2_1_val|        scalar|
-|A_TILE_2_2_val               |   in|   32|     ap_none|    A_TILE_2_2_val|        scalar|
-|A_TILE_2_3_val               |   in|   32|     ap_none|    A_TILE_2_3_val|        scalar|
-|A_TILE_2_4_val               |   in|   32|     ap_none|    A_TILE_2_4_val|        scalar|
-|A_TILE_2_5_val               |   in|   32|     ap_none|    A_TILE_2_5_val|        scalar|
-|A_TILE_2_6_val               |   in|   32|     ap_none|    A_TILE_2_6_val|        scalar|
-|A_TILE_2_7_val               |   in|   32|     ap_none|    A_TILE_2_7_val|        scalar|
-|A_TILE_3_0_val               |   in|   32|     ap_none|    A_TILE_3_0_val|        scalar|
-|A_TILE_3_1_val               |   in|   32|     ap_none|    A_TILE_3_1_val|        scalar|
-|A_TILE_3_2_val               |   in|   32|     ap_none|    A_TILE_3_2_val|        scalar|
-|A_TILE_3_3_val               |   in|   32|     ap_none|    A_TILE_3_3_val|        scalar|
-|A_TILE_3_4_val               |   in|   32|     ap_none|    A_TILE_3_4_val|        scalar|
-|A_TILE_3_5_val               |   in|   32|     ap_none|    A_TILE_3_5_val|        scalar|
-|A_TILE_3_6_val               |   in|   32|     ap_none|    A_TILE_3_6_val|        scalar|
-|A_TILE_3_7_val               |   in|   32|     ap_none|    A_TILE_3_7_val|        scalar|
-|A_TILE_4_0_val               |   in|   32|     ap_none|    A_TILE_4_0_val|        scalar|
-|A_TILE_4_1_val               |   in|   32|     ap_none|    A_TILE_4_1_val|        scalar|
-|A_TILE_4_2_val               |   in|   32|     ap_none|    A_TILE_4_2_val|        scalar|
-|A_TILE_4_3_val               |   in|   32|     ap_none|    A_TILE_4_3_val|        scalar|
-|A_TILE_4_4_val               |   in|   32|     ap_none|    A_TILE_4_4_val|        scalar|
-|A_TILE_4_5_val               |   in|   32|     ap_none|    A_TILE_4_5_val|        scalar|
-|A_TILE_4_6_val               |   in|   32|     ap_none|    A_TILE_4_6_val|        scalar|
-|A_TILE_4_7_val               |   in|   32|     ap_none|    A_TILE_4_7_val|        scalar|
-|A_TILE_5_0_val               |   in|   32|     ap_none|    A_TILE_5_0_val|        scalar|
-|A_TILE_5_1_val               |   in|   32|     ap_none|    A_TILE_5_1_val|        scalar|
-|A_TILE_5_2_val               |   in|   32|     ap_none|    A_TILE_5_2_val|        scalar|
-|A_TILE_5_3_val               |   in|   32|     ap_none|    A_TILE_5_3_val|        scalar|
-|A_TILE_5_4_val               |   in|   32|     ap_none|    A_TILE_5_4_val|        scalar|
-|A_TILE_5_5_val               |   in|   32|     ap_none|    A_TILE_5_5_val|        scalar|
-|A_TILE_5_6_val               |   in|   32|     ap_none|    A_TILE_5_6_val|        scalar|
-|A_TILE_5_7_val               |   in|   32|     ap_none|    A_TILE_5_7_val|        scalar|
-|A_TILE_6_0_val               |   in|   32|     ap_none|    A_TILE_6_0_val|        scalar|
-|A_TILE_6_1_val               |   in|   32|     ap_none|    A_TILE_6_1_val|        scalar|
-|A_TILE_6_2_val               |   in|   32|     ap_none|    A_TILE_6_2_val|        scalar|
-|A_TILE_6_3_val               |   in|   32|     ap_none|    A_TILE_6_3_val|        scalar|
-|A_TILE_6_4_val               |   in|   32|     ap_none|    A_TILE_6_4_val|        scalar|
-|A_TILE_6_5_val               |   in|   32|     ap_none|    A_TILE_6_5_val|        scalar|
-|A_TILE_6_6_val               |   in|   32|     ap_none|    A_TILE_6_6_val|        scalar|
-|A_TILE_6_7_val               |   in|   32|     ap_none|    A_TILE_6_7_val|        scalar|
-|A_TILE_7_0_val               |   in|   32|     ap_none|    A_TILE_7_0_val|        scalar|
-|A_TILE_7_1_val               |   in|   32|     ap_none|    A_TILE_7_1_val|        scalar|
-|A_TILE_7_2_val               |   in|   32|     ap_none|    A_TILE_7_2_val|        scalar|
-|A_TILE_7_3_val               |   in|   32|     ap_none|    A_TILE_7_3_val|        scalar|
-|A_TILE_7_4_val               |   in|   32|     ap_none|    A_TILE_7_4_val|        scalar|
-|A_TILE_7_5_val               |   in|   32|     ap_none|    A_TILE_7_5_val|        scalar|
-|A_TILE_7_6_val               |   in|   32|     ap_none|    A_TILE_7_6_val|        scalar|
-|A_TILE_7_7_val               |   in|   32|     ap_none|    A_TILE_7_7_val|        scalar|
 |A_stream_0_0_din             |  out|   32|     ap_fifo|      A_stream_0_0|       pointer|
 |A_stream_0_0_num_data_valid  |   in|    4|     ap_fifo|      A_stream_0_0|       pointer|
 |A_stream_0_0_fifo_cap        |   in|    4|     ap_fifo|      A_stream_0_0|       pointer|
@@ -239,5 +178,69 @@
 |A_stream_7_0_fifo_cap        |   in|    4|     ap_fifo|      A_stream_7_0|       pointer|
 |A_stream_7_0_full_n          |   in|    1|     ap_fifo|      A_stream_7_0|       pointer|
 |A_stream_7_0_write           |  out|    1|     ap_fifo|      A_stream_7_0|       pointer|
+|p_read                       |   in|   32|     ap_none|            p_read|        scalar|
+|p_read1                      |   in|   32|     ap_none|           p_read1|        scalar|
+|p_read2                      |   in|   32|     ap_none|           p_read2|        scalar|
+|p_read3                      |   in|   32|     ap_none|           p_read3|        scalar|
+|p_read4                      |   in|   32|     ap_none|           p_read4|        scalar|
+|p_read5                      |   in|   32|     ap_none|           p_read5|        scalar|
+|p_read6                      |   in|   32|     ap_none|           p_read6|        scalar|
+|p_read7                      |   in|   32|     ap_none|           p_read7|        scalar|
+|p_read8                      |   in|   32|     ap_none|           p_read8|        scalar|
+|p_read9                      |   in|   32|     ap_none|           p_read9|        scalar|
+|p_read10                     |   in|   32|     ap_none|          p_read10|        scalar|
+|p_read11                     |   in|   32|     ap_none|          p_read11|        scalar|
+|p_read12                     |   in|   32|     ap_none|          p_read12|        scalar|
+|p_read13                     |   in|   32|     ap_none|          p_read13|        scalar|
+|p_read14                     |   in|   32|     ap_none|          p_read14|        scalar|
+|p_read15                     |   in|   32|     ap_none|          p_read15|        scalar|
+|p_read16                     |   in|   32|     ap_none|          p_read16|        scalar|
+|p_read17                     |   in|   32|     ap_none|          p_read17|        scalar|
+|p_read18                     |   in|   32|     ap_none|          p_read18|        scalar|
+|p_read19                     |   in|   32|     ap_none|          p_read19|        scalar|
+|p_read20                     |   in|   32|     ap_none|          p_read20|        scalar|
+|p_read21                     |   in|   32|     ap_none|          p_read21|        scalar|
+|p_read22                     |   in|   32|     ap_none|          p_read22|        scalar|
+|p_read23                     |   in|   32|     ap_none|          p_read23|        scalar|
+|p_read24                     |   in|   32|     ap_none|          p_read24|        scalar|
+|p_read25                     |   in|   32|     ap_none|          p_read25|        scalar|
+|p_read26                     |   in|   32|     ap_none|          p_read26|        scalar|
+|p_read27                     |   in|   32|     ap_none|          p_read27|        scalar|
+|p_read28                     |   in|   32|     ap_none|          p_read28|        scalar|
+|p_read29                     |   in|   32|     ap_none|          p_read29|        scalar|
+|p_read30                     |   in|   32|     ap_none|          p_read30|        scalar|
+|p_read31                     |   in|   32|     ap_none|          p_read31|        scalar|
+|p_read32                     |   in|   32|     ap_none|          p_read32|        scalar|
+|p_read33                     |   in|   32|     ap_none|          p_read33|        scalar|
+|p_read34                     |   in|   32|     ap_none|          p_read34|        scalar|
+|p_read35                     |   in|   32|     ap_none|          p_read35|        scalar|
+|p_read36                     |   in|   32|     ap_none|          p_read36|        scalar|
+|p_read37                     |   in|   32|     ap_none|          p_read37|        scalar|
+|p_read38                     |   in|   32|     ap_none|          p_read38|        scalar|
+|p_read39                     |   in|   32|     ap_none|          p_read39|        scalar|
+|p_read40                     |   in|   32|     ap_none|          p_read40|        scalar|
+|p_read41                     |   in|   32|     ap_none|          p_read41|        scalar|
+|p_read42                     |   in|   32|     ap_none|          p_read42|        scalar|
+|p_read43                     |   in|   32|     ap_none|          p_read43|        scalar|
+|p_read44                     |   in|   32|     ap_none|          p_read44|        scalar|
+|p_read45                     |   in|   32|     ap_none|          p_read45|        scalar|
+|p_read46                     |   in|   32|     ap_none|          p_read46|        scalar|
+|p_read47                     |   in|   32|     ap_none|          p_read47|        scalar|
+|p_read48                     |   in|   32|     ap_none|          p_read48|        scalar|
+|p_read49                     |   in|   32|     ap_none|          p_read49|        scalar|
+|p_read50                     |   in|   32|     ap_none|          p_read50|        scalar|
+|p_read51                     |   in|   32|     ap_none|          p_read51|        scalar|
+|p_read52                     |   in|   32|     ap_none|          p_read52|        scalar|
+|p_read53                     |   in|   32|     ap_none|          p_read53|        scalar|
+|p_read54                     |   in|   32|     ap_none|          p_read54|        scalar|
+|p_read55                     |   in|   32|     ap_none|          p_read55|        scalar|
+|p_read56                     |   in|   32|     ap_none|          p_read56|        scalar|
+|p_read57                     |   in|   32|     ap_none|          p_read57|        scalar|
+|p_read58                     |   in|   32|     ap_none|          p_read58|        scalar|
+|p_read59                     |   in|   32|     ap_none|          p_read59|        scalar|
+|p_read60                     |   in|   32|     ap_none|          p_read60|        scalar|
+|p_read61                     |   in|   32|     ap_none|          p_read61|        scalar|
+|p_read62                     |   in|   32|     ap_none|          p_read62|        scalar|
+|p_read63                     |   in|   32|     ap_none|          p_read63|        scalar|
 +-----------------------------+-----+-----+------------+------------------+--------------+
 

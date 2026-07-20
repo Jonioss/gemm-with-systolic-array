@@ -47,22 +47,13 @@ void tile_A_to_stream(float A_TILE[S_A_I][K], hls::stream<float> A_stream[S_A_I]
 
 void tm_A(float A_BUF[I][K], hls::stream<float> A_stream[S_A_I][S_A_J+1], int tileA) {
     #pragma HLS INLINE off
-    // #pragma HLS DATAFLOW
+    #pragma HLS DATAFLOW
  
-    static float A_TILE[2][S_A_I][K];
+    static float A_TILE[S_A_I][K];
     #pragma HLS STREAM variable=A_TILE type=pipo depth=2
     #pragma HLS ARRAY_PARTITION variable=A_TILE type=complete dim=1
     #pragma HLS ARRAY_PARTITION variable=A_TILE type=complete dim=2
-    #pragma HLS ARRAY_PARTITION variable=A_TILE type=complete dim=3
- 
-    if(tileA == 0) {
-        load_tile_A(A_BUF, A_TILE[0], 0);
-    }
-    tile_A_to_stream(A_TILE[tileA % 2], A_stream);
-    if(tileA == 0) {
-        load_tile_A(A_BUF, A_TILE[1], 1);
-    }
-    else if(tileA != NUM_TILES_I - 1) {
-        load_tile_A(A_BUF, A_TILE[(tileA+1) % 2], (tileA+1));
-    }
+
+    load_tile_A(A_BUF, A_TILE, tileA);
+    tile_A_to_stream(A_TILE, A_stream);
 }
