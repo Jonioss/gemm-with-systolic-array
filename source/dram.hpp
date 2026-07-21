@@ -4,8 +4,8 @@ void load_A(hls::burst_maxi<hls::vector<float, VEC_SIZE>> A_DRAM, float A_BUF[I]
     #pragma HLS INLINE off
     A_DRAM.read_request(0, I*K/VEC_SIZE);
     for(int i = 0; i < I; i++) {
+        #pragma HLS PIPELINE II=1 rewind
         for(int k = 0; k < K/VEC_SIZE; k++) {
-            #pragma HLS PIPELINE II=1
             hls::vector<float, VEC_SIZE> temp = A_DRAM.read();
             for(int v = 0; v < VEC_SIZE; v++) {
                 #pragma HLS UNROLL
@@ -20,7 +20,7 @@ void load_B(hls::burst_maxi<hls::vector<float, VEC_SIZE>> B_DRAM, float B_BUF[K]
     B_DRAM.read_request(0, K*J/VEC_SIZE);
     for(int k = 0; k < K/VEC_SIZE; k++) {
         for(int j = 0; j < J; j++) {
-            #pragma HLS PIPELINE II=1
+            #pragma HLS PIPELINE II=1 rewind
             hls::vector<float, VEC_SIZE> temp = B_DRAM.read();
             for(int v = 0; v < VEC_SIZE; v++) {
                 #pragma HLS UNROLL
@@ -41,9 +41,10 @@ void storeOutputToDRAM(float C_BUF[I][J], hls::burst_maxi<hls::vector<float, VEC
     #pragma HLS INLINE off
     C_DRAM.write_request(0, I*J/VEC_SIZE);
     for(int i = 0; i < I; i++) {
+        #pragma HLS PIPELINE II=1
+        #pragma HLS LOOP_FLATTEN
         for(int j = 0; j < J/VEC_SIZE; j++) {
-            #pragma HLS PIPELINE II=1
-            #pragma HLS LOOP_FLATTEN
+            #pragma HLS UNROLL
             hls::vector<float, VEC_SIZE> temp;
             for(int v = 0; v < VEC_SIZE; v++) {
                 #pragma HLS UNROLL

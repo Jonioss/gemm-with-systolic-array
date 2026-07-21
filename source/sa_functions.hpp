@@ -23,7 +23,7 @@ void sink_streams(hls::stream<float> A_stream[S_A_I][S_A_J+1], hls::stream<float
     }
 }
 
-void runSystolicArray(float A_BUF[I][K], float B_BUF[K][J], float C_BUF[I][J], PE sar[S_A_I][S_A_J]) {
+void runSystolicArray(float A_BUF[I][K], float B_BUF[K][J], float C_BUF[I][J]) {
     #pragma HLS INLINE off
 
     tile_loop:
@@ -45,7 +45,7 @@ void runSystolicArray(float A_BUF[I][K], float B_BUF[K][J], float C_BUF[I][J], P
             #pragma HLS UNROLL
             for(int j = 0; j < S_A_J; j++) {
                 #pragma HLS UNROLL
-                sar[i][j].run(A_stream[i][j], B_stream[i][j], A_stream[i][j+1], B_stream[i+1][j], C_stream[i][j]);
+                PE(A_stream[i][j], B_stream[i][j], A_stream[i][j+1], B_stream[i+1][j], C_stream[i][j]);
             }
         }
 

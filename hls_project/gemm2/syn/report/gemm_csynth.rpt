@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'gemm'
 ================================================================
-* Date:           Mon Jul 20 18:30:20 2026
+* Date:           Mon Jul 20 23:02:15 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        hls_project
@@ -29,7 +29,7 @@
     |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
     |   min   |   max   |    min   |    max   | min | max |   Type  |
     +---------+---------+----------+----------+-----+-----+---------+
-    |      359|      360|  1.197 us|  1.200 us|  360|  361|       no|
+    |      269|      271|  0.897 us|  0.903 us|  270|  272|       no|
     +---------+---------+----------+----------+-----+-----+---------+
 
     + Detail: 
@@ -38,9 +38,9 @@
         |                                |                    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
         |            Instance            |       Module       |   min   |   max   |    min   |    max   | min | max |   Type   |
         +--------------------------------+--------------------+---------+---------+----------+----------+-----+-----+----------+
-        |grp_loadInputsFromDRAM_fu_1502  |loadInputsFromDRAM  |      103|      103|  0.343 us|  0.343 us|  104|  104|  dataflow|
-        |grp_runSystolicArray_fu_1642    |runSystolicArray    |      119|      120|  0.397 us|  0.400 us|  119|  120|        no|
-        |grp_storeOutputToDRAM_fu_1998   |storeOutputToDRAM   |      132|      132|  0.440 us|  0.440 us|  132|  132|        no|
+        |grp_loadInputsFromDRAM_fu_1502  |loadInputsFromDRAM  |      103|      104|  0.343 us|  0.347 us|   32|   32|  dataflow|
+        |grp_runSystolicArray_fu_1642    |runSystolicArray    |       57|       58|  0.190 us|  0.193 us|   57|   58|        no|
+        |grp_storeOutputToDRAM_fu_1998   |storeOutputToDRAM   |      104|      104|  0.347 us|  0.347 us|  104|  104|        no|
         +--------------------------------+--------------------+---------+---------+----------+----------+-----+-----+----------+
 
         * Loop: 
@@ -58,12 +58,12 @@
 |DSP              |        -|     -|        -|       -|    -|
 |Expression       |        -|     -|        0|      10|    -|
 |FIFO             |        -|     -|        -|       -|    -|
-|Instance         |       48|    64|    55895|   53202|    0|
+|Instance         |       48|    64|    54045|   49359|    0|
 |Memory           |      224|     -|        0|       0|    -|
 |Multiplexer      |        -|     -|        -|     694|    -|
 |Register         |        -|     -|    10449|       -|    -|
 +-----------------+---------+------+---------+--------+-----+
-|Total            |      272|    64|    66344|   53906|    0|
+|Total            |      272|    64|    64494|   50063|    0|
 +-----------------+---------+------+---------+--------+-----+
 |Available        |     1934|  1968|  1799680|  899840|  463|
 +-----------------+---------+------+---------+--------+-----+
@@ -79,11 +79,11 @@
     |gmem0_m_axi_U                   |gmem0_m_axi         |       16|   0|   1958|   1647|    0|
     |gmem1_m_axi_U                   |gmem1_m_axi         |       16|   0|   1958|   1647|    0|
     |gmem2_m_axi_U                   |gmem2_m_axi         |       16|   0|   1958|   1647|    0|
-    |grp_loadInputsFromDRAM_fu_1502  |loadInputsFromDRAM  |        0|   0|    166|    380|    0|
-    |grp_runSystolicArray_fu_1642    |runSystolicArray    |        0|  64|  49277|  44531|    0|
-    |grp_storeOutputToDRAM_fu_1998   |storeOutputToDRAM   |        0|   0|    332|   2926|    0|
+    |grp_loadInputsFromDRAM_fu_1502  |loadInputsFromDRAM  |        0|   0|   2343|   2220|    0|
+    |grp_runSystolicArray_fu_1642    |runSystolicArray    |        0|  64|  45245|  38707|    0|
+    |grp_storeOutputToDRAM_fu_1998   |storeOutputToDRAM   |        0|   0|    337|   3067|    0|
     +--------------------------------+--------------------+---------+----+-------+-------+-----+
-    |Total                           |                    |       48|  64|  55895|  53202|    0|
+    |Total                           |                    |       48|  64|  54045|  49359|    0|
     +--------------------------------+--------------------+---------+----+-------+-------+-----+
 
     * DSP: 

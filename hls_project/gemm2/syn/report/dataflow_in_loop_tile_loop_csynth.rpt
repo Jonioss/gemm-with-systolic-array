@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'dataflow_in_loop_tile_loop'
 ================================================================
-* Date:           Mon Jul 20 18:30:16 2026
+* Date:           Mon Jul 20 23:02:09 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        hls_project
@@ -29,7 +29,7 @@
     |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
     |   min   |   max   |    min   |    max   | min | max |   Type   |
     +---------+---------+----------+----------+-----+-----+----------+
-    |       45|       46|  0.150 us|  0.153 us|   24|   24|  dataflow|
+    |       31|       32|  0.103 us|  0.107 us|    8|    8|  dataflow|
     +---------+---------+----------+----------+-----+-----+----------+
 
     + Detail: 
@@ -40,70 +40,70 @@
         +--------------------+-----------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------+
         |tm_A_U0             |tm_A             |        9|        9|  29.997 ns|  29.997 ns|    8|    8|                                  dataflow|
         |B_Buf_to_stream_U0  |B_Buf_to_stream  |        7|        7|  23.331 ns|  23.331 ns|    7|    7|                                        no|
-        |run_U0              |run              |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_1_U0            |run_1            |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_8_U0            |run_8            |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_2_U0            |run_2            |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_9_U0            |run_9            |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_16_U0           |run_16           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_3_U0            |run_3            |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_10_U0           |run_10           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_17_U0           |run_17           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_24_U0           |run_24           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_4_U0            |run_4            |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_11_U0           |run_11           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_18_U0           |run_18           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_25_U0           |run_25           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_32_U0           |run_32           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_5_U0            |run_5            |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_12_U0           |run_12           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_19_U0           |run_19           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_26_U0           |run_26           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_33_U0           |run_33           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_40_U0           |run_40           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_6_U0            |run_6            |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_13_U0           |run_13           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_20_U0           |run_20           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_27_U0           |run_27           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_34_U0           |run_34           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_41_U0           |run_41           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_48_U0           |run_48           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_7_U0            |run_7            |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_14_U0           |run_14           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_21_U0           |run_21           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_28_U0           |run_28           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_35_U0           |run_35           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_42_U0           |run_42           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_49_U0           |run_49           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_56_U0           |run_56           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_15_U0           |run_15           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_22_U0           |run_22           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_29_U0           |run_29           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_36_U0           |run_36           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_43_U0           |run_43           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_50_U0           |run_50           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_57_U0           |run_57           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_23_U0           |run_23           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_30_U0           |run_30           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_37_U0           |run_37           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_44_U0           |run_44           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_51_U0           |run_51           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_58_U0           |run_58           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_31_U0           |run_31           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_38_U0           |run_38           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_45_U0           |run_45           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_52_U0           |run_52           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_59_U0           |run_59           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_39_U0           |run_39           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_46_U0           |run_46           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_53_U0           |run_53           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_60_U0           |run_60           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_47_U0           |run_47           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_54_U0           |run_54           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_61_U0           |run_61           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_55_U0           |run_55           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_62_U0           |run_62           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
-        |run_63_U0           |run_63           |       25|       26|  83.325 ns|  86.658 ns|   24|   24|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_U0               |PE               |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_1_U0             |PE_1             |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_8_U0             |PE_8             |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_2_U0             |PE_2             |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_9_U0             |PE_9             |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_16_U0            |PE_16            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_3_U0             |PE_3             |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_10_U0            |PE_10            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_17_U0            |PE_17            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_24_U0            |PE_24            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_4_U0             |PE_4             |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_11_U0            |PE_11            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_18_U0            |PE_18            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_25_U0            |PE_25            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_32_U0            |PE_32            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_5_U0             |PE_5             |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_12_U0            |PE_12            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_19_U0            |PE_19            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_26_U0            |PE_26            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_33_U0            |PE_33            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_40_U0            |PE_40            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_6_U0             |PE_6             |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_13_U0            |PE_13            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_20_U0            |PE_20            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_27_U0            |PE_27            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_34_U0            |PE_34            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_41_U0            |PE_41            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_48_U0            |PE_48            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_7_U0             |PE_7             |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_14_U0            |PE_14            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_21_U0            |PE_21            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_28_U0            |PE_28            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_35_U0            |PE_35            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_42_U0            |PE_42            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_49_U0            |PE_49            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_56_U0            |PE_56            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_15_U0            |PE_15            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_22_U0            |PE_22            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_29_U0            |PE_29            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_36_U0            |PE_36            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_43_U0            |PE_43            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_50_U0            |PE_50            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_57_U0            |PE_57            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_23_U0            |PE_23            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_30_U0            |PE_30            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_37_U0            |PE_37            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_44_U0            |PE_44            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_51_U0            |PE_51            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_58_U0            |PE_58            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_31_U0            |PE_31            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_38_U0            |PE_38            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_45_U0            |PE_45            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_52_U0            |PE_52            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_59_U0            |PE_59            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_39_U0            |PE_39            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_46_U0            |PE_46            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_53_U0            |PE_53            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_60_U0            |PE_60            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_47_U0            |PE_47            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_54_U0            |PE_54            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_61_U0            |PE_61            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_55_U0            |PE_55            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_62_U0            |PE_62            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_63_U0            |PE_63            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
         |sink_streams_U0     |sink_streams     |        7|        7|  23.331 ns|  23.331 ns|    7|    7|                                        no|
         |stream_to_C_Buf_U0  |stream_to_C_Buf  |        0|        0|       0 ns|       0 ns|    0|    0|                                        no|
         +--------------------+-----------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------+
@@ -123,12 +123,12 @@
 |DSP              |        -|     -|        -|       -|    -|
 |Expression       |        -|     -|        0|      22|    -|
 |FIFO             |        0|     -|    22697|   15633|    -|
-|Instance         |        0|    64|    26515|   28842|    -|
+|Instance         |        0|    64|    22483|   23018|    -|
 |Memory           |        -|     -|        -|       -|    -|
 |Multiplexer      |        -|     -|        -|       4|    -|
 |Register         |        -|     -|        2|       -|    -|
 +-----------------+---------+------+---------+--------+-----+
-|Total            |        0|    64|    49214|   44501|    0|
+|Total            |        0|    64|    45182|   38677|    0|
 +-----------------+---------+------+---------+--------+-----+
 |Available        |     1934|  1968|  1799680|  899840|  463|
 +-----------------+---------+------+---------+--------+-----+
@@ -141,75 +141,75 @@
     |      Instance      |      Module     | BRAM_18K| DSP|  FF  |  LUT  | URAM|
     +--------------------+-----------------+---------+----+------+-------+-----+
     |B_Buf_to_stream_U0  |B_Buf_to_stream  |        0|   0|    10|   1314|    0|
-    |run_U0              |run              |        0|   1|   149|    141|    0|
-    |run_1_U0            |run_1            |        0|   1|   150|    143|    0|
-    |run_10_U0           |run_10           |        0|   1|   150|    143|    0|
-    |run_11_U0           |run_11           |        0|   1|   150|    143|    0|
-    |run_12_U0           |run_12           |        0|   1|   150|    143|    0|
-    |run_13_U0           |run_13           |        0|   1|   150|    143|    0|
-    |run_14_U0           |run_14           |        0|   1|   150|    143|    0|
-    |run_15_U0           |run_15           |        0|   1|   150|    143|    0|
-    |run_16_U0           |run_16           |        0|   1|   150|    143|    0|
-    |run_17_U0           |run_17           |        0|   1|   149|    141|    0|
-    |run_18_U0           |run_18           |        0|   1|   149|    141|    0|
-    |run_19_U0           |run_19           |        0|   1|   150|    143|    0|
-    |run_2_U0            |run_2            |        0|   1|   150|    143|    0|
-    |run_20_U0           |run_20           |        0|   1|   150|    143|    0|
-    |run_21_U0           |run_21           |        0|   1|   150|    143|    0|
-    |run_22_U0           |run_22           |        0|   1|   150|    143|    0|
-    |run_23_U0           |run_23           |        0|   1|   150|    143|    0|
-    |run_24_U0           |run_24           |        0|   1|   150|    143|    0|
-    |run_25_U0           |run_25           |        0|   1|   150|    143|    0|
-    |run_26_U0           |run_26           |        0|   1|   149|    141|    0|
-    |run_27_U0           |run_27           |        0|   1|   149|    141|    0|
-    |run_28_U0           |run_28           |        0|   1|   150|    143|    0|
-    |run_29_U0           |run_29           |        0|   1|   150|    143|    0|
-    |run_3_U0            |run_3            |        0|   1|   150|    143|    0|
-    |run_30_U0           |run_30           |        0|   1|   150|    143|    0|
-    |run_31_U0           |run_31           |        0|   1|   150|    143|    0|
-    |run_32_U0           |run_32           |        0|   1|   150|    143|    0|
-    |run_33_U0           |run_33           |        0|   1|   150|    143|    0|
-    |run_34_U0           |run_34           |        0|   1|   150|    143|    0|
-    |run_35_U0           |run_35           |        0|   1|   149|    141|    0|
-    |run_36_U0           |run_36           |        0|   1|   149|    141|    0|
-    |run_37_U0           |run_37           |        0|   1|   150|    143|    0|
-    |run_38_U0           |run_38           |        0|   1|   150|    143|    0|
-    |run_39_U0           |run_39           |        0|   1|   150|    143|    0|
-    |run_4_U0            |run_4            |        0|   1|   150|    143|    0|
-    |run_40_U0           |run_40           |        0|   1|   150|    143|    0|
-    |run_41_U0           |run_41           |        0|   1|   150|    143|    0|
-    |run_42_U0           |run_42           |        0|   1|   150|    143|    0|
-    |run_43_U0           |run_43           |        0|   1|   150|    143|    0|
-    |run_44_U0           |run_44           |        0|   1|   149|    141|    0|
-    |run_45_U0           |run_45           |        0|   1|   149|    141|    0|
-    |run_46_U0           |run_46           |        0|   1|   150|    143|    0|
-    |run_47_U0           |run_47           |        0|   1|   150|    143|    0|
-    |run_48_U0           |run_48           |        0|   1|   150|    143|    0|
-    |run_49_U0           |run_49           |        0|   1|   150|    143|    0|
-    |run_5_U0            |run_5            |        0|   1|   150|    143|    0|
-    |run_50_U0           |run_50           |        0|   1|   150|    143|    0|
-    |run_51_U0           |run_51           |        0|   1|   150|    143|    0|
-    |run_52_U0           |run_52           |        0|   1|   150|    143|    0|
-    |run_53_U0           |run_53           |        0|   1|   149|    141|    0|
-    |run_54_U0           |run_54           |        0|   1|   149|    141|    0|
-    |run_55_U0           |run_55           |        0|   1|   150|    143|    0|
-    |run_56_U0           |run_56           |        0|   1|   150|    143|    0|
-    |run_57_U0           |run_57           |        0|   1|   150|    143|    0|
-    |run_58_U0           |run_58           |        0|   1|   150|    143|    0|
-    |run_59_U0           |run_59           |        0|   1|   150|    143|    0|
-    |run_6_U0            |run_6            |        0|   1|   150|    143|    0|
-    |run_60_U0           |run_60           |        0|   1|   150|    143|    0|
-    |run_61_U0           |run_61           |        0|   1|   150|    143|    0|
-    |run_62_U0           |run_62           |        0|   1|   149|    141|    0|
-    |run_63_U0           |run_63           |        0|   1|   149|    141|    0|
-    |run_7_U0            |run_7            |        0|   1|   150|    143|    0|
-    |run_8_U0            |run_8            |        0|   1|   149|    141|    0|
-    |run_9_U0            |run_9            |        0|   1|   149|    141|    0|
+    |PE_U0               |PE               |        0|   1|    86|     50|    0|
+    |PE_1_U0             |PE_1             |        0|   1|    87|     52|    0|
+    |PE_10_U0            |PE_10            |        0|   1|    87|     52|    0|
+    |PE_11_U0            |PE_11            |        0|   1|    87|     52|    0|
+    |PE_12_U0            |PE_12            |        0|   1|    87|     52|    0|
+    |PE_13_U0            |PE_13            |        0|   1|    87|     52|    0|
+    |PE_14_U0            |PE_14            |        0|   1|    87|     52|    0|
+    |PE_15_U0            |PE_15            |        0|   1|    87|     52|    0|
+    |PE_16_U0            |PE_16            |        0|   1|    87|     52|    0|
+    |PE_17_U0            |PE_17            |        0|   1|    86|     50|    0|
+    |PE_18_U0            |PE_18            |        0|   1|    86|     50|    0|
+    |PE_19_U0            |PE_19            |        0|   1|    87|     52|    0|
+    |PE_2_U0             |PE_2             |        0|   1|    87|     52|    0|
+    |PE_20_U0            |PE_20            |        0|   1|    87|     52|    0|
+    |PE_21_U0            |PE_21            |        0|   1|    87|     52|    0|
+    |PE_22_U0            |PE_22            |        0|   1|    87|     52|    0|
+    |PE_23_U0            |PE_23            |        0|   1|    87|     52|    0|
+    |PE_24_U0            |PE_24            |        0|   1|    87|     52|    0|
+    |PE_25_U0            |PE_25            |        0|   1|    87|     52|    0|
+    |PE_26_U0            |PE_26            |        0|   1|    86|     50|    0|
+    |PE_27_U0            |PE_27            |        0|   1|    86|     50|    0|
+    |PE_28_U0            |PE_28            |        0|   1|    87|     52|    0|
+    |PE_29_U0            |PE_29            |        0|   1|    87|     52|    0|
+    |PE_3_U0             |PE_3             |        0|   1|    87|     52|    0|
+    |PE_30_U0            |PE_30            |        0|   1|    87|     52|    0|
+    |PE_31_U0            |PE_31            |        0|   1|    87|     52|    0|
+    |PE_32_U0            |PE_32            |        0|   1|    87|     52|    0|
+    |PE_33_U0            |PE_33            |        0|   1|    87|     52|    0|
+    |PE_34_U0            |PE_34            |        0|   1|    87|     52|    0|
+    |PE_35_U0            |PE_35            |        0|   1|    86|     50|    0|
+    |PE_36_U0            |PE_36            |        0|   1|    86|     50|    0|
+    |PE_37_U0            |PE_37            |        0|   1|    87|     52|    0|
+    |PE_38_U0            |PE_38            |        0|   1|    87|     52|    0|
+    |PE_39_U0            |PE_39            |        0|   1|    87|     52|    0|
+    |PE_4_U0             |PE_4             |        0|   1|    87|     52|    0|
+    |PE_40_U0            |PE_40            |        0|   1|    87|     52|    0|
+    |PE_41_U0            |PE_41            |        0|   1|    87|     52|    0|
+    |PE_42_U0            |PE_42            |        0|   1|    87|     52|    0|
+    |PE_43_U0            |PE_43            |        0|   1|    87|     52|    0|
+    |PE_44_U0            |PE_44            |        0|   1|    86|     50|    0|
+    |PE_45_U0            |PE_45            |        0|   1|    86|     50|    0|
+    |PE_46_U0            |PE_46            |        0|   1|    87|     52|    0|
+    |PE_47_U0            |PE_47            |        0|   1|    87|     52|    0|
+    |PE_48_U0            |PE_48            |        0|   1|    87|     52|    0|
+    |PE_49_U0            |PE_49            |        0|   1|    87|     52|    0|
+    |PE_5_U0             |PE_5             |        0|   1|    87|     52|    0|
+    |PE_50_U0            |PE_50            |        0|   1|    87|     52|    0|
+    |PE_51_U0            |PE_51            |        0|   1|    87|     52|    0|
+    |PE_52_U0            |PE_52            |        0|   1|    87|     52|    0|
+    |PE_53_U0            |PE_53            |        0|   1|    86|     50|    0|
+    |PE_54_U0            |PE_54            |        0|   1|    86|     50|    0|
+    |PE_55_U0            |PE_55            |        0|   1|    87|     52|    0|
+    |PE_56_U0            |PE_56            |        0|   1|    87|     52|    0|
+    |PE_57_U0            |PE_57            |        0|   1|    87|     52|    0|
+    |PE_58_U0            |PE_58            |        0|   1|    87|     52|    0|
+    |PE_59_U0            |PE_59            |        0|   1|    87|     52|    0|
+    |PE_6_U0             |PE_6             |        0|   1|    87|     52|    0|
+    |PE_60_U0            |PE_60            |        0|   1|    87|     52|    0|
+    |PE_61_U0            |PE_61            |        0|   1|    87|     52|    0|
+    |PE_62_U0            |PE_62            |        0|   1|    86|     50|    0|
+    |PE_63_U0            |PE_63            |        0|   1|    86|     50|    0|
+    |PE_7_U0             |PE_7             |        0|   1|    87|     52|    0|
+    |PE_8_U0             |PE_8             |        0|   1|    86|     50|    0|
+    |PE_9_U0             |PE_9             |        0|   1|    86|     50|    0|
     |sink_streams_U0     |sink_streams     |        0|   0|     9|     48|    0|
     |stream_to_C_Buf_U0  |stream_to_C_Buf  |        0|   0|  8194|   8326|    0|
     |tm_A_U0             |tm_A             |        0|   0|  8717|  10032|    0|
     +--------------------+-----------------+---------+----+------+-------+-----+
-    |Total               |                 |        0|  64| 26515|  28842|    0|
+    |Total               |                 |        0|  64| 22483|  23018|    0|
     +--------------------+-----------------+---------+----+------+-------+-----+
 
     * DSP: 
@@ -441,11 +441,11 @@
     +-------------------------------------+----------+----+---+----+------------+------------+
     |B_Buf_to_stream_U0_ap_start          |       and|   0|  0|   2|           1|           1|
     |B_Buf_to_stream_U0_start_full_n      |       and|   0|  0|   2|           1|           1|
+    |PE_7_U0_start_full_n                 |       and|   0|  0|   2|           1|           1|
     |ap_idle                              |       and|   0|  0|   2|           1|           1|
     |ap_sync_continue                     |       and|   0|  0|   2|           1|           1|
     |ap_sync_done                         |       and|   0|  0|   2|           1|           1|
     |ap_sync_ready                        |       and|   0|  0|   2|           1|           1|
-    |run_7_U0_start_full_n                |       and|   0|  0|   2|           1|           1|
     |tm_A_U0_ap_start                     |       and|   0|  0|   2|           1|           1|
     |tm_A_U0_start_full_n                 |       and|   0|  0|   2|           1|           1|
     |ap_sync_B_Buf_to_stream_U0_ap_ready  |        or|   0|  0|   2|           1|           1|
