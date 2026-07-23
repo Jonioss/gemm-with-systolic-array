@@ -15,22 +15,28 @@ void load_A(hls::burst_maxi<hls::vector<float, VEC_SIZE>> A_DRAM, float A_BUF[I]
     }
 }
 
-void load_B(hls::burst_maxi<hls::vector<float, VEC_SIZE>> B_DRAM, float B_BUF[K][J]) {
-    #pragma HLS INLINE off
-    B_DRAM.read_request(0, K*J/VEC_SIZE);
-    for(int k = 0; k < K/VEC_SIZE; k++) {
-        for(int j = 0; j < J; j++) {
-            #pragma HLS PIPELINE II=1 rewind
-            hls::vector<float, VEC_SIZE> temp = B_DRAM.read();
-            for(int v = 0; v < VEC_SIZE; v++) {
-                #pragma HLS UNROLL
-                B_BUF[k*VEC_SIZE + v][j] = temp[v];
-            }
-        }
-    }
+// Function to read B's values from DRAM to its local buffer
+void load_B(hls::burst_maxi<hls::vector<float, VEC_SIZE>> B_DRAM, float B_BUF[NUM_TILES_J][K][J/NUM_TILES_J]) {
+	#pragma HLS INLINE off // Pragma to disable inlining for this function
+	B_DRAM.read_request(0, K*J/VEC_SIZE); // Request to DRAM to read B's values
+	load_B:
+	for(int k = 0; k < K/VEC_SIZE; k++) {
+		for(int t=0; t<NUM_TILES_J; t++){
+			for(int j = 0; j < J/NUM_TILES_J; j++) {
+				#pragma HLS PIPELINE II=1 // Enable pipelining
+				#pragma HLS LOOP_FLATTEN // Flatten the loop hierarchy for better performance
+				const hls::vector<float, VEC_SIZE> b_vec = B_DRAM.read(); // Helper vector to read B's values from DRAM, 16 at a single burst
+				for(int v = 0; v < VEC_SIZE; v++) {
+					#pragma HLS UNROLL // Unroll the loop to allow parallel execution of iterations
+					B_BUF[t][k*VEC_SIZE+v][j] = b_vec[v]; // Move B's values to the Buffer
+				}
+			}
+		}
+	}
 }
 
-void loadInputsFromDRAM(hls::burst_maxi<hls::vector<float, VEC_SIZE>> A_DRAM, hls::burst_maxi<hls::vector<float, VEC_SIZE>> B_DRAM, float A_BUF[I][K], float B_BUF[K][J]) {
+void loadInputsFromDRAM(hls::burst_maxi<hls::vector<float, VEC_SIZE>> A_DRAM, hls::burst_maxi<hls::vector<float, VEC_SIZE>> B_DRAM,
+     float A_BUF[I][K], float B_BUF[NUM_TILES_J][K][J/NUM_TILES_J]) {
     #pragma HLS INLINE off
     #pragma HLS DATAFLOW
     load_A(A_DRAM, A_BUF);

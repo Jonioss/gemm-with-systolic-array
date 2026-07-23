@@ -11,7 +11,7 @@ void stream_to_C_Buf(hls::stream<float> C_stream[S_A_I][S_A_J], float C_BUF[I][J
     }
 }
 
-void B_Buf_to_stream(float B_BUF[K][J], hls::stream<float> B_stream[S_A_J+1][S_A_I]) {
+void B_Buf_to_stream(float B_BUF[K][J/NUM_TILES_J], hls::stream<float> B_stream[S_A_J+1][S_A_I]) {
     #pragma HLS INLINE off
     for(int j = 0; j < S_A_J; j++) {
         #pragma HLS UNROLL
