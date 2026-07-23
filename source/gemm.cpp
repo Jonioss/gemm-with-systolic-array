@@ -12,19 +12,19 @@ void gemm(const hls::burst_maxi<hls::vector<float, VEC_SIZE>> A_DRAM,
 	#pragma HLS INTERFACE m_axi offset=slave port=C_DRAM bundle=gmem2 depth=I*J/VEC_SIZE max_write_burst_length=std::min(VEC_SIZE, 16)
  
     float A_BUF[I][K];
-    #pragma HLS STREAM variable=A_BUF type=fifo
+    #pragma HLS STREAM variable=A_BUF type=pipo
     #pragma HLS BIND_STORAGE variable=A_BUF type=RAM_S2P impl=BRAM
     #pragma HLS ARRAY_PARTITION variable=A_BUF type=block factor=NUM_TILES_I dim=1
     #pragma HLS ARRAY_PARTITION variable=A_BUF type=complete dim=2
  
     float B_BUF[NUM_TILES_J][K][J/NUM_TILES_J];
-    #pragma HLS STREAM variable=B_BUF type=fifo
+    #pragma HLS STREAM variable=B_BUF type=pipo
     #pragma HLS ARRAY_PARTITION variable=B_BUF type=complete dim=1
     #pragma HLS ARRAY_PARTITION variable=B_BUF type=complete dim=2
     #pragma HLS ARRAY_PARTITION variable=B_BUF type=complete dim=3
 
     float C_BUF[I][J];
-    #pragma HLS STREAM variable=C_BUF type=fifo
+    #pragma HLS STREAM variable=C_BUF type=pipo
     #pragma HLS ARRAY_PARTITION variable=C_BUF type=complete dim=1
     #pragma HLS ARRAY_PARTITION variable=C_BUF type=complete dim=2
 

@@ -4,7 +4,7 @@
 == Synthesis Summary Report of 'gemm'
 ================================================================
 + General Information: 
-    * Date:           Thu Jul 23 18:41:47 2026
+    * Date:           Thu Jul 23 19:40:45 2026
     * Version:        2023.2 (Build 4023990 on Oct 11 2023)
     * Project:        hls_project
     * Solution:       gemm2 (Vitis Kernel Flow Target)
@@ -19,18 +19,18 @@
     |                     Modules                    |  Issue |       | Latency | Latency | Iteration|         | Trip |          |         |         |             |            |     |
     |                     & Loops                    |  Type  | Slack | (cycles)|   (ns)  |  Latency | Interval| Count| Pipelined|  BRAM   |   DSP   |      FF     |     LUT    | URAM|
     +------------------------------------------------+--------+-------+---------+---------+----------+---------+------+----------+---------+---------+-------------+------------+-----+
-    |+ gemm                                          |  Timing|  -0.63|      273|  909.909|         -|      274|     -|        no|  48 (2%)|  64 (3%)|   69742 (3%)|  54445 (6%)|    -|
-    | + loadInputsFromDRAM*                          |  Timing|  -0.00|      104|  346.632|         -|       83|     -|  dataflow|        -|        -|    235 (~0%)|   396 (~0%)|    -|
-    |  + load_A                                      |  Timing|  -0.00|      104|  346.632|         -|       32|     -|    rewind|        -|        -|    148 (~0%)|   130 (~0%)|    -|
+    |+ gemm                                          |  Timing|  -0.43|      274|  913.242|         -|      275|     -|        no|  80 (4%)|  64 (3%)|   64188 (3%)|  46407 (5%)|    -|
+    | + loadInputsFromDRAM*                          |  Timing|  -0.00|      104|  346.632|         -|       83|     -|  dataflow|        -|        -|    238 (~0%)|   348 (~0%)|    -|
+    |  + load_A                                      |  Timing|  -0.00|      104|  346.632|         -|       32|     -|    rewind|        -|        -|    151 (~0%)|    82 (~0%)|    -|
     |   o VITIS_LOOP_6_1                             |       -|   2.43|      103|  343.299|        73|        1|    32|       yes|        -|        -|            -|           -|    -|
     |  + load_B                                      |  Timing|  -0.00|       82|  273.306|         -|       82|     -|        no|        -|        -|     85 (~0%)|   246 (~0%)|    -|
     |   + load_B_Pipeline_VITIS_LOOP_25_2            |       -|   1.11|       10|   33.330|         -|       10|     -|        no|        -|        -|     10 (~0%)|    28 (~0%)|    -|
     |    o VITIS_LOOP_25_2                           |       -|   2.43|        8|   26.664|         2|        1|     8|       yes|        -|        -|            -|           -|    -|
-    | + runSystolicArray                             |  Timing|  -0.63|       58|  193.314|         -|       58|     -|        no|        -|  64 (3%)|   48579 (2%)|  39269 (4%)|    -|
-    |  o tile_loop                                   |       -|   2.43|       57|  189.981|        34|        -|     4|        no|        -|        -|            -|           -|    -|
-    |   + dataflow_in_loop_tile_loop_1*              |  Timing|  -0.63|       32|  106.656|         -|        8|     -|  dataflow|        -|  64 (3%)|   48516 (2%)|  39239 (4%)|    -|
-    |    + tm_A*                                     |  Timing|  -0.63|       15|   49.995|         -|        8|     -|  dataflow|        -|        -|  12051 (~0%)|  10594 (1%)|    -|
-    |     + load_tile_A2                             |       -|   0.33|        7|   23.331|         -|        7|     -|        no|        -|        -|   5385 (~0%)|  4666 (~0%)|    -|
+    | + runSystolicArray                             |  Timing|  -0.43|       61|  203.313|         -|       61|     -|        no|        -|  64 (3%)|   47044 (2%)|  37403 (4%)|    -|
+    |  o VITIS_LOOP_31_1                             |       -|   2.43|       60|  199.980|        34|        -|     4|        no|        -|        -|            -|           -|    -|
+    |   + dataflow_in_loop_VITIS_LOOP_31_1*          |  Timing|  -0.43|       32|  106.656|         -|        9|     -|  dataflow|        -|  64 (3%)|   46981 (2%)|  37373 (4%)|    -|
+    |    + tm_A*                                     |       -|   0.08|       16|   53.328|         -|        9|     -|  dataflow|        -|        -|  10516 (~0%)|  8728 (~0%)|    -|
+    |     + load_tile_A2                             |       -|   1.05|        8|   26.664|         -|        8|     -|        no|        -|        -|   3850 (~0%)|  2800 (~0%)|    -|
     |     + tile_A_to_stream                         |       -|   0.48|        7|   23.331|         -|        7|     -|        no|        -|        -|      9 (~0%)|  1312 (~0%)|    -|
     |    + B_Buf_to_stream                           |       -|   1.31|        7|   23.331|         -|        7|     -|        no|        -|        -|     10 (~0%)|  1314 (~0%)|    -|
     |    + PE                                        |      II|   0.20|       11|   36.663|         -|        8|     -|    rewind|        -|  1 (~0%)|     86 (~0%)|    50 (~0%)|    -|
@@ -163,9 +163,9 @@
     |     o VITIS_LOOP_8_1                           |       -|   2.43|       10|   33.330|         4|        1|     8|       yes|        -|        -|            -|           -|    -|
     |    + sink_streams                              |       -|   1.31|        7|   23.331|         -|        7|     -|        no|        -|        -|      9 (~0%)|    48 (~0%)|    -|
     |    + stream_to_C_Buf                           |       -|   1.05|        0|    0.000|         -|        0|     -|        no|        -|        -|   8194 (~0%)|  8326 (~0%)|    -|
-    | + storeOutputToDRAM                            |  Timing|  -0.18|      106|  353.298|         -|      106|     -|        no|        -|        -|    871 (~0%)|  6855 (~0%)|    -|
-    |  + storeOutputToDRAM_Pipeline_VITIS_LOOP_49_1  |  Timing|  -0.18|       36|  119.988|         -|       36|     -|        no|        -|        -|    799 (~0%)|  6637 (~0%)|    -|
-    |   o VITIS_LOOP_49_1                            |       -|   2.43|       34|  113.322|         4|        1|    32|       yes|        -|        -|            -|           -|    -|
+    | + storeOutputToDRAM                            |  Timing|  -0.00|      104|  346.632|         -|      104|     -|        no|        -|        -|    337 (~0%)|  3067 (~0%)|    -|
+    |  + storeOutputToDRAM_Pipeline_VITIS_LOOP_49_1  |       -|   0.57|       34|  113.322|         -|       34|     -|        no|        -|        -|    265 (~0%)|  2849 (~0%)|    -|
+    |   o VITIS_LOOP_49_1                            |       -|   2.43|       32|  106.656|         2|        1|    32|       yes|        -|        -|            -|           -|    -|
     +------------------------------------------------+--------+-------+---------+---------+----------+---------+------+----------+---------+---------+-------------+------------+-----+
 
 
@@ -268,531 +268,531 @@
 | + gemm                                                  | 64  |        |          |       |              |         |
 |  + loadInputsFromDRAM                                   | 0   |        |          |       |              |         |
 |   + load_A                                              | 0   |        |          |       |              |         |
-|     i_fu_481_p2                                         |     |        | i        | add   | fabric       | 0       |
+|     i_fu_799_p2                                         |     |        | i        | add   | fabric       | 0       |
 |   + load_B                                              | 0   |        |          |       |              |         |
 |    + load_B_Pipeline_VITIS_LOOP_25_2                    | 0   |        |          |       |              |         |
 |      add_ln25_fu_716_p2                                 |     |        | add_ln25 | add   | fabric       | 0       |
 |  + runSystolicArray                                     | 64  |        |          |       |              |         |
-|   + dataflow_in_loop_tile_loop_1                        | 64  |        |          |       |              |         |
+|   + dataflow_in_loop_VITIS_LOOP_31_1                    | 64  |        |          |       |              |         |
 |    + PE                                                 | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U550 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U559 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_1                                               | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U557 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U566 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_8                                               | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U599 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U608 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_2                                               | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U563 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U572 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_9                                               | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U605 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U614 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_16                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U647 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U656 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_3                                               | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U569 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U578 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_10                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U611 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U620 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_17                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U653 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U662 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_24                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U695 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U704 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_4                                               | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U575 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U584 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_11                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U617 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U626 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_18                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U659 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U668 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_25                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U701 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U710 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_32                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U743 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U752 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_5                                               | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U581 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U590 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_12                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U623 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U632 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_19                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U665 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U674 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_26                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U707 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U716 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_33                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U749 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U758 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_40                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U791 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U800 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_6                                               | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U587 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U596 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_13                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U629 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U638 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_20                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U671 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U680 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_27                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U713 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U722 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_34                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U755 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U764 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_41                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U797 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U806 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_48                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U839 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U848 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_7                                               | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U593 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U602 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_14                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U635 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U644 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_21                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U677 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U686 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_28                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U719 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U728 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_35                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U761 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U770 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_42                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U803 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U812 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_49                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U845 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U854 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_56                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U887 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U896 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_15                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U641 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U650 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_22                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U683 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U692 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_29                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U725 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U734 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_36                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U767 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U776 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_43                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U809 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U818 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_50                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U851 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U860 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_57                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U893 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U902 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_23                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U689 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U698 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_30                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U731 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U740 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_37                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U773 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U782 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_44                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U815 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U824 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_51                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U857 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U866 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_58                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U899 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U908 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_31                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U737 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U746 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_38                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U779 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U788 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_45                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U821 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U830 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_52                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U863 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U872 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_59                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U905 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U914 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_39                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U785 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U794 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_46                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U827 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U836 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_53                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U869 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U878 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_60                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U911 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U920 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_47                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U833 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U842 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_54                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U875 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U884 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_61                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U917 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U926 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_55                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U881 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U890 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_62                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U923 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U932 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |    + PE_63                                              | 1   |        |          |       |              |         |
 |      k_fu_93_p2                                         |     |        | k        | add   | fabric       | 0       |
-|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U929 | 1   |        | acc      | fmacc | primitivedsp | 2       |
+|      fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U938 | 1   |        | acc      | fmacc | primitivedsp | 2       |
 |  + storeOutputToDRAM                                    | 0   |        |          |       |              |         |
 |   + storeOutputToDRAM_Pipeline_VITIS_LOOP_49_1          | 0   |        |          |       |              |         |
-|     add_ln49_fu_2699_p2                                 |     |        | add_ln49 | add   | fabric       | 0       |
+|     add_ln49_fu_2705_p2                                 |     |        | add_ln49 | add   | fabric       | 0       |
 +---------------------------------------------------------+-----+--------+----------+-------+--------------+---------+
 
 
 ================================================================
 == Storage Report
 ================================================================
-+------------------------------------------------------------------------+--------------+-------------+------+------+--------+-----------------------------------------------------------------+--------+---------+------------------+
-| Name                                                                   | Usage        | Type        | BRAM | URAM | Pragma | Variable                                                        | Impl   | Latency | Bitwidth, Depth, |
-|                                                                        |              |             |      |      |        |                                                                 |        |         | Banks            |
-+------------------------------------------------------------------------+--------------+-------------+------+------+--------+-----------------------------------------------------------------+--------+---------+------------------+
-| + gemm                                                                 |              |             | 48   | 0    |        |                                                                 |        |         |                  |
-|   control_s_axi_U                                                      | interface    | s_axilite   |      |      |        |                                                                 |        |         |                  |
-|   gmem0_m_axi_U                                                        | interface    | m_axi       | 16   |      |        |                                                                 |        |         |                  |
-|   gmem1_m_axi_U                                                        | interface    | m_axi       | 16   |      |        |                                                                 |        |         |                  |
-|   gmem2_m_axi_U                                                        | interface    | m_axi       | 16   |      |        |                                                                 |        |         |                  |
-|   A_BUF_fifo_U                                                         | fifo array   |             |      |      | yes    | A_BUF                                                           | memory | 0       | 32, 8, 1         |
-|   A_BUF_1_fifo_U                                                       | fifo array   |             |      |      | yes    | A_BUF_1                                                         | memory | 0       | 32, 8, 1         |
-|   A_BUF_2_fifo_U                                                       | fifo array   |             |      |      | yes    | A_BUF_2                                                         | memory | 0       | 32, 8, 1         |
-|   A_BUF_3_fifo_U                                                       | fifo array   |             |      |      | yes    | A_BUF_3                                                         | memory | 0       | 32, 8, 1         |
-|   A_BUF_4_fifo_U                                                       | fifo array   |             |      |      | yes    | A_BUF_4                                                         | memory | 0       | 32, 8, 1         |
-|   A_BUF_5_fifo_U                                                       | fifo array   |             |      |      | yes    | A_BUF_5                                                         | memory | 0       | 32, 8, 1         |
-|   A_BUF_6_fifo_U                                                       | fifo array   |             |      |      | yes    | A_BUF_6                                                         | memory | 0       | 32, 8, 1         |
-|   A_BUF_7_fifo_U                                                       | fifo array   |             |      |      | yes    | A_BUF_7                                                         | memory | 0       | 32, 8, 1         |
-|   A_BUF_8_fifo_U                                                       | fifo array   |             |      |      | yes    | A_BUF_8                                                         | memory | 0       | 32, 8, 1         |
-|   A_BUF_9_fifo_U                                                       | fifo array   |             |      |      | yes    | A_BUF_9                                                         | memory | 0       | 32, 8, 1         |
-|   A_BUF_10_fifo_U                                                      | fifo array   |             |      |      | yes    | A_BUF_10                                                        | memory | 0       | 32, 8, 1         |
-|   A_BUF_11_fifo_U                                                      | fifo array   |             |      |      | yes    | A_BUF_11                                                        | memory | 0       | 32, 8, 1         |
-|   A_BUF_12_fifo_U                                                      | fifo array   |             |      |      | yes    | A_BUF_12                                                        | memory | 0       | 32, 8, 1         |
-|   A_BUF_13_fifo_U                                                      | fifo array   |             |      |      | yes    | A_BUF_13                                                        | memory | 0       | 32, 8, 1         |
-|   A_BUF_14_fifo_U                                                      | fifo array   |             |      |      | yes    | A_BUF_14                                                        | memory | 0       | 32, 8, 1         |
-|   A_BUF_15_fifo_U                                                      | fifo array   |             |      |      | yes    | A_BUF_15                                                        | memory | 0       | 32, 8, 1         |
-|   A_BUF_16_fifo_U                                                      | fifo array   |             |      |      | yes    | A_BUF_16                                                        | memory | 0       | 32, 8, 1         |
-|   A_BUF_17_fifo_U                                                      | fifo array   |             |      |      | yes    | A_BUF_17                                                        | memory | 0       | 32, 8, 1         |
-|   A_BUF_18_fifo_U                                                      | fifo array   |             |      |      | yes    | A_BUF_18                                                        | memory | 0       | 32, 8, 1         |
-|   A_BUF_19_fifo_U                                                      | fifo array   |             |      |      | yes    | A_BUF_19                                                        | memory | 0       | 32, 8, 1         |
-|   A_BUF_20_fifo_U                                                      | fifo array   |             |      |      | yes    | A_BUF_20                                                        | memory | 0       | 32, 8, 1         |
-|   A_BUF_21_fifo_U                                                      | fifo array   |             |      |      | yes    | A_BUF_21                                                        | memory | 0       | 32, 8, 1         |
-|   A_BUF_22_fifo_U                                                      | fifo array   |             |      |      | yes    | A_BUF_22                                                        | memory | 0       | 32, 8, 1         |
-|   A_BUF_23_fifo_U                                                      | fifo array   |             |      |      | yes    | A_BUF_23                                                        | memory | 0       | 32, 8, 1         |
-|   A_BUF_24_fifo_U                                                      | fifo array   |             |      |      | yes    | A_BUF_24                                                        | memory | 0       | 32, 8, 1         |
-|   A_BUF_25_fifo_U                                                      | fifo array   |             |      |      | yes    | A_BUF_25                                                        | memory | 0       | 32, 8, 1         |
-|   A_BUF_26_fifo_U                                                      | fifo array   |             |      |      | yes    | A_BUF_26                                                        | memory | 0       | 32, 8, 1         |
-|   A_BUF_27_fifo_U                                                      | fifo array   |             |      |      | yes    | A_BUF_27                                                        | memory | 0       | 32, 8, 1         |
-|   A_BUF_28_fifo_U                                                      | fifo array   |             |      |      | yes    | A_BUF_28                                                        | memory | 0       | 32, 8, 1         |
-|   A_BUF_29_fifo_U                                                      | fifo array   |             |      |      | yes    | A_BUF_29                                                        | memory | 0       | 32, 8, 1         |
-|   A_BUF_30_fifo_U                                                      | fifo array   |             |      |      | yes    | A_BUF_30                                                        | memory | 0       | 32, 8, 1         |
-|   A_BUF_31_fifo_U                                                      | fifo array   |             |      |      | yes    | A_BUF_31                                                        | memory | 0       | 32, 8, 1         |
-|  + runSystolicArray                                                    |              |             | 0    | 0    |        |                                                                 |        |         |                  |
-|   + dataflow_in_loop_tile_loop_1                                       |              |             | 0    | 0    |        |                                                                 |        |         |                  |
-|     A_stream_71_U                                                      | fifo channel | stream      |      |      |        | A_stream_71                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_62_U                                                      | fifo channel | stream      |      |      |        | A_stream_62                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_53_U                                                      | fifo channel | stream      |      |      |        | A_stream_53                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_44_U                                                      | fifo channel | stream      |      |      |        | A_stream_44                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_35_U                                                      | fifo channel | stream      |      |      |        | A_stream_35                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_26_U                                                      | fifo channel | stream      |      |      |        | A_stream_26                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_17_U                                                      | fifo channel | stream      |      |      |        | A_stream_17                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_8_U                                                       | fifo channel | stream      |      |      |        | A_stream_8                                                      | memory | 0       | 32, 8, 1         |
-|     t_0_c_U                                                            | fifo channel | scalar prop |      |      |        | t_0_c                                                           | memory | 0       | 2, 17, 1         |
-|     B_stream_71_U                                                      | fifo channel | stream      |      |      |        | B_stream_71                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_70_U                                                      | fifo channel | stream      |      |      |        | B_stream_70                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_69_U                                                      | fifo channel | stream      |      |      |        | B_stream_69                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_68_U                                                      | fifo channel | stream      |      |      |        | B_stream_68                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_67_U                                                      | fifo channel | stream      |      |      |        | B_stream_67                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_66_U                                                      | fifo channel | stream      |      |      |        | B_stream_66                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_65_U                                                      | fifo channel | stream      |      |      |        | B_stream_65                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_64_U                                                      | fifo channel | stream      |      |      |        | B_stream_64                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_70_U                                                      | fifo channel | stream      |      |      |        | A_stream_70                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_63_U                                                      | fifo channel | stream      |      |      |        | B_stream_63                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_63_U                                                      | fifo channel | stream      |      |      |        | C_stream_63                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_69_U                                                      | fifo channel | stream      |      |      |        | A_stream_69                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_62_U                                                      | fifo channel | stream      |      |      |        | B_stream_62                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_62_U                                                      | fifo channel | stream      |      |      |        | C_stream_62                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_68_U                                                      | fifo channel | stream      |      |      |        | A_stream_68                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_61_U                                                      | fifo channel | stream      |      |      |        | B_stream_61                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_61_U                                                      | fifo channel | stream      |      |      |        | C_stream_61                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_67_U                                                      | fifo channel | stream      |      |      |        | A_stream_67                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_60_U                                                      | fifo channel | stream      |      |      |        | B_stream_60                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_60_U                                                      | fifo channel | stream      |      |      |        | C_stream_60                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_66_U                                                      | fifo channel | stream      |      |      |        | A_stream_66                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_59_U                                                      | fifo channel | stream      |      |      |        | B_stream_59                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_59_U                                                      | fifo channel | stream      |      |      |        | C_stream_59                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_65_U                                                      | fifo channel | stream      |      |      |        | A_stream_65                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_58_U                                                      | fifo channel | stream      |      |      |        | B_stream_58                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_58_U                                                      | fifo channel | stream      |      |      |        | C_stream_58                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_64_U                                                      | fifo channel | stream      |      |      |        | A_stream_64                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_57_U                                                      | fifo channel | stream      |      |      |        | B_stream_57                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_57_U                                                      | fifo channel | stream      |      |      |        | C_stream_57                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_63_U                                                      | fifo channel | stream      |      |      |        | A_stream_63                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_56_U                                                      | fifo channel | stream      |      |      |        | B_stream_56                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_56_U                                                      | fifo channel | stream      |      |      |        | C_stream_56                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_61_U                                                      | fifo channel | stream      |      |      |        | A_stream_61                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_55_U                                                      | fifo channel | stream      |      |      |        | B_stream_55                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_55_U                                                      | fifo channel | stream      |      |      |        | C_stream_55                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_60_U                                                      | fifo channel | stream      |      |      |        | A_stream_60                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_54_U                                                      | fifo channel | stream      |      |      |        | B_stream_54                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_54_U                                                      | fifo channel | stream      |      |      |        | C_stream_54                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_59_U                                                      | fifo channel | stream      |      |      |        | A_stream_59                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_53_U                                                      | fifo channel | stream      |      |      |        | B_stream_53                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_53_U                                                      | fifo channel | stream      |      |      |        | C_stream_53                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_58_U                                                      | fifo channel | stream      |      |      |        | A_stream_58                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_52_U                                                      | fifo channel | stream      |      |      |        | B_stream_52                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_52_U                                                      | fifo channel | stream      |      |      |        | C_stream_52                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_57_U                                                      | fifo channel | stream      |      |      |        | A_stream_57                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_51_U                                                      | fifo channel | stream      |      |      |        | B_stream_51                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_51_U                                                      | fifo channel | stream      |      |      |        | C_stream_51                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_56_U                                                      | fifo channel | stream      |      |      |        | A_stream_56                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_50_U                                                      | fifo channel | stream      |      |      |        | B_stream_50                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_50_U                                                      | fifo channel | stream      |      |      |        | C_stream_50                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_55_U                                                      | fifo channel | stream      |      |      |        | A_stream_55                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_49_U                                                      | fifo channel | stream      |      |      |        | B_stream_49                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_49_U                                                      | fifo channel | stream      |      |      |        | C_stream_49                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_54_U                                                      | fifo channel | stream      |      |      |        | A_stream_54                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_48_U                                                      | fifo channel | stream      |      |      |        | B_stream_48                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_48_U                                                      | fifo channel | stream      |      |      |        | C_stream_48                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_52_U                                                      | fifo channel | stream      |      |      |        | A_stream_52                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_47_U                                                      | fifo channel | stream      |      |      |        | B_stream_47                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_47_U                                                      | fifo channel | stream      |      |      |        | C_stream_47                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_51_U                                                      | fifo channel | stream      |      |      |        | A_stream_51                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_46_U                                                      | fifo channel | stream      |      |      |        | B_stream_46                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_46_U                                                      | fifo channel | stream      |      |      |        | C_stream_46                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_50_U                                                      | fifo channel | stream      |      |      |        | A_stream_50                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_45_U                                                      | fifo channel | stream      |      |      |        | B_stream_45                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_45_U                                                      | fifo channel | stream      |      |      |        | C_stream_45                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_49_U                                                      | fifo channel | stream      |      |      |        | A_stream_49                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_44_U                                                      | fifo channel | stream      |      |      |        | B_stream_44                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_44_U                                                      | fifo channel | stream      |      |      |        | C_stream_44                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_48_U                                                      | fifo channel | stream      |      |      |        | A_stream_48                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_43_U                                                      | fifo channel | stream      |      |      |        | B_stream_43                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_43_U                                                      | fifo channel | stream      |      |      |        | C_stream_43                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_47_U                                                      | fifo channel | stream      |      |      |        | A_stream_47                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_42_U                                                      | fifo channel | stream      |      |      |        | B_stream_42                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_42_U                                                      | fifo channel | stream      |      |      |        | C_stream_42                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_46_U                                                      | fifo channel | stream      |      |      |        | A_stream_46                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_41_U                                                      | fifo channel | stream      |      |      |        | B_stream_41                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_41_U                                                      | fifo channel | stream      |      |      |        | C_stream_41                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_45_U                                                      | fifo channel | stream      |      |      |        | A_stream_45                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_40_U                                                      | fifo channel | stream      |      |      |        | B_stream_40                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_40_U                                                      | fifo channel | stream      |      |      |        | C_stream_40                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_43_U                                                      | fifo channel | stream      |      |      |        | A_stream_43                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_39_U                                                      | fifo channel | stream      |      |      |        | B_stream_39                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_39_U                                                      | fifo channel | stream      |      |      |        | C_stream_39                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_42_U                                                      | fifo channel | stream      |      |      |        | A_stream_42                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_38_U                                                      | fifo channel | stream      |      |      |        | B_stream_38                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_38_U                                                      | fifo channel | stream      |      |      |        | C_stream_38                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_41_U                                                      | fifo channel | stream      |      |      |        | A_stream_41                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_37_U                                                      | fifo channel | stream      |      |      |        | B_stream_37                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_37_U                                                      | fifo channel | stream      |      |      |        | C_stream_37                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_40_U                                                      | fifo channel | stream      |      |      |        | A_stream_40                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_36_U                                                      | fifo channel | stream      |      |      |        | B_stream_36                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_36_U                                                      | fifo channel | stream      |      |      |        | C_stream_36                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_39_U                                                      | fifo channel | stream      |      |      |        | A_stream_39                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_35_U                                                      | fifo channel | stream      |      |      |        | B_stream_35                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_35_U                                                      | fifo channel | stream      |      |      |        | C_stream_35                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_38_U                                                      | fifo channel | stream      |      |      |        | A_stream_38                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_34_U                                                      | fifo channel | stream      |      |      |        | B_stream_34                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_34_U                                                      | fifo channel | stream      |      |      |        | C_stream_34                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_37_U                                                      | fifo channel | stream      |      |      |        | A_stream_37                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_33_U                                                      | fifo channel | stream      |      |      |        | B_stream_33                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_33_U                                                      | fifo channel | stream      |      |      |        | C_stream_33                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_36_U                                                      | fifo channel | stream      |      |      |        | A_stream_36                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_32_U                                                      | fifo channel | stream      |      |      |        | B_stream_32                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_32_U                                                      | fifo channel | stream      |      |      |        | C_stream_32                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_34_U                                                      | fifo channel | stream      |      |      |        | A_stream_34                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_31_U                                                      | fifo channel | stream      |      |      |        | B_stream_31                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_31_U                                                      | fifo channel | stream      |      |      |        | C_stream_31                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_33_U                                                      | fifo channel | stream      |      |      |        | A_stream_33                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_30_U                                                      | fifo channel | stream      |      |      |        | B_stream_30                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_30_U                                                      | fifo channel | stream      |      |      |        | C_stream_30                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_32_U                                                      | fifo channel | stream      |      |      |        | A_stream_32                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_29_U                                                      | fifo channel | stream      |      |      |        | B_stream_29                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_29_U                                                      | fifo channel | stream      |      |      |        | C_stream_29                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_31_U                                                      | fifo channel | stream      |      |      |        | A_stream_31                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_28_U                                                      | fifo channel | stream      |      |      |        | B_stream_28                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_28_U                                                      | fifo channel | stream      |      |      |        | C_stream_28                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_30_U                                                      | fifo channel | stream      |      |      |        | A_stream_30                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_27_U                                                      | fifo channel | stream      |      |      |        | B_stream_27                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_27_U                                                      | fifo channel | stream      |      |      |        | C_stream_27                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_29_U                                                      | fifo channel | stream      |      |      |        | A_stream_29                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_26_U                                                      | fifo channel | stream      |      |      |        | B_stream_26                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_26_U                                                      | fifo channel | stream      |      |      |        | C_stream_26                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_28_U                                                      | fifo channel | stream      |      |      |        | A_stream_28                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_25_U                                                      | fifo channel | stream      |      |      |        | B_stream_25                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_25_U                                                      | fifo channel | stream      |      |      |        | C_stream_25                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_27_U                                                      | fifo channel | stream      |      |      |        | A_stream_27                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_24_U                                                      | fifo channel | stream      |      |      |        | B_stream_24                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_24_U                                                      | fifo channel | stream      |      |      |        | C_stream_24                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_25_U                                                      | fifo channel | stream      |      |      |        | A_stream_25                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_23_U                                                      | fifo channel | stream      |      |      |        | B_stream_23                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_23_U                                                      | fifo channel | stream      |      |      |        | C_stream_23                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_24_U                                                      | fifo channel | stream      |      |      |        | A_stream_24                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_22_U                                                      | fifo channel | stream      |      |      |        | B_stream_22                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_22_U                                                      | fifo channel | stream      |      |      |        | C_stream_22                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_23_U                                                      | fifo channel | stream      |      |      |        | A_stream_23                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_21_U                                                      | fifo channel | stream      |      |      |        | B_stream_21                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_21_U                                                      | fifo channel | stream      |      |      |        | C_stream_21                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_22_U                                                      | fifo channel | stream      |      |      |        | A_stream_22                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_20_U                                                      | fifo channel | stream      |      |      |        | B_stream_20                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_20_U                                                      | fifo channel | stream      |      |      |        | C_stream_20                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_21_U                                                      | fifo channel | stream      |      |      |        | A_stream_21                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_19_U                                                      | fifo channel | stream      |      |      |        | B_stream_19                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_19_U                                                      | fifo channel | stream      |      |      |        | C_stream_19                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_20_U                                                      | fifo channel | stream      |      |      |        | A_stream_20                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_18_U                                                      | fifo channel | stream      |      |      |        | B_stream_18                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_18_U                                                      | fifo channel | stream      |      |      |        | C_stream_18                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_19_U                                                      | fifo channel | stream      |      |      |        | A_stream_19                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_17_U                                                      | fifo channel | stream      |      |      |        | B_stream_17                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_17_U                                                      | fifo channel | stream      |      |      |        | C_stream_17                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_18_U                                                      | fifo channel | stream      |      |      |        | A_stream_18                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_16_U                                                      | fifo channel | stream      |      |      |        | B_stream_16                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_16_U                                                      | fifo channel | stream      |      |      |        | C_stream_16                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_16_U                                                      | fifo channel | stream      |      |      |        | A_stream_16                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_15_U                                                      | fifo channel | stream      |      |      |        | B_stream_15                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_15_U                                                      | fifo channel | stream      |      |      |        | C_stream_15                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_15_U                                                      | fifo channel | stream      |      |      |        | A_stream_15                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_14_U                                                      | fifo channel | stream      |      |      |        | B_stream_14                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_14_U                                                      | fifo channel | stream      |      |      |        | C_stream_14                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_14_U                                                      | fifo channel | stream      |      |      |        | A_stream_14                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_13_U                                                      | fifo channel | stream      |      |      |        | B_stream_13                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_13_U                                                      | fifo channel | stream      |      |      |        | C_stream_13                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_13_U                                                      | fifo channel | stream      |      |      |        | A_stream_13                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_12_U                                                      | fifo channel | stream      |      |      |        | B_stream_12                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_12_U                                                      | fifo channel | stream      |      |      |        | C_stream_12                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_12_U                                                      | fifo channel | stream      |      |      |        | A_stream_12                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_11_U                                                      | fifo channel | stream      |      |      |        | B_stream_11                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_11_U                                                      | fifo channel | stream      |      |      |        | C_stream_11                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_11_U                                                      | fifo channel | stream      |      |      |        | A_stream_11                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_10_U                                                      | fifo channel | stream      |      |      |        | B_stream_10                                                     | memory | 0       | 32, 8, 1         |
-|     C_stream_10_U                                                      | fifo channel | stream      |      |      |        | C_stream_10                                                     | memory | 0       | 32, 8, 1         |
-|     A_stream_10_U                                                      | fifo channel | stream      |      |      |        | A_stream_10                                                     | memory | 0       | 32, 8, 1         |
-|     B_stream_9_U                                                       | fifo channel | stream      |      |      |        | B_stream_9                                                      | memory | 0       | 32, 8, 1         |
-|     C_stream_9_U                                                       | fifo channel | stream      |      |      |        | C_stream_9                                                      | memory | 0       | 32, 8, 1         |
-|     A_stream_9_U                                                       | fifo channel | stream      |      |      |        | A_stream_9                                                      | memory | 0       | 32, 8, 1         |
-|     B_stream_8_U                                                       | fifo channel | stream      |      |      |        | B_stream_8                                                      | memory | 0       | 32, 8, 1         |
-|     C_stream_8_U                                                       | fifo channel | stream      |      |      |        | C_stream_8                                                      | memory | 0       | 32, 8, 1         |
-|     A_stream_7_U                                                       | fifo channel | stream      |      |      |        | A_stream_7                                                      | memory | 0       | 32, 8, 1         |
-|     B_stream_7_U                                                       | fifo channel | stream      |      |      |        | B_stream_7                                                      | memory | 0       | 32, 8, 1         |
-|     C_stream_7_U                                                       | fifo channel | stream      |      |      |        | C_stream_7                                                      | memory | 0       | 32, 8, 1         |
-|     A_stream_6_U                                                       | fifo channel | stream      |      |      |        | A_stream_6                                                      | memory | 0       | 32, 8, 1         |
-|     B_stream_6_U                                                       | fifo channel | stream      |      |      |        | B_stream_6                                                      | memory | 0       | 32, 8, 1         |
-|     C_stream_6_U                                                       | fifo channel | stream      |      |      |        | C_stream_6                                                      | memory | 0       | 32, 8, 1         |
-|     A_stream_5_U                                                       | fifo channel | stream      |      |      |        | A_stream_5                                                      | memory | 0       | 32, 8, 1         |
-|     B_stream_5_U                                                       | fifo channel | stream      |      |      |        | B_stream_5                                                      | memory | 0       | 32, 8, 1         |
-|     C_stream_5_U                                                       | fifo channel | stream      |      |      |        | C_stream_5                                                      | memory | 0       | 32, 8, 1         |
-|     A_stream_4_U                                                       | fifo channel | stream      |      |      |        | A_stream_4                                                      | memory | 0       | 32, 8, 1         |
-|     B_stream_4_U                                                       | fifo channel | stream      |      |      |        | B_stream_4                                                      | memory | 0       | 32, 8, 1         |
-|     C_stream_4_U                                                       | fifo channel | stream      |      |      |        | C_stream_4                                                      | memory | 0       | 32, 8, 1         |
-|     A_stream_3_U                                                       | fifo channel | stream      |      |      |        | A_stream_3                                                      | memory | 0       | 32, 8, 1         |
-|     B_stream_3_U                                                       | fifo channel | stream      |      |      |        | B_stream_3                                                      | memory | 0       | 32, 8, 1         |
-|     C_stream_3_U                                                       | fifo channel | stream      |      |      |        | C_stream_3                                                      | memory | 0       | 32, 8, 1         |
-|     A_stream_2_U                                                       | fifo channel | stream      |      |      |        | A_stream_2                                                      | memory | 0       | 32, 8, 1         |
-|     B_stream_2_U                                                       | fifo channel | stream      |      |      |        | B_stream_2                                                      | memory | 0       | 32, 8, 1         |
-|     C_stream_2_U                                                       | fifo channel | stream      |      |      |        | C_stream_2                                                      | memory | 0       | 32, 8, 1         |
-|     A_stream_1_U                                                       | fifo channel | stream      |      |      |        | A_stream_1                                                      | memory | 0       | 32, 8, 1         |
-|     B_stream_1_U                                                       | fifo channel | stream      |      |      |        | B_stream_1                                                      | memory | 0       | 32, 8, 1         |
-|     C_stream_1_U                                                       | fifo channel | stream      |      |      |        | C_stream_1                                                      | memory | 0       | 32, 8, 1         |
-|     A_stream_U                                                         | fifo channel | stream      |      |      |        | A_stream                                                        | memory | 0       | 32, 8, 1         |
-|     B_stream_U                                                         | fifo channel | stream      |      |      |        | B_stream                                                        | memory | 0       | 32, 8, 1         |
-|     C_stream_U                                                         | fifo channel | stream      |      |      |        | C_stream                                                        | memory | 0       | 32, 8, 1         |
-|    + tm_A                                                              |              |             | 0    | 0    |        |                                                                 |        |         |                  |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_0_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_0_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_1_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_1_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_2_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_2_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_3_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_3_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_4_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_4_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_5_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_5_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_6_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_6_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_7_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_7_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_0_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_0_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_1_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_1_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_2_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_2_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_3_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_3_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_4_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_4_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_5_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_5_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_6_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_6_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_7_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_7_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_0_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_0_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_1_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_1_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_2_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_2_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_3_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_3_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_4_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_4_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_5_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_5_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_6_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_6_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_7_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_7_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_0_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_0_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_1_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_1_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_2_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_2_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_3_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_3_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_4_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_4_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_5_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_5_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_6_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_6_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_7_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_7_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_0_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_0_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_1_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_1_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_2_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_2_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_3_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_3_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_4_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_4_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_5_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_5_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_6_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_6_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_7_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_7_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_0_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_0_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_1_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_1_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_2_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_2_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_3_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_3_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_4_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_4_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_5_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_5_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_6_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_6_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_7_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_7_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_0_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_0_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_1_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_1_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_2_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_2_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_3_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_3_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_4_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_4_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_5_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_5_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_6_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_6_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_7_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_7_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_0_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_0_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_1_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_1_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_2_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_2_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_3_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_3_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_4_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_4_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_5_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_5_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_6_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_6_c_channel_i | memory | 0       | 32, 2, 1         |
-|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_7_c_channel_i_U | fifo channel | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_7_c_channel_i | memory | 0       | 32, 2, 1         |
-+------------------------------------------------------------------------+--------------+-------------+------+------+--------+-----------------------------------------------------------------+--------+---------+------------------+
++------------------------------------------------------------------------+---------------+-------------+------+------+--------+-----------------------------------------------------------------+--------+---------+------------------+
+| Name                                                                   | Usage         | Type        | BRAM | URAM | Pragma | Variable                                                        | Impl   | Latency | Bitwidth, Depth, |
+|                                                                        |               |             |      |      |        |                                                                 |        |         | Banks            |
++------------------------------------------------------------------------+---------------+-------------+------+------+--------+-----------------------------------------------------------------+--------+---------+------------------+
+| + gemm                                                                 |               |             | 80   | 0    |        |                                                                 |        |         |                  |
+|   control_s_axi_U                                                      | interface     | s_axilite   |      |      |        |                                                                 |        |         |                  |
+|   gmem0_m_axi_U                                                        | interface     | m_axi       | 16   |      |        |                                                                 |        |         |                  |
+|   gmem1_m_axi_U                                                        | interface     | m_axi       | 16   |      |        |                                                                 |        |         |                  |
+|   gmem2_m_axi_U                                                        | interface     | m_axi       | 16   |      |        |                                                                 |        |         |                  |
+|   A_BUF_U                                                              | ram_s2p array |             | 1    |      | yes    | A_BUF                                                           | bram   | 1       | 32, 8, 1         |
+|   A_BUF_1_U                                                            | ram_s2p array |             | 1    |      | yes    | A_BUF_1                                                         | bram   | 1       | 32, 8, 1         |
+|   A_BUF_2_U                                                            | ram_s2p array |             | 1    |      | yes    | A_BUF_2                                                         | bram   | 1       | 32, 8, 1         |
+|   A_BUF_3_U                                                            | ram_s2p array |             | 1    |      | yes    | A_BUF_3                                                         | bram   | 1       | 32, 8, 1         |
+|   A_BUF_4_U                                                            | ram_s2p array |             | 1    |      | yes    | A_BUF_4                                                         | bram   | 1       | 32, 8, 1         |
+|   A_BUF_5_U                                                            | ram_s2p array |             | 1    |      | yes    | A_BUF_5                                                         | bram   | 1       | 32, 8, 1         |
+|   A_BUF_6_U                                                            | ram_s2p array |             | 1    |      | yes    | A_BUF_6                                                         | bram   | 1       | 32, 8, 1         |
+|   A_BUF_7_U                                                            | ram_s2p array |             | 1    |      | yes    | A_BUF_7                                                         | bram   | 1       | 32, 8, 1         |
+|   A_BUF_8_U                                                            | ram_s2p array |             | 1    |      | yes    | A_BUF_8                                                         | bram   | 1       | 32, 8, 1         |
+|   A_BUF_9_U                                                            | ram_s2p array |             | 1    |      | yes    | A_BUF_9                                                         | bram   | 1       | 32, 8, 1         |
+|   A_BUF_10_U                                                           | ram_s2p array |             | 1    |      | yes    | A_BUF_10                                                        | bram   | 1       | 32, 8, 1         |
+|   A_BUF_11_U                                                           | ram_s2p array |             | 1    |      | yes    | A_BUF_11                                                        | bram   | 1       | 32, 8, 1         |
+|   A_BUF_12_U                                                           | ram_s2p array |             | 1    |      | yes    | A_BUF_12                                                        | bram   | 1       | 32, 8, 1         |
+|   A_BUF_13_U                                                           | ram_s2p array |             | 1    |      | yes    | A_BUF_13                                                        | bram   | 1       | 32, 8, 1         |
+|   A_BUF_14_U                                                           | ram_s2p array |             | 1    |      | yes    | A_BUF_14                                                        | bram   | 1       | 32, 8, 1         |
+|   A_BUF_15_U                                                           | ram_s2p array |             | 1    |      | yes    | A_BUF_15                                                        | bram   | 1       | 32, 8, 1         |
+|   A_BUF_16_U                                                           | ram_s2p array |             | 1    |      | yes    | A_BUF_16                                                        | bram   | 1       | 32, 8, 1         |
+|   A_BUF_17_U                                                           | ram_s2p array |             | 1    |      | yes    | A_BUF_17                                                        | bram   | 1       | 32, 8, 1         |
+|   A_BUF_18_U                                                           | ram_s2p array |             | 1    |      | yes    | A_BUF_18                                                        | bram   | 1       | 32, 8, 1         |
+|   A_BUF_19_U                                                           | ram_s2p array |             | 1    |      | yes    | A_BUF_19                                                        | bram   | 1       | 32, 8, 1         |
+|   A_BUF_20_U                                                           | ram_s2p array |             | 1    |      | yes    | A_BUF_20                                                        | bram   | 1       | 32, 8, 1         |
+|   A_BUF_21_U                                                           | ram_s2p array |             | 1    |      | yes    | A_BUF_21                                                        | bram   | 1       | 32, 8, 1         |
+|   A_BUF_22_U                                                           | ram_s2p array |             | 1    |      | yes    | A_BUF_22                                                        | bram   | 1       | 32, 8, 1         |
+|   A_BUF_23_U                                                           | ram_s2p array |             | 1    |      | yes    | A_BUF_23                                                        | bram   | 1       | 32, 8, 1         |
+|   A_BUF_24_U                                                           | ram_s2p array |             | 1    |      | yes    | A_BUF_24                                                        | bram   | 1       | 32, 8, 1         |
+|   A_BUF_25_U                                                           | ram_s2p array |             | 1    |      | yes    | A_BUF_25                                                        | bram   | 1       | 32, 8, 1         |
+|   A_BUF_26_U                                                           | ram_s2p array |             | 1    |      | yes    | A_BUF_26                                                        | bram   | 1       | 32, 8, 1         |
+|   A_BUF_27_U                                                           | ram_s2p array |             | 1    |      | yes    | A_BUF_27                                                        | bram   | 1       | 32, 8, 1         |
+|   A_BUF_28_U                                                           | ram_s2p array |             | 1    |      | yes    | A_BUF_28                                                        | bram   | 1       | 32, 8, 1         |
+|   A_BUF_29_U                                                           | ram_s2p array |             | 1    |      | yes    | A_BUF_29                                                        | bram   | 1       | 32, 8, 1         |
+|   A_BUF_30_U                                                           | ram_s2p array |             | 1    |      | yes    | A_BUF_30                                                        | bram   | 1       | 32, 8, 1         |
+|   A_BUF_31_U                                                           | ram_s2p array |             | 1    |      | yes    | A_BUF_31                                                        | bram   | 1       | 32, 8, 1         |
+|  + runSystolicArray                                                    |               |             | 0    | 0    |        |                                                                 |        |         |                  |
+|   + dataflow_in_loop_VITIS_LOOP_31_1                                   |               |             | 0    | 0    |        |                                                                 |        |         |                  |
+|     A_stream_71_U                                                      | fifo channel  | stream      |      |      |        | A_stream_71                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_62_U                                                      | fifo channel  | stream      |      |      |        | A_stream_62                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_53_U                                                      | fifo channel  | stream      |      |      |        | A_stream_53                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_44_U                                                      | fifo channel  | stream      |      |      |        | A_stream_44                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_35_U                                                      | fifo channel  | stream      |      |      |        | A_stream_35                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_26_U                                                      | fifo channel  | stream      |      |      |        | A_stream_26                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_17_U                                                      | fifo channel  | stream      |      |      |        | A_stream_17                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_8_U                                                       | fifo channel  | stream      |      |      |        | A_stream_8                                                      | memory | 0       | 32, 8, 1         |
+|     tileA_0_c_U                                                        | fifo channel  | scalar prop |      |      |        | tileA_0_c                                                       | memory | 0       | 2, 17, 1         |
+|     B_stream_71_U                                                      | fifo channel  | stream      |      |      |        | B_stream_71                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_70_U                                                      | fifo channel  | stream      |      |      |        | B_stream_70                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_69_U                                                      | fifo channel  | stream      |      |      |        | B_stream_69                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_68_U                                                      | fifo channel  | stream      |      |      |        | B_stream_68                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_67_U                                                      | fifo channel  | stream      |      |      |        | B_stream_67                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_66_U                                                      | fifo channel  | stream      |      |      |        | B_stream_66                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_65_U                                                      | fifo channel  | stream      |      |      |        | B_stream_65                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_64_U                                                      | fifo channel  | stream      |      |      |        | B_stream_64                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_70_U                                                      | fifo channel  | stream      |      |      |        | A_stream_70                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_63_U                                                      | fifo channel  | stream      |      |      |        | B_stream_63                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_63_U                                                      | fifo channel  | stream      |      |      |        | C_stream_63                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_69_U                                                      | fifo channel  | stream      |      |      |        | A_stream_69                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_62_U                                                      | fifo channel  | stream      |      |      |        | B_stream_62                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_62_U                                                      | fifo channel  | stream      |      |      |        | C_stream_62                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_68_U                                                      | fifo channel  | stream      |      |      |        | A_stream_68                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_61_U                                                      | fifo channel  | stream      |      |      |        | B_stream_61                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_61_U                                                      | fifo channel  | stream      |      |      |        | C_stream_61                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_67_U                                                      | fifo channel  | stream      |      |      |        | A_stream_67                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_60_U                                                      | fifo channel  | stream      |      |      |        | B_stream_60                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_60_U                                                      | fifo channel  | stream      |      |      |        | C_stream_60                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_66_U                                                      | fifo channel  | stream      |      |      |        | A_stream_66                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_59_U                                                      | fifo channel  | stream      |      |      |        | B_stream_59                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_59_U                                                      | fifo channel  | stream      |      |      |        | C_stream_59                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_65_U                                                      | fifo channel  | stream      |      |      |        | A_stream_65                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_58_U                                                      | fifo channel  | stream      |      |      |        | B_stream_58                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_58_U                                                      | fifo channel  | stream      |      |      |        | C_stream_58                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_64_U                                                      | fifo channel  | stream      |      |      |        | A_stream_64                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_57_U                                                      | fifo channel  | stream      |      |      |        | B_stream_57                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_57_U                                                      | fifo channel  | stream      |      |      |        | C_stream_57                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_63_U                                                      | fifo channel  | stream      |      |      |        | A_stream_63                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_56_U                                                      | fifo channel  | stream      |      |      |        | B_stream_56                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_56_U                                                      | fifo channel  | stream      |      |      |        | C_stream_56                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_61_U                                                      | fifo channel  | stream      |      |      |        | A_stream_61                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_55_U                                                      | fifo channel  | stream      |      |      |        | B_stream_55                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_55_U                                                      | fifo channel  | stream      |      |      |        | C_stream_55                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_60_U                                                      | fifo channel  | stream      |      |      |        | A_stream_60                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_54_U                                                      | fifo channel  | stream      |      |      |        | B_stream_54                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_54_U                                                      | fifo channel  | stream      |      |      |        | C_stream_54                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_59_U                                                      | fifo channel  | stream      |      |      |        | A_stream_59                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_53_U                                                      | fifo channel  | stream      |      |      |        | B_stream_53                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_53_U                                                      | fifo channel  | stream      |      |      |        | C_stream_53                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_58_U                                                      | fifo channel  | stream      |      |      |        | A_stream_58                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_52_U                                                      | fifo channel  | stream      |      |      |        | B_stream_52                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_52_U                                                      | fifo channel  | stream      |      |      |        | C_stream_52                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_57_U                                                      | fifo channel  | stream      |      |      |        | A_stream_57                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_51_U                                                      | fifo channel  | stream      |      |      |        | B_stream_51                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_51_U                                                      | fifo channel  | stream      |      |      |        | C_stream_51                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_56_U                                                      | fifo channel  | stream      |      |      |        | A_stream_56                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_50_U                                                      | fifo channel  | stream      |      |      |        | B_stream_50                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_50_U                                                      | fifo channel  | stream      |      |      |        | C_stream_50                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_55_U                                                      | fifo channel  | stream      |      |      |        | A_stream_55                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_49_U                                                      | fifo channel  | stream      |      |      |        | B_stream_49                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_49_U                                                      | fifo channel  | stream      |      |      |        | C_stream_49                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_54_U                                                      | fifo channel  | stream      |      |      |        | A_stream_54                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_48_U                                                      | fifo channel  | stream      |      |      |        | B_stream_48                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_48_U                                                      | fifo channel  | stream      |      |      |        | C_stream_48                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_52_U                                                      | fifo channel  | stream      |      |      |        | A_stream_52                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_47_U                                                      | fifo channel  | stream      |      |      |        | B_stream_47                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_47_U                                                      | fifo channel  | stream      |      |      |        | C_stream_47                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_51_U                                                      | fifo channel  | stream      |      |      |        | A_stream_51                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_46_U                                                      | fifo channel  | stream      |      |      |        | B_stream_46                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_46_U                                                      | fifo channel  | stream      |      |      |        | C_stream_46                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_50_U                                                      | fifo channel  | stream      |      |      |        | A_stream_50                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_45_U                                                      | fifo channel  | stream      |      |      |        | B_stream_45                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_45_U                                                      | fifo channel  | stream      |      |      |        | C_stream_45                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_49_U                                                      | fifo channel  | stream      |      |      |        | A_stream_49                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_44_U                                                      | fifo channel  | stream      |      |      |        | B_stream_44                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_44_U                                                      | fifo channel  | stream      |      |      |        | C_stream_44                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_48_U                                                      | fifo channel  | stream      |      |      |        | A_stream_48                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_43_U                                                      | fifo channel  | stream      |      |      |        | B_stream_43                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_43_U                                                      | fifo channel  | stream      |      |      |        | C_stream_43                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_47_U                                                      | fifo channel  | stream      |      |      |        | A_stream_47                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_42_U                                                      | fifo channel  | stream      |      |      |        | B_stream_42                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_42_U                                                      | fifo channel  | stream      |      |      |        | C_stream_42                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_46_U                                                      | fifo channel  | stream      |      |      |        | A_stream_46                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_41_U                                                      | fifo channel  | stream      |      |      |        | B_stream_41                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_41_U                                                      | fifo channel  | stream      |      |      |        | C_stream_41                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_45_U                                                      | fifo channel  | stream      |      |      |        | A_stream_45                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_40_U                                                      | fifo channel  | stream      |      |      |        | B_stream_40                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_40_U                                                      | fifo channel  | stream      |      |      |        | C_stream_40                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_43_U                                                      | fifo channel  | stream      |      |      |        | A_stream_43                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_39_U                                                      | fifo channel  | stream      |      |      |        | B_stream_39                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_39_U                                                      | fifo channel  | stream      |      |      |        | C_stream_39                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_42_U                                                      | fifo channel  | stream      |      |      |        | A_stream_42                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_38_U                                                      | fifo channel  | stream      |      |      |        | B_stream_38                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_38_U                                                      | fifo channel  | stream      |      |      |        | C_stream_38                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_41_U                                                      | fifo channel  | stream      |      |      |        | A_stream_41                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_37_U                                                      | fifo channel  | stream      |      |      |        | B_stream_37                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_37_U                                                      | fifo channel  | stream      |      |      |        | C_stream_37                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_40_U                                                      | fifo channel  | stream      |      |      |        | A_stream_40                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_36_U                                                      | fifo channel  | stream      |      |      |        | B_stream_36                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_36_U                                                      | fifo channel  | stream      |      |      |        | C_stream_36                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_39_U                                                      | fifo channel  | stream      |      |      |        | A_stream_39                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_35_U                                                      | fifo channel  | stream      |      |      |        | B_stream_35                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_35_U                                                      | fifo channel  | stream      |      |      |        | C_stream_35                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_38_U                                                      | fifo channel  | stream      |      |      |        | A_stream_38                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_34_U                                                      | fifo channel  | stream      |      |      |        | B_stream_34                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_34_U                                                      | fifo channel  | stream      |      |      |        | C_stream_34                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_37_U                                                      | fifo channel  | stream      |      |      |        | A_stream_37                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_33_U                                                      | fifo channel  | stream      |      |      |        | B_stream_33                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_33_U                                                      | fifo channel  | stream      |      |      |        | C_stream_33                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_36_U                                                      | fifo channel  | stream      |      |      |        | A_stream_36                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_32_U                                                      | fifo channel  | stream      |      |      |        | B_stream_32                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_32_U                                                      | fifo channel  | stream      |      |      |        | C_stream_32                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_34_U                                                      | fifo channel  | stream      |      |      |        | A_stream_34                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_31_U                                                      | fifo channel  | stream      |      |      |        | B_stream_31                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_31_U                                                      | fifo channel  | stream      |      |      |        | C_stream_31                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_33_U                                                      | fifo channel  | stream      |      |      |        | A_stream_33                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_30_U                                                      | fifo channel  | stream      |      |      |        | B_stream_30                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_30_U                                                      | fifo channel  | stream      |      |      |        | C_stream_30                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_32_U                                                      | fifo channel  | stream      |      |      |        | A_stream_32                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_29_U                                                      | fifo channel  | stream      |      |      |        | B_stream_29                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_29_U                                                      | fifo channel  | stream      |      |      |        | C_stream_29                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_31_U                                                      | fifo channel  | stream      |      |      |        | A_stream_31                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_28_U                                                      | fifo channel  | stream      |      |      |        | B_stream_28                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_28_U                                                      | fifo channel  | stream      |      |      |        | C_stream_28                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_30_U                                                      | fifo channel  | stream      |      |      |        | A_stream_30                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_27_U                                                      | fifo channel  | stream      |      |      |        | B_stream_27                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_27_U                                                      | fifo channel  | stream      |      |      |        | C_stream_27                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_29_U                                                      | fifo channel  | stream      |      |      |        | A_stream_29                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_26_U                                                      | fifo channel  | stream      |      |      |        | B_stream_26                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_26_U                                                      | fifo channel  | stream      |      |      |        | C_stream_26                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_28_U                                                      | fifo channel  | stream      |      |      |        | A_stream_28                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_25_U                                                      | fifo channel  | stream      |      |      |        | B_stream_25                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_25_U                                                      | fifo channel  | stream      |      |      |        | C_stream_25                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_27_U                                                      | fifo channel  | stream      |      |      |        | A_stream_27                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_24_U                                                      | fifo channel  | stream      |      |      |        | B_stream_24                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_24_U                                                      | fifo channel  | stream      |      |      |        | C_stream_24                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_25_U                                                      | fifo channel  | stream      |      |      |        | A_stream_25                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_23_U                                                      | fifo channel  | stream      |      |      |        | B_stream_23                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_23_U                                                      | fifo channel  | stream      |      |      |        | C_stream_23                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_24_U                                                      | fifo channel  | stream      |      |      |        | A_stream_24                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_22_U                                                      | fifo channel  | stream      |      |      |        | B_stream_22                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_22_U                                                      | fifo channel  | stream      |      |      |        | C_stream_22                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_23_U                                                      | fifo channel  | stream      |      |      |        | A_stream_23                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_21_U                                                      | fifo channel  | stream      |      |      |        | B_stream_21                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_21_U                                                      | fifo channel  | stream      |      |      |        | C_stream_21                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_22_U                                                      | fifo channel  | stream      |      |      |        | A_stream_22                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_20_U                                                      | fifo channel  | stream      |      |      |        | B_stream_20                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_20_U                                                      | fifo channel  | stream      |      |      |        | C_stream_20                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_21_U                                                      | fifo channel  | stream      |      |      |        | A_stream_21                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_19_U                                                      | fifo channel  | stream      |      |      |        | B_stream_19                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_19_U                                                      | fifo channel  | stream      |      |      |        | C_stream_19                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_20_U                                                      | fifo channel  | stream      |      |      |        | A_stream_20                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_18_U                                                      | fifo channel  | stream      |      |      |        | B_stream_18                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_18_U                                                      | fifo channel  | stream      |      |      |        | C_stream_18                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_19_U                                                      | fifo channel  | stream      |      |      |        | A_stream_19                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_17_U                                                      | fifo channel  | stream      |      |      |        | B_stream_17                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_17_U                                                      | fifo channel  | stream      |      |      |        | C_stream_17                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_18_U                                                      | fifo channel  | stream      |      |      |        | A_stream_18                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_16_U                                                      | fifo channel  | stream      |      |      |        | B_stream_16                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_16_U                                                      | fifo channel  | stream      |      |      |        | C_stream_16                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_16_U                                                      | fifo channel  | stream      |      |      |        | A_stream_16                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_15_U                                                      | fifo channel  | stream      |      |      |        | B_stream_15                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_15_U                                                      | fifo channel  | stream      |      |      |        | C_stream_15                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_15_U                                                      | fifo channel  | stream      |      |      |        | A_stream_15                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_14_U                                                      | fifo channel  | stream      |      |      |        | B_stream_14                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_14_U                                                      | fifo channel  | stream      |      |      |        | C_stream_14                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_14_U                                                      | fifo channel  | stream      |      |      |        | A_stream_14                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_13_U                                                      | fifo channel  | stream      |      |      |        | B_stream_13                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_13_U                                                      | fifo channel  | stream      |      |      |        | C_stream_13                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_13_U                                                      | fifo channel  | stream      |      |      |        | A_stream_13                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_12_U                                                      | fifo channel  | stream      |      |      |        | B_stream_12                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_12_U                                                      | fifo channel  | stream      |      |      |        | C_stream_12                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_12_U                                                      | fifo channel  | stream      |      |      |        | A_stream_12                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_11_U                                                      | fifo channel  | stream      |      |      |        | B_stream_11                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_11_U                                                      | fifo channel  | stream      |      |      |        | C_stream_11                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_11_U                                                      | fifo channel  | stream      |      |      |        | A_stream_11                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_10_U                                                      | fifo channel  | stream      |      |      |        | B_stream_10                                                     | memory | 0       | 32, 8, 1         |
+|     C_stream_10_U                                                      | fifo channel  | stream      |      |      |        | C_stream_10                                                     | memory | 0       | 32, 8, 1         |
+|     A_stream_10_U                                                      | fifo channel  | stream      |      |      |        | A_stream_10                                                     | memory | 0       | 32, 8, 1         |
+|     B_stream_9_U                                                       | fifo channel  | stream      |      |      |        | B_stream_9                                                      | memory | 0       | 32, 8, 1         |
+|     C_stream_9_U                                                       | fifo channel  | stream      |      |      |        | C_stream_9                                                      | memory | 0       | 32, 8, 1         |
+|     A_stream_9_U                                                       | fifo channel  | stream      |      |      |        | A_stream_9                                                      | memory | 0       | 32, 8, 1         |
+|     B_stream_8_U                                                       | fifo channel  | stream      |      |      |        | B_stream_8                                                      | memory | 0       | 32, 8, 1         |
+|     C_stream_8_U                                                       | fifo channel  | stream      |      |      |        | C_stream_8                                                      | memory | 0       | 32, 8, 1         |
+|     A_stream_7_U                                                       | fifo channel  | stream      |      |      |        | A_stream_7                                                      | memory | 0       | 32, 8, 1         |
+|     B_stream_7_U                                                       | fifo channel  | stream      |      |      |        | B_stream_7                                                      | memory | 0       | 32, 8, 1         |
+|     C_stream_7_U                                                       | fifo channel  | stream      |      |      |        | C_stream_7                                                      | memory | 0       | 32, 8, 1         |
+|     A_stream_6_U                                                       | fifo channel  | stream      |      |      |        | A_stream_6                                                      | memory | 0       | 32, 8, 1         |
+|     B_stream_6_U                                                       | fifo channel  | stream      |      |      |        | B_stream_6                                                      | memory | 0       | 32, 8, 1         |
+|     C_stream_6_U                                                       | fifo channel  | stream      |      |      |        | C_stream_6                                                      | memory | 0       | 32, 8, 1         |
+|     A_stream_5_U                                                       | fifo channel  | stream      |      |      |        | A_stream_5                                                      | memory | 0       | 32, 8, 1         |
+|     B_stream_5_U                                                       | fifo channel  | stream      |      |      |        | B_stream_5                                                      | memory | 0       | 32, 8, 1         |
+|     C_stream_5_U                                                       | fifo channel  | stream      |      |      |        | C_stream_5                                                      | memory | 0       | 32, 8, 1         |
+|     A_stream_4_U                                                       | fifo channel  | stream      |      |      |        | A_stream_4                                                      | memory | 0       | 32, 8, 1         |
+|     B_stream_4_U                                                       | fifo channel  | stream      |      |      |        | B_stream_4                                                      | memory | 0       | 32, 8, 1         |
+|     C_stream_4_U                                                       | fifo channel  | stream      |      |      |        | C_stream_4                                                      | memory | 0       | 32, 8, 1         |
+|     A_stream_3_U                                                       | fifo channel  | stream      |      |      |        | A_stream_3                                                      | memory | 0       | 32, 8, 1         |
+|     B_stream_3_U                                                       | fifo channel  | stream      |      |      |        | B_stream_3                                                      | memory | 0       | 32, 8, 1         |
+|     C_stream_3_U                                                       | fifo channel  | stream      |      |      |        | C_stream_3                                                      | memory | 0       | 32, 8, 1         |
+|     A_stream_2_U                                                       | fifo channel  | stream      |      |      |        | A_stream_2                                                      | memory | 0       | 32, 8, 1         |
+|     B_stream_2_U                                                       | fifo channel  | stream      |      |      |        | B_stream_2                                                      | memory | 0       | 32, 8, 1         |
+|     C_stream_2_U                                                       | fifo channel  | stream      |      |      |        | C_stream_2                                                      | memory | 0       | 32, 8, 1         |
+|     A_stream_1_U                                                       | fifo channel  | stream      |      |      |        | A_stream_1                                                      | memory | 0       | 32, 8, 1         |
+|     B_stream_1_U                                                       | fifo channel  | stream      |      |      |        | B_stream_1                                                      | memory | 0       | 32, 8, 1         |
+|     C_stream_1_U                                                       | fifo channel  | stream      |      |      |        | C_stream_1                                                      | memory | 0       | 32, 8, 1         |
+|     A_stream_U                                                         | fifo channel  | stream      |      |      |        | A_stream                                                        | memory | 0       | 32, 8, 1         |
+|     B_stream_U                                                         | fifo channel  | stream      |      |      |        | B_stream                                                        | memory | 0       | 32, 8, 1         |
+|     C_stream_U                                                         | fifo channel  | stream      |      |      |        | C_stream                                                        | memory | 0       | 32, 8, 1         |
+|    + tm_A                                                              |               |             | 0    | 0    |        |                                                                 |        |         |                  |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_0_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_0_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_1_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_1_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_2_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_2_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_3_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_3_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_4_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_4_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_5_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_5_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_6_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_6_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_7_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_0_7_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_0_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_0_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_1_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_1_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_2_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_2_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_3_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_3_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_4_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_4_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_5_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_5_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_6_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_6_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_7_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_1_7_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_0_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_0_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_1_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_1_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_2_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_2_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_3_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_3_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_4_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_4_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_5_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_5_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_6_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_6_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_7_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_2_7_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_0_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_0_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_1_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_1_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_2_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_2_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_3_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_3_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_4_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_4_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_5_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_5_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_6_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_6_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_7_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_3_7_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_0_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_0_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_1_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_1_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_2_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_2_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_3_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_3_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_4_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_4_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_5_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_5_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_6_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_6_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_7_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_4_7_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_0_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_0_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_1_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_1_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_2_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_2_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_3_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_3_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_4_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_4_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_5_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_5_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_6_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_6_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_7_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_5_7_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_0_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_0_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_1_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_1_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_2_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_2_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_3_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_3_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_4_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_4_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_5_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_5_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_6_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_6_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_7_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_6_7_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_0_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_0_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_1_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_1_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_2_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_2_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_3_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_3_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_4_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_4_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_5_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_5_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_6_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_6_c_channel_i | memory | 0       | 32, 2, 1         |
+|      p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_7_c_channel_i_U | fifo channel  | task level  |      |      |        | p_ZZ4tm_APA8_fPA9_N3hls6streamIfLi0EEEiE6A_TILE_7_7_c_channel_i | memory | 0       | 32, 2, 1         |
++------------------------------------------------------------------------+---------------+-------------+------+------+--------+-----------------------------------------------------------------+--------+---------+------------------+
 
 
 ================================================================
@@ -802,7 +802,9 @@
 +----------+-----------------------------------+------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Type     | Options                           | Location                                       | Messages                                                                                                                                                                           |
 +----------+-----------------------------------+------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| dataflow |                                   | source/sa_functions.hpp:31 in runsystolicarray | Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region |
+| stream   | variable=B_BUF type=pipo          | source/gemm.cpp:21 in gemm, B_BUF              | Unsuported scalar variable on pragma 'Stream', ignore it.                                                                                                                          |
+| stream   | variable=C_BUF type=pipo          | source/gemm.cpp:27 in gemm, C_BUF              | Unsuported scalar variable on pragma 'Stream', ignore it.                                                                                                                          |
+| dataflow |                                   | source/sa_functions.hpp:32 in runsystolicarray | Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region |
 | stream   | variable=A_TILE type=pipo depth=2 | source/tiling_manager.hpp:53 in tm_a, A_TILE   | Unsuported scalar variable on pragma 'Stream', ignore it.                                                                                                                          |
 +----------+-----------------------------------+------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
@@ -827,15 +829,13 @@
 | interface       | m_axi offset=slave port=A_DRAM bundle=gmem0 depth=32*8/8 max_read_burst_length=std::min(8, 16)  | source/gemm.cpp:10 in gemm, A_DRAM                       |
 | interface       | m_axi offset=slave port=B_DRAM bundle=gmem1 depth=8*8/8 max_read_burst_length=std::min(8, 16)   | source/gemm.cpp:11 in gemm, B_DRAM                       |
 | interface       | m_axi offset=slave port=C_DRAM bundle=gmem2 depth=32*8/8 max_write_burst_length=std::min(8, 16) | source/gemm.cpp:12 in gemm, C_DRAM                       |
-| stream          | variable=A_BUF type=fifo                                                                        | source/gemm.cpp:15 in gemm, A_BUF                        |
+| stream          | variable=A_BUF type=pipo                                                                        | source/gemm.cpp:15 in gemm, A_BUF                        |
 | bind_storage    | variable=A_BUF type=RAM_S2P impl=BRAM                                                           | source/gemm.cpp:16 in gemm, A_BUF                        |
 | array_partition | variable=A_BUF type=block factor=(32 / 8) dim=1                                                 | source/gemm.cpp:17 in gemm, A_BUF                        |
 | array_partition | variable=A_BUF type=complete dim=2                                                              | source/gemm.cpp:18 in gemm, A_BUF                        |
-| stream          | variable=B_BUF type=fifo                                                                        | source/gemm.cpp:21 in gemm, B_BUF                        |
 | array_partition | variable=B_BUF type=complete dim=1                                                              | source/gemm.cpp:22 in gemm, B_BUF                        |
 | array_partition | variable=B_BUF type=complete dim=2                                                              | source/gemm.cpp:23 in gemm, B_BUF                        |
 | array_partition | variable=B_BUF type=complete dim=3                                                              | source/gemm.cpp:24 in gemm, B_BUF                        |
-| stream          | variable=C_BUF type=fifo                                                                        | source/gemm.cpp:27 in gemm, C_BUF                        |
 | array_partition | variable=C_BUF type=complete dim=1                                                              | source/gemm.cpp:28 in gemm, C_BUF                        |
 | array_partition | variable=C_BUF type=complete dim=2                                                              | source/gemm.cpp:29 in gemm, C_BUF                        |
 | inline          | off                                                                                             | source/pe.h:6 in pe                                      |
@@ -846,11 +846,11 @@
 | unroll          |                                                                                                 | source/sa_functions.hpp:18 in sink_streams               |
 | unroll          |                                                                                                 | source/sa_functions.hpp:20 in sink_streams               |
 | inline          | off                                                                                             | source/sa_functions.hpp:27 in runsystolicarray           |
-| stream          | variable=A_stream type=fifo depth=8                                                             | source/sa_functions.hpp:34 in runsystolicarray, A_stream |
-| stream          | variable=B_stream type=fifo depth=8                                                             | source/sa_functions.hpp:36 in runsystolicarray, B_stream |
-| stream          | variable=C_stream type=fifo depth=8                                                             | source/sa_functions.hpp:38 in runsystolicarray, C_stream |
-| unroll          |                                                                                                 | source/sa_functions.hpp:45 in runsystolicarray           |
-| unroll          |                                                                                                 | source/sa_functions.hpp:47 in runsystolicarray           |
+| stream          | variable=A_stream type=fifo depth=8                                                             | source/sa_functions.hpp:35 in runsystolicarray, A_stream |
+| stream          | variable=B_stream type=fifo depth=8                                                             | source/sa_functions.hpp:37 in runsystolicarray, B_stream |
+| stream          | variable=C_stream type=fifo depth=8                                                             | source/sa_functions.hpp:39 in runsystolicarray, C_stream |
+| unroll          |                                                                                                 | source/sa_functions.hpp:46 in runsystolicarray           |
+| unroll          |                                                                                                 | source/sa_functions.hpp:48 in runsystolicarray           |
 | inline          | off                                                                                             | source/tiling_manager.hpp:4 in stream_to_c_buf           |
 | unroll          |                                                                                                 | source/tiling_manager.hpp:6 in stream_to_c_buf           |
 | unroll          |                                                                                                 | source/tiling_manager.hpp:8 in stream_to_c_buf           |

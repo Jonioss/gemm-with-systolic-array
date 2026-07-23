@@ -1,12 +1,12 @@
 #include "constants.h"
 
-void stream_to_C_Buf(hls::stream<float> C_stream[S_A_I][S_A_J], float C_BUF[I][J], int tileC) {
+void stream_to_C_Buf(hls::stream<float> C_stream[S_A_I][S_A_J], float C_BUF[I][J], int tileA, int tileB) {
     #pragma HLS INLINE off
     for (int i = 0; i < S_A_I; i++) {
         #pragma HLS UNROLL
         for (int j = 0; j < S_A_J; j++) {
             #pragma HLS UNROLL
-            C_BUF[tileC*S_A_I + i][j] = C_stream[i][j].read();
+            C_BUF[tileA*S_A_I + i][tileB*S_A_J + j] = C_stream[i][j].read();
         }
     }
 }

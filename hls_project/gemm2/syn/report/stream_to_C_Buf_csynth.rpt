@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'stream_to_C_Buf'
 ================================================================
-* Date:           Thu Jul 23 18:41:40 2026
+* Date:           Thu Jul 23 19:40:39 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        hls_project
@@ -410,7 +410,7 @@
     |C_stream_7_6_blk_n  |   2|          2|    1|          2|
     |C_stream_7_7_blk_n  |   2|          2|    1|          2|
     |ap_done             |   2|          2|    1|          2|
-    |tileC_blk_n         |   2|          2|    1|          2|
+    |tileA_blk_n         |   2|          2|    1|          2|
     +--------------------+----+-----------+-----+-----------+
     |Total               |8324|        644| 8258|      16516|
     +--------------------+----+-----------+-----+-----------+
@@ -1529,10 +1529,10 @@
 |C_BUF_31_6_ap_vld            |  out|    1|      ap_vld|       C_BUF_31_6|       pointer|
 |C_BUF_31_7                   |  out|   32|      ap_vld|       C_BUF_31_7|       pointer|
 |C_BUF_31_7_ap_vld            |  out|    1|      ap_vld|       C_BUF_31_7|       pointer|
-|tileC_dout                   |   in|    2|     ap_fifo|            tileC|       pointer|
-|tileC_num_data_valid         |   in|    6|     ap_fifo|            tileC|       pointer|
-|tileC_fifo_cap               |   in|    6|     ap_fifo|            tileC|       pointer|
-|tileC_empty_n                |   in|    1|     ap_fifo|            tileC|       pointer|
-|tileC_read                   |  out|    1|     ap_fifo|            tileC|       pointer|
+|tileA_dout                   |   in|    2|     ap_fifo|            tileA|       pointer|
+|tileA_num_data_valid         |   in|    6|     ap_fifo|            tileA|       pointer|
+|tileA_fifo_cap               |   in|    6|     ap_fifo|            tileA|       pointer|
+|tileA_empty_n                |   in|    1|     ap_fifo|            tileA|       pointer|
+|tileA_read                   |  out|    1|     ap_fifo|            tileA|       pointer|
 +-----------------------------+-----+-----+------------+-----------------+--------------+
 
