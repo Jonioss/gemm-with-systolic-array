@@ -23,14 +23,21 @@ void gemm(const hls::burst_maxi<hls::vector<float, VEC_SIZE>> A_DRAM,
     #pragma HLS ARRAY_PARTITION variable=B_BUF type=complete dim=2
     #pragma HLS ARRAY_PARTITION variable=B_BUF type=complete dim=3
 
-    float C_BUF[I][J];
-    #pragma HLS STREAM variable=C_BUF type=pipo
-    #pragma HLS ARRAY_PARTITION variable=C_BUF type=complete dim=1
-    #pragma HLS ARRAY_PARTITION variable=C_BUF type=complete dim=2
-
     // #pragma HLS DATAFLOW
 
     loadInputsFromDRAM(A_DRAM, B_DRAM, A_BUF, B_BUF);
-    runSystolicArray(A_BUF, B_BUF, C_BUF);
-    storeOutputToDRAM(C_BUF, C_DRAM);
+
+    dataflow_region: {
+        #pragma HLS DATAFLOW
+
+        float C_BUF[NUM_TILES_I][NUM_TILES_J][S_A_I][S_A_J];
+        #pragma HLS STREAM variable=C_BUF type=pipo
+        #pragma HLS ARRAY_PARTITION variable=C_BUF type=complete dim=1
+        #pragma HLS ARRAY_PARTITION variable=C_BUF type=complete dim=2
+        #pragma HLS ARRAY_PARTITION variable=C_BUF type=complete dim=3
+        #pragma HLS ARRAY_PARTITION variable=C_BUF type=complete dim=4
+
+        runSystolicArray(A_BUF, B_BUF, C_BUF);
+        storeOutputToDRAM(C_BUF, C_DRAM);
+    }
 }

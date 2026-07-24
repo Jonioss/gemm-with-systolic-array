@@ -1,12 +1,12 @@
 #include "constants.h"
 
-void stream_to_C_Buf(hls::stream<float> C_stream[S_A_I][S_A_J], float C_BUF[I][J], int tileA, int tileB) {
+void stream_to_C_Buf(hls::stream<float> C_stream[S_A_I][S_A_J], float C_BUF[NUM_TILES_I][NUM_TILES_J][S_A_I][S_A_J], int tileA, int tileB) {
     #pragma HLS INLINE off
     for (int i = 0; i < S_A_I; i++) {
         #pragma HLS UNROLL
         for (int j = 0; j < S_A_J; j++) {
             #pragma HLS UNROLL
-            C_BUF[tileA*S_A_I + i][tileB*S_A_J + j] = C_stream[i][j].read();
+            C_BUF[tileA][tileB][i][j] = C_stream[i][j].read();
         }
     }
 }
@@ -34,18 +34,21 @@ void load_tile_A(float A_BUF[I][K], float A_TILE[S_A_I][K], int tileA) {
     }
 }
 
-void tile_A_to_stream(float A_TILE[S_A_I][K], hls::stream<float> A_stream[S_A_I][S_A_J+1]) {
+void tile_A_to_stream(float A_TILE[S_A_I][K], hls::stream<float> A_stream[NUM_TILES_J][S_A_I][S_A_J+1]) {
     #pragma HLS INLINE off
     for(int i = 0; i < S_A_I; i++) {
         #pragma HLS UNROLL
         for(int k = 0; k < K; k++) {
             #pragma HLS UNROLL
-            A_stream[i][0].write(A_TILE[i][k]);
+            for(int t = 0; t < NUM_TILES_J; t++) {
+                #pragma HLS UNROLL
+                A_stream[t][i][0].write(A_TILE[i][k]);
+            }
         }
     }
 }
 
-void tm_A(float A_BUF[I][K], hls::stream<float> A_stream[S_A_I][S_A_J+1], int tileA) {
+void tm_A(float A_BUF[I][K], hls::stream<float> A_stream[NUM_TILES_J][S_A_I][S_A_J+1], int tileA) {
     #pragma HLS INLINE off
     #pragma HLS DATAFLOW
  
