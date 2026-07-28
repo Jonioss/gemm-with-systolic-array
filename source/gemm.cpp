@@ -10,34 +10,21 @@ void gemm(const hls::burst_maxi<hls::vector<float, VEC_SIZE>> A_DRAM,
 	#pragma HLS INTERFACE m_axi offset=slave port=A_DRAM bundle=gmem0 depth=I*K/VEC_SIZE max_read_burst_length=std::min(VEC_SIZE, 16)
 	#pragma HLS INTERFACE m_axi offset=slave port=B_DRAM bundle=gmem1 depth=K*J/VEC_SIZE max_read_burst_length=std::min(VEC_SIZE, 16)
 	#pragma HLS INTERFACE m_axi offset=slave port=C_DRAM bundle=gmem2 depth=I*J/VEC_SIZE max_write_burst_length=std::min(VEC_SIZE, 16)
- 
-    float A_BUF[I][K];
-    #pragma HLS STREAM variable=A_BUF type=pipo
-    #pragma HLS BIND_STORAGE variable=A_BUF type=RAM_S2P impl=BRAM
-    #pragma HLS ARRAY_PARTITION variable=A_BUF type=block factor=NUM_TILES_I dim=1
-    #pragma HLS ARRAY_PARTITION variable=A_BUF type=complete dim=2
- 
-    float B_BUF[NUM_TILES_J][K][J/NUM_TILES_J];
-    #pragma HLS STREAM variable=B_BUF type=pipo
-    #pragma HLS ARRAY_PARTITION variable=B_BUF type=complete dim=1
+    
+    float B_BUF[K][J];
+    #pragma HLS BIND_STORAGE variable=B_BUF type=RAM_1WNR impl=BRAM
+    #pragma HLS STREAM variable=B_BUF type=shared
     #pragma HLS ARRAY_PARTITION variable=B_BUF type=complete dim=2
-    #pragma HLS ARRAY_PARTITION variable=B_BUF type=complete dim=3
 
-    // #pragma HLS DATAFLOW
+    hls::stream<hls::vector<float, S_A_J>> C_out[NUM_TILES_I];
+    #pragma HLS STREAM variable=C_out type=fifo depth=S_A_I
 
-    loadInputsFromDRAM(A_DRAM, B_DRAM, A_BUF, B_BUF);
+    hls::stream<hls::vector<float, K>> A_in[NUM_TILES_I];
+    #pragma HLS STREAM variable=A_in type=fifo depth=S_A_I
 
-    dataflow_region: {
-        #pragma HLS DATAFLOW
+    #pragma HLS DATAFLOW
 
-        float C_BUF[NUM_TILES_I][NUM_TILES_J][S_A_I][S_A_J];
-        #pragma HLS STREAM variable=C_BUF type=pipo
-        #pragma HLS ARRAY_PARTITION variable=C_BUF type=complete dim=1
-        #pragma HLS ARRAY_PARTITION variable=C_BUF type=complete dim=2
-        #pragma HLS ARRAY_PARTITION variable=C_BUF type=complete dim=3
-        #pragma HLS ARRAY_PARTITION variable=C_BUF type=complete dim=4
-
-        runSystolicArray(A_BUF, B_BUF, C_BUF);
-        storeOutputToDRAM(C_BUF, C_DRAM);
-    }
+    loadInputsFromDRAM(A_DRAM, B_DRAM, A_in, B_BUF);
+    runSystolicArray(A_in, B_BUF, C_out);
+    storeOutputToDRAM(C_out, C_DRAM);
 }

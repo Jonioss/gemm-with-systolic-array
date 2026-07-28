@@ -5,7 +5,7 @@
 #include "math.h"
 
 #define I 32
-#define J 16
+#define J 8
 #define K 8
 
 #define S_A_I 8
