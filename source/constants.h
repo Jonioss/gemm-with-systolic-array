@@ -3,6 +3,7 @@
 #include <hls_vector.h>
 #include "hls_burst_maxi.h"
 #include "math.h"
+#include "assert.h"
 
 #define I 32
 #define J 8

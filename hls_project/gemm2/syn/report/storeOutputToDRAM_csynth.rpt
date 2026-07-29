@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'storeOutputToDRAM'
 ================================================================
-* Date:           Tue Jul 28 13:11:42 2026
+* Date:           Wed Jul 29 13:34:20 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        hls_project
@@ -41,7 +41,7 @@
         |                   |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
         |     Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
         +-------------------+---------+---------+----------+-----------+-----------+------+----------+
-        |- VITIS_LOOP_51_1  |      108|      108|        85|          8|          8|     4|       yes|
+        |- VITIS_LOOP_53_1  |      108|      108|        85|          8|          8|     4|       yes|
         +-------------------+---------+---------+----------+-----------+-----------+------+----------+
 
 
@@ -85,7 +85,7 @@
     +------------------------------------+----------+----+---+----+------------+------------+
     |            Variable Name           | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
     +------------------------------------+----------+----+---+----+------------+------------+
-    |add_ln51_fu_355_p2                  |         +|   0|  0|   5|           3|           1|
+    |add_ln53_fu_355_p2                  |         +|   0|  0|   5|           3|           1|
     |ap_block_pp0_stage1_01001           |       and|   0|  0|   2|           1|           1|
     |ap_block_pp0_stage2_01001           |       and|   0|  0|   2|           1|           1|
     |ap_block_pp0_stage3_01001           |       and|   0|  0|   2|           1|           1|
@@ -100,8 +100,8 @@
     |ap_predicate_op128_read_state2      |       and|   0|  0|   2|           1|           1|
     |ap_predicate_op131_read_state2      |       and|   0|  0|   2|           1|           1|
     |ap_predicate_op134_read_state2      |       and|   0|  0|   2|           1|           1|
-    |icmp_ln51_1_fu_371_p2               |      icmp|   0|  0|   5|           3|           4|
-    |icmp_ln51_fu_361_p2                 |      icmp|   0|  0|   5|           3|           4|
+    |icmp_ln53_1_fu_371_p2               |      icmp|   0|  0|   5|           3|           4|
+    |icmp_ln53_fu_361_p2                 |      icmp|   0|  0|   5|           3|           4|
     |ap_block_pp0_stage0_01001           |        or|   0|  0|   2|           1|           1|
     |ap_block_pp0_stage0_11001           |        or|   0|  0|   2|           1|           1|
     |ap_block_pp0_stage1_11001           |        or|   0|  0|   2|           1|           1|
@@ -150,13 +150,13 @@
     |ap_loop_exit_ready_pp0_iter8_reg            |    2|          2|    1|          2|
     |ap_loop_exit_ready_pp0_iter9_reg            |    2|          2|    1|          2|
     |ap_phi_reg_pp0_iter1_C_out_vec_J_7_reg_318  |  370|          5|  256|       1280|
-    |ap_phi_reg_pp0_iter1_empty_39_reg_275       |  370|          5|  256|       1280|
-    |ap_phi_reg_pp0_iter1_empty_40_reg_290       |  370|          5|  256|       1280|
-    |ap_phi_reg_pp0_iter1_empty_41_reg_247       |  370|          5|  256|       1280|
-    |ap_phi_reg_pp0_iter1_empty_42_reg_219       |  370|          5|  256|       1280|
-    |ap_phi_reg_pp0_iter1_empty_43_reg_233       |  370|          5|  256|       1280|
-    |ap_phi_reg_pp0_iter1_empty_44_reg_261       |  370|          5|  256|       1280|
-    |ap_phi_reg_pp0_iter1_empty_45_reg_304       |  370|          5|  256|       1280|
+    |ap_phi_reg_pp0_iter1_empty_40_reg_275       |  370|          5|  256|       1280|
+    |ap_phi_reg_pp0_iter1_empty_41_reg_290       |  370|          5|  256|       1280|
+    |ap_phi_reg_pp0_iter1_empty_42_reg_247       |  370|          5|  256|       1280|
+    |ap_phi_reg_pp0_iter1_empty_43_reg_219       |  370|          5|  256|       1280|
+    |ap_phi_reg_pp0_iter1_empty_44_reg_233       |  370|          5|  256|       1280|
+    |ap_phi_reg_pp0_iter1_empty_45_reg_261       |  370|          5|  256|       1280|
+    |ap_phi_reg_pp0_iter1_empty_46_reg_304       |  370|          5|  256|       1280|
     |ap_sig_allocacmp_ti_1                       |    3|          2|    3|          6|
     |gmem2_blk_n_AW                              |    2|          2|    1|          2|
     |gmem2_blk_n_B                               |    2|          2|    1|          2|
@@ -223,21 +223,21 @@
     |ap_loop_exit_ready_pp0_iter8_reg            |    1|   0|    1|          0|
     |ap_loop_exit_ready_pp0_iter9_reg            |    1|   0|    1|          0|
     |ap_phi_reg_pp0_iter1_C_out_vec_J_7_reg_318  |  256|   0|  256|          0|
-    |ap_phi_reg_pp0_iter1_empty_39_reg_275       |  256|   0|  256|          0|
-    |ap_phi_reg_pp0_iter1_empty_40_reg_290       |  256|   0|  256|          0|
-    |ap_phi_reg_pp0_iter1_empty_41_reg_247       |  256|   0|  256|          0|
-    |ap_phi_reg_pp0_iter1_empty_42_reg_219       |  256|   0|  256|          0|
-    |ap_phi_reg_pp0_iter1_empty_43_reg_233       |  256|   0|  256|          0|
-    |ap_phi_reg_pp0_iter1_empty_44_reg_261       |  256|   0|  256|          0|
-    |ap_phi_reg_pp0_iter1_empty_45_reg_304       |  256|   0|  256|          0|
-    |empty_39_reg_275                            |  256|   0|  256|          0|
+    |ap_phi_reg_pp0_iter1_empty_40_reg_275       |  256|   0|  256|          0|
+    |ap_phi_reg_pp0_iter1_empty_41_reg_290       |  256|   0|  256|          0|
+    |ap_phi_reg_pp0_iter1_empty_42_reg_247       |  256|   0|  256|          0|
+    |ap_phi_reg_pp0_iter1_empty_43_reg_219       |  256|   0|  256|          0|
+    |ap_phi_reg_pp0_iter1_empty_44_reg_233       |  256|   0|  256|          0|
+    |ap_phi_reg_pp0_iter1_empty_45_reg_261       |  256|   0|  256|          0|
+    |ap_phi_reg_pp0_iter1_empty_46_reg_304       |  256|   0|  256|          0|
+    |empty_40_reg_275                            |  256|   0|  256|          0|
     |first_iter_0_reg_207                        |    1|   0|    1|          0|
-    |icmp_ln51_1_reg_460                         |    1|   0|    1|          0|
-    |icmp_ln51_reg_452                           |    1|   0|    1|          0|
+    |icmp_ln53_1_reg_460                         |    1|   0|    1|          0|
+    |icmp_ln53_reg_452                           |    1|   0|    1|          0|
     |ti_fu_88                                    |    3|   0|    3|          0|
-    |trunc_ln51_reg_456                          |    2|   0|    2|          0|
-    |icmp_ln51_1_reg_460                         |    0|   2|    1|          0|
-    |icmp_ln51_reg_452                           |    0|   2|    1|          0|
+    |trunc_ln53_reg_456                          |    2|   0|    2|          0|
+    |icmp_ln53_1_reg_460                         |    0|   2|    1|          0|
+    |icmp_ln53_reg_452                           |    0|   2|    1|          0|
     +--------------------------------------------+-----+----+-----+-----------+
     |Total                                       | 9765|   4| 9767|          0|
     +--------------------------------------------+-----+----+-----+-----------+

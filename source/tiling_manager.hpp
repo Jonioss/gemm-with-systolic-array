@@ -14,10 +14,22 @@ void stream_to_C_Buf(hls::stream<float> C_stream[S_A_I][S_A_J], hls::stream<hls:
     }
 }
 
+void B_Vec_to_Buf(hls::stream<hls::vector<float, K>> &B_in, float B_BUF[K][J]) {
+    #pragma HLS INLINE off
+    for(int j = 0; j < J; j++) {
+        #pragma HLS PIPELINE II=1
+        hls::vector<float, K> temp = B_in.read();
+        for(int k = 0; k < K; k++) {
+            #pragma HLS UNROLL
+            B_BUF[k][j] = temp[k];
+        }
+    }
+}
+
 void B_Buf_to_stream(float B_BUF[K][J], hls::stream<float> B_stream[S_A_J+1][S_A_I]) {
     #pragma HLS INLINE off
     for(int k = 0; k < K; k++) {
-        #pragma HLS PIPELINE II=1 rewind
+        #pragma HLS PIPELINE II=1
         for(int j = 0; j < J; j++) {
             #pragma HLS UNROLL
             B_stream[0][j].write(B_BUF[k][j]);
@@ -48,7 +60,7 @@ void tile_A_to_stream(float A_TILE[S_A_I][K], hls::stream<float> A_stream[S_A_I]
     }
 }
 
-void tm_A(hls::stream<hls::vector<float, K>> &A_in, hls::stream<float> A_stream[S_A_I][S_A_J+1], int tileA) {
+void tm_A(hls::stream<hls::vector<float, K>> &A_in, hls::stream<float> A_stream[S_A_I][S_A_J+1]) {
     #pragma HLS INLINE off
     #pragma HLS DATAFLOW
  

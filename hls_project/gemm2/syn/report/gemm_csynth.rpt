@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'gemm'
 ================================================================
-* Date:           Tue Jul 28 13:11:43 2026
+* Date:           Wed Jul 29 13:34:20 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        hls_project
@@ -29,7 +29,7 @@
     |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
     |   min   |   max   |    min   |    max   | min | max |   Type   |
     +---------+---------+----------+----------+-----+-----+----------+
-    |      384|      384|  1.280 us|  1.280 us|  142|  145|  dataflow|
+    |      229|      229|  0.763 us|  0.763 us|  148|  148|  dataflow|
     +---------+---------+----------+----------+-----+-----+----------+
 
     + Detail: 
@@ -40,7 +40,7 @@
         +-----------------------+--------------------+---------+---------+----------+----------+-----+-----+----------+
         |entry_proc_U0          |entry_proc          |        0|        0|      0 ns|      0 ns|    0|    0|        no|
         |loadInputsFromDRAM_U0  |loadInputsFromDRAM  |      136|      136|  0.453 us|  0.453 us|  137|  137|  dataflow|
-        |runSystolicArray_U0    |runSystolicArray    |      141|      144|  0.470 us|  0.480 us|  141|  144|        no|
+        |runSystolicArray_U0    |runSystolicArray    |      158|      158|  0.527 us|  0.527 us|  148|  148|  dataflow|
         |storeOutputToDRAM_U0   |storeOutputToDRAM   |      110|      110|  0.367 us|  0.367 us|  110|  110|        no|
         +-----------------------+--------------------+---------+---------+----------+----------+-----+-----+----------+
 
@@ -57,14 +57,14 @@
 |       Name      | BRAM_18K|  DSP |    FF   |   LUT  | URAM|
 +-----------------+---------+------+---------+--------+-----+
 |DSP              |        -|     -|        -|       -|    -|
-|Expression       |        -|     -|        0|      48|    -|
-|FIFO             |        0|     -|     6450|    3489|    -|
-|Instance         |       48|    64|    66916|   43264|    0|
-|Memory           |        8|     -|        0|       0|    -|
-|Multiplexer      |        -|     -|        -|      20|    -|
-|Register         |        -|     -|       13|       -|    -|
+|Expression       |        -|     -|        0|      12|    -|
+|FIFO             |        0|     -|     7231|    3911|    -|
+|Instance         |       48|    64|    77025|   49300|    0|
+|Memory           |        -|     -|        -|       -|    -|
+|Multiplexer      |        -|     -|        -|       4|    -|
+|Register         |        -|     -|        5|       -|    -|
 +-----------------+---------+------+---------+--------+-----+
-|Total            |       56|    64|    73379|   46821|    0|
+|Total            |       48|    64|    84261|   53227|    0|
 +-----------------+---------+------+---------+--------+-----+
 |Available        |     1934|  1968|  1799680|  899840|  463|
 +-----------------+---------+------+---------+--------+-----+
@@ -81,31 +81,18 @@
     |gmem0_m_axi_U          |gmem0_m_axi         |       16|   0|   1958|   1647|    0|
     |gmem1_m_axi_U          |gmem1_m_axi         |       16|   0|   1958|   1647|    0|
     |gmem2_m_axi_U          |gmem2_m_axi         |       16|   0|   1958|   1647|    0|
-    |loadInputsFromDRAM_U0  |loadInputsFromDRAM  |        0|   0|   1141|   1693|    0|
-    |runSystolicArray_U0    |runSystolicArray    |        0|  64|  49887|  32453|    0|
+    |loadInputsFromDRAM_U0  |loadInputsFromDRAM  |        0|   0|    239|    299|    0|
+    |runSystolicArray_U0    |runSystolicArray    |        0|  64|  60898|  39883|    0|
     |storeOutputToDRAM_U0   |storeOutputToDRAM   |        0|   0|   9765|   3745|    0|
     +-----------------------+--------------------+---------+----+-------+-------+-----+
-    |Total                  |                    |       48|  64|  66916|  43264|    0|
+    |Total                  |                    |       48|  64|  77025|  49300|    0|
     +-----------------------+--------------------+---------+----+-------+-------+-----+
 
     * DSP: 
     N/A
 
     * Memory: 
-    +-----------+--------------------------+---------+---+----+-----+------+-----+------+-------------+
-    |   Memory  |          Module          | BRAM_18K| FF| LUT| URAM| Words| Bits| Banks| W*Bits*Banks|
-    +-----------+--------------------------+---------+---+----+-----+------+-----+------+-------------+
-    |B_BUF_U    |B_BUF_RAM_1WNR_BRAM_1R1W  |        1|  0|   0|    0|     8|   32|     1|          256|
-    |B_BUF_1_U  |B_BUF_RAM_1WNR_BRAM_1R1W  |        1|  0|   0|    0|     8|   32|     1|          256|
-    |B_BUF_2_U  |B_BUF_RAM_1WNR_BRAM_1R1W  |        1|  0|   0|    0|     8|   32|     1|          256|
-    |B_BUF_3_U  |B_BUF_RAM_1WNR_BRAM_1R1W  |        1|  0|   0|    0|     8|   32|     1|          256|
-    |B_BUF_4_U  |B_BUF_RAM_1WNR_BRAM_1R1W  |        1|  0|   0|    0|     8|   32|     1|          256|
-    |B_BUF_5_U  |B_BUF_RAM_1WNR_BRAM_1R1W  |        1|  0|   0|    0|     8|   32|     1|          256|
-    |B_BUF_6_U  |B_BUF_RAM_1WNR_BRAM_1R1W  |        1|  0|   0|    0|     8|   32|     1|          256|
-    |B_BUF_7_U  |B_BUF_RAM_1WNR_BRAM_1R1W  |        1|  0|   0|    0|     8|   32|     1|          256|
-    +-----------+--------------------------+---------+---+----+-----+------+-----+------+-------------+
-    |Total      |                          |        8|  0|   0|    0|    64|  256|     8|         2048|
-    +-----------+--------------------------+---------+---+----+-----+------+-----+------+-------------+
+    N/A
 
     * FIFO: 
     +------------+---------+-----+----+-----+------+-----+---------+
@@ -115,63 +102,38 @@
     |A_in_1_U    |        0|  781|   0|    -|     8|  256|     2048|
     |A_in_2_U    |        0|  781|   0|    -|     8|  256|     2048|
     |A_in_3_U    |        0|  781|   0|    -|     8|  256|     2048|
+    |B_in_U      |        0|  781|   0|    -|     8|  256|     2048|
     |C_DRAM_c_U  |        0|  202|   0|    -|     4|   64|      256|
     |C_out_0_U   |        0|  781|   0|    -|     8|  256|     2048|
     |C_out_1_U   |        0|  781|   0|    -|     8|  256|     2048|
     |C_out_2_U   |        0|  781|   0|    -|     8|  256|     2048|
     |C_out_3_U   |        0|  781|   0|    -|     8|  256|     2048|
     +------------+---------+-----+----+-----+------+-----+---------+
-    |Total       |        0| 6450|   0|    0|    68| 2112|    16640|
+    |Total       |        0| 7231|   0|    0|    76| 2368|    18688|
     +------------+---------+-----+----+-----+------+-----+---------+
 
     * Expression: 
     +----------------------------------------+----------+----+---+----+------------+------------+
     |              Variable Name             | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
     +----------------------------------------+----------+----+---+----+------------+------------+
-    |ap_channel_done_B_BUF                   |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_BUF_1                 |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_BUF_2                 |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_BUF_3                 |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_BUF_4                 |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_BUF_5                 |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_BUF_6                 |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_BUF_7                 |       and|   0|  0|   2|           1|           1|
     |ap_idle                                 |       and|   0|  0|   2|           1|           1|
     |ap_sync_ready                           |       and|   0|  0|   2|           1|           1|
     |entry_proc_U0_ap_start                  |       and|   0|  0|   2|           1|           1|
-    |loadInputsFromDRAM_U0_ap_continue       |       and|   0|  0|   2|           1|           1|
     |loadInputsFromDRAM_U0_ap_start          |       and|   0|  0|   2|           1|           1|
-    |runSystolicArray_U0_ap_start            |       and|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_BUF             |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_BUF_1           |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_BUF_2           |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_BUF_3           |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_BUF_4           |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_BUF_5           |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_BUF_6           |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_BUF_7           |        or|   0|  0|   2|           1|           1|
     |ap_sync_entry_proc_U0_ap_ready          |        or|   0|  0|   2|           1|           1|
     |ap_sync_loadInputsFromDRAM_U0_ap_ready  |        or|   0|  0|   2|           1|           1|
     +----------------------------------------+----------+----+---+----+------------+------------+
-    |Total                                   |          |   0|  0|  48|          24|          24|
+    |Total                                   |          |   0|  0|  12|           6|           6|
     +----------------------------------------+----------+----+---+----+------------+------------+
 
     * Multiplexer: 
     +--------------------------------------------+----+-----------+-----+-----------+
     |                    Name                    | LUT| Input Size| Bits| Total Bits|
     +--------------------------------------------+----+-----------+-----+-----------+
-    |ap_sync_reg_channel_write_B_BUF             |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_BUF_1           |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_BUF_2           |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_BUF_3           |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_BUF_4           |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_BUF_5           |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_BUF_6           |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_BUF_7           |   2|          2|    1|          2|
     |ap_sync_reg_entry_proc_U0_ap_ready          |   2|          2|    1|          2|
     |ap_sync_reg_loadInputsFromDRAM_U0_ap_ready  |   2|          2|    1|          2|
     +--------------------------------------------+----+-----------+-----+-----------+
-    |Total                                       |  20|         20|   10|         20|
+    |Total                                       |   4|          4|    2|          4|
     +--------------------------------------------+----+-----------+-----+-----------+
 
     * Register: 
@@ -181,18 +143,10 @@
     |ap_rst_n_inv                                |  1|   0|    1|          0|
     |ap_rst_reg_1                                |  1|   0|    1|          0|
     |ap_rst_reg_2                                |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_BUF             |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_BUF_1           |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_BUF_2           |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_BUF_3           |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_BUF_4           |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_BUF_5           |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_BUF_6           |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_BUF_7           |  1|   0|    1|          0|
     |ap_sync_reg_entry_proc_U0_ap_ready          |  1|   0|    1|          0|
     |ap_sync_reg_loadInputsFromDRAM_U0_ap_ready  |  1|   0|    1|          0|
     +--------------------------------------------+---+----+-----+-----------+
-    |Total                                       | 13|   0|   13|          0|
+    |Total                                       |  5|   0|    5|          0|
     +--------------------------------------------+---+----+-----+-----------+
 
 

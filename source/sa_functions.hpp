@@ -3,7 +3,6 @@
 
 void sink_streams(hls::stream<float> A_stream[S_A_I][S_A_J+1], hls::stream<float> B_stream[S_A_J+1][S_A_I]) {
     #pragma HLS INLINE off
-    #pragma HLS DATAFLOW
 
     sink_a:
     for(int i = 0; i < S_A_I; i++) {
@@ -24,8 +23,16 @@ void sink_streams(hls::stream<float> A_stream[S_A_I][S_A_J+1], hls::stream<float
     }
 }
 
-void runSystolicArray(hls::stream<hls::vector<float, K>> A_in[NUM_TILES_I], float B_BUF[K][J], hls::stream<hls::vector<float, S_A_J>> C_out[NUM_TILES_I]) {
+void runSystolicArray(hls::stream<hls::vector<float, K>> A_in[NUM_TILES_I], hls::stream<hls::vector<float, K>> &B_in, hls::stream<hls::vector<float, S_A_J>> C_out[NUM_TILES_I]) {
     #pragma HLS INLINE off
+    #pragma HLS DATAFLOW
+
+    float B_BUF[K][J];
+    #pragma HLS STREAM variable=B_BUF type=shared
+    #pragma HLS ARRAY_PARTITION variable=B_BUF type=complete dim=1
+    #pragma HLS ARRAY_PARTITION variable=B_BUF type=complete dim=2
+
+    B_Vec_to_Buf(B_in, B_BUF);
  
     tile_loop_A:
     for(int tileA = 0; tileA < NUM_TILES_I; tileA++) {
@@ -38,7 +45,7 @@ void runSystolicArray(hls::stream<hls::vector<float, K>> A_in[NUM_TILES_I], floa
         hls::stream<float> C_stream[S_A_I][S_A_J];
         #pragma HLS STREAM variable=C_stream type=fifo depth=K
 
-        tm_A(A_in[tileA], A_stream, tileA);
+        tm_A(A_in[tileA], A_stream);
         B_Buf_to_stream(B_BUF, B_stream);
 
         calculate_matmul:

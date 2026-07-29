@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'stream_to_C_Buf_Loop_VITIS_LOOP_6_1_proc2'
 ================================================================
-* Date:           Tue Jul 28 13:11:38 2026
+* Date:           Wed Jul 29 13:34:15 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        hls_project
@@ -179,13 +179,13 @@
     |ap_enable_reg_pp0_iter0                |    2|          2|    1|          2|
     |ap_enable_reg_pp0_iter0_reg            |    2|          2|    1|          2|
     |ap_enable_reg_pp0_iter1                |    2|          2|    1|          2|
-    |ap_phi_reg_pp0_iter1_empty_32_reg_596  |  160|          9|   32|        288|
-    |ap_phi_reg_pp0_iter1_empty_33_reg_617  |  160|          9|   32|        288|
-    |ap_phi_reg_pp0_iter1_empty_34_reg_638  |  160|          9|   32|        288|
-    |ap_phi_reg_pp0_iter1_empty_35_reg_659  |  160|          9|   32|        288|
-    |ap_phi_reg_pp0_iter1_empty_36_reg_680  |  160|          9|   32|        288|
-    |ap_phi_reg_pp0_iter1_empty_37_reg_701  |  160|          9|   32|        288|
-    |ap_phi_reg_pp0_iter1_empty_38_reg_722  |  160|          9|   32|        288|
+    |ap_phi_reg_pp0_iter1_empty_33_reg_596  |  160|          9|   32|        288|
+    |ap_phi_reg_pp0_iter1_empty_34_reg_617  |  160|          9|   32|        288|
+    |ap_phi_reg_pp0_iter1_empty_35_reg_638  |  160|          9|   32|        288|
+    |ap_phi_reg_pp0_iter1_empty_36_reg_659  |  160|          9|   32|        288|
+    |ap_phi_reg_pp0_iter1_empty_37_reg_680  |  160|          9|   32|        288|
+    |ap_phi_reg_pp0_iter1_empty_38_reg_701  |  160|          9|   32|        288|
+    |ap_phi_reg_pp0_iter1_empty_39_reg_722  |  160|          9|   32|        288|
     |ap_phi_reg_pp0_iter1_empty_reg_575     |  160|          9|   32|        288|
     |ap_sig_allocacmp_i_1                   |    4|          2|    4|          8|
     |i_fu_180                               |    4|          2|    4|          8|
@@ -201,13 +201,13 @@
     |ap_done_reg                            |   1|   0|    1|          0|
     |ap_enable_reg_pp0_iter0_reg            |   1|   0|    1|          0|
     |ap_enable_reg_pp0_iter1                |   1|   0|    1|          0|
-    |ap_phi_reg_pp0_iter1_empty_32_reg_596  |  32|   0|   32|          0|
-    |ap_phi_reg_pp0_iter1_empty_33_reg_617  |  32|   0|   32|          0|
-    |ap_phi_reg_pp0_iter1_empty_34_reg_638  |  32|   0|   32|          0|
-    |ap_phi_reg_pp0_iter1_empty_35_reg_659  |  32|   0|   32|          0|
-    |ap_phi_reg_pp0_iter1_empty_36_reg_680  |  32|   0|   32|          0|
-    |ap_phi_reg_pp0_iter1_empty_37_reg_701  |  32|   0|   32|          0|
-    |ap_phi_reg_pp0_iter1_empty_38_reg_722  |  32|   0|   32|          0|
+    |ap_phi_reg_pp0_iter1_empty_33_reg_596  |  32|   0|   32|          0|
+    |ap_phi_reg_pp0_iter1_empty_34_reg_617  |  32|   0|   32|          0|
+    |ap_phi_reg_pp0_iter1_empty_35_reg_638  |  32|   0|   32|          0|
+    |ap_phi_reg_pp0_iter1_empty_36_reg_659  |  32|   0|   32|          0|
+    |ap_phi_reg_pp0_iter1_empty_37_reg_680  |  32|   0|   32|          0|
+    |ap_phi_reg_pp0_iter1_empty_38_reg_701  |  32|   0|   32|          0|
+    |ap_phi_reg_pp0_iter1_empty_39_reg_722  |  32|   0|   32|          0|
     |ap_phi_reg_pp0_iter1_empty_reg_575     |  32|   0|   32|          0|
     |i_fu_180                               |   4|   0|    4|          0|
     |icmp_ln6_reg_840                       |   1|   0|    1|          0|

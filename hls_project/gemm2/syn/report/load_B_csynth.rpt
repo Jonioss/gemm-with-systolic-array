@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'load_B'
 ================================================================
-* Date:           Tue Jul 28 13:11:27 2026
+* Date:           Wed Jul 29 13:34:06 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        hls_project
@@ -29,7 +29,7 @@
     |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
     |   min   |   max   |    min   |    max   | min | max |   Type  |
     +---------+---------+----------+----------+-----+-----+---------+
-    |       85|       85|  0.283 us|  0.283 us|   85|   85|       no|
+    |       78|       78|  0.260 us|  0.260 us|   78|   78|       no|
     +---------+---------+----------+----------+-----+-----+---------+
 
     + Detail: 
@@ -49,14 +49,14 @@
 |       Name      | BRAM_18K|  DSP |    FF   |   LUT  | URAM|
 +-----------------+---------+------+---------+--------+-----+
 |DSP              |        -|     -|        -|       -|    -|
-|Expression       |        -|     -|        0|       2|    -|
+|Expression       |        -|     -|        0|       4|    -|
 |FIFO             |        -|     -|        -|       -|    -|
 |Instance         |        -|     -|        -|       -|    -|
 |Memory           |        -|     -|        -|       -|    -|
-|Multiplexer      |        -|     -|        -|    1492|    -|
-|Register         |        -|     -|      983|       -|    -|
+|Multiplexer      |        -|     -|        -|      94|    -|
+|Register         |        -|     -|       80|       -|    -|
 +-----------------+---------+------+---------+--------+-----+
-|Total            |        0|     0|      983|    1494|    0|
+|Total            |        0|     0|       80|      98|    0|
 +-----------------+---------+------+---------+--------+-----+
 |Available        |     1934|  1968|  1799680|  899840|  463|
 +-----------------+---------+------+---------+--------+-----+
@@ -77,79 +77,37 @@
     N/A
 
     * Expression: 
-    +-----------------+----------+----+---+----+------------+------------+
-    |  Variable Name  | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
-    +-----------------+----------+----+---+----+------------+------------+
-    |ap_block_state1  |        or|   0|  0|   2|           1|           1|
-    +-----------------+----------+----+---+----+------------+------------+
-    |Total            |          |   0|  0|   2|           1|           1|
-    +-----------------+----------+----+---+----+------------+------------+
+    +------------------+----------+----+---+----+------------+------------+
+    |   Variable Name  | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------+----------+----+---+----+------------+------------+
+    |ap_block_state1   |        or|   0|  0|   2|           1|           1|
+    |ap_block_state72  |        or|   0|  0|   2|           1|           1|
+    +------------------+----------+----+---+----+------------+------------+
+    |Total             |          |   0|  0|   4|           2|           2|
+    +------------------+----------+----+---+----+------------+------------+
 
     * Multiplexer: 
-    +------------------+-----+-----------+-----+-----------+
-    |       Name       | LUT | Input Size| Bits| Total Bits|
-    +------------------+-----+-----------+-----+-----------+
-    |B_BUF_0_address0  |   15|          9|    3|         27|
-    |B_BUF_0_d0        |  160|          9|   32|        288|
-    |B_BUF_1_address0  |   15|          9|    3|         27|
-    |B_BUF_1_d0        |  160|          9|   32|        288|
-    |B_BUF_2_address0  |   15|          9|    3|         27|
-    |B_BUF_2_d0        |  160|          9|   32|        288|
-    |B_BUF_3_address0  |   15|          9|    3|         27|
-    |B_BUF_3_d0        |  160|          9|   32|        288|
-    |B_BUF_4_address0  |   15|          9|    3|         27|
-    |B_BUF_4_d0        |  160|          9|   32|        288|
-    |B_BUF_5_address0  |   15|          9|    3|         27|
-    |B_BUF_5_d0        |  160|          9|   32|        288|
-    |B_BUF_6_address0  |   15|          9|    3|         27|
-    |B_BUF_6_d0        |  160|          9|   32|        288|
-    |B_BUF_7_address0  |   15|          9|    3|         27|
-    |B_BUF_7_d0        |  160|          9|   32|        288|
-    |ap_NS_fsm         |   86|         87|    1|         87|
-    |ap_done           |    2|          2|    1|          2|
-    |gmem1_blk_n_AR    |    2|          2|    1|          2|
-    |gmem1_blk_n_R     |    2|          2|    1|          2|
-    +------------------+-----+-----------+-----+-----------+
-    |Total             | 1492|        237|  284|       2613|
-    +------------------+-----+-----------+-----+-----------+
+    +----------------+----+-----------+-----+-----------+
+    |      Name      | LUT| Input Size| Bits| Total Bits|
+    +----------------+----+-----------+-----+-----------+
+    |B_in_blk_n      |   2|          2|    1|          2|
+    |ap_NS_fsm       |  86|         80|    1|         80|
+    |ap_done         |   2|          2|    1|          2|
+    |gmem1_blk_n_AR  |   2|          2|    1|          2|
+    |gmem1_blk_n_R   |   2|          2|    1|          2|
+    +----------------+----+-----------+-----+-----------+
+    |Total           |  94|         88|    5|         88|
+    +----------------+----+-----------+-----+-----------+
 
     * Register: 
-    +-----------------+----+----+-----+-----------+
-    |       Name      | FF | LUT| Bits| Const Bits|
-    +-----------------+----+----+-----+-----------+
-    |ap_CS_fsm        |  86|   0|   86|          0|
-    |ap_done_reg      |   1|   0|    1|          0|
-    |reg_819          |  32|   0|   32|          0|
-    |reg_823          |  32|   0|   32|          0|
-    |reg_827          |  32|   0|   32|          0|
-    |reg_831          |  32|   0|   32|          0|
-    |reg_835          |  32|   0|   32|          0|
-    |reg_839          |  32|   0|   32|          0|
-    |reg_843          |  32|   0|   32|          0|
-    |reg_847          |  32|   0|   32|          0|
-    |reg_851          |  32|   0|   32|          0|
-    |reg_855          |  32|   0|   32|          0|
-    |reg_859          |  32|   0|   32|          0|
-    |reg_863          |  32|   0|   32|          0|
-    |reg_867          |  32|   0|   32|          0|
-    |reg_871          |  32|   0|   32|          0|
-    |reg_875          |  32|   0|   32|          0|
-    |reg_879          |  32|   0|   32|          0|
-    |tmp_12_reg_1761  |  32|   0|   32|          0|
-    |tmp_18_reg_1766  |  32|   0|   32|          0|
-    |tmp_19_reg_1771  |  32|   0|   32|          0|
-    |tmp_24_reg_1776  |  32|   0|   32|          0|
-    |tmp_25_reg_1781  |  32|   0|   32|          0|
-    |tmp_26_reg_1786  |  32|   0|   32|          0|
-    |tmp_31_reg_1791  |  32|   0|   32|          0|
-    |tmp_32_reg_1796  |  32|   0|   32|          0|
-    |tmp_33_reg_1801  |  32|   0|   32|          0|
-    |tmp_39_reg_1806  |  32|   0|   32|          0|
-    |tmp_40_reg_1811  |  32|   0|   32|          0|
-    |tmp_47_reg_1816  |  32|   0|   32|          0|
-    +-----------------+----+----+-----+-----------+
-    |Total            | 983|   0|  983|          0|
-    +-----------------+----+----+-----+-----------+
+    +-------------+----+----+-----+-----------+
+    |     Name    | FF | LUT| Bits| Const Bits|
+    +-------------+----+----+-----+-----------+
+    |ap_CS_fsm    |  79|   0|   79|          0|
+    |ap_done_reg  |   1|   0|    1|          0|
+    +-------------+----+----+-----+-----------+
+    |Total        |  80|   0|   80|          0|
+    +-------------+----+----+-----+-----------+
 
 
 
@@ -214,37 +172,10 @@
 |m_axi_gmem1_BID       |   in|    1|       m_axi|         gmem1|       pointer|
 |m_axi_gmem1_BUSER     |   in|    1|       m_axi|         gmem1|       pointer|
 |B_DRAM                |   in|   64|     ap_none|        B_DRAM|        scalar|
-|B_BUF_0_address0      |  out|    3|   ap_memory|       B_BUF_0|         array|
-|B_BUF_0_ce0           |  out|    1|   ap_memory|       B_BUF_0|         array|
-|B_BUF_0_we0           |  out|    1|   ap_memory|       B_BUF_0|         array|
-|B_BUF_0_d0            |  out|   32|   ap_memory|       B_BUF_0|         array|
-|B_BUF_1_address0      |  out|    3|   ap_memory|       B_BUF_1|         array|
-|B_BUF_1_ce0           |  out|    1|   ap_memory|       B_BUF_1|         array|
-|B_BUF_1_we0           |  out|    1|   ap_memory|       B_BUF_1|         array|
-|B_BUF_1_d0            |  out|   32|   ap_memory|       B_BUF_1|         array|
-|B_BUF_2_address0      |  out|    3|   ap_memory|       B_BUF_2|         array|
-|B_BUF_2_ce0           |  out|    1|   ap_memory|       B_BUF_2|         array|
-|B_BUF_2_we0           |  out|    1|   ap_memory|       B_BUF_2|         array|
-|B_BUF_2_d0            |  out|   32|   ap_memory|       B_BUF_2|         array|
-|B_BUF_3_address0      |  out|    3|   ap_memory|       B_BUF_3|         array|
-|B_BUF_3_ce0           |  out|    1|   ap_memory|       B_BUF_3|         array|
-|B_BUF_3_we0           |  out|    1|   ap_memory|       B_BUF_3|         array|
-|B_BUF_3_d0            |  out|   32|   ap_memory|       B_BUF_3|         array|
-|B_BUF_4_address0      |  out|    3|   ap_memory|       B_BUF_4|         array|
-|B_BUF_4_ce0           |  out|    1|   ap_memory|       B_BUF_4|         array|
-|B_BUF_4_we0           |  out|    1|   ap_memory|       B_BUF_4|         array|
-|B_BUF_4_d0            |  out|   32|   ap_memory|       B_BUF_4|         array|
-|B_BUF_5_address0      |  out|    3|   ap_memory|       B_BUF_5|         array|
-|B_BUF_5_ce0           |  out|    1|   ap_memory|       B_BUF_5|         array|
-|B_BUF_5_we0           |  out|    1|   ap_memory|       B_BUF_5|         array|
-|B_BUF_5_d0            |  out|   32|   ap_memory|       B_BUF_5|         array|
-|B_BUF_6_address0      |  out|    3|   ap_memory|       B_BUF_6|         array|
-|B_BUF_6_ce0           |  out|    1|   ap_memory|       B_BUF_6|         array|
-|B_BUF_6_we0           |  out|    1|   ap_memory|       B_BUF_6|         array|
-|B_BUF_6_d0            |  out|   32|   ap_memory|       B_BUF_6|         array|
-|B_BUF_7_address0      |  out|    3|   ap_memory|       B_BUF_7|         array|
-|B_BUF_7_ce0           |  out|    1|   ap_memory|       B_BUF_7|         array|
-|B_BUF_7_we0           |  out|    1|   ap_memory|       B_BUF_7|         array|
-|B_BUF_7_d0            |  out|   32|   ap_memory|       B_BUF_7|         array|
+|B_in_din              |  out|  256|     ap_fifo|          B_in|       pointer|
+|B_in_num_data_valid   |   in|    4|     ap_fifo|          B_in|       pointer|
+|B_in_fifo_cap         |   in|    4|     ap_fifo|          B_in|       pointer|
+|B_in_full_n           |   in|    1|     ap_fifo|          B_in|       pointer|
+|B_in_write            |  out|    1|     ap_fifo|          B_in|       pointer|
 +----------------------+-----+-----+------------+--------------+--------------+
 
