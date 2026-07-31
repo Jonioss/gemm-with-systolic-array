@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'loadInputsFromDRAM'
 ================================================================
-* Date:           Fri Jul 31 15:18:53 2026
+* Date:           Fri Jul 31 16:44:52 2026
 
 * Version:        2023.2.2 (Build 4101106 on Feb  9 2024)
 * Project:        hls_project
@@ -254,8 +254,8 @@
 |A_in_3_din            |  out|  256|     ap_fifo|              A_in_3|       pointer|
 |A_in_3_full_n         |   in|    1|     ap_fifo|              A_in_3|       pointer|
 |A_in_3_write          |  out|    1|     ap_fifo|              A_in_3|       pointer|
-|B_in_din              |  out|  256|     ap_fifo|                B_in|       pointer|
-|B_in_full_n           |   in|    1|     ap_fifo|                B_in|       pointer|
-|B_in_write            |  out|    1|     ap_fifo|                B_in|       pointer|
+|B_in7_din             |  out|  256|     ap_fifo|               B_in7|       pointer|
+|B_in7_full_n          |   in|    1|     ap_fifo|               B_in7|       pointer|
+|B_in7_write           |  out|    1|     ap_fifo|               B_in7|       pointer|
 +----------------------+-----+-----+------------+--------------------+--------------+
 

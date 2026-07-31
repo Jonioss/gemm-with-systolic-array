@@ -11,14 +11,14 @@ void gemm(const hls::burst_maxi<hls::vector<float, VEC_SIZE>> A_DRAM,
 	#pragma HLS INTERFACE m_axi offset=slave port=B_DRAM bundle=gmem1 depth=K*J/VEC_SIZE max_read_burst_length=std::min(VEC_SIZE, 16) latency=64
 	#pragma HLS INTERFACE m_axi offset=slave port=C_DRAM bundle=gmem2 depth=I*J/VEC_SIZE max_write_burst_length=std::min(VEC_SIZE, 16) latency=64
 
-    hls::stream<hls::vector<float, S_A_J>> C_out[NUM_TILES_I];
+    hls::stream<hls::vector<float, S_A_J>> C_out[NUM_TILES_I][NUM_TILES_J];
     #pragma HLS STREAM variable=C_out type=fifo depth=S_A_I
 
     hls::stream<hls::vector<float, K>> A_in[NUM_TILES_I];
     #pragma HLS STREAM variable=A_in type=fifo depth=S_A_I
 
-    hls::stream<hls::vector<float, K>> B_in;
-    #pragma HLS STREAM variable=B_in type=fifo depth=J
+    hls::stream<hls::vector<float, K>> B_in[NUM_TILES_J];
+    #pragma HLS STREAM variable=B_in type=fifo depth=S_A_J
 
     #pragma HLS DATAFLOW
 

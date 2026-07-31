@@ -20,43 +20,48 @@ void load_A(hls::burst_maxi<hls::vector<float, VEC_SIZE>> A_DRAM, hls::stream<hl
     }
 }
 
-void load_B(hls::burst_maxi<hls::vector<float, VEC_SIZE>> B_DRAM, hls::stream<hls::vector<float, K>> &B_in) {
+void load_B(hls::burst_maxi<hls::vector<float, VEC_SIZE>> B_DRAM, hls::stream<hls::vector<float, K>> B_in[NUM_TILES_J]) {
 	#pragma HLS INLINE off
 	B_DRAM.read_request(0, K*J/VEC_SIZE);
 	load_B:
-	for(int k = 0; k < K/VEC_SIZE; k++) {
-		for(int j = 0; j < J; j++) {
-            #pragma HLS PIPELINE II=1
-		    #pragma HLS LOOP_FLATTEN
-			const hls::vector<float, VEC_SIZE> b_vec = B_DRAM.read();
-            hls::vector<float, K> temp_B_in_vec;
-			for(int v = 0; v < VEC_SIZE; v++) {
-				#pragma HLS UNROLL
-				temp_B_in_vec[k*VEC_SIZE+v] = b_vec[v];
-			}
-            B_in.write(temp_B_in_vec);
-		}
-	}
+    for(int tj = 0; tj < NUM_TILES_J; tj++) {
+        for(int k = 0; k < K/VEC_SIZE; k++) {
+            for(int j = 0; j < S_A_J; j++) {
+                #pragma HLS PIPELINE II=1
+                #pragma HLS LOOP_FLATTEN
+                const hls::vector<float, VEC_SIZE> b_vec = B_DRAM.read();
+                hls::vector<float, K> temp_B_in_vec;
+                for(int v = 0; v < VEC_SIZE; v++) {
+                    #pragma HLS UNROLL
+                    temp_B_in_vec[k*VEC_SIZE+v] = b_vec[v];
+                }
+                B_in[tj].write(temp_B_in_vec);
+            }
+        }
+    }
 }
 
 void loadInputsFromDRAM(hls::burst_maxi<hls::vector<float, VEC_SIZE>> A_DRAM, hls::burst_maxi<hls::vector<float, VEC_SIZE>> B_DRAM,
-    hls::stream<hls::vector<float, K>> A_in[NUM_TILES_I], hls::stream<hls::vector<float, J>> &B_in) {
+    hls::stream<hls::vector<float, K>> A_in[NUM_TILES_I], hls::stream<hls::vector<float, J>> B_in[NUM_TILES_J]) {
     #pragma HLS INLINE off
     #pragma HLS DATAFLOW
     load_A(A_DRAM, A_in);
     load_B(B_DRAM, B_in);
 }
 
-void storeOutputToDRAM(hls::stream<hls::vector<float, S_A_J>> C_out[NUM_TILES_I], hls::burst_maxi<hls::vector<float, VEC_SIZE>> C_DRAM) {
+void storeOutputToDRAM(hls::stream<hls::vector<float, S_A_J>> C_out[NUM_TILES_I][NUM_TILES_J], 
+    hls::burst_maxi<hls::vector<float, VEC_SIZE>> C_DRAM) {
     #pragma HLS INLINE off
     C_DRAM.write_request(0, I*J/VEC_SIZE);
-    for (int ti = 0; ti < NUM_TILES_I; ti++) {
-        #pragma HLS PIPELINE II=S_A_I
-        #pragma HLS LOOP_FLATTEN
-        for(int i = 0; i < S_A_I; i++) {
-            #pragma HLS UNROLL
-            hls::vector<float, S_A_J> C_out_vec_J = C_out[ti].read();
-            C_DRAM.write(C_out_vec_J);
+    for(int tj = 0; tj < NUM_TILES_J; tj++) {
+        for (int ti = 0; ti < NUM_TILES_I; ti++) {
+            #pragma HLS PIPELINE II=S_A_I
+            #pragma HLS LOOP_FLATTEN
+            for(int i = 0; i < S_A_I; i++) {
+                #pragma HLS UNROLL
+                hls::vector<float, S_A_J> C_out_vec_J = C_out[ti][tj].read();
+                C_DRAM.write(C_out_vec_J);
+            }
         }
     }
     C_DRAM.write_response();

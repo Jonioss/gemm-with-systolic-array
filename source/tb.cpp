@@ -16,7 +16,7 @@ float B[K][J];
 float C[I][J] = {0};
 
 hls::vector<float, VEC_SIZE> A_vec[I][K/VEC_SIZE];
-hls::vector<float, VEC_SIZE> B_vec[K/VEC_SIZE][J];
+hls::vector<float, VEC_SIZE> B_vec[NUM_TILES_J][K/VEC_SIZE][S_A_J];
 hls::vector<float, VEC_SIZE> C_vec[I][J/VEC_SIZE];
 
 void generateMats() {
@@ -57,10 +57,12 @@ void initVectors() {
 			}
 		}
 	}
-	for(int k = 0; k < K/VEC_SIZE; k++) {
-		for(int j = 0; j < J; j++) {
-			for(int v = 0; v < VEC_SIZE; v++) {
-				B_vec[k][j][v] = B[k*VEC_SIZE+v][j];
+	for(int tileB = 0; tileB < NUM_TILES_J; tileB++) {
+		for(int k = 0; k < K/VEC_SIZE; k++) {
+			for(int j = 0; j < S_A_J; j++) {
+				for(int v = 0; v < VEC_SIZE; v++) {
+					B_vec[tileB][k][j][v] = B[k*VEC_SIZE+v][tileB*S_A_J+j];
+				}
 			}
 		}
 	}
@@ -81,7 +83,7 @@ int main() {
 	generateMats();
 	initVectors();
 	
-	gemm(&A_vec[0][0], &B_vec[0][0], &C_vec[0][0]);
+	gemm(&A_vec[0][0], &B_vec[0][0][0], &C_vec[0][0]);
 
 	// Unpack results
 	for(int i = 0; i < I; i++) {

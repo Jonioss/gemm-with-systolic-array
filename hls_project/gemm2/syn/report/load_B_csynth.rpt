@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'load_B'
 ================================================================
-* Date:           Fri Jul 31 15:18:53 2026
+* Date:           Fri Jul 31 16:44:51 2026
 
 * Version:        2023.2.2 (Build 4101106 on Feb  9 2024)
 * Project:        hls_project
@@ -41,7 +41,7 @@
         |                   |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
         |     Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
         +-------------------+---------+---------+----------+-----------+-----------+------+----------+
-        |- VITIS_LOOP_28_1  |       79|       79|        73|          1|          1|     8|       yes|
+        |- VITIS_LOOP_29_2  |       79|       79|        73|          1|          1|     8|       yes|
         +-------------------+---------+---------+----------+-----------+-----------+------+----------+
 
 
@@ -89,7 +89,7 @@
     |ap_block_state2_io                  |       and|   0|  0|   2|           1|           1|
     |ap_condition_601                    |       and|   0|  0|   2|           1|           1|
     |ap_condition_805                    |       and|   0|  0|   2|           1|           1|
-    |icmp_ln28_fu_135_p2                 |      icmp|   0|  0|   5|           4|           5|
+    |icmp_ln29_fu_135_p2                 |      icmp|   0|  0|   5|           4|           5|
     |ap_block_pp0_stage0_01001           |        or|   0|  0|   2|           1|           1|
     |ap_block_pp0_stage0_11001           |        or|   0|  0|   2|           1|           1|
     |ap_block_state73_pp0_stage0_iter72  |        or|   0|  0|   2|           1|           1|
@@ -102,7 +102,7 @@
     +-------------------------+----+-----------+-----+-----------+
     |           Name          | LUT| Input Size| Bits| Total Bits|
     +-------------------------+----+-----------+-----+-----------+
-    |B_in_blk_n               |   2|          2|    1|          2|
+    |B_in7_blk_n              |   2|          2|    1|          2|
     |ap_done_int              |   2|          2|    1|          2|
     |ap_enable_reg_pp0_iter1  |   2|          2|    1|          2|
     |ap_sig_allocacmp_j_1     |   4|          2|    4|          8|
@@ -264,9 +264,9 @@
     |ap_loop_exit_ready_pp0_iter8_reg   |   1|   0|    1|          0|
     |ap_loop_exit_ready_pp0_iter9_reg   |   1|   0|    1|          0|
     |first_iter_0_reg_97                |   1|   0|    1|          0|
-    |icmp_ln28_reg_194                  |   1|   0|    1|          0|
+    |icmp_ln29_reg_194                  |   1|   0|    1|          0|
     |j_fu_66                            |   4|   0|    4|          0|
-    |icmp_ln28_reg_194                  |   0|  10|    1|          0|
+    |icmp_ln29_reg_194                  |   0|  10|    1|          0|
     +-----------------------------------+----+----+-----+-----------+
     |Total                              | 215|  10|  216|          0|
     +-----------------------------------+----+----+-----+-----------+
@@ -333,11 +333,11 @@
 |m_axi_gmem1_BRESP     |   in|    2|       m_axi|         gmem1|       pointer|
 |m_axi_gmem1_BID       |   in|    1|       m_axi|         gmem1|       pointer|
 |m_axi_gmem1_BUSER     |   in|    1|       m_axi|         gmem1|       pointer|
-|B_in_din              |  out|  256|     ap_fifo|          B_in|       pointer|
-|B_in_num_data_valid   |   in|    4|     ap_fifo|          B_in|       pointer|
-|B_in_fifo_cap         |   in|    4|     ap_fifo|          B_in|       pointer|
-|B_in_full_n           |   in|    1|     ap_fifo|          B_in|       pointer|
-|B_in_write            |  out|    1|     ap_fifo|          B_in|       pointer|
+|B_in7_din             |  out|  256|     ap_fifo|         B_in7|       pointer|
+|B_in7_num_data_valid  |   in|    4|     ap_fifo|         B_in7|       pointer|
+|B_in7_fifo_cap        |   in|    4|     ap_fifo|         B_in7|       pointer|
+|B_in7_full_n          |   in|    1|     ap_fifo|         B_in7|       pointer|
+|B_in7_write           |  out|    1|     ap_fifo|         B_in7|       pointer|
 |B_DRAM                |   in|   64|     ap_none|        B_DRAM|        scalar|
 +----------------------+-----+-----+------------+--------------+--------------+
 

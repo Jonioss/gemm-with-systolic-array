@@ -13,9 +13,9 @@ void stream_to_C_Vec(hls::stream<float> C_stream[S_A_I][S_A_J], hls::stream<hls:
     }
 }
 
-void B_Vec_to_Buf(hls::stream<hls::vector<float, K>> &B_in, float B_BUF[K][J]) {
+void B_Vec_to_Buf(hls::stream<hls::vector<float, K>> &B_in, float B_BUF[K][S_A_J]) {
     #pragma HLS INLINE off
-    for(int j = 0; j < J; j++) {
+    for(int j = 0; j < S_A_J; j++) {
         #pragma HLS PIPELINE II=1
         hls::vector<float, K> temp = B_in.read();
         for(int k = 0; k < K; k++) {
@@ -25,13 +25,13 @@ void B_Vec_to_Buf(hls::stream<hls::vector<float, K>> &B_in, float B_BUF[K][J]) {
     }
 }
 
-void B_Buf_to_stream(float B_BUF[K][J], hls::stream<float> B_stream[S_A_J+1][S_A_I]) {
+void B_Buf_to_stream(float B_TILE[K][S_A_J], hls::stream<float> B_stream[S_A_J+1][S_A_I]) {
     #pragma HLS INLINE off
     for(int k = 0; k < K; k++) {
         #pragma HLS PIPELINE II=1
-        for(int j = 0; j < J; j++) {
+        for(int j = 0; j < S_A_J; j++) {
             #pragma HLS UNROLL
-            B_stream[0][j].write(B_BUF[k][j]);
+            B_stream[0][j].write(B_TILE[k][j]);
         }
     }
 }
