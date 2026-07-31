@@ -3,9 +3,9 @@
 ================================================================
 == Vitis HLS Report for 'entry_proc'
 ================================================================
-* Date:           Wed Jul 29 13:34:06 2026
+* Date:           Fri Jul 31 15:18:52 2026
 
-* Version:        2023.2 (Build 4023990 on Oct 11 2023)
+* Version:        2023.2.2 (Build 4101106 on Feb  9 2024)
 * Project:        hls_project
 * Solution:       gemm2 (Vitis Kernel Flow Target)
 * Product family: versalaicore

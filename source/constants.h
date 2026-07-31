@@ -2,6 +2,7 @@
 #include <hls_stream.h>
 #include <hls_vector.h>
 #include "hls_burst_maxi.h"
+#include <hls_task.h>
 #include "math.h"
 #include "assert.h"
 

@@ -1,11 +1,11 @@
 
 
 ================================================================
-== Vitis HLS Report for 'PE5'
+== Vitis HLS Report for 'PE3'
 ================================================================
-* Date:           Wed Jul 29 13:34:09 2026
+* Date:           Fri Jul 31 15:18:56 2026
 
-* Version:        2023.2 (Build 4023990 on Oct 11 2023)
+* Version:        2023.2.2 (Build 4101106 on Feb  9 2024)
 * Project:        hls_project
 * Solution:       gemm2 (Vitis Kernel Flow Target)
 * Product family: versalaicore
@@ -73,7 +73,7 @@
     +----------------------------------------------------+-----------------------------------------------+---------+----+---+----+-----+
     |                      Instance                      |                     Module                    | BRAM_18K| DSP| FF| LUT| URAM|
     +----------------------------------------------------+-----------------------------------------------+---------+----+---+----+-----+
-    |fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U599  |fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1  |        0|   1|  5|   2|    0|
+    |fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1_U407  |fmacc_32ns_32ns_32ns_1ns_32_3_primitive_dsp_1  |        0|   1|  5|   2|    0|
     +----------------------------------------------------+-----------------------------------------------+---------+----+---+----+-----+
     |Total                                               |                                               |        0|   1|  5|   2|    0|
     +----------------------------------------------------+-----------------------------------------------+---------+----+---+----+-----+
@@ -150,13 +150,13 @@
 +-----------------------------+-----+-----+------------+--------------+--------------+
 |          RTL Ports          | Dir | Bits|  Protocol  | Source Object|    C Type    |
 +-----------------------------+-----+-----+------------+--------------+--------------+
-|ap_clk                       |   in|    1|  ap_ctrl_hs|           PE5|  return value|
-|ap_rst                       |   in|    1|  ap_ctrl_hs|           PE5|  return value|
-|ap_start                     |   in|    1|  ap_ctrl_hs|           PE5|  return value|
-|ap_done                      |  out|    1|  ap_ctrl_hs|           PE5|  return value|
-|ap_continue                  |   in|    1|  ap_ctrl_hs|           PE5|  return value|
-|ap_idle                      |  out|    1|  ap_ctrl_hs|           PE5|  return value|
-|ap_ready                     |  out|    1|  ap_ctrl_hs|           PE5|  return value|
+|ap_clk                       |   in|    1|  ap_ctrl_hs|           PE3|  return value|
+|ap_rst                       |   in|    1|  ap_ctrl_hs|           PE3|  return value|
+|ap_start                     |   in|    1|  ap_ctrl_hs|           PE3|  return value|
+|ap_done                      |  out|    1|  ap_ctrl_hs|           PE3|  return value|
+|ap_continue                  |   in|    1|  ap_ctrl_hs|           PE3|  return value|
+|ap_idle                      |  out|    1|  ap_ctrl_hs|           PE3|  return value|
+|ap_ready                     |  out|    1|  ap_ctrl_hs|           PE3|  return value|
 |A_stream_0_0_dout            |   in|   32|     ap_fifo|  A_stream_0_0|       pointer|
 |A_stream_0_0_num_data_valid  |   in|    4|     ap_fifo|  A_stream_0_0|       pointer|
 |A_stream_0_0_fifo_cap        |   in|    4|     ap_fifo|  A_stream_0_0|       pointer|

@@ -3,9 +3,9 @@
 ================================================================
 == Vitis HLS Report for 'gemm'
 ================================================================
-* Date:           Wed Jul 29 13:34:20 2026
+* Date:           Fri Jul 31 15:19:16 2026
 
-* Version:        2023.2 (Build 4023990 on Oct 11 2023)
+* Version:        2023.2.2 (Build 4101106 on Feb  9 2024)
 * Project:        hls_project
 * Solution:       gemm2 (Vitis Kernel Flow Target)
 * Product family: versalaicore
@@ -29,7 +29,7 @@
     |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
     |   min   |   max   |    min   |    max   | min | max |   Type   |
     +---------+---------+----------+----------+-----+-----+----------+
-    |      229|      229|  0.763 us|  0.763 us|  148|  148|  dataflow|
+    |      220|      220|  0.733 us|  0.733 us|  138|  138|  dataflow|
     +---------+---------+----------+----------+-----+-----+----------+
 
     + Detail: 
@@ -39,8 +39,8 @@
         |        Instance       |       Module       |   min   |   max   |    min   |    max   | min | max |   Type   |
         +-----------------------+--------------------+---------+---------+----------+----------+-----+-----+----------+
         |entry_proc_U0          |entry_proc          |        0|        0|      0 ns|      0 ns|    0|    0|        no|
-        |loadInputsFromDRAM_U0  |loadInputsFromDRAM  |      136|      136|  0.453 us|  0.453 us|  137|  137|  dataflow|
-        |runSystolicArray_U0    |runSystolicArray    |      158|      158|  0.527 us|  0.527 us|  148|  148|  dataflow|
+        |loadInputsFromDRAM_U0  |loadInputsFromDRAM  |      105|      105|  0.350 us|  0.350 us|  106|  106|  dataflow|
+        |runSystolicArray_U0    |runSystolicArray    |      148|      148|  0.493 us|  0.493 us|  138|  138|  dataflow|
         |storeOutputToDRAM_U0   |storeOutputToDRAM   |      110|      110|  0.367 us|  0.367 us|  110|  110|        no|
         +-----------------------+--------------------+---------+---------+----------+----------+-----+-----+----------+
 
@@ -59,12 +59,12 @@
 |DSP              |        -|     -|        -|       -|    -|
 |Expression       |        -|     -|        0|      12|    -|
 |FIFO             |        0|     -|     7231|    3911|    -|
-|Instance         |       48|    64|    77025|   49300|    0|
+|Instance         |       48|    64|    67243|   45056|    0|
 |Memory           |        -|     -|        -|       -|    -|
 |Multiplexer      |        -|     -|        -|       4|    -|
 |Register         |        -|     -|        5|       -|    -|
 +-----------------+---------+------+---------+--------+-----+
-|Total            |       48|    64|    84261|   53227|    0|
+|Total            |       48|    64|    74479|   48983|    0|
 +-----------------+---------+------+---------+--------+-----+
 |Available        |     1934|  1968|  1799680|  899840|  463|
 +-----------------+---------+------+---------+--------+-----+
@@ -81,11 +81,11 @@
     |gmem0_m_axi_U          |gmem0_m_axi         |       16|   0|   1958|   1647|    0|
     |gmem1_m_axi_U          |gmem1_m_axi         |       16|   0|   1958|   1647|    0|
     |gmem2_m_axi_U          |gmem2_m_axi         |       16|   0|   1958|   1647|    0|
-    |loadInputsFromDRAM_U0  |loadInputsFromDRAM  |        0|   0|    239|    299|    0|
-    |runSystolicArray_U0    |runSystolicArray    |        0|  64|  60898|  39883|    0|
+    |loadInputsFromDRAM_U0  |loadInputsFromDRAM  |        0|   0|    444|    173|    0|
+    |runSystolicArray_U0    |runSystolicArray    |        0|  64|  50911|  35765|    0|
     |storeOutputToDRAM_U0   |storeOutputToDRAM   |        0|   0|   9765|   3745|    0|
     +-----------------------+--------------------+---------+----+-------+-------+-----+
-    |Total                  |                    |       48|  64|  77025|  49300|    0|
+    |Total                  |                    |       48|  64|  67243|  45056|    0|
     +-----------------------+--------------------+---------+----+-------+-------+-----+
 
     * DSP: 

@@ -5,7 +5,7 @@ void load_A(hls::burst_maxi<hls::vector<float, VEC_SIZE>> A_DRAM, hls::stream<hl
     A_DRAM.read_request(0, I*K/VEC_SIZE);
     for(int ti = 0; ti < NUM_TILES_I; ti++) {
         for(int i = 0; i < S_A_I; i++) {
-            #pragma HLS PIPELINE II=2
+            #pragma HLS PIPELINE II=(K/VEC_SIZE)
             #pragma HLS LOOP_FLATTEN
             hls::vector<float, K> temp_A_in;
             for(int k = 0; k < K/VEC_SIZE; k++) {
@@ -25,9 +25,9 @@ void load_B(hls::burst_maxi<hls::vector<float, VEC_SIZE>> B_DRAM, hls::stream<hl
 	B_DRAM.read_request(0, K*J/VEC_SIZE);
 	load_B:
 	for(int k = 0; k < K/VEC_SIZE; k++) {
-        #pragma HLS PIPELINE II=1
-		#pragma HLS LOOP_FLATTEN
 		for(int j = 0; j < J; j++) {
+            #pragma HLS PIPELINE II=1
+		    #pragma HLS LOOP_FLATTEN
 			const hls::vector<float, VEC_SIZE> b_vec = B_DRAM.read();
             hls::vector<float, K> temp_B_in_vec;
 			for(int v = 0; v < VEC_SIZE; v++) {
