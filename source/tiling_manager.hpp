@@ -39,7 +39,7 @@ void B_Buf_to_stream(float B_TILE[K][S_A_J], hls::stream<float> B_stream[S_A_J+1
 void load_tile_A(hls::stream<hls::vector<float, K>> &A_in, float A_TILE[S_A_I][K]) {
     #pragma HLS INLINE off
     for(int i = 0; i < S_A_I; i++) {
-        #pragma HLS PIPELINE II=1
+        #pragma HLS UNROLL
         hls::vector<float, K> temp = A_in.read();
         for(int k = 0; k < K; k++) {
             #pragma HLS UNROLL
@@ -50,9 +50,9 @@ void load_tile_A(hls::stream<hls::vector<float, K>> &A_in, float A_TILE[S_A_I][K
 
 void tile_A_to_stream(float A_TILE[S_A_I][K], hls::stream<float> A_stream[S_A_I][S_A_J+1]) {
     #pragma HLS INLINE off
-    for(int k = 0; k < K; k++) {
-        #pragma HLS PIPELINE II=1
-        for(int i = 0; i < S_A_I; i++) {
+    for(int i = 0; i < S_A_I; i++) {
+        #pragma HLS UNROLL
+        for(int k = 0; k < K; k++) {
             #pragma HLS UNROLL
             A_stream[i][0].write(A_TILE[i][k]);
         }
@@ -60,8 +60,7 @@ void tile_A_to_stream(float A_TILE[S_A_I][K], hls::stream<float> A_stream[S_A_I]
 }
 
 void tm_A(hls::stream<hls::vector<float, K>> &A_in, hls::stream<float> A_stream[S_A_I][S_A_J+1]) {
-    #pragma HLS INLINE off
-    #pragma HLS DATAFLOW
+    #pragma HLS INLINE
  
     float A_TILE[S_A_I][K];
     #pragma HLS STREAM variable=A_TILE type=pipo depth=2
@@ -71,16 +70,3 @@ void tm_A(hls::stream<hls::vector<float, K>> &A_in, hls::stream<float> A_stream[
     load_tile_A(A_in, A_TILE);
     tile_A_to_stream(A_TILE, A_stream);
 }
-
-// void tm_B(hls::stream<hls::vector<float, K>> &B_in, hls::stream<float> B_stream[S_A_J+1][S_A_I]) {
-//     #pragma HLS INLINE off
-//     #pragma HLS DATAFLOW
-
-//     float B_BUF[K][J];
-//     #pragma HLS STREAM variable=B_BUF type=shared
-//     #pragma HLS ARRAY_PARTITION variable=B_BUF type=complete dim=1
-//     #pragma HLS ARRAY_PARTITION variable=B_BUF type=complete dim=2
-
-//     B_Vec_to_Buf(B_in, B_BUF);
-//     B_Buf_to_stream(B_BUF, B_stream);
-// }

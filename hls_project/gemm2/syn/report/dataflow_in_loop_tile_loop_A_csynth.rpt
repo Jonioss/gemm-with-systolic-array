@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'dataflow_in_loop_tile_loop_A'
 ================================================================
-* Date:           Fri Jul 31 16:45:11 2026
+* Date:           Sun Aug  2 09:34:30 2026
 
 * Version:        2023.2.2 (Build 4101106 on Feb  9 2024)
 * Project:        hls_project
@@ -29,83 +29,83 @@
     |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
     |   min   |   max   |    min   |    max   | min | max |   Type   |
     +---------+---------+----------+----------+-----+-----+----------+
-    |       33|       33|  0.110 us|  0.110 us|   34|   34|  dataflow|
+    |       35|       35|  0.117 us|  0.117 us|   36|   36|  dataflow|
     +---------+---------+----------+----------+-----+-----+----------+
 
     + Detail: 
         * Instance: 
-        +-----------------------------------------------------------------+--------------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------+
-        |                                                                 |                                                              |  Latency (cycles) |   Latency (absolute)  |  Interval |                 Pipeline                 |
-        |                             Instance                            |                            Module                            |   min   |   max   |    min    |    max    | min | max |                   Type                   |
-        +-----------------------------------------------------------------+--------------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------+
-        |dataflow_in_loop_tile_loop_A_Block_newFuncRoot1_proc2_U0         |dataflow_in_loop_tile_loop_A_Block_newFuncRoot1_proc2         |       33|       33|   0.110 us|   0.110 us|   33|   33|                                        no|
-        |PE3_U0                                                           |PE3                                                           |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_110_U0                                                        |PE_110                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_817_U0                                                        |PE_817                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_211_U0                                                        |PE_211                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_918_U0                                                        |PE_918                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_1625_U0                                                       |PE_1625                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_312_U0                                                        |PE_312                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_1019_U0                                                       |PE_1019                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_1726_U0                                                       |PE_1726                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_2433_U0                                                       |PE_2433                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_413_U0                                                        |PE_413                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_1120_U0                                                       |PE_1120                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_1827_U0                                                       |PE_1827                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_2534_U0                                                       |PE_2534                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_3241_U0                                                       |PE_3241                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_514_U0                                                        |PE_514                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_1221_U0                                                       |PE_1221                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_1928_U0                                                       |PE_1928                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_2635_U0                                                       |PE_2635                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_3342_U0                                                       |PE_3342                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_4049_U0                                                       |PE_4049                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_615_U0                                                        |PE_615                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_1322_U0                                                       |PE_1322                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_2029_U0                                                       |PE_2029                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_2736_U0                                                       |PE_2736                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_3443_U0                                                       |PE_3443                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_4150_U0                                                       |PE_4150                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_4857_U0                                                       |PE_4857                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_716_U0                                                        |PE_716                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_1423_U0                                                       |PE_1423                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_2130_U0                                                       |PE_2130                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_2837_U0                                                       |PE_2837                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_3544_U0                                                       |PE_3544                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_4251_U0                                                       |PE_4251                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_4958_U0                                                       |PE_4958                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_5665_U0                                                       |PE_5665                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_1524_U0                                                       |PE_1524                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_2231_U0                                                       |PE_2231                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_2938_U0                                                       |PE_2938                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_3645_U0                                                       |PE_3645                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_4352_U0                                                       |PE_4352                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_5059_U0                                                       |PE_5059                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_5766_U0                                                       |PE_5766                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_2332_U0                                                       |PE_2332                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_3039_U0                                                       |PE_3039                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_3746_U0                                                       |PE_3746                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_4453_U0                                                       |PE_4453                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_5160_U0                                                       |PE_5160                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_5867_U0                                                       |PE_5867                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_3140_U0                                                       |PE_3140                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_3847_U0                                                       |PE_3847                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_4554_U0                                                       |PE_4554                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_5261_U0                                                       |PE_5261                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_5968_U0                                                       |PE_5968                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_3948_U0                                                       |PE_3948                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_4655_U0                                                       |PE_4655                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_5362_U0                                                       |PE_5362                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_6069_U0                                                       |PE_6069                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_4756_U0                                                       |PE_4756                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_5463_U0                                                       |PE_5463                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_6170_U0                                                       |PE_6170                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_5564_U0                                                       |PE_5564                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_6271_U0                                                       |PE_6271                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_6372_U0                                                       |PE_6372                                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |sink_streams73_U0                                                |sink_streams73                                                |        7|        7|  23.331 ns|  23.331 ns|    7|    7|                                        no|
-        |dataflow_in_loop_tile_loop_A_Block_arrayidx402_exit71_proc74_U0  |dataflow_in_loop_tile_loop_A_Block_arrayidx402_exit71_proc74  |       12|       12|  39.996 ns|  39.996 ns|   12|   12|                                        no|
-        +-----------------------------------------------------------------+--------------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------+
+        +------------------------------------------------------------------+---------------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------+
+        |                                                                  |                                                               |  Latency (cycles) |   Latency (absolute)  |  Interval |                 Pipeline                 |
+        |                             Instance                             |                             Module                            |   min   |   max   |    min    |    max    | min | max |                   Type                   |
+        +------------------------------------------------------------------+---------------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------+
+        |dataflow_in_loop_tile_loop_A_Block_newFuncRoot1_proc2_U0          |dataflow_in_loop_tile_loop_A_Block_newFuncRoot1_proc2          |       35|       35|   0.117 us|   0.117 us|   35|   35|                                        no|
+        |PE3_U0                                                            |PE3                                                            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_110_U0                                                         |PE_110                                                         |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_817_U0                                                         |PE_817                                                         |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_211_U0                                                         |PE_211                                                         |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_918_U0                                                         |PE_918                                                         |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_1625_U0                                                        |PE_1625                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_312_U0                                                         |PE_312                                                         |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_1019_U0                                                        |PE_1019                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_1726_U0                                                        |PE_1726                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_2433_U0                                                        |PE_2433                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_413_U0                                                         |PE_413                                                         |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_1120_U0                                                        |PE_1120                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_1827_U0                                                        |PE_1827                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_2534_U0                                                        |PE_2534                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_3241_U0                                                        |PE_3241                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_514_U0                                                         |PE_514                                                         |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_1221_U0                                                        |PE_1221                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_1928_U0                                                        |PE_1928                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_2635_U0                                                        |PE_2635                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_3342_U0                                                        |PE_3342                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_4049_U0                                                        |PE_4049                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_615_U0                                                         |PE_615                                                         |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_1322_U0                                                        |PE_1322                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_2029_U0                                                        |PE_2029                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_2736_U0                                                        |PE_2736                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_3443_U0                                                        |PE_3443                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_4150_U0                                                        |PE_4150                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_4857_U0                                                        |PE_4857                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_716_U0                                                         |PE_716                                                         |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_1423_U0                                                        |PE_1423                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_2130_U0                                                        |PE_2130                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_2837_U0                                                        |PE_2837                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_3544_U0                                                        |PE_3544                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_4251_U0                                                        |PE_4251                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_4958_U0                                                        |PE_4958                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_5665_U0                                                        |PE_5665                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_1524_U0                                                        |PE_1524                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_2231_U0                                                        |PE_2231                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_2938_U0                                                        |PE_2938                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_3645_U0                                                        |PE_3645                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_4352_U0                                                        |PE_4352                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_5059_U0                                                        |PE_5059                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_5766_U0                                                        |PE_5766                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_2332_U0                                                        |PE_2332                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_3039_U0                                                        |PE_3039                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_3746_U0                                                        |PE_3746                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_4453_U0                                                        |PE_4453                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_5160_U0                                                        |PE_5160                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_5867_U0                                                        |PE_5867                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_3140_U0                                                        |PE_3140                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_3847_U0                                                        |PE_3847                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_4554_U0                                                        |PE_4554                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_5261_U0                                                        |PE_5261                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_5968_U0                                                        |PE_5968                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_3948_U0                                                        |PE_3948                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_4655_U0                                                        |PE_4655                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_5362_U0                                                        |PE_5362                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_6069_U0                                                        |PE_6069                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_4756_U0                                                        |PE_4756                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_5463_U0                                                        |PE_5463                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_6170_U0                                                        |PE_6170                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_5564_U0                                                        |PE_5564                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_6271_U0                                                        |PE_6271                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_6372_U0                                                        |PE_6372                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |sink_streams73_U0                                                 |sink_streams73                                                 |        7|        7|  23.331 ns|  23.331 ns|    7|    7|                                        no|
+        |dataflow_in_loop_tile_loop_A_Block_arrayidx4212_exit77_proc74_U0  |dataflow_in_loop_tile_loop_A_Block_arrayidx4212_exit77_proc74  |       12|       12|  39.996 ns|  39.996 ns|   12|   12|                                        no|
+        +------------------------------------------------------------------+---------------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------+
 
         * Loop: 
         N/A
@@ -121,94 +121,94 @@
 +-----------------+---------+------+---------+--------+-----+
 |DSP              |        -|     -|        -|       -|    -|
 |Expression       |        -|     -|        0|      10|    -|
-|FIFO             |        0|     -|    22697|   15633|    -|
-|Instance         |        0|    64|    17386|   13400|    -|
+|FIFO             |        0|     -|    22722|   15666|    -|
+|Instance         |        -|    64|     9208|    7386|    -|
 |Memory           |        -|     -|        -|       -|    -|
 |Multiplexer      |        -|     -|        -|       -|    -|
 |Register         |        -|     -|        -|       -|    -|
 +-----------------+---------+------+---------+--------+-----+
-|Total            |        0|    64|    40083|   29043|    0|
+|Total            |        0|    64|    31930|   23062|    0|
 +-----------------+---------+------+---------+--------+-----+
 |Available        |     1934|  1968|  1799680|  899840|  463|
 +-----------------+---------+------+---------+--------+-----+
-|Utilization (%)  |        0|     3|        2|       3|    0|
+|Utilization (%)  |        0|     3|        1|       2|    0|
 +-----------------+---------+------+---------+--------+-----+
 
 + Detail: 
     * Instance: 
-    +-----------------------------------------------------------------+--------------------------------------------------------------+---------+----+-------+------+-----+
-    |                             Instance                            |                            Module                            | BRAM_18K| DSP|   FF  |  LUT | URAM|
-    +-----------------------------------------------------------------+--------------------------------------------------------------+---------+----+-------+------+-----+
-    |PE3_U0                                                           |PE3                                                           |        0|   1|     86|    50|    0|
-    |PE_1019_U0                                                       |PE_1019                                                       |        0|   1|     87|    52|    0|
-    |PE_110_U0                                                        |PE_110                                                        |        0|   1|     87|    52|    0|
-    |PE_1120_U0                                                       |PE_1120                                                       |        0|   1|     87|    52|    0|
-    |PE_1221_U0                                                       |PE_1221                                                       |        0|   1|     87|    52|    0|
-    |PE_1322_U0                                                       |PE_1322                                                       |        0|   1|     87|    52|    0|
-    |PE_1423_U0                                                       |PE_1423                                                       |        0|   1|     87|    52|    0|
-    |PE_1524_U0                                                       |PE_1524                                                       |        0|   1|     87|    52|    0|
-    |PE_1625_U0                                                       |PE_1625                                                       |        0|   1|     87|    52|    0|
-    |PE_1726_U0                                                       |PE_1726                                                       |        0|   1|     86|    50|    0|
-    |PE_1827_U0                                                       |PE_1827                                                       |        0|   1|     86|    50|    0|
-    |PE_1928_U0                                                       |PE_1928                                                       |        0|   1|     87|    52|    0|
-    |PE_2029_U0                                                       |PE_2029                                                       |        0|   1|     87|    52|    0|
-    |PE_211_U0                                                        |PE_211                                                        |        0|   1|     87|    52|    0|
-    |PE_2130_U0                                                       |PE_2130                                                       |        0|   1|     87|    52|    0|
-    |PE_2231_U0                                                       |PE_2231                                                       |        0|   1|     87|    52|    0|
-    |PE_2332_U0                                                       |PE_2332                                                       |        0|   1|     87|    52|    0|
-    |PE_2433_U0                                                       |PE_2433                                                       |        0|   1|     87|    52|    0|
-    |PE_2534_U0                                                       |PE_2534                                                       |        0|   1|     87|    52|    0|
-    |PE_2635_U0                                                       |PE_2635                                                       |        0|   1|     86|    50|    0|
-    |PE_2736_U0                                                       |PE_2736                                                       |        0|   1|     86|    50|    0|
-    |PE_2837_U0                                                       |PE_2837                                                       |        0|   1|     87|    52|    0|
-    |PE_2938_U0                                                       |PE_2938                                                       |        0|   1|     87|    52|    0|
-    |PE_3039_U0                                                       |PE_3039                                                       |        0|   1|     87|    52|    0|
-    |PE_312_U0                                                        |PE_312                                                        |        0|   1|     87|    52|    0|
-    |PE_3140_U0                                                       |PE_3140                                                       |        0|   1|     87|    52|    0|
-    |PE_3241_U0                                                       |PE_3241                                                       |        0|   1|     87|    52|    0|
-    |PE_3342_U0                                                       |PE_3342                                                       |        0|   1|     87|    52|    0|
-    |PE_3443_U0                                                       |PE_3443                                                       |        0|   1|     87|    52|    0|
-    |PE_3544_U0                                                       |PE_3544                                                       |        0|   1|     86|    50|    0|
-    |PE_3645_U0                                                       |PE_3645                                                       |        0|   1|     86|    50|    0|
-    |PE_3746_U0                                                       |PE_3746                                                       |        0|   1|     87|    52|    0|
-    |PE_3847_U0                                                       |PE_3847                                                       |        0|   1|     87|    52|    0|
-    |PE_3948_U0                                                       |PE_3948                                                       |        0|   1|     87|    52|    0|
-    |PE_4049_U0                                                       |PE_4049                                                       |        0|   1|     87|    52|    0|
-    |PE_413_U0                                                        |PE_413                                                        |        0|   1|     87|    52|    0|
-    |PE_4150_U0                                                       |PE_4150                                                       |        0|   1|     87|    52|    0|
-    |PE_4251_U0                                                       |PE_4251                                                       |        0|   1|     87|    52|    0|
-    |PE_4352_U0                                                       |PE_4352                                                       |        0|   1|     87|    52|    0|
-    |PE_4453_U0                                                       |PE_4453                                                       |        0|   1|     86|    50|    0|
-    |PE_4554_U0                                                       |PE_4554                                                       |        0|   1|     86|    50|    0|
-    |PE_4655_U0                                                       |PE_4655                                                       |        0|   1|     87|    52|    0|
-    |PE_4756_U0                                                       |PE_4756                                                       |        0|   1|     87|    52|    0|
-    |PE_4857_U0                                                       |PE_4857                                                       |        0|   1|     87|    52|    0|
-    |PE_4958_U0                                                       |PE_4958                                                       |        0|   1|     87|    52|    0|
-    |PE_5059_U0                                                       |PE_5059                                                       |        0|   1|     87|    52|    0|
-    |PE_514_U0                                                        |PE_514                                                        |        0|   1|     87|    52|    0|
-    |PE_5160_U0                                                       |PE_5160                                                       |        0|   1|     87|    52|    0|
-    |PE_5261_U0                                                       |PE_5261                                                       |        0|   1|     87|    52|    0|
-    |PE_5362_U0                                                       |PE_5362                                                       |        0|   1|     86|    50|    0|
-    |PE_5463_U0                                                       |PE_5463                                                       |        0|   1|     86|    50|    0|
-    |PE_5564_U0                                                       |PE_5564                                                       |        0|   1|     87|    52|    0|
-    |PE_5665_U0                                                       |PE_5665                                                       |        0|   1|     87|    52|    0|
-    |PE_5766_U0                                                       |PE_5766                                                       |        0|   1|     87|    52|    0|
-    |PE_5867_U0                                                       |PE_5867                                                       |        0|   1|     87|    52|    0|
-    |PE_5968_U0                                                       |PE_5968                                                       |        0|   1|     87|    52|    0|
-    |PE_6069_U0                                                       |PE_6069                                                       |        0|   1|     87|    52|    0|
-    |PE_615_U0                                                        |PE_615                                                        |        0|   1|     87|    52|    0|
-    |PE_6170_U0                                                       |PE_6170                                                       |        0|   1|     87|    52|    0|
-    |PE_6271_U0                                                       |PE_6271                                                       |        0|   1|     86|    50|    0|
-    |PE_6372_U0                                                       |PE_6372                                                       |        0|   1|     86|    50|    0|
-    |PE_716_U0                                                        |PE_716                                                        |        0|   1|     87|    52|    0|
-    |PE_817_U0                                                        |PE_817                                                        |        0|   1|     86|    50|    0|
-    |PE_918_U0                                                        |PE_918                                                        |        0|   1|     86|    50|    0|
-    |dataflow_in_loop_tile_loop_A_Block_arrayidx402_exit71_proc74_U0  |dataflow_in_loop_tile_loop_A_Block_arrayidx402_exit71_proc74  |        0|   0|    531|  1604|    0|
-    |dataflow_in_loop_tile_loop_A_Block_newFuncRoot1_proc2_U0         |dataflow_in_loop_tile_loop_A_Block_newFuncRoot1_proc2         |        0|   0|  11293|  8450|    0|
-    |sink_streams73_U0                                                |sink_streams73                                                |        0|   0|      9|    48|    0|
-    +-----------------------------------------------------------------+--------------------------------------------------------------+---------+----+-------+------+-----+
-    |Total                                                            |                                                              |        0|  64|  17386| 13400|    0|
-    +-----------------------------------------------------------------+--------------------------------------------------------------+---------+----+-------+------+-----+
+    +------------------------------------------------------------------+---------------------------------------------------------------+---------+----+------+------+-----+
+    |                             Instance                             |                             Module                            | BRAM_18K| DSP|  FF  |  LUT | URAM|
+    +------------------------------------------------------------------+---------------------------------------------------------------+---------+----+------+------+-----+
+    |PE3_U0                                                            |PE3                                                            |        0|   1|    86|    50|    0|
+    |PE_1019_U0                                                        |PE_1019                                                        |        0|   1|    87|    52|    0|
+    |PE_110_U0                                                         |PE_110                                                         |        0|   1|    87|    52|    0|
+    |PE_1120_U0                                                        |PE_1120                                                        |        0|   1|    87|    52|    0|
+    |PE_1221_U0                                                        |PE_1221                                                        |        0|   1|    87|    52|    0|
+    |PE_1322_U0                                                        |PE_1322                                                        |        0|   1|    87|    52|    0|
+    |PE_1423_U0                                                        |PE_1423                                                        |        0|   1|    87|    52|    0|
+    |PE_1524_U0                                                        |PE_1524                                                        |        0|   1|    87|    52|    0|
+    |PE_1625_U0                                                        |PE_1625                                                        |        0|   1|    87|    52|    0|
+    |PE_1726_U0                                                        |PE_1726                                                        |        0|   1|    86|    50|    0|
+    |PE_1827_U0                                                        |PE_1827                                                        |        0|   1|    86|    50|    0|
+    |PE_1928_U0                                                        |PE_1928                                                        |        0|   1|    87|    52|    0|
+    |PE_2029_U0                                                        |PE_2029                                                        |        0|   1|    87|    52|    0|
+    |PE_211_U0                                                         |PE_211                                                         |        0|   1|    87|    52|    0|
+    |PE_2130_U0                                                        |PE_2130                                                        |        0|   1|    87|    52|    0|
+    |PE_2231_U0                                                        |PE_2231                                                        |        0|   1|    87|    52|    0|
+    |PE_2332_U0                                                        |PE_2332                                                        |        0|   1|    87|    52|    0|
+    |PE_2433_U0                                                        |PE_2433                                                        |        0|   1|    87|    52|    0|
+    |PE_2534_U0                                                        |PE_2534                                                        |        0|   1|    87|    52|    0|
+    |PE_2635_U0                                                        |PE_2635                                                        |        0|   1|    86|    50|    0|
+    |PE_2736_U0                                                        |PE_2736                                                        |        0|   1|    86|    50|    0|
+    |PE_2837_U0                                                        |PE_2837                                                        |        0|   1|    87|    52|    0|
+    |PE_2938_U0                                                        |PE_2938                                                        |        0|   1|    87|    52|    0|
+    |PE_3039_U0                                                        |PE_3039                                                        |        0|   1|    87|    52|    0|
+    |PE_312_U0                                                         |PE_312                                                         |        0|   1|    87|    52|    0|
+    |PE_3140_U0                                                        |PE_3140                                                        |        0|   1|    87|    52|    0|
+    |PE_3241_U0                                                        |PE_3241                                                        |        0|   1|    87|    52|    0|
+    |PE_3342_U0                                                        |PE_3342                                                        |        0|   1|    87|    52|    0|
+    |PE_3443_U0                                                        |PE_3443                                                        |        0|   1|    87|    52|    0|
+    |PE_3544_U0                                                        |PE_3544                                                        |        0|   1|    86|    50|    0|
+    |PE_3645_U0                                                        |PE_3645                                                        |        0|   1|    86|    50|    0|
+    |PE_3746_U0                                                        |PE_3746                                                        |        0|   1|    87|    52|    0|
+    |PE_3847_U0                                                        |PE_3847                                                        |        0|   1|    87|    52|    0|
+    |PE_3948_U0                                                        |PE_3948                                                        |        0|   1|    87|    52|    0|
+    |PE_4049_U0                                                        |PE_4049                                                        |        0|   1|    87|    52|    0|
+    |PE_413_U0                                                         |PE_413                                                         |        0|   1|    87|    52|    0|
+    |PE_4150_U0                                                        |PE_4150                                                        |        0|   1|    87|    52|    0|
+    |PE_4251_U0                                                        |PE_4251                                                        |        0|   1|    87|    52|    0|
+    |PE_4352_U0                                                        |PE_4352                                                        |        0|   1|    87|    52|    0|
+    |PE_4453_U0                                                        |PE_4453                                                        |        0|   1|    86|    50|    0|
+    |PE_4554_U0                                                        |PE_4554                                                        |        0|   1|    86|    50|    0|
+    |PE_4655_U0                                                        |PE_4655                                                        |        0|   1|    87|    52|    0|
+    |PE_4756_U0                                                        |PE_4756                                                        |        0|   1|    87|    52|    0|
+    |PE_4857_U0                                                        |PE_4857                                                        |        0|   1|    87|    52|    0|
+    |PE_4958_U0                                                        |PE_4958                                                        |        0|   1|    87|    52|    0|
+    |PE_5059_U0                                                        |PE_5059                                                        |        0|   1|    87|    52|    0|
+    |PE_514_U0                                                         |PE_514                                                         |        0|   1|    87|    52|    0|
+    |PE_5160_U0                                                        |PE_5160                                                        |        0|   1|    87|    52|    0|
+    |PE_5261_U0                                                        |PE_5261                                                        |        0|   1|    87|    52|    0|
+    |PE_5362_U0                                                        |PE_5362                                                        |        0|   1|    86|    50|    0|
+    |PE_5463_U0                                                        |PE_5463                                                        |        0|   1|    86|    50|    0|
+    |PE_5564_U0                                                        |PE_5564                                                        |        0|   1|    87|    52|    0|
+    |PE_5665_U0                                                        |PE_5665                                                        |        0|   1|    87|    52|    0|
+    |PE_5766_U0                                                        |PE_5766                                                        |        0|   1|    87|    52|    0|
+    |PE_5867_U0                                                        |PE_5867                                                        |        0|   1|    87|    52|    0|
+    |PE_5968_U0                                                        |PE_5968                                                        |        0|   1|    87|    52|    0|
+    |PE_6069_U0                                                        |PE_6069                                                        |        0|   1|    87|    52|    0|
+    |PE_615_U0                                                         |PE_615                                                         |        0|   1|    87|    52|    0|
+    |PE_6170_U0                                                        |PE_6170                                                        |        0|   1|    87|    52|    0|
+    |PE_6271_U0                                                        |PE_6271                                                        |        0|   1|    86|    50|    0|
+    |PE_6372_U0                                                        |PE_6372                                                        |        0|   1|    86|    50|    0|
+    |PE_716_U0                                                         |PE_716                                                         |        0|   1|    87|    52|    0|
+    |PE_817_U0                                                         |PE_817                                                         |        0|   1|    86|    50|    0|
+    |PE_918_U0                                                         |PE_918                                                         |        0|   1|    86|    50|    0|
+    |dataflow_in_loop_tile_loop_A_Block_arrayidx4212_exit77_proc74_U0  |dataflow_in_loop_tile_loop_A_Block_arrayidx4212_exit77_proc74  |        0|   0|   532|  1634|    0|
+    |dataflow_in_loop_tile_loop_A_Block_newFuncRoot1_proc2_U0          |dataflow_in_loop_tile_loop_A_Block_newFuncRoot1_proc2          |        0|   0|  3114|  2406|    0|
+    |sink_streams73_U0                                                 |sink_streams73                                                 |        0|   0|     9|    48|    0|
+    +------------------------------------------------------------------+---------------------------------------------------------------+---------+----+------+------+-----+
+    |Total                                                             |                                                               |        0|  64|  9208|  7386|    0|
+    +------------------------------------------------------------------+---------------------------------------------------------------+---------+----+------+------+-----+
 
     * DSP: 
     N/A
@@ -428,9 +428,10 @@
     |C_stream_8_U     |        0|  109|   0|    -|     8|   32|      256|
     |C_stream_9_U     |        0|  109|   0|    -|     8|   32|      256|
     |C_stream_U       |        0|  109|   0|    -|     8|   32|      256|
-    |tileA_0_c_U      |        0|   25|   0|    -|    17|    2|       34|
+    |tileA_c_U        |        0|   25|   0|    -|    17|    2|       34|
+    |tileB_c_U        |        0|   25|   0|    -|    17|    1|       17|
     +-----------------+---------+-----+----+-----+------+-----+---------+
-    |Total            |        0|22697|   0|    0|  1681| 6658|    53282|
+    |Total            |        0|22722|   0|    0|  1698| 6659|    53299|
     +-----------------+---------+-----+----+-----+------+-----+---------+
 
     * Expression: 
@@ -589,32 +590,58 @@
 |B_TILE_1_ap_vld   |   in|    1|     ap_none|                      B_TILE_1|       pointer|
 |B_TILE            |   in|   32|     ap_none|                        B_TILE|       pointer|
 |B_TILE_ap_vld     |   in|    1|     ap_none|                        B_TILE|       pointer|
-|tileA_0           |   in|    3|     ap_none|                       tileA_0|        scalar|
-|tileA_0_ap_vld    |   in|    1|     ap_none|                       tileA_0|        scalar|
-|A_in_2_dout       |   in|  256|     ap_fifo|                        A_in_2|       pointer|
-|A_in_2_empty_n    |   in|    1|     ap_fifo|                        A_in_2|       pointer|
-|A_in_2_read       |  out|    1|     ap_fifo|                        A_in_2|       pointer|
-|A_in_1_dout       |   in|  256|     ap_fifo|                        A_in_1|       pointer|
-|A_in_1_empty_n    |   in|    1|     ap_fifo|                        A_in_1|       pointer|
-|A_in_1_read       |  out|    1|     ap_fifo|                        A_in_1|       pointer|
-|A_in_0_dout       |   in|  256|     ap_fifo|                        A_in_0|       pointer|
-|A_in_0_empty_n    |   in|    1|     ap_fifo|                        A_in_0|       pointer|
-|A_in_0_read       |  out|    1|     ap_fifo|                        A_in_0|       pointer|
-|A_in_3_dout       |   in|  256|     ap_fifo|                        A_in_3|       pointer|
-|A_in_3_empty_n    |   in|    1|     ap_fifo|                        A_in_3|       pointer|
-|A_in_3_read       |  out|    1|     ap_fifo|                        A_in_3|       pointer|
-|C_out_2_din       |  out|  256|     ap_fifo|                       C_out_2|       pointer|
-|C_out_2_full_n    |   in|    1|     ap_fifo|                       C_out_2|       pointer|
-|C_out_2_write     |  out|    1|     ap_fifo|                       C_out_2|       pointer|
-|C_out_1_din       |  out|  256|     ap_fifo|                       C_out_1|       pointer|
-|C_out_1_full_n    |   in|    1|     ap_fifo|                       C_out_1|       pointer|
-|C_out_1_write     |  out|    1|     ap_fifo|                       C_out_1|       pointer|
-|C_out_0_din       |  out|  256|     ap_fifo|                       C_out_0|       pointer|
-|C_out_0_full_n    |   in|    1|     ap_fifo|                       C_out_0|       pointer|
-|C_out_0_write     |  out|    1|     ap_fifo|                       C_out_0|       pointer|
-|C_out_3_din       |  out|  256|     ap_fifo|                       C_out_3|       pointer|
-|C_out_3_full_n    |   in|    1|     ap_fifo|                       C_out_3|       pointer|
-|C_out_3_write     |  out|    1|     ap_fifo|                       C_out_3|       pointer|
+|tileA             |   in|    3|     ap_none|                         tileA|        scalar|
+|tileA_ap_vld      |   in|    1|     ap_none|                         tileA|        scalar|
+|tileB             |   in|    1|     ap_none|                         tileB|        scalar|
+|tileB_ap_vld      |   in|    1|     ap_none|                         tileB|        scalar|
+|A_in_2_1_dout     |   in|  256|     ap_fifo|                      A_in_2_1|       pointer|
+|A_in_2_1_empty_n  |   in|    1|     ap_fifo|                      A_in_2_1|       pointer|
+|A_in_2_1_read     |  out|    1|     ap_fifo|                      A_in_2_1|       pointer|
+|A_in_2_0_dout     |   in|  256|     ap_fifo|                      A_in_2_0|       pointer|
+|A_in_2_0_empty_n  |   in|    1|     ap_fifo|                      A_in_2_0|       pointer|
+|A_in_2_0_read     |  out|    1|     ap_fifo|                      A_in_2_0|       pointer|
+|A_in_1_1_dout     |   in|  256|     ap_fifo|                      A_in_1_1|       pointer|
+|A_in_1_1_empty_n  |   in|    1|     ap_fifo|                      A_in_1_1|       pointer|
+|A_in_1_1_read     |  out|    1|     ap_fifo|                      A_in_1_1|       pointer|
+|A_in_1_0_dout     |   in|  256|     ap_fifo|                      A_in_1_0|       pointer|
+|A_in_1_0_empty_n  |   in|    1|     ap_fifo|                      A_in_1_0|       pointer|
+|A_in_1_0_read     |  out|    1|     ap_fifo|                      A_in_1_0|       pointer|
+|A_in_0_1_dout     |   in|  256|     ap_fifo|                      A_in_0_1|       pointer|
+|A_in_0_1_empty_n  |   in|    1|     ap_fifo|                      A_in_0_1|       pointer|
+|A_in_0_1_read     |  out|    1|     ap_fifo|                      A_in_0_1|       pointer|
+|A_in_0_0_dout     |   in|  256|     ap_fifo|                      A_in_0_0|       pointer|
+|A_in_0_0_empty_n  |   in|    1|     ap_fifo|                      A_in_0_0|       pointer|
+|A_in_0_0_read     |  out|    1|     ap_fifo|                      A_in_0_0|       pointer|
+|A_in_3_1_dout     |   in|  256|     ap_fifo|                      A_in_3_1|       pointer|
+|A_in_3_1_empty_n  |   in|    1|     ap_fifo|                      A_in_3_1|       pointer|
+|A_in_3_1_read     |  out|    1|     ap_fifo|                      A_in_3_1|       pointer|
+|A_in_3_0_dout     |   in|  256|     ap_fifo|                      A_in_3_0|       pointer|
+|A_in_3_0_empty_n  |   in|    1|     ap_fifo|                      A_in_3_0|       pointer|
+|A_in_3_0_read     |  out|    1|     ap_fifo|                      A_in_3_0|       pointer|
+|C_out_2_1_din     |  out|  256|     ap_fifo|                     C_out_2_1|       pointer|
+|C_out_2_1_full_n  |   in|    1|     ap_fifo|                     C_out_2_1|       pointer|
+|C_out_2_1_write   |  out|    1|     ap_fifo|                     C_out_2_1|       pointer|
+|C_out_2_0_din     |  out|  256|     ap_fifo|                     C_out_2_0|       pointer|
+|C_out_2_0_full_n  |   in|    1|     ap_fifo|                     C_out_2_0|       pointer|
+|C_out_2_0_write   |  out|    1|     ap_fifo|                     C_out_2_0|       pointer|
+|C_out_1_1_din     |  out|  256|     ap_fifo|                     C_out_1_1|       pointer|
+|C_out_1_1_full_n  |   in|    1|     ap_fifo|                     C_out_1_1|       pointer|
+|C_out_1_1_write   |  out|    1|     ap_fifo|                     C_out_1_1|       pointer|
+|C_out_1_0_din     |  out|  256|     ap_fifo|                     C_out_1_0|       pointer|
+|C_out_1_0_full_n  |   in|    1|     ap_fifo|                     C_out_1_0|       pointer|
+|C_out_1_0_write   |  out|    1|     ap_fifo|                     C_out_1_0|       pointer|
+|C_out_0_1_din     |  out|  256|     ap_fifo|                     C_out_0_1|       pointer|
+|C_out_0_1_full_n  |   in|    1|     ap_fifo|                     C_out_0_1|       pointer|
+|C_out_0_1_write   |  out|    1|     ap_fifo|                     C_out_0_1|       pointer|
+|C_out_0_0_din     |  out|  256|     ap_fifo|                     C_out_0_0|       pointer|
+|C_out_0_0_full_n  |   in|    1|     ap_fifo|                     C_out_0_0|       pointer|
+|C_out_0_0_write   |  out|    1|     ap_fifo|                     C_out_0_0|       pointer|
+|C_out_3_1_din     |  out|  256|     ap_fifo|                     C_out_3_1|       pointer|
+|C_out_3_1_full_n  |   in|    1|     ap_fifo|                     C_out_3_1|       pointer|
+|C_out_3_1_write   |  out|    1|     ap_fifo|                     C_out_3_1|       pointer|
+|C_out_3_0_din     |  out|  256|     ap_fifo|                     C_out_3_0|       pointer|
+|C_out_3_0_full_n  |   in|    1|     ap_fifo|                     C_out_3_0|       pointer|
+|C_out_3_0_write   |  out|    1|     ap_fifo|                     C_out_3_0|       pointer|
 |ap_clk            |   in|    1|  ap_ctrl_hs|  dataflow_in_loop_tile_loop_A|  return value|
 |ap_rst            |   in|    1|  ap_ctrl_hs|  dataflow_in_loop_tile_loop_A|  return value|
 |ap_start          |   in|    1|  ap_ctrl_hs|  dataflow_in_loop_tile_loop_A|  return value|

@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'dataflow_in_loop_tile_loop_A_Block_newFuncRoot1_proc2'
 ================================================================
-* Date:           Fri Jul 31 16:44:54 2026
+* Date:           Sun Aug  2 09:34:13 2026
 
 * Version:        2023.2.2 (Build 4101106 on Feb  9 2024)
 * Project:        hls_project
@@ -20,7 +20,7 @@
     +--------+---------+----------+------------+
     |  Clock |  Target | Estimated| Uncertainty|
     +--------+---------+----------+------------+
-    |ap_clk  |  3.33 ns|  2.023 ns|     0.90 ns|
+    |ap_clk  |  3.33 ns|  2.557 ns|     0.90 ns|
     +--------+---------+----------+------------+
 
 + Latency: 
@@ -29,7 +29,7 @@
     |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
     |   min   |   max   |    min   |    max   | min | max |   Type  |
     +---------+---------+----------+----------+-----+-----+---------+
-    |       33|       33|  0.110 us|  0.110 us|   33|   33|       no|
+    |       35|       35|  0.117 us|  0.117 us|   35|   35|       no|
     +---------+---------+----------+----------+-----+-----+---------+
 
     + Detail: 
@@ -38,8 +38,8 @@
         |                            |                 |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline |
         |          Instance          |      Module     |   min   |   max   |    min    |    max    | min | max |   Type   |
         +----------------------------+-----------------+---------+---------+-----------+-----------+-----+-----+----------+
-        |grp_tm_A_fu_224             |tm_A             |       21|       21|  69.993 ns|  69.993 ns|   11|   11|  dataflow|
-        |grp_B_Buf_to_stream_fu_249  |B_Buf_to_stream  |       10|       10|  33.330 ns|  33.330 ns|   10|   10|        no|
+        |grp_tm_A_fu_254             |tm_A             |       23|       23|  76.659 ns|  76.659 ns|   13|   13|  dataflow|
+        |grp_B_Buf_to_stream_fu_283  |B_Buf_to_stream  |       10|       10|  33.330 ns|  33.330 ns|   10|   10|        no|
         +----------------------------+-----------------+---------+---------+-----------+-----------+-----+-----+----------+
 
         * Loop: 
@@ -55,14 +55,14 @@
 |       Name      | BRAM_18K|  DSP |    FF   |   LUT  | URAM|
 +-----------------+---------+------+---------+--------+-----+
 |DSP              |        -|     -|        -|       -|    -|
-|Expression       |        -|     -|        0|       8|    -|
+|Expression       |        -|     -|        0|      24|    -|
 |FIFO             |        -|     -|        -|       -|    -|
-|Instance         |        0|     -|    11284|    8264|    -|
+|Instance         |        -|     -|     3105|    1948|    -|
 |Memory           |        -|     -|        -|       -|    -|
-|Multiplexer      |        -|     -|        -|     178|    -|
+|Multiplexer      |        -|     -|        -|     434|    -|
 |Register         |        -|     -|        9|       -|    -|
 +-----------------+---------+------+---------+--------+-----+
-|Total            |        0|     0|    11293|    8450|    0|
+|Total            |        0|     0|     3114|    2406|    0|
 +-----------------+---------+------+---------+--------+-----+
 |Available        |     1934|  1968|  1799680|  899840|  463|
 +-----------------+---------+------+---------+--------+-----+
@@ -71,14 +71,14 @@
 
 + Detail: 
     * Instance: 
-    +----------------------------+-----------------+---------+----+-------+------+-----+
-    |          Instance          |      Module     | BRAM_18K| DSP|   FF  |  LUT | URAM|
-    +----------------------------+-----------------+---------+----+-------+------+-----+
-    |grp_B_Buf_to_stream_fu_249  |B_Buf_to_stream  |        0|   0|    263|   788|    0|
-    |grp_tm_A_fu_224             |tm_A             |        0|   0|  11021|  7476|    0|
-    +----------------------------+-----------------+---------+----+-------+------+-----+
-    |Total                       |                 |        0|   0|  11284|  8264|    0|
-    +----------------------------+-----------------+---------+----+-------+------+-----+
+    +----------------------------+-----------------+---------+----+------+------+-----+
+    |          Instance          |      Module     | BRAM_18K| DSP|  FF  |  LUT | URAM|
+    +----------------------------+-----------------+---------+----+------+------+-----+
+    |grp_B_Buf_to_stream_fu_283  |B_Buf_to_stream  |        0|   0|   263|   788|    0|
+    |grp_tm_A_fu_254             |tm_A             |        0|   0|  2842|  1160|    0|
+    +----------------------------+-----------------+---------+----+------+------+-----+
+    |Total                       |                 |        0|   0|  3105|  1948|    0|
+    +----------------------------+-----------------+---------+----+------+------+-----+
 
     * DSP: 
     N/A
@@ -93,47 +93,60 @@
     +----------------------------------+----------+----+---+----+------------+------------+
     |           Variable Name          | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
     +----------------------------------+----------+----+---+----+------------+------------+
+    |ap_predicate_op115_call_state2    |       and|   0|  0|   2|           1|           1|
+    |ap_predicate_op117_call_state2    |       and|   0|  0|   2|           1|           1|
+    |ap_predicate_op120_call_state2    |       and|   0|  0|   2|           1|           1|
+    |ap_predicate_op122_call_state2    |       and|   0|  0|   2|           1|           1|
+    |ap_predicate_op125_call_state2    |       and|   0|  0|   2|           1|           1|
+    |ap_predicate_op127_call_state2    |       and|   0|  0|   2|           1|           1|
+    |ap_predicate_op130_call_state2    |       and|   0|  0|   2|           1|           1|
+    |ap_predicate_op132_call_state2    |       and|   0|  0|   2|           1|           1|
     |ap_block_state1                   |        or|   0|  0|   2|           1|           1|
     |ap_block_state2_on_subcall_done   |        or|   0|  0|   2|           1|           1|
-    |ap_sync_grp_tm_A_fu_224_ap_done   |        or|   0|  0|   2|           1|           1|
-    |ap_sync_grp_tm_A_fu_224_ap_ready  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_grp_tm_A_fu_254_ap_done   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_grp_tm_A_fu_254_ap_ready  |        or|   0|  0|   2|           1|           1|
     +----------------------------------+----------+----+---+----+------------+------------+
-    |Total                             |          |   0|  0|   8|           4|           4|
+    |Total                             |          |   0|  0|  24|          12|          12|
     +----------------------------------+----------+----+---+----+------------+------------+
 
     * Multiplexer: 
-    +--------------------------------+-----+-----------+-----+-----------+
-    |              Name              | LUT | Input Size| Bits| Total Bits|
-    +--------------------------------+-----+-----------+-----+-----------+
-    |A_in_0_read                     |    2|          2|    1|          2|
-    |A_in_1_read                     |    2|          2|    1|          2|
-    |A_in_2_read                     |    2|          2|    1|          2|
-    |A_in_3_read                     |    2|          2|    1|          2|
-    |A_stream_17_i_write             |    2|          2|    1|          2|
-    |A_stream_26_i_write             |    2|          2|    1|          2|
-    |A_stream_35_i_write             |    2|          2|    1|          2|
-    |A_stream_44_i_write             |    2|          2|    1|          2|
-    |A_stream_53_i_write             |    2|          2|    1|          2|
-    |A_stream_62_i_write             |    2|          2|    1|          2|
-    |A_stream_71_i_write             |    2|          2|    1|          2|
-    |A_stream_8_i_write              |    2|          2|    1|          2|
-    |B_stream_64_i_write             |    2|          2|    1|          2|
-    |B_stream_65_i_write             |    2|          2|    1|          2|
-    |B_stream_66_i_write             |    2|          2|    1|          2|
-    |B_stream_67_i_write             |    2|          2|    1|          2|
-    |B_stream_68_i_write             |    2|          2|    1|          2|
-    |B_stream_69_i_write             |    2|          2|    1|          2|
-    |B_stream_70_i_write             |    2|          2|    1|          2|
-    |B_stream_71_i_write             |    2|          2|    1|          2|
-    |ap_NS_fsm                       |    2|          4|    1|          4|
-    |ap_done                         |    2|          2|    1|          2|
-    |grp_tm_A_fu_224_A_in_2_dout     |  128|          4|  256|       1024|
-    |grp_tm_A_fu_224_A_in_2_empty_n  |    2|          4|    1|          4|
-    |real_start                      |    2|          2|    1|          2|
-    |tileA_0_c_blk_n                 |    2|          2|    1|          2|
-    +--------------------------------+-----+-----------+-----+-----------+
-    |Total                           |  178|         58|  281|       1078|
-    +--------------------------------+-----+-----------+-----+-----------+
+    +----------------------------------+-----+-----------+-----+-----------+
+    |               Name               | LUT | Input Size| Bits| Total Bits|
+    +----------------------------------+-----+-----------+-----+-----------+
+    |A_in_0_0_read                     |    2|          2|    1|          2|
+    |A_in_0_1_read                     |    2|          2|    1|          2|
+    |A_in_1_0_read                     |    2|          2|    1|          2|
+    |A_in_1_1_read                     |    2|          2|    1|          2|
+    |A_in_2_0_read                     |    2|          2|    1|          2|
+    |A_in_2_1_read                     |    2|          2|    1|          2|
+    |A_in_3_0_read                     |    2|          2|    1|          2|
+    |A_in_3_1_read                     |    2|          2|    1|          2|
+    |A_stream_17_i_write               |    2|          2|    1|          2|
+    |A_stream_26_i_write               |    2|          2|    1|          2|
+    |A_stream_35_i_write               |    2|          2|    1|          2|
+    |A_stream_44_i_write               |    2|          2|    1|          2|
+    |A_stream_53_i_write               |    2|          2|    1|          2|
+    |A_stream_62_i_write               |    2|          2|    1|          2|
+    |A_stream_71_i_write               |    2|          2|    1|          2|
+    |A_stream_8_i_write                |    2|          2|    1|          2|
+    |B_stream_64_i_write               |    2|          2|    1|          2|
+    |B_stream_65_i_write               |    2|          2|    1|          2|
+    |B_stream_66_i_write               |    2|          2|    1|          2|
+    |B_stream_67_i_write               |    2|          2|    1|          2|
+    |B_stream_68_i_write               |    2|          2|    1|          2|
+    |B_stream_69_i_write               |    2|          2|    1|          2|
+    |B_stream_70_i_write               |    2|          2|    1|          2|
+    |B_stream_71_i_write               |    2|          2|    1|          2|
+    |ap_NS_fsm                         |    2|          4|    1|          4|
+    |ap_done                           |    2|          2|    1|          2|
+    |grp_tm_A_fu_254_A_in_2_1_dout     |  370|          8|  256|       2048|
+    |grp_tm_A_fu_254_A_in_2_1_empty_n  |    6|          8|    1|          8|
+    |real_start                        |    2|          2|    1|          2|
+    |tileA_c_blk_n                     |    2|          2|    1|          2|
+    |tileB_c_blk_n                     |    2|          2|    1|          2|
+    +----------------------------------+-----+-----------+-----+-----------+
+    |Total                             |  434|         76|  286|       2116|
+    +----------------------------------+-----+-----------+-----+-----------+
 
     * Register: 
     +-----------------------------------------+---+----+-----+-----------+
@@ -141,10 +154,10 @@
     +-----------------------------------------+---+----+-----+-----------+
     |ap_CS_fsm                                |  3|   0|    3|          0|
     |ap_done_reg                              |  1|   0|    1|          0|
-    |ap_sync_reg_grp_tm_A_fu_224_ap_done      |  1|   0|    1|          0|
-    |ap_sync_reg_grp_tm_A_fu_224_ap_ready     |  1|   0|    1|          0|
-    |grp_B_Buf_to_stream_fu_249_ap_start_reg  |  1|   0|    1|          0|
-    |grp_tm_A_fu_224_ap_start_reg             |  1|   0|    1|          0|
+    |ap_sync_reg_grp_tm_A_fu_254_ap_done      |  1|   0|    1|          0|
+    |ap_sync_reg_grp_tm_A_fu_254_ap_ready     |  1|   0|    1|          0|
+    |grp_B_Buf_to_stream_fu_283_ap_start_reg  |  1|   0|    1|          0|
+    |grp_tm_A_fu_254_ap_start_reg             |  1|   0|    1|          0|
     |start_once_reg                           |  1|   0|    1|          0|
     +-----------------------------------------+---+----+-----+-----------+
     |Total                                    |  9|   0|    9|          0|
@@ -169,12 +182,13 @@
 |ap_ready                      |  out|    1|  ap_ctrl_hs|  dataflow_in_loop_tile_loop_A_Block_newFuncRoot1_proc2|  return value|
 |start_out                     |  out|    1|  ap_ctrl_hs|  dataflow_in_loop_tile_loop_A_Block_newFuncRoot1_proc2|  return value|
 |start_write                   |  out|    1|  ap_ctrl_hs|  dataflow_in_loop_tile_loop_A_Block_newFuncRoot1_proc2|  return value|
-|tileA_0                       |   in|    2|     ap_none|                                                tileA_0|        scalar|
-|A_in_3_dout                   |   in|  256|     ap_fifo|                                                 A_in_3|       pointer|
-|A_in_3_num_data_valid         |   in|    4|     ap_fifo|                                                 A_in_3|       pointer|
-|A_in_3_fifo_cap               |   in|    4|     ap_fifo|                                                 A_in_3|       pointer|
-|A_in_3_empty_n                |   in|    1|     ap_fifo|                                                 A_in_3|       pointer|
-|A_in_3_read                   |  out|    1|     ap_fifo|                                                 A_in_3|       pointer|
+|tileA                         |   in|    2|     ap_none|                                                  tileA|        scalar|
+|tileB                         |   in|    1|     ap_none|                                                  tileB|        scalar|
+|A_in_3_0_dout                 |   in|  256|     ap_fifo|                                               A_in_3_0|       pointer|
+|A_in_3_0_num_data_valid       |   in|    4|     ap_fifo|                                               A_in_3_0|       pointer|
+|A_in_3_0_fifo_cap             |   in|    4|     ap_fifo|                                               A_in_3_0|       pointer|
+|A_in_3_0_empty_n              |   in|    1|     ap_fifo|                                               A_in_3_0|       pointer|
+|A_in_3_0_read                 |  out|    1|     ap_fifo|                                               A_in_3_0|       pointer|
 |A_stream_71_i_din             |  out|   32|     ap_fifo|                                          A_stream_71_i|       pointer|
 |A_stream_71_i_num_data_valid  |   in|    4|     ap_fifo|                                          A_stream_71_i|       pointer|
 |A_stream_71_i_fifo_cap        |   in|    4|     ap_fifo|                                          A_stream_71_i|       pointer|
@@ -215,21 +229,41 @@
 |A_stream_8_i_fifo_cap         |   in|    4|     ap_fifo|                                           A_stream_8_i|       pointer|
 |A_stream_8_i_full_n           |   in|    1|     ap_fifo|                                           A_stream_8_i|       pointer|
 |A_stream_8_i_write            |  out|    1|     ap_fifo|                                           A_stream_8_i|       pointer|
-|A_in_0_dout                   |   in|  256|     ap_fifo|                                                 A_in_0|       pointer|
-|A_in_0_num_data_valid         |   in|    4|     ap_fifo|                                                 A_in_0|       pointer|
-|A_in_0_fifo_cap               |   in|    4|     ap_fifo|                                                 A_in_0|       pointer|
-|A_in_0_empty_n                |   in|    1|     ap_fifo|                                                 A_in_0|       pointer|
-|A_in_0_read                   |  out|    1|     ap_fifo|                                                 A_in_0|       pointer|
-|A_in_1_dout                   |   in|  256|     ap_fifo|                                                 A_in_1|       pointer|
-|A_in_1_num_data_valid         |   in|    4|     ap_fifo|                                                 A_in_1|       pointer|
-|A_in_1_fifo_cap               |   in|    4|     ap_fifo|                                                 A_in_1|       pointer|
-|A_in_1_empty_n                |   in|    1|     ap_fifo|                                                 A_in_1|       pointer|
-|A_in_1_read                   |  out|    1|     ap_fifo|                                                 A_in_1|       pointer|
-|A_in_2_dout                   |   in|  256|     ap_fifo|                                                 A_in_2|       pointer|
-|A_in_2_num_data_valid         |   in|    4|     ap_fifo|                                                 A_in_2|       pointer|
-|A_in_2_fifo_cap               |   in|    4|     ap_fifo|                                                 A_in_2|       pointer|
-|A_in_2_empty_n                |   in|    1|     ap_fifo|                                                 A_in_2|       pointer|
-|A_in_2_read                   |  out|    1|     ap_fifo|                                                 A_in_2|       pointer|
+|A_in_3_1_dout                 |   in|  256|     ap_fifo|                                               A_in_3_1|       pointer|
+|A_in_3_1_num_data_valid       |   in|    4|     ap_fifo|                                               A_in_3_1|       pointer|
+|A_in_3_1_fifo_cap             |   in|    4|     ap_fifo|                                               A_in_3_1|       pointer|
+|A_in_3_1_empty_n              |   in|    1|     ap_fifo|                                               A_in_3_1|       pointer|
+|A_in_3_1_read                 |  out|    1|     ap_fifo|                                               A_in_3_1|       pointer|
+|A_in_0_0_dout                 |   in|  256|     ap_fifo|                                               A_in_0_0|       pointer|
+|A_in_0_0_num_data_valid       |   in|    4|     ap_fifo|                                               A_in_0_0|       pointer|
+|A_in_0_0_fifo_cap             |   in|    4|     ap_fifo|                                               A_in_0_0|       pointer|
+|A_in_0_0_empty_n              |   in|    1|     ap_fifo|                                               A_in_0_0|       pointer|
+|A_in_0_0_read                 |  out|    1|     ap_fifo|                                               A_in_0_0|       pointer|
+|A_in_0_1_dout                 |   in|  256|     ap_fifo|                                               A_in_0_1|       pointer|
+|A_in_0_1_num_data_valid       |   in|    4|     ap_fifo|                                               A_in_0_1|       pointer|
+|A_in_0_1_fifo_cap             |   in|    4|     ap_fifo|                                               A_in_0_1|       pointer|
+|A_in_0_1_empty_n              |   in|    1|     ap_fifo|                                               A_in_0_1|       pointer|
+|A_in_0_1_read                 |  out|    1|     ap_fifo|                                               A_in_0_1|       pointer|
+|A_in_1_0_dout                 |   in|  256|     ap_fifo|                                               A_in_1_0|       pointer|
+|A_in_1_0_num_data_valid       |   in|    4|     ap_fifo|                                               A_in_1_0|       pointer|
+|A_in_1_0_fifo_cap             |   in|    4|     ap_fifo|                                               A_in_1_0|       pointer|
+|A_in_1_0_empty_n              |   in|    1|     ap_fifo|                                               A_in_1_0|       pointer|
+|A_in_1_0_read                 |  out|    1|     ap_fifo|                                               A_in_1_0|       pointer|
+|A_in_1_1_dout                 |   in|  256|     ap_fifo|                                               A_in_1_1|       pointer|
+|A_in_1_1_num_data_valid       |   in|    4|     ap_fifo|                                               A_in_1_1|       pointer|
+|A_in_1_1_fifo_cap             |   in|    4|     ap_fifo|                                               A_in_1_1|       pointer|
+|A_in_1_1_empty_n              |   in|    1|     ap_fifo|                                               A_in_1_1|       pointer|
+|A_in_1_1_read                 |  out|    1|     ap_fifo|                                               A_in_1_1|       pointer|
+|A_in_2_0_dout                 |   in|  256|     ap_fifo|                                               A_in_2_0|       pointer|
+|A_in_2_0_num_data_valid       |   in|    4|     ap_fifo|                                               A_in_2_0|       pointer|
+|A_in_2_0_fifo_cap             |   in|    4|     ap_fifo|                                               A_in_2_0|       pointer|
+|A_in_2_0_empty_n              |   in|    1|     ap_fifo|                                               A_in_2_0|       pointer|
+|A_in_2_0_read                 |  out|    1|     ap_fifo|                                               A_in_2_0|       pointer|
+|A_in_2_1_dout                 |   in|  256|     ap_fifo|                                               A_in_2_1|       pointer|
+|A_in_2_1_num_data_valid       |   in|    4|     ap_fifo|                                               A_in_2_1|       pointer|
+|A_in_2_1_fifo_cap             |   in|    4|     ap_fifo|                                               A_in_2_1|       pointer|
+|A_in_2_1_empty_n              |   in|    1|     ap_fifo|                                               A_in_2_1|       pointer|
+|A_in_2_1_read                 |  out|    1|     ap_fifo|                                               A_in_2_1|       pointer|
 |B_TILE                        |   in|   32|   ap_stable|                                                 B_TILE|       pointer|
 |B_TILE_1                      |   in|   32|   ap_stable|                                               B_TILE_1|       pointer|
 |B_TILE_2                      |   in|   32|   ap_stable|                                               B_TILE_2|       pointer|
@@ -334,10 +368,15 @@
 |B_stream_64_i_fifo_cap        |   in|    4|     ap_fifo|                                          B_stream_64_i|       pointer|
 |B_stream_64_i_full_n          |   in|    1|     ap_fifo|                                          B_stream_64_i|       pointer|
 |B_stream_64_i_write           |  out|    1|     ap_fifo|                                          B_stream_64_i|       pointer|
-|tileA_0_c_din                 |  out|    2|     ap_fifo|                                              tileA_0_c|       pointer|
-|tileA_0_c_num_data_valid      |   in|    6|     ap_fifo|                                              tileA_0_c|       pointer|
-|tileA_0_c_fifo_cap            |   in|    6|     ap_fifo|                                              tileA_0_c|       pointer|
-|tileA_0_c_full_n              |   in|    1|     ap_fifo|                                              tileA_0_c|       pointer|
-|tileA_0_c_write               |  out|    1|     ap_fifo|                                              tileA_0_c|       pointer|
+|tileA_c_din                   |  out|    2|     ap_fifo|                                                tileA_c|       pointer|
+|tileA_c_num_data_valid        |   in|    6|     ap_fifo|                                                tileA_c|       pointer|
+|tileA_c_fifo_cap              |   in|    6|     ap_fifo|                                                tileA_c|       pointer|
+|tileA_c_full_n                |   in|    1|     ap_fifo|                                                tileA_c|       pointer|
+|tileA_c_write                 |  out|    1|     ap_fifo|                                                tileA_c|       pointer|
+|tileB_c_din                   |  out|    1|     ap_fifo|                                                tileB_c|       pointer|
+|tileB_c_num_data_valid        |   in|    6|     ap_fifo|                                                tileB_c|       pointer|
+|tileB_c_fifo_cap              |   in|    6|     ap_fifo|                                                tileB_c|       pointer|
+|tileB_c_full_n                |   in|    1|     ap_fifo|                                                tileB_c|       pointer|
+|tileB_c_write                 |  out|    1|     ap_fifo|                                                tileB_c|       pointer|
 +------------------------------+-----+-----+------------+-------------------------------------------------------+--------------+
 

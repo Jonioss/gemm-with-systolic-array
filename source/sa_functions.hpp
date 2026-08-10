@@ -32,17 +32,24 @@ hls::stream<float> C_stream[S_A_I][S_A_J]) {
         #pragma HLS UNROLL
         for(int j = 0; j < S_A_J; j++) {
             #pragma HLS UNROLL
-            PE(A_stream[i][j], B_stream[i][j], A_stream[i][j+1], B_stream[i+1][j], C_stream[i][j]);
+            if(i == S_A_I - 1 && j == S_A_J - 1) {
+                PE<true, true>(A_stream[i][j], B_stream[i][j], A_stream[i][j+1], B_stream[i+1][j], C_stream[i][j]);
+            } else if(i == S_A_I - 1) {
+                PE<true, false>(A_stream[i][j], B_stream[i][j], A_stream[i][j+1], B_stream[i+1][j], C_stream[i][j]);
+            } else if(j == S_A_J - 1) {
+                PE<false, true>(A_stream[i][j], B_stream[i][j], A_stream[i][j+1], B_stream[i+1][j], C_stream[i][j]);
+            } else {
+                PE<false, false>(A_stream[i][j], B_stream[i][j], A_stream[i][j+1], B_stream[i+1][j], C_stream[i][j]);
+            }
         }
     }
 }
 
-void runSystolicArray(hls::stream<hls::vector<float, K>> A_in[NUM_TILES_I], 
+void runSystolicArray(hls::stream<hls::vector<float, K>> A_in[NUM_TILES_I][NUM_TILES_J], 
     hls::stream<hls::vector<float, K>> B_in[NUM_TILES_J], 
     hls::stream<hls::vector<float, S_A_J>> C_out[NUM_TILES_I][NUM_TILES_J]) {
     #pragma HLS INLINE off
-    #pragma HLS DATAFLOW
-
+    
     float B_TILE[K][S_A_J];
     #pragma HLS STREAM variable=B_TILE type=pipo
     #pragma HLS ARRAY_PARTITION variable=B_TILE type=complete dim=1
@@ -59,16 +66,15 @@ void runSystolicArray(hls::stream<hls::vector<float, K>> A_in[NUM_TILES_I],
             #pragma HLS STABLE variable=B_TILE
     
             hls::stream<float> A_stream[S_A_I][S_A_J+1];
-            #pragma HLS STREAM variable=A_stream type=fifo depth=K
+            #pragma HLS STREAM variable=A_stream type=fifo depth=2*K
             hls::stream<float> B_stream[S_A_J+1][S_A_I];
-            #pragma HLS STREAM variable=B_stream type=fifo depth=K
+            #pragma HLS STREAM variable=B_stream type=fifo depth=2*K
             hls::stream<float> C_stream[S_A_I][S_A_J];
-            #pragma HLS STREAM variable=C_stream type=fifo depth=K
+            #pragma HLS STREAM variable=C_stream type=fifo depth=2*K
 
-            tm_A(A_in[tileA], A_stream);
+            tm_A(A_in[tileA][tileB], A_stream);
             B_Buf_to_stream(B_TILE, B_stream);
             computeSystolicArray(A_stream, B_stream, C_stream);
-            sink_streams(A_stream, B_stream);
             stream_to_C_Vec(C_stream, C_out[tileA][tileB]);
         }
     }

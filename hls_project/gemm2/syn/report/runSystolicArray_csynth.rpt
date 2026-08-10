@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'runSystolicArray'
 ================================================================
-* Date:           Fri Jul 31 16:45:13 2026
+* Date:           Sun Aug  2 09:34:31 2026
 
 * Version:        2023.2.2 (Build 4101106 on Feb  9 2024)
 * Project:        hls_project
@@ -25,25 +25,31 @@
 
 + Latency: 
     * Summary: 
-    +---------+---------+----------+----------+-----+-----+----------+
-    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
-    |   min   |   max   |    min   |    max   | min | max |   Type   |
-    +---------+---------+----------+----------+-----+-----+----------+
-    |      148|      148|  0.493 us|  0.493 us|  138|  138|  dataflow|
-    +---------+---------+----------+----------+-----+-----+----------+
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |      319|      319|  1.063 us|  1.063 us|  319|  319|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
 
     + Detail: 
         * Instance: 
-        +---------------------+------------------+---------+---------+-----------+-----------+-----+-----+---------+
-        |                     |                  |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
-        |       Instance      |      Module      |   min   |   max   |    min    |    max    | min | max |   Type  |
-        +---------------------+------------------+---------+---------+-----------+-----------+-----+-----+---------+
-        |B_Vec_to_Buf_U0      |B_Vec_to_Buf      |       10|       10|  33.330 ns|  33.330 ns|   10|   10|       no|
-        |tile_loop_A_proc_U0  |tile_loop_A_proc  |      137|      137|   0.457 us|   0.457 us|  137|  137|       no|
-        +---------------------+------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        +--------------------------------------+---------------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        |                                      |                           |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+        |               Instance               |           Module          |   min   |   max   |    min    |    max    | min | max |   Type  |
+        +--------------------------------------+---------------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        |grp_B_Vec_to_Buf_fu_339               |B_Vec_to_Buf               |       10|       10|  33.330 ns|  33.330 ns|   10|   10|       no|
+        |grp_B_Vec_to_Buf_fu_409               |B_Vec_to_Buf               |       10|       10|  33.330 ns|  33.330 ns|   10|   10|       no|
+        |grp_dataflow_parent_loop_proc_fu_479  |dataflow_parent_loop_proc  |      145|      145|   0.483 us|   0.483 us|  145|  145|       no|
+        +--------------------------------------+---------------------------+---------+---------+-----------+-----------+-----+-----+---------+
 
         * Loop: 
-        N/A
+        +---------------+---------+---------+----------+-----------+-----------+------+----------+
+        |               |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |   Loop Name   |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +---------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- tile_loop_B  |      318|      318|       159|          -|          -|     2|        no|
+        +---------------+---------+---------+----------+-----------+-----------+------+----------+
 
 
 
@@ -55,30 +61,31 @@
 |       Name      | BRAM_18K|  DSP |    FF   |   LUT  | URAM|
 +-----------------+---------+------+---------+--------+-----+
 |DSP              |        -|     -|        -|       -|    -|
-|Expression       |        -|     -|        0|     262|    -|
-|FIFO             |        0|     -|     6592|    4224|    -|
-|Instance         |        0|    64|    44255|   31151|    -|
+|Expression       |        -|     -|        0|      18|    -|
+|FIFO             |        -|     -|        -|       -|    -|
+|Instance         |        0|    64|    32013|   23148|    -|
 |Memory           |        -|     -|        -|       -|    -|
-|Multiplexer      |        -|     -|        -|     128|    -|
-|Register         |        -|     -|       64|       -|    -|
+|Multiplexer      |        -|     -|        -|    2094|    -|
+|Register         |        -|     -|     2064|       -|    -|
 +-----------------+---------+------+---------+--------+-----+
-|Total            |        0|    64|    50911|   35765|    0|
+|Total            |        0|    64|    34077|   25260|    0|
 +-----------------+---------+------+---------+--------+-----+
 |Available        |     1934|  1968|  1799680|  899840|  463|
 +-----------------+---------+------+---------+--------+-----+
-|Utilization (%)  |        0|     3|        2|       3|    0|
+|Utilization (%)  |        0|     3|        1|       2|    0|
 +-----------------+---------+------+---------+--------+-----+
 
 + Detail: 
     * Instance: 
-    +---------------------+------------------+---------+----+-------+-------+-----+
-    |       Instance      |      Module      | BRAM_18K| DSP|   FF  |  LUT  | URAM|
-    +---------------------+------------------+---------+----+-------+-------+-----+
-    |B_Vec_to_Buf_U0      |B_Vec_to_Buf      |        0|   0|   4109|   2078|    0|
-    |tile_loop_A_proc_U0  |tile_loop_A_proc  |        0|  64|  40146|  29073|    0|
-    +---------------------+------------------+---------+----+-------+-------+-----+
-    |Total                |                  |        0|  64|  44255|  31151|    0|
-    +---------------------+------------------+---------+----+-------+-------+-----+
+    +--------------------------------------+---------------------------+---------+----+-------+-------+-----+
+    |               Instance               |           Module          | BRAM_18K| DSP|   FF  |  LUT  | URAM|
+    +--------------------------------------+---------------------------+---------+----+-------+-------+-----+
+    |grp_B_Vec_to_Buf_fu_339               |B_Vec_to_Buf               |        0|   0|     10|     28|    0|
+    |grp_B_Vec_to_Buf_fu_409               |B_Vec_to_Buf               |        0|   0|     10|     28|    0|
+    |grp_dataflow_parent_loop_proc_fu_479  |dataflow_parent_loop_proc  |        0|  64|  31993|  23092|    0|
+    +--------------------------------------+---------------------------+---------+----+-------+-------+-----+
+    |Total                                 |                           |        0|  64|  32013|  23148|    0|
+    +--------------------------------------+---------------------------+---------+----+-------+-------+-----+
 
     * DSP: 
     N/A
@@ -87,359 +94,196 @@
     N/A
 
     * FIFO: 
-    +-------------+---------+-----+----+-----+------+-----+---------+
-    |     Name    | BRAM_18K|  FF | LUT| URAM| Depth| Bits| Size:D*B|
-    +-------------+---------+-----+----+-----+------+-----+---------+
-    |B_TILE_10_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_11_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_12_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_13_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_14_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_15_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_16_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_17_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_18_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_19_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_1_U   |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_20_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_21_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_22_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_23_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_24_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_25_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_26_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_27_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_28_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_29_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_2_U   |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_30_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_31_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_32_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_33_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_34_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_35_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_36_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_37_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_38_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_39_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_3_U   |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_40_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_41_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_42_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_43_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_44_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_45_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_46_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_47_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_48_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_49_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_4_U   |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_50_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_51_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_52_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_53_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_54_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_55_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_56_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_57_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_58_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_59_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_5_U   |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_60_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_61_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_62_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_63_U  |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_6_U   |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_7_U   |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_8_U   |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_9_U   |        0|  103|   0|    -|     2|   32|       64|
-    |B_TILE_U     |        0|  103|   0|    -|     2|   32|       64|
-    +-------------+---------+-----+----+-----+------+-----+---------+
-    |Total        |        0| 6592|   0|    0|   128| 2048|     4096|
-    +-------------+---------+-----+----+-----+------+-----+---------+
+    N/A
 
     * Expression: 
-    +---------------------------------+----------+----+---+----+------------+------------+
-    |          Variable Name          | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
-    +---------------------------------+----------+----+---+----+------------+------------+
-    |B_Vec_to_Buf_U0_ap_continue      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE           |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_1         |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_10        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_11        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_12        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_13        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_14        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_15        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_16        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_17        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_18        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_19        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_2         |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_20        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_21        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_22        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_23        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_24        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_25        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_26        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_27        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_28        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_29        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_3         |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_30        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_31        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_32        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_33        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_34        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_35        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_36        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_37        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_38        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_39        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_4         |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_40        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_41        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_42        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_43        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_44        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_45        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_46        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_47        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_48        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_49        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_5         |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_50        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_51        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_52        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_53        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_54        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_55        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_56        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_57        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_58        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_59        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_6         |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_60        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_61        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_62        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_63        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_7         |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_8         |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_B_TILE_9         |       and|   0|  0|   2|           1|           1|
-    |ap_idle                          |       and|   0|  0|   2|           1|           1|
-    |tile_loop_A_proc_U0_ap_start     |       and|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE     |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_1   |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_10  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_11  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_12  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_13  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_14  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_15  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_16  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_17  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_18  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_19  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_2   |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_20  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_21  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_22  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_23  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_24  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_25  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_26  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_27  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_28  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_29  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_3   |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_30  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_31  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_32  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_33  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_34  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_35  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_36  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_37  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_38  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_39  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_4   |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_40  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_41  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_42  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_43  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_44  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_45  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_46  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_47  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_48  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_49  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_5   |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_50  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_51  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_52  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_53  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_54  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_55  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_56  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_57  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_58  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_59  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_6   |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_60  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_61  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_62  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_63  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_7   |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_8   |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_B_TILE_9   |        or|   0|  0|   2|           1|           1|
-    +---------------------------------+----------+----+---+----+------------+------------+
-    |Total                            |          |   0|  0| 262|         131|         131|
-    +---------------------------------+----------+----+---+----+------------+------------+
+    +-------------------------------------------------------+----------+----+---+----+------------+------------+
+    |                     Variable Name                     | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-------------------------------------------------------+----------+----+---+----+------------+------------+
+    |add_ln51_fu_598_p2                                     |         +|   0|  0|   5|           2|           1|
+    |icmp_ln51_fu_604_p2                                    |      icmp|   0|  0|   5|           2|           3|
+    |ap_block_state1                                        |        or|   0|  0|   2|           1|           1|
+    |ap_block_state3_on_subcall_done                        |        or|   0|  0|   2|           1|           1|
+    |ap_sync_grp_dataflow_parent_loop_proc_fu_479_ap_done   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_grp_dataflow_parent_loop_proc_fu_479_ap_ready  |        or|   0|  0|   2|           1|           1|
+    +-------------------------------------------------------+----------+----+---+----+------------+------------+
+    |Total                                                  |          |   0|  0|  18|           8|           8|
+    +-------------------------------------------------------+----------+----+---+----+------------+------------+
 
     * Multiplexer: 
-    +-------------------------------------+----+-----------+-----+-----------+
-    |                 Name                | LUT| Input Size| Bits| Total Bits|
-    +-------------------------------------+----+-----------+-----+-----------+
-    |ap_sync_reg_channel_write_B_TILE     |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_1   |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_10  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_11  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_12  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_13  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_14  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_15  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_16  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_17  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_18  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_19  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_2   |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_20  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_21  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_22  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_23  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_24  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_25  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_26  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_27  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_28  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_29  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_3   |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_30  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_31  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_32  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_33  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_34  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_35  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_36  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_37  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_38  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_39  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_4   |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_40  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_41  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_42  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_43  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_44  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_45  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_46  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_47  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_48  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_49  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_5   |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_50  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_51  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_52  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_53  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_54  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_55  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_56  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_57  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_58  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_59  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_6   |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_60  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_61  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_62  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_63  |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_7   |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_8   |   2|          2|    1|          2|
-    |ap_sync_reg_channel_write_B_TILE_9   |   2|          2|    1|          2|
-    +-------------------------------------+----+-----------+-----+-----------+
-    |Total                                | 128|        128|   64|        128|
-    +-------------------------------------+----+-----------+-----+-----------+
+    +------------------+----+-----------+-----+-----------+
+    |       Name       | LUT| Input Size| Bits| Total Bits|
+    +------------------+----+-----------+-----+-----------+
+    |A_in_0_0_read     |   2|          2|    1|          2|
+    |A_in_0_1_read     |   2|          2|    1|          2|
+    |A_in_1_0_read     |   2|          2|    1|          2|
+    |A_in_1_1_read     |   2|          2|    1|          2|
+    |A_in_2_0_read     |   2|          2|    1|          2|
+    |A_in_2_1_read     |   2|          2|    1|          2|
+    |A_in_3_0_read     |   2|          2|    1|          2|
+    |A_in_3_1_read     |   2|          2|    1|          2|
+    |B_TILE_10_fu_122  |  32|          2|   32|         64|
+    |B_TILE_11_fu_126  |  32|          2|   32|         64|
+    |B_TILE_12_fu_130  |  32|          2|   32|         64|
+    |B_TILE_13_fu_134  |  32|          2|   32|         64|
+    |B_TILE_14_fu_138  |  32|          2|   32|         64|
+    |B_TILE_15_fu_142  |  32|          2|   32|         64|
+    |B_TILE_16_fu_146  |  32|          2|   32|         64|
+    |B_TILE_17_fu_150  |  32|          2|   32|         64|
+    |B_TILE_18_fu_154  |  32|          2|   32|         64|
+    |B_TILE_19_fu_158  |  32|          2|   32|         64|
+    |B_TILE_1_fu_86    |  32|          2|   32|         64|
+    |B_TILE_20_fu_162  |  32|          2|   32|         64|
+    |B_TILE_21_fu_166  |  32|          2|   32|         64|
+    |B_TILE_22_fu_170  |  32|          2|   32|         64|
+    |B_TILE_23_fu_174  |  32|          2|   32|         64|
+    |B_TILE_24_fu_178  |  32|          2|   32|         64|
+    |B_TILE_25_fu_182  |  32|          2|   32|         64|
+    |B_TILE_26_fu_186  |  32|          2|   32|         64|
+    |B_TILE_27_fu_190  |  32|          2|   32|         64|
+    |B_TILE_28_fu_194  |  32|          2|   32|         64|
+    |B_TILE_29_fu_198  |  32|          2|   32|         64|
+    |B_TILE_2_fu_90    |  32|          2|   32|         64|
+    |B_TILE_30_fu_202  |  32|          2|   32|         64|
+    |B_TILE_31_fu_206  |  32|          2|   32|         64|
+    |B_TILE_32_fu_210  |  32|          2|   32|         64|
+    |B_TILE_33_fu_214  |  32|          2|   32|         64|
+    |B_TILE_34_fu_218  |  32|          2|   32|         64|
+    |B_TILE_35_fu_222  |  32|          2|   32|         64|
+    |B_TILE_36_fu_226  |  32|          2|   32|         64|
+    |B_TILE_37_fu_230  |  32|          2|   32|         64|
+    |B_TILE_38_fu_234  |  32|          2|   32|         64|
+    |B_TILE_39_fu_238  |  32|          2|   32|         64|
+    |B_TILE_3_fu_94    |  32|          2|   32|         64|
+    |B_TILE_40_fu_242  |  32|          2|   32|         64|
+    |B_TILE_41_fu_246  |  32|          2|   32|         64|
+    |B_TILE_42_fu_250  |  32|          2|   32|         64|
+    |B_TILE_43_fu_254  |  32|          2|   32|         64|
+    |B_TILE_44_fu_258  |  32|          2|   32|         64|
+    |B_TILE_45_fu_262  |  32|          2|   32|         64|
+    |B_TILE_46_fu_266  |  32|          2|   32|         64|
+    |B_TILE_47_fu_270  |  32|          2|   32|         64|
+    |B_TILE_48_fu_274  |  32|          2|   32|         64|
+    |B_TILE_49_fu_278  |  32|          2|   32|         64|
+    |B_TILE_4_fu_98    |  32|          2|   32|         64|
+    |B_TILE_50_fu_282  |  32|          2|   32|         64|
+    |B_TILE_51_fu_286  |  32|          2|   32|         64|
+    |B_TILE_52_fu_290  |  32|          2|   32|         64|
+    |B_TILE_53_fu_294  |  32|          2|   32|         64|
+    |B_TILE_54_fu_298  |  32|          2|   32|         64|
+    |B_TILE_55_fu_302  |  32|          2|   32|         64|
+    |B_TILE_56_fu_306  |  32|          2|   32|         64|
+    |B_TILE_57_fu_310  |  32|          2|   32|         64|
+    |B_TILE_58_fu_314  |  32|          2|   32|         64|
+    |B_TILE_59_fu_318  |  32|          2|   32|         64|
+    |B_TILE_5_fu_102   |  32|          2|   32|         64|
+    |B_TILE_60_fu_322  |  32|          2|   32|         64|
+    |B_TILE_61_fu_326  |  32|          2|   32|         64|
+    |B_TILE_62_fu_330  |  32|          2|   32|         64|
+    |B_TILE_63_fu_334  |  32|          2|   32|         64|
+    |B_TILE_6_fu_106   |  32|          2|   32|         64|
+    |B_TILE_7_fu_110   |  32|          2|   32|         64|
+    |B_TILE_8_fu_114   |  32|          2|   32|         64|
+    |B_TILE_9_fu_118   |  32|          2|   32|         64|
+    |B_TILE_fu_82      |  32|          2|   32|         64|
+    |B_in_0_read       |   2|          2|    1|          2|
+    |B_in_1_read       |   2|          2|    1|          2|
+    |C_out_0_0_write   |   2|          2|    1|          2|
+    |C_out_0_1_write   |   2|          2|    1|          2|
+    |C_out_1_0_write   |   2|          2|    1|          2|
+    |C_out_1_1_write   |   2|          2|    1|          2|
+    |C_out_2_0_write   |   2|          2|    1|          2|
+    |C_out_2_1_write   |   2|          2|    1|          2|
+    |C_out_3_0_write   |   2|          2|    1|          2|
+    |C_out_3_1_write   |   2|          2|    1|          2|
+    |ap_NS_fsm         |   6|          6|    1|          6|
+    |ap_done           |   2|          2|    1|          2|
+    |tileB_fu_78       |   2|          2|    2|          4|
+    +------------------+----+-----------+-----+-----------+
+    |Total             |2094|        174| 2070|       4144|
+    +------------------+----+-----------+-----+-----------+
 
     * Register: 
-    +-------------------------------------+---+----+-----+-----------+
-    |                 Name                | FF| LUT| Bits| Const Bits|
-    +-------------------------------------+---+----+-----+-----------+
-    |ap_sync_reg_channel_write_B_TILE     |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_1   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_10  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_11  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_12  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_13  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_14  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_15  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_16  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_17  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_18  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_19  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_2   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_20  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_21  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_22  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_23  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_24  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_25  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_26  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_27  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_28  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_29  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_3   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_30  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_31  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_32  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_33  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_34  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_35  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_36  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_37  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_38  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_39  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_4   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_40  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_41  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_42  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_43  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_44  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_45  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_46  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_47  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_48  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_49  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_5   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_50  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_51  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_52  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_53  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_54  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_55  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_56  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_57  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_58  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_59  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_6   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_60  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_61  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_62  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_63  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_7   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_8   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_B_TILE_9   |  1|   0|    1|          0|
-    +-------------------------------------+---+----+-----+-----------+
-    |Total                                | 64|   0|   64|          0|
-    +-------------------------------------+---+----+-----+-----------+
+    +-----------------------------------------------------------+----+----+-----+-----------+
+    |                            Name                           | FF | LUT| Bits| Const Bits|
+    +-----------------------------------------------------------+----+----+-----+-----------+
+    |B_TILE_10_fu_122                                           |  32|   0|   32|          0|
+    |B_TILE_11_fu_126                                           |  32|   0|   32|          0|
+    |B_TILE_12_fu_130                                           |  32|   0|   32|          0|
+    |B_TILE_13_fu_134                                           |  32|   0|   32|          0|
+    |B_TILE_14_fu_138                                           |  32|   0|   32|          0|
+    |B_TILE_15_fu_142                                           |  32|   0|   32|          0|
+    |B_TILE_16_fu_146                                           |  32|   0|   32|          0|
+    |B_TILE_17_fu_150                                           |  32|   0|   32|          0|
+    |B_TILE_18_fu_154                                           |  32|   0|   32|          0|
+    |B_TILE_19_fu_158                                           |  32|   0|   32|          0|
+    |B_TILE_1_fu_86                                             |  32|   0|   32|          0|
+    |B_TILE_20_fu_162                                           |  32|   0|   32|          0|
+    |B_TILE_21_fu_166                                           |  32|   0|   32|          0|
+    |B_TILE_22_fu_170                                           |  32|   0|   32|          0|
+    |B_TILE_23_fu_174                                           |  32|   0|   32|          0|
+    |B_TILE_24_fu_178                                           |  32|   0|   32|          0|
+    |B_TILE_25_fu_182                                           |  32|   0|   32|          0|
+    |B_TILE_26_fu_186                                           |  32|   0|   32|          0|
+    |B_TILE_27_fu_190                                           |  32|   0|   32|          0|
+    |B_TILE_28_fu_194                                           |  32|   0|   32|          0|
+    |B_TILE_29_fu_198                                           |  32|   0|   32|          0|
+    |B_TILE_2_fu_90                                             |  32|   0|   32|          0|
+    |B_TILE_30_fu_202                                           |  32|   0|   32|          0|
+    |B_TILE_31_fu_206                                           |  32|   0|   32|          0|
+    |B_TILE_32_fu_210                                           |  32|   0|   32|          0|
+    |B_TILE_33_fu_214                                           |  32|   0|   32|          0|
+    |B_TILE_34_fu_218                                           |  32|   0|   32|          0|
+    |B_TILE_35_fu_222                                           |  32|   0|   32|          0|
+    |B_TILE_36_fu_226                                           |  32|   0|   32|          0|
+    |B_TILE_37_fu_230                                           |  32|   0|   32|          0|
+    |B_TILE_38_fu_234                                           |  32|   0|   32|          0|
+    |B_TILE_39_fu_238                                           |  32|   0|   32|          0|
+    |B_TILE_3_fu_94                                             |  32|   0|   32|          0|
+    |B_TILE_40_fu_242                                           |  32|   0|   32|          0|
+    |B_TILE_41_fu_246                                           |  32|   0|   32|          0|
+    |B_TILE_42_fu_250                                           |  32|   0|   32|          0|
+    |B_TILE_43_fu_254                                           |  32|   0|   32|          0|
+    |B_TILE_44_fu_258                                           |  32|   0|   32|          0|
+    |B_TILE_45_fu_262                                           |  32|   0|   32|          0|
+    |B_TILE_46_fu_266                                           |  32|   0|   32|          0|
+    |B_TILE_47_fu_270                                           |  32|   0|   32|          0|
+    |B_TILE_48_fu_274                                           |  32|   0|   32|          0|
+    |B_TILE_49_fu_278                                           |  32|   0|   32|          0|
+    |B_TILE_4_fu_98                                             |  32|   0|   32|          0|
+    |B_TILE_50_fu_282                                           |  32|   0|   32|          0|
+    |B_TILE_51_fu_286                                           |  32|   0|   32|          0|
+    |B_TILE_52_fu_290                                           |  32|   0|   32|          0|
+    |B_TILE_53_fu_294                                           |  32|   0|   32|          0|
+    |B_TILE_54_fu_298                                           |  32|   0|   32|          0|
+    |B_TILE_55_fu_302                                           |  32|   0|   32|          0|
+    |B_TILE_56_fu_306                                           |  32|   0|   32|          0|
+    |B_TILE_57_fu_310                                           |  32|   0|   32|          0|
+    |B_TILE_58_fu_314                                           |  32|   0|   32|          0|
+    |B_TILE_59_fu_318                                           |  32|   0|   32|          0|
+    |B_TILE_5_fu_102                                            |  32|   0|   32|          0|
+    |B_TILE_60_fu_322                                           |  32|   0|   32|          0|
+    |B_TILE_61_fu_326                                           |  32|   0|   32|          0|
+    |B_TILE_62_fu_330                                           |  32|   0|   32|          0|
+    |B_TILE_63_fu_334                                           |  32|   0|   32|          0|
+    |B_TILE_6_fu_106                                            |  32|   0|   32|          0|
+    |B_TILE_7_fu_110                                            |  32|   0|   32|          0|
+    |B_TILE_8_fu_114                                            |  32|   0|   32|          0|
+    |B_TILE_9_fu_118                                            |  32|   0|   32|          0|
+    |B_TILE_fu_82                                               |  32|   0|   32|          0|
+    |add_ln51_reg_1078                                          |   2|   0|    2|          0|
+    |ap_CS_fsm                                                  |   5|   0|    5|          0|
+    |ap_done_reg                                                |   1|   0|    1|          0|
+    |ap_sync_reg_grp_dataflow_parent_loop_proc_fu_479_ap_done   |   1|   0|    1|          0|
+    |ap_sync_reg_grp_dataflow_parent_loop_proc_fu_479_ap_ready  |   1|   0|    1|          0|
+    |grp_B_Vec_to_Buf_fu_339_ap_start_reg                       |   1|   0|    1|          0|
+    |grp_B_Vec_to_Buf_fu_409_ap_start_reg                       |   1|   0|    1|          0|
+    |grp_dataflow_parent_loop_proc_fu_479_ap_start_reg          |   1|   0|    1|          0|
+    |tileB_fu_78                                                |   2|   0|    2|          0|
+    |trunc_ln51_reg_1087                                        |   1|   0|    1|          0|
+    +-----------------------------------------------------------+----+----+-----+-----------+
+    |Total                                                      |2064|   0| 2064|          0|
+    +-----------------------------------------------------------+----+----+-----+-----------+
 
 
 
@@ -447,42 +291,105 @@
 == Interface
 ================================================================
 * Summary: 
-+----------------+-----+-----+------------+------------------+--------------+
-|    RTL Ports   | Dir | Bits|  Protocol  |   Source Object  |    C Type    |
-+----------------+-----+-----+------------+------------------+--------------+
-|A_in_0_dout     |   in|  256|     ap_fifo|            A_in_0|       pointer|
-|A_in_0_empty_n  |   in|    1|     ap_fifo|            A_in_0|       pointer|
-|A_in_0_read     |  out|    1|     ap_fifo|            A_in_0|       pointer|
-|A_in_1_dout     |   in|  256|     ap_fifo|            A_in_1|       pointer|
-|A_in_1_empty_n  |   in|    1|     ap_fifo|            A_in_1|       pointer|
-|A_in_1_read     |  out|    1|     ap_fifo|            A_in_1|       pointer|
-|A_in_2_dout     |   in|  256|     ap_fifo|            A_in_2|       pointer|
-|A_in_2_empty_n  |   in|    1|     ap_fifo|            A_in_2|       pointer|
-|A_in_2_read     |  out|    1|     ap_fifo|            A_in_2|       pointer|
-|A_in_3_dout     |   in|  256|     ap_fifo|            A_in_3|       pointer|
-|A_in_3_empty_n  |   in|    1|     ap_fifo|            A_in_3|       pointer|
-|A_in_3_read     |  out|    1|     ap_fifo|            A_in_3|       pointer|
-|B_in7_dout      |   in|  256|     ap_fifo|             B_in7|       pointer|
-|B_in7_empty_n   |   in|    1|     ap_fifo|             B_in7|       pointer|
-|B_in7_read      |  out|    1|     ap_fifo|             B_in7|       pointer|
-|C_out_0_din     |  out|  256|     ap_fifo|           C_out_0|       pointer|
-|C_out_0_full_n  |   in|    1|     ap_fifo|           C_out_0|       pointer|
-|C_out_0_write   |  out|    1|     ap_fifo|           C_out_0|       pointer|
-|C_out_1_din     |  out|  256|     ap_fifo|           C_out_1|       pointer|
-|C_out_1_full_n  |   in|    1|     ap_fifo|           C_out_1|       pointer|
-|C_out_1_write   |  out|    1|     ap_fifo|           C_out_1|       pointer|
-|C_out_2_din     |  out|  256|     ap_fifo|           C_out_2|       pointer|
-|C_out_2_full_n  |   in|    1|     ap_fifo|           C_out_2|       pointer|
-|C_out_2_write   |  out|    1|     ap_fifo|           C_out_2|       pointer|
-|C_out_3_din     |  out|  256|     ap_fifo|           C_out_3|       pointer|
-|C_out_3_full_n  |   in|    1|     ap_fifo|           C_out_3|       pointer|
-|C_out_3_write   |  out|    1|     ap_fifo|           C_out_3|       pointer|
-|ap_clk          |   in|    1|  ap_ctrl_hs|  runSystolicArray|  return value|
-|ap_rst          |   in|    1|  ap_ctrl_hs|  runSystolicArray|  return value|
-|ap_start        |   in|    1|  ap_ctrl_hs|  runSystolicArray|  return value|
-|ap_done         |  out|    1|  ap_ctrl_hs|  runSystolicArray|  return value|
-|ap_ready        |  out|    1|  ap_ctrl_hs|  runSystolicArray|  return value|
-|ap_idle         |  out|    1|  ap_ctrl_hs|  runSystolicArray|  return value|
-|ap_continue     |   in|    1|  ap_ctrl_hs|  runSystolicArray|  return value|
-+----------------+-----+-----+------------+------------------+--------------+
++--------------------------+-----+-----+------------+------------------+--------------+
+|         RTL Ports        | Dir | Bits|  Protocol  |   Source Object  |    C Type    |
++--------------------------+-----+-----+------------+------------------+--------------+
+|ap_clk                    |   in|    1|  ap_ctrl_hs|  runSystolicArray|  return value|
+|ap_rst                    |   in|    1|  ap_ctrl_hs|  runSystolicArray|  return value|
+|ap_start                  |   in|    1|  ap_ctrl_hs|  runSystolicArray|  return value|
+|ap_done                   |  out|    1|  ap_ctrl_hs|  runSystolicArray|  return value|
+|ap_continue               |   in|    1|  ap_ctrl_hs|  runSystolicArray|  return value|
+|ap_idle                   |  out|    1|  ap_ctrl_hs|  runSystolicArray|  return value|
+|ap_ready                  |  out|    1|  ap_ctrl_hs|  runSystolicArray|  return value|
+|A_in_0_0_dout             |   in|  256|     ap_fifo|          A_in_0_0|       pointer|
+|A_in_0_0_num_data_valid   |   in|    4|     ap_fifo|          A_in_0_0|       pointer|
+|A_in_0_0_fifo_cap         |   in|    4|     ap_fifo|          A_in_0_0|       pointer|
+|A_in_0_0_empty_n          |   in|    1|     ap_fifo|          A_in_0_0|       pointer|
+|A_in_0_0_read             |  out|    1|     ap_fifo|          A_in_0_0|       pointer|
+|A_in_0_1_dout             |   in|  256|     ap_fifo|          A_in_0_1|       pointer|
+|A_in_0_1_num_data_valid   |   in|    4|     ap_fifo|          A_in_0_1|       pointer|
+|A_in_0_1_fifo_cap         |   in|    4|     ap_fifo|          A_in_0_1|       pointer|
+|A_in_0_1_empty_n          |   in|    1|     ap_fifo|          A_in_0_1|       pointer|
+|A_in_0_1_read             |  out|    1|     ap_fifo|          A_in_0_1|       pointer|
+|A_in_1_0_dout             |   in|  256|     ap_fifo|          A_in_1_0|       pointer|
+|A_in_1_0_num_data_valid   |   in|    4|     ap_fifo|          A_in_1_0|       pointer|
+|A_in_1_0_fifo_cap         |   in|    4|     ap_fifo|          A_in_1_0|       pointer|
+|A_in_1_0_empty_n          |   in|    1|     ap_fifo|          A_in_1_0|       pointer|
+|A_in_1_0_read             |  out|    1|     ap_fifo|          A_in_1_0|       pointer|
+|A_in_1_1_dout             |   in|  256|     ap_fifo|          A_in_1_1|       pointer|
+|A_in_1_1_num_data_valid   |   in|    4|     ap_fifo|          A_in_1_1|       pointer|
+|A_in_1_1_fifo_cap         |   in|    4|     ap_fifo|          A_in_1_1|       pointer|
+|A_in_1_1_empty_n          |   in|    1|     ap_fifo|          A_in_1_1|       pointer|
+|A_in_1_1_read             |  out|    1|     ap_fifo|          A_in_1_1|       pointer|
+|A_in_2_0_dout             |   in|  256|     ap_fifo|          A_in_2_0|       pointer|
+|A_in_2_0_num_data_valid   |   in|    4|     ap_fifo|          A_in_2_0|       pointer|
+|A_in_2_0_fifo_cap         |   in|    4|     ap_fifo|          A_in_2_0|       pointer|
+|A_in_2_0_empty_n          |   in|    1|     ap_fifo|          A_in_2_0|       pointer|
+|A_in_2_0_read             |  out|    1|     ap_fifo|          A_in_2_0|       pointer|
+|A_in_2_1_dout             |   in|  256|     ap_fifo|          A_in_2_1|       pointer|
+|A_in_2_1_num_data_valid   |   in|    4|     ap_fifo|          A_in_2_1|       pointer|
+|A_in_2_1_fifo_cap         |   in|    4|     ap_fifo|          A_in_2_1|       pointer|
+|A_in_2_1_empty_n          |   in|    1|     ap_fifo|          A_in_2_1|       pointer|
+|A_in_2_1_read             |  out|    1|     ap_fifo|          A_in_2_1|       pointer|
+|A_in_3_0_dout             |   in|  256|     ap_fifo|          A_in_3_0|       pointer|
+|A_in_3_0_num_data_valid   |   in|    4|     ap_fifo|          A_in_3_0|       pointer|
+|A_in_3_0_fifo_cap         |   in|    4|     ap_fifo|          A_in_3_0|       pointer|
+|A_in_3_0_empty_n          |   in|    1|     ap_fifo|          A_in_3_0|       pointer|
+|A_in_3_0_read             |  out|    1|     ap_fifo|          A_in_3_0|       pointer|
+|A_in_3_1_dout             |   in|  256|     ap_fifo|          A_in_3_1|       pointer|
+|A_in_3_1_num_data_valid   |   in|    4|     ap_fifo|          A_in_3_1|       pointer|
+|A_in_3_1_fifo_cap         |   in|    4|     ap_fifo|          A_in_3_1|       pointer|
+|A_in_3_1_empty_n          |   in|    1|     ap_fifo|          A_in_3_1|       pointer|
+|A_in_3_1_read             |  out|    1|     ap_fifo|          A_in_3_1|       pointer|
+|B_in_0_dout               |   in|  256|     ap_fifo|            B_in_0|       pointer|
+|B_in_0_num_data_valid     |   in|    4|     ap_fifo|            B_in_0|       pointer|
+|B_in_0_fifo_cap           |   in|    4|     ap_fifo|            B_in_0|       pointer|
+|B_in_0_empty_n            |   in|    1|     ap_fifo|            B_in_0|       pointer|
+|B_in_0_read               |  out|    1|     ap_fifo|            B_in_0|       pointer|
+|B_in_1_dout               |   in|  256|     ap_fifo|            B_in_1|       pointer|
+|B_in_1_num_data_valid     |   in|    4|     ap_fifo|            B_in_1|       pointer|
+|B_in_1_fifo_cap           |   in|    4|     ap_fifo|            B_in_1|       pointer|
+|B_in_1_empty_n            |   in|    1|     ap_fifo|            B_in_1|       pointer|
+|B_in_1_read               |  out|    1|     ap_fifo|            B_in_1|       pointer|
+|C_out_0_0_din             |  out|  256|     ap_fifo|         C_out_0_0|       pointer|
+|C_out_0_0_num_data_valid  |   in|    4|     ap_fifo|         C_out_0_0|       pointer|
+|C_out_0_0_fifo_cap        |   in|    4|     ap_fifo|         C_out_0_0|       pointer|
+|C_out_0_0_full_n          |   in|    1|     ap_fifo|         C_out_0_0|       pointer|
+|C_out_0_0_write           |  out|    1|     ap_fifo|         C_out_0_0|       pointer|
+|C_out_0_1_din             |  out|  256|     ap_fifo|         C_out_0_1|       pointer|
+|C_out_0_1_num_data_valid  |   in|    4|     ap_fifo|         C_out_0_1|       pointer|
+|C_out_0_1_fifo_cap        |   in|    4|     ap_fifo|         C_out_0_1|       pointer|
+|C_out_0_1_full_n          |   in|    1|     ap_fifo|         C_out_0_1|       pointer|
+|C_out_0_1_write           |  out|    1|     ap_fifo|         C_out_0_1|       pointer|
+|C_out_1_0_din             |  out|  256|     ap_fifo|         C_out_1_0|       pointer|
+|C_out_1_0_num_data_valid  |   in|    4|     ap_fifo|         C_out_1_0|       pointer|
+|C_out_1_0_fifo_cap        |   in|    4|     ap_fifo|         C_out_1_0|       pointer|
+|C_out_1_0_full_n          |   in|    1|     ap_fifo|         C_out_1_0|       pointer|
+|C_out_1_0_write           |  out|    1|     ap_fifo|         C_out_1_0|       pointer|
+|C_out_1_1_din             |  out|  256|     ap_fifo|         C_out_1_1|       pointer|
+|C_out_1_1_num_data_valid  |   in|    4|     ap_fifo|         C_out_1_1|       pointer|
+|C_out_1_1_fifo_cap        |   in|    4|     ap_fifo|         C_out_1_1|       pointer|
+|C_out_1_1_full_n          |   in|    1|     ap_fifo|         C_out_1_1|       pointer|
+|C_out_1_1_write           |  out|    1|     ap_fifo|         C_out_1_1|       pointer|
+|C_out_2_0_din             |  out|  256|     ap_fifo|         C_out_2_0|       pointer|
+|C_out_2_0_num_data_valid  |   in|    4|     ap_fifo|         C_out_2_0|       pointer|
+|C_out_2_0_fifo_cap        |   in|    4|     ap_fifo|         C_out_2_0|       pointer|
+|C_out_2_0_full_n          |   in|    1|     ap_fifo|         C_out_2_0|       pointer|
+|C_out_2_0_write           |  out|    1|     ap_fifo|         C_out_2_0|       pointer|
+|C_out_2_1_din             |  out|  256|     ap_fifo|         C_out_2_1|       pointer|
+|C_out_2_1_num_data_valid  |   in|    4|     ap_fifo|         C_out_2_1|       pointer|
+|C_out_2_1_fifo_cap        |   in|    4|     ap_fifo|         C_out_2_1|       pointer|
+|C_out_2_1_full_n          |   in|    1|     ap_fifo|         C_out_2_1|       pointer|
+|C_out_2_1_write           |  out|    1|     ap_fifo|         C_out_2_1|       pointer|
+|C_out_3_0_din             |  out|  256|     ap_fifo|         C_out_3_0|       pointer|
+|C_out_3_0_num_data_valid  |   in|    4|     ap_fifo|         C_out_3_0|       pointer|
+|C_out_3_0_fifo_cap        |   in|    4|     ap_fifo|         C_out_3_0|       pointer|
+|C_out_3_0_full_n          |   in|    1|     ap_fifo|         C_out_3_0|       pointer|
+|C_out_3_0_write           |  out|    1|     ap_fifo|         C_out_3_0|       pointer|
+|C_out_3_1_din             |  out|  256|     ap_fifo|         C_out_3_1|       pointer|
+|C_out_3_1_num_data_valid  |   in|    4|     ap_fifo|         C_out_3_1|       pointer|
+|C_out_3_1_fifo_cap        |   in|    4|     ap_fifo|         C_out_3_1|       pointer|
+|C_out_3_1_full_n          |   in|    1|     ap_fifo|         C_out_3_1|       pointer|
+|C_out_3_1_write           |  out|    1|     ap_fifo|         C_out_3_1|       pointer|
++--------------------------+-----+-----+------------+------------------+--------------+
 
