@@ -14,10 +14,10 @@ void gemm(const hls::burst_maxi<hls::vector<float, VEC_SIZE>> A_DRAM,
     hls::stream<hls::vector<float, S_A_J>> C_out[NUM_TILES_I][NUM_TILES_J];
     #pragma HLS STREAM variable=C_out type=fifo depth=S_A_I
 
-    hls::stream<hls::vector<float, K>> A_in[NUM_TILES_I][NUM_TILES_J];
+    hls::stream<hls::vector<float, K>> A_in;
     #pragma HLS STREAM variable=A_in type=fifo depth=S_A_I
 
-    hls::stream<hls::vector<float, K>> B_in[NUM_TILES_J];
+    hls::stream<hls::vector<float, K>> B_in;
     #pragma HLS STREAM variable=B_in type=fifo depth=S_A_J
 
     #pragma HLS DATAFLOW

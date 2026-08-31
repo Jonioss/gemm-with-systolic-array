@@ -3,9 +3,9 @@
 ================================================================
 == Vitis HLS Report for 'dataflow_parent_loop_proc'
 ================================================================
-* Date:           Sun Aug  2 09:34:31 2026
+* Date:           Mon Aug 31 18:21:43 2026
 
-* Version:        2023.2.2 (Build 4101106 on Feb  9 2024)
+* Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        hls_project
 * Solution:       gemm2 (Vitis Kernel Flow Target)
 * Product family: versalaicore
@@ -20,7 +20,7 @@
     +--------+---------+----------+------------+
     |  Clock |  Target | Estimated| Uncertainty|
     +--------+---------+----------+------------+
-    |ap_clk  |  3.33 ns|  2.856 ns|     0.90 ns|
+    |ap_clk  |  3.33 ns|  2.641 ns|     0.90 ns|
     +--------+---------+----------+------------+
 
 + Latency: 
@@ -29,7 +29,7 @@
     |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
     |   min   |   max   |    min   |    max   | min | max |   Type  |
     +---------+---------+----------+----------+-----+-----+---------+
-    |      145|      145|  0.483 us|  0.483 us|  145|  145|       no|
+    |       77|       77|  0.257 us|  0.257 us|   77|   77|       no|
     +---------+---------+----------+----------+-----+-----+---------+
 
     + Detail: 
@@ -38,7 +38,7 @@
         |                                 |                              |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
         |             Instance            |            Module            |   min   |   max   |    min   |    max   | min | max |   Type   |
         +---------------------------------+------------------------------+---------+---------+----------+----------+-----+-----+----------+
-        |dataflow_in_loop_tile_loop_A_U0  |dataflow_in_loop_tile_loop_A  |       35|       35|  0.117 us|  0.117 us|   36|   36|  dataflow|
+        |dataflow_in_loop_tile_loop_A_U0  |dataflow_in_loop_tile_loop_A  |       36|       36|  0.120 us|  0.120 us|   13|   13|  dataflow|
         +---------------------------------+------------------------------+---------+---------+----------+----------+-----+-----+----------+
 
         * Loop: 
@@ -46,7 +46,7 @@
         |               |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
         |   Loop Name   |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
         +---------------+---------+---------+----------+-----------+-----------+------+----------+
-        |- tile_loop_A  |      144|      144|        37|          -|          -|     4|        no|
+        |- tile_loop_A  |       76|       76|        38|          -|          -|     4|        no|
         +---------------+---------+---------+----------+-----------+-----------+------+----------+
 
 
@@ -61,16 +61,16 @@
 |DSP              |        -|     -|        -|       -|    -|
 |Expression       |        -|     -|       57|      24|    -|
 |FIFO             |        -|     -|        -|       -|    -|
-|Instance         |        0|    64|    31930|   23062|    -|
+|Instance         |        0|    64|    38424|   28760|    -|
 |Memory           |        -|     -|        -|       -|    -|
 |Multiplexer      |        -|     -|        -|       6|    -|
 |Register         |        -|     -|        6|       -|    -|
 +-----------------+---------+------+---------+--------+-----+
-|Total            |        0|    64|    31993|   23092|    0|
+|Total            |        0|    64|    38487|   28790|    0|
 +-----------------+---------+------+---------+--------+-----+
 |Available        |     1934|  1968|  1799680|  899840|  463|
 +-----------------+---------+------+---------+--------+-----+
-|Utilization (%)  |        0|     3|        1|       2|    0|
+|Utilization (%)  |        0|     3|        2|       3|    0|
 +-----------------+---------+------+---------+--------+-----+
 
 + Detail: 
@@ -78,9 +78,9 @@
     +---------------------------------+------------------------------+---------+----+-------+-------+-----+
     |             Instance            |            Module            | BRAM_18K| DSP|   FF  |  LUT  | URAM|
     +---------------------------------+------------------------------+---------+----+-------+-------+-----+
-    |dataflow_in_loop_tile_loop_A_U0  |dataflow_in_loop_tile_loop_A  |        0|  64|  31930|  23062|    0|
+    |dataflow_in_loop_tile_loop_A_U0  |dataflow_in_loop_tile_loop_A  |        0|  64|  38424|  28760|    0|
     +---------------------------------+------------------------------+---------+----+-------+-------+-----+
-    |Total                            |                              |        0|  64|  31930|  23062|    0|
+    |Total                            |                              |        0|  64|  38424|  28760|    0|
     +---------------------------------+------------------------------+---------+----+-------+-------+-----+
 
     * DSP: 
@@ -260,32 +260,11 @@
 |B_TILE_1_ap_vld   |   in|    1|     ap_none|                   B_TILE_1|       pointer|
 |B_TILE            |   in|   32|     ap_none|                     B_TILE|       pointer|
 |B_TILE_ap_vld     |   in|    1|     ap_none|                     B_TILE|       pointer|
+|A_in_dout         |   in|  256|     ap_fifo|                       A_in|       pointer|
+|A_in_empty_n      |   in|    1|     ap_fifo|                       A_in|       pointer|
+|A_in_read         |  out|    1|     ap_fifo|                       A_in|       pointer|
 |tileB             |   in|    1|     ap_none|                      tileB|        scalar|
 |tileB_ap_vld      |   in|    1|     ap_none|                      tileB|        scalar|
-|A_in_2_1_dout     |   in|  256|     ap_fifo|                   A_in_2_1|       pointer|
-|A_in_2_1_empty_n  |   in|    1|     ap_fifo|                   A_in_2_1|       pointer|
-|A_in_2_1_read     |  out|    1|     ap_fifo|                   A_in_2_1|       pointer|
-|A_in_2_0_dout     |   in|  256|     ap_fifo|                   A_in_2_0|       pointer|
-|A_in_2_0_empty_n  |   in|    1|     ap_fifo|                   A_in_2_0|       pointer|
-|A_in_2_0_read     |  out|    1|     ap_fifo|                   A_in_2_0|       pointer|
-|A_in_1_1_dout     |   in|  256|     ap_fifo|                   A_in_1_1|       pointer|
-|A_in_1_1_empty_n  |   in|    1|     ap_fifo|                   A_in_1_1|       pointer|
-|A_in_1_1_read     |  out|    1|     ap_fifo|                   A_in_1_1|       pointer|
-|A_in_1_0_dout     |   in|  256|     ap_fifo|                   A_in_1_0|       pointer|
-|A_in_1_0_empty_n  |   in|    1|     ap_fifo|                   A_in_1_0|       pointer|
-|A_in_1_0_read     |  out|    1|     ap_fifo|                   A_in_1_0|       pointer|
-|A_in_0_1_dout     |   in|  256|     ap_fifo|                   A_in_0_1|       pointer|
-|A_in_0_1_empty_n  |   in|    1|     ap_fifo|                   A_in_0_1|       pointer|
-|A_in_0_1_read     |  out|    1|     ap_fifo|                   A_in_0_1|       pointer|
-|A_in_0_0_dout     |   in|  256|     ap_fifo|                   A_in_0_0|       pointer|
-|A_in_0_0_empty_n  |   in|    1|     ap_fifo|                   A_in_0_0|       pointer|
-|A_in_0_0_read     |  out|    1|     ap_fifo|                   A_in_0_0|       pointer|
-|A_in_3_1_dout     |   in|  256|     ap_fifo|                   A_in_3_1|       pointer|
-|A_in_3_1_empty_n  |   in|    1|     ap_fifo|                   A_in_3_1|       pointer|
-|A_in_3_1_read     |  out|    1|     ap_fifo|                   A_in_3_1|       pointer|
-|A_in_3_0_dout     |   in|  256|     ap_fifo|                   A_in_3_0|       pointer|
-|A_in_3_0_empty_n  |   in|    1|     ap_fifo|                   A_in_3_0|       pointer|
-|A_in_3_0_read     |  out|    1|     ap_fifo|                   A_in_3_0|       pointer|
 |C_out_2_1_din     |  out|  256|     ap_fifo|                  C_out_2_1|       pointer|
 |C_out_2_1_full_n  |   in|    1|     ap_fifo|                  C_out_2_1|       pointer|
 |C_out_2_1_write   |  out|    1|     ap_fifo|                  C_out_2_1|       pointer|

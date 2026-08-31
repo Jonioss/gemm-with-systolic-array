@@ -3,9 +3,9 @@
 ================================================================
 == Vitis HLS Report for 'loadInputsFromDRAM'
 ================================================================
-* Date:           Sun Aug  2 09:34:11 2026
+* Date:           Mon Aug 31 18:21:31 2026
 
-* Version:        2023.2.2 (Build 4101106 on Feb  9 2024)
+* Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        hls_project
 * Solution:       gemm2 (Vitis Kernel Flow Target)
 * Product family: versalaicore
@@ -20,7 +20,7 @@
     +--------+---------+----------+------------+
     |  Clock |  Target | Estimated| Uncertainty|
     +--------+---------+----------+------------+
-    |ap_clk  |  3.33 ns|  2.433 ns|     0.90 ns|
+    |ap_clk  |  3.33 ns|  2.612 ns|     0.90 ns|
     +--------+---------+----------+------------+
 
 + Latency: 
@@ -29,7 +29,7 @@
     |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
     |   min   |   max   |    min   |    max   | min | max |   Type   |
     +---------+---------+----------+----------+-----+-----+----------+
-    |      105|      105|  0.350 us|  0.350 us|  106|  106|  dataflow|
+    |      174|      174|  0.580 us|  0.580 us|  175|  175|  dataflow|
     +---------+---------+----------+----------+-----+-----+----------+
 
     + Detail: 
@@ -38,7 +38,7 @@
         |           |        |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
         |  Instance | Module |   min   |   max   |    min   |    max   | min | max |   Type  |
         +-----------+--------+---------+---------+----------+----------+-----+-----+---------+
-        |load_A_U0  |load_A  |      105|      105|  0.350 us|  0.350 us|  105|  105|       no|
+        |load_A_U0  |load_A  |      174|      174|  0.580 us|  0.580 us|  174|  174|       no|
         |load_B_U0  |load_B  |       89|       89|  0.297 us|  0.297 us|   89|   89|       no|
         +-----------+--------+---------+---------+----------+----------+-----+-----+---------+
 
@@ -57,16 +57,16 @@
 |DSP              |        -|     -|        -|       -|    -|
 |Expression       |        -|     -|        0|      16|    -|
 |FIFO             |        -|     -|        -|       -|    -|
-|Instance         |        -|     -|      449|     197|    -|
+|Instance         |        8|     -|      325|     448|    0|
 |Memory           |        -|     -|        -|       -|    -|
 |Multiplexer      |        -|     -|        -|       6|    -|
 |Register         |        -|     -|        3|       -|    -|
 +-----------------+---------+------+---------+--------+-----+
-|Total            |        0|     0|      452|     219|    0|
+|Total            |        8|     0|      328|     470|    0|
 +-----------------+---------+------+---------+--------+-----+
 |Available        |     1934|  1968|  1799680|  899840|  463|
 +-----------------+---------+------+---------+--------+-----+
-|Utilization (%)  |        0|     0|       ~0|      ~0|    0|
+|Utilization (%)  |       ~0|     0|       ~0|      ~0|    0|
 +-----------------+---------+------+---------+--------+-----+
 
 + Detail: 
@@ -74,10 +74,10 @@
     +-----------+--------+---------+----+-----+-----+-----+
     |  Instance | Module | BRAM_18K| DSP|  FF | LUT | URAM|
     +-----------+--------+---------+----+-----+-----+-----+
-    |load_A_U0  |load_A  |        0|   0|  226|  107|    0|
-    |load_B_U0  |load_B  |        0|   0|  223|   90|    0|
+    |load_A_U0  |load_A  |        8|   0|  109|  393|    0|
+    |load_B_U0  |load_B  |        0|   0|  216|   55|    0|
     +-----------+--------+---------+----+-----+-----+-----+
-    |Total      |        |        0|   0|  449|  197|    0|
+    |Total      |        |        8|   0|  325|  448|    0|
     +-----------+--------+---------+----+-----+-----+-----+
 
     * DSP: 
@@ -184,7 +184,7 @@
 |m_axi_gmem0_RDATA     |   in|  256|       m_axi|               gmem0|       pointer|
 |m_axi_gmem0_RLAST     |   in|    1|       m_axi|               gmem0|       pointer|
 |m_axi_gmem0_RID       |   in|    1|       m_axi|               gmem0|       pointer|
-|m_axi_gmem0_RFIFONUM  |   in|    8|       m_axi|               gmem0|       pointer|
+|m_axi_gmem0_RFIFONUM  |   in|   12|       m_axi|               gmem0|       pointer|
 |m_axi_gmem0_RUSER     |   in|    1|       m_axi|               gmem0|       pointer|
 |m_axi_gmem0_RRESP     |   in|    2|       m_axi|               gmem0|       pointer|
 |m_axi_gmem0_BVALID    |   in|    1|       m_axi|               gmem0|       pointer|
@@ -232,7 +232,7 @@
 |m_axi_gmem1_RDATA     |   in|  256|       m_axi|               gmem1|       pointer|
 |m_axi_gmem1_RLAST     |   in|    1|       m_axi|               gmem1|       pointer|
 |m_axi_gmem1_RID       |   in|    1|       m_axi|               gmem1|       pointer|
-|m_axi_gmem1_RFIFONUM  |   in|    8|       m_axi|               gmem1|       pointer|
+|m_axi_gmem1_RFIFONUM  |   in|   12|       m_axi|               gmem1|       pointer|
 |m_axi_gmem1_RUSER     |   in|    1|       m_axi|               gmem1|       pointer|
 |m_axi_gmem1_RRESP     |   in|    2|       m_axi|               gmem1|       pointer|
 |m_axi_gmem1_BVALID    |   in|    1|       m_axi|               gmem1|       pointer|
@@ -242,35 +242,11 @@
 |m_axi_gmem1_BUSER     |   in|    1|       m_axi|               gmem1|       pointer|
 |B_DRAM                |   in|   64|     ap_none|              B_DRAM|        scalar|
 |B_DRAM_ap_vld         |   in|    1|     ap_none|              B_DRAM|        scalar|
-|A_in_0_0_din          |  out|  256|     ap_fifo|            A_in_0_0|       pointer|
-|A_in_0_0_full_n       |   in|    1|     ap_fifo|            A_in_0_0|       pointer|
-|A_in_0_0_write        |  out|    1|     ap_fifo|            A_in_0_0|       pointer|
-|A_in_0_1_din          |  out|  256|     ap_fifo|            A_in_0_1|       pointer|
-|A_in_0_1_full_n       |   in|    1|     ap_fifo|            A_in_0_1|       pointer|
-|A_in_0_1_write        |  out|    1|     ap_fifo|            A_in_0_1|       pointer|
-|A_in_1_0_din          |  out|  256|     ap_fifo|            A_in_1_0|       pointer|
-|A_in_1_0_full_n       |   in|    1|     ap_fifo|            A_in_1_0|       pointer|
-|A_in_1_0_write        |  out|    1|     ap_fifo|            A_in_1_0|       pointer|
-|A_in_1_1_din          |  out|  256|     ap_fifo|            A_in_1_1|       pointer|
-|A_in_1_1_full_n       |   in|    1|     ap_fifo|            A_in_1_1|       pointer|
-|A_in_1_1_write        |  out|    1|     ap_fifo|            A_in_1_1|       pointer|
-|A_in_2_0_din          |  out|  256|     ap_fifo|            A_in_2_0|       pointer|
-|A_in_2_0_full_n       |   in|    1|     ap_fifo|            A_in_2_0|       pointer|
-|A_in_2_0_write        |  out|    1|     ap_fifo|            A_in_2_0|       pointer|
-|A_in_2_1_din          |  out|  256|     ap_fifo|            A_in_2_1|       pointer|
-|A_in_2_1_full_n       |   in|    1|     ap_fifo|            A_in_2_1|       pointer|
-|A_in_2_1_write        |  out|    1|     ap_fifo|            A_in_2_1|       pointer|
-|A_in_3_0_din          |  out|  256|     ap_fifo|            A_in_3_0|       pointer|
-|A_in_3_0_full_n       |   in|    1|     ap_fifo|            A_in_3_0|       pointer|
-|A_in_3_0_write        |  out|    1|     ap_fifo|            A_in_3_0|       pointer|
-|A_in_3_1_din          |  out|  256|     ap_fifo|            A_in_3_1|       pointer|
-|A_in_3_1_full_n       |   in|    1|     ap_fifo|            A_in_3_1|       pointer|
-|A_in_3_1_write        |  out|    1|     ap_fifo|            A_in_3_1|       pointer|
-|B_in_0_din            |  out|  256|     ap_fifo|              B_in_0|       pointer|
-|B_in_0_full_n         |   in|    1|     ap_fifo|              B_in_0|       pointer|
-|B_in_0_write          |  out|    1|     ap_fifo|              B_in_0|       pointer|
-|B_in_1_din            |  out|  256|     ap_fifo|              B_in_1|       pointer|
-|B_in_1_full_n         |   in|    1|     ap_fifo|              B_in_1|       pointer|
-|B_in_1_write          |  out|    1|     ap_fifo|              B_in_1|       pointer|
+|A_in_din              |  out|  256|     ap_fifo|                A_in|       pointer|
+|A_in_full_n           |   in|    1|     ap_fifo|                A_in|       pointer|
+|A_in_write            |  out|    1|     ap_fifo|                A_in|       pointer|
+|B_in_din              |  out|  256|     ap_fifo|                B_in|       pointer|
+|B_in_full_n           |   in|    1|     ap_fifo|                B_in|       pointer|
+|B_in_write            |  out|    1|     ap_fifo|                B_in|       pointer|
 +----------------------+-----+-----+------------+--------------------+--------------+
 

@@ -3,9 +3,9 @@
 ================================================================
 == Vitis HLS Report for 'dataflow_in_loop_tile_loop_A'
 ================================================================
-* Date:           Sun Aug  2 09:34:30 2026
+* Date:           Mon Aug 31 18:21:43 2026
 
-* Version:        2023.2.2 (Build 4101106 on Feb  9 2024)
+* Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        hls_project
 * Solution:       gemm2 (Vitis Kernel Flow Target)
 * Product family: versalaicore
@@ -20,7 +20,7 @@
     +--------+---------+----------+------------+
     |  Clock |  Target | Estimated| Uncertainty|
     +--------+---------+----------+------------+
-    |ap_clk  |  3.33 ns|  2.856 ns|     0.90 ns|
+    |ap_clk  |  3.33 ns|  2.641 ns|     0.90 ns|
     +--------+---------+----------+------------+
 
 + Latency: 
@@ -29,83 +29,85 @@
     |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
     |   min   |   max   |    min   |    max   | min | max |   Type   |
     +---------+---------+----------+----------+-----+-----+----------+
-    |       35|       35|  0.117 us|  0.117 us|   36|   36|  dataflow|
+    |       36|       36|  0.120 us|  0.120 us|   13|   13|  dataflow|
     +---------+---------+----------+----------+-----+-----+----------+
 
     + Detail: 
         * Instance: 
-        +------------------------------------------------------------------+---------------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------+
-        |                                                                  |                                                               |  Latency (cycles) |   Latency (absolute)  |  Interval |                 Pipeline                 |
-        |                             Instance                             |                             Module                            |   min   |   max   |    min    |    max    | min | max |                   Type                   |
-        +------------------------------------------------------------------+---------------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------+
-        |dataflow_in_loop_tile_loop_A_Block_newFuncRoot1_proc2_U0          |dataflow_in_loop_tile_loop_A_Block_newFuncRoot1_proc2          |       35|       35|   0.117 us|   0.117 us|   35|   35|                                        no|
-        |PE3_U0                                                            |PE3                                                            |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_110_U0                                                         |PE_110                                                         |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_817_U0                                                         |PE_817                                                         |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_211_U0                                                         |PE_211                                                         |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_918_U0                                                         |PE_918                                                         |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_1625_U0                                                        |PE_1625                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_312_U0                                                         |PE_312                                                         |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_1019_U0                                                        |PE_1019                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_1726_U0                                                        |PE_1726                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_2433_U0                                                        |PE_2433                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_413_U0                                                         |PE_413                                                         |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_1120_U0                                                        |PE_1120                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_1827_U0                                                        |PE_1827                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_2534_U0                                                        |PE_2534                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_3241_U0                                                        |PE_3241                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_514_U0                                                         |PE_514                                                         |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_1221_U0                                                        |PE_1221                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_1928_U0                                                        |PE_1928                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_2635_U0                                                        |PE_2635                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_3342_U0                                                        |PE_3342                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_4049_U0                                                        |PE_4049                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_615_U0                                                         |PE_615                                                         |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_1322_U0                                                        |PE_1322                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_2029_U0                                                        |PE_2029                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_2736_U0                                                        |PE_2736                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_3443_U0                                                        |PE_3443                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_4150_U0                                                        |PE_4150                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_4857_U0                                                        |PE_4857                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_716_U0                                                         |PE_716                                                         |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_1423_U0                                                        |PE_1423                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_2130_U0                                                        |PE_2130                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_2837_U0                                                        |PE_2837                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_3544_U0                                                        |PE_3544                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_4251_U0                                                        |PE_4251                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_4958_U0                                                        |PE_4958                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_5665_U0                                                        |PE_5665                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_1524_U0                                                        |PE_1524                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_2231_U0                                                        |PE_2231                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_2938_U0                                                        |PE_2938                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_3645_U0                                                        |PE_3645                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_4352_U0                                                        |PE_4352                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_5059_U0                                                        |PE_5059                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_5766_U0                                                        |PE_5766                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_2332_U0                                                        |PE_2332                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_3039_U0                                                        |PE_3039                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_3746_U0                                                        |PE_3746                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_4453_U0                                                        |PE_4453                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_5160_U0                                                        |PE_5160                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_5867_U0                                                        |PE_5867                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_3140_U0                                                        |PE_3140                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_3847_U0                                                        |PE_3847                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_4554_U0                                                        |PE_4554                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_5261_U0                                                        |PE_5261                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_5968_U0                                                        |PE_5968                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_3948_U0                                                        |PE_3948                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_4655_U0                                                        |PE_4655                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_5362_U0                                                        |PE_5362                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_6069_U0                                                        |PE_6069                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_4756_U0                                                        |PE_4756                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_5463_U0                                                        |PE_5463                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_6170_U0                                                        |PE_6170                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_5564_U0                                                        |PE_5564                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_6271_U0                                                        |PE_6271                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |PE_6372_U0                                                        |PE_6372                                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
-        |sink_streams73_U0                                                 |sink_streams73                                                 |        7|        7|  23.331 ns|  23.331 ns|    7|    7|                                        no|
-        |dataflow_in_loop_tile_loop_A_Block_arrayidx4212_exit77_proc74_U0  |dataflow_in_loop_tile_loop_A_Block_arrayidx4212_exit77_proc74  |       12|       12|  39.996 ns|  39.996 ns|   12|   12|                                        no|
-        +------------------------------------------------------------------+---------------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------+
+        +-------------------------------------------------------------+----------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------+
+        |                                                             |                                                          |  Latency (cycles) |   Latency (absolute)  |  Interval |                 Pipeline                 |
+        |                           Instance                          |                          Module                          |   min   |   max   |    min    |    max    | min | max |                   Type                   |
+        +-------------------------------------------------------------+----------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------+
+        |entry_proc_U0                                                |entry_proc                                                |        0|        0|       0 ns|       0 ns|    0|    0|                                        no|
+        |load_tile_A2_U0                                              |load_tile_A2                                              |        7|        7|  23.331 ns|  23.331 ns|    7|    7|                                        no|
+        |B_Buf_to_stream4_U0                                          |B_Buf_to_stream4                                          |       10|       10|  33.330 ns|  33.330 ns|   10|   10|                                        no|
+        |tile_A_to_stream3_U0                                         |tile_A_to_stream3                                         |        7|        7|  23.331 ns|  23.331 ns|    7|    7|                                        no|
+        |PE_false_false_5_U0                                          |PE_false_false_5                                          |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_110_U0                                        |PE_false_false_110                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_717_U0                                        |PE_false_false_717                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_211_U0                                        |PE_false_false_211                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_818_U0                                        |PE_false_false_818                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_1525_U0                                       |PE_false_false_1525                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_312_U0                                        |PE_false_false_312                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_919_U0                                        |PE_false_false_919                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_1626_U0                                       |PE_false_false_1626                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_2333_U0                                       |PE_false_false_2333                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_413_U0                                        |PE_false_false_413                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_1020_U0                                       |PE_false_false_1020                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_1727_U0                                       |PE_false_false_1727                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_2434_U0                                       |PE_false_false_2434                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_3141_U0                                       |PE_false_false_3141                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_514_U0                                        |PE_false_false_514                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_1121_U0                                       |PE_false_false_1121                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_1828_U0                                       |PE_false_false_1828                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_2535_U0                                       |PE_false_false_2535                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_3242_U0                                       |PE_false_false_3242                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_3949_U0                                       |PE_false_false_3949                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_615_U0                                        |PE_false_false_615                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_1222_U0                                       |PE_false_false_1222                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_1929_U0                                       |PE_false_false_1929                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_2636_U0                                       |PE_false_false_2636                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_3343_U0                                       |PE_false_false_3343                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_4050_U0                                       |PE_false_false_4050                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_4757_U0                                       |PE_false_false_4757                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_true_16_U0                                          |PE_false_true_16                                          |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_1323_U0                                       |PE_false_false_1323                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_2030_U0                                       |PE_false_false_2030                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_2737_U0                                       |PE_false_false_2737                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_3444_U0                                       |PE_false_false_3444                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_4151_U0                                       |PE_false_false_4151                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_4858_U0                                       |PE_false_false_4858                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_true_false_65_U0                                          |PE_true_false_65                                          |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_true_1424_U0                                        |PE_false_true_1424                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_2131_U0                                       |PE_false_false_2131                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_2838_U0                                       |PE_false_false_2838                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_3545_U0                                       |PE_false_false_3545                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_4252_U0                                       |PE_false_false_4252                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_4959_U0                                       |PE_false_false_4959                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_true_false_5566_U0                                        |PE_true_false_5566                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_true_2232_U0                                        |PE_false_true_2232                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_2939_U0                                       |PE_false_false_2939                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_3646_U0                                       |PE_false_false_3646                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_4353_U0                                       |PE_false_false_4353                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_5060_U0                                       |PE_false_false_5060                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_true_false_5667_U0                                        |PE_true_false_5667                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_true_3040_U0                                        |PE_false_true_3040                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_3747_U0                                       |PE_false_false_3747                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_4454_U0                                       |PE_false_false_4454                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_5161_U0                                       |PE_false_false_5161                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_true_false_5768_U0                                        |PE_true_false_5768                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_true_3848_U0                                        |PE_false_true_3848                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_4555_U0                                       |PE_false_false_4555                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_5262_U0                                       |PE_false_false_5262                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_true_false_5869_U0                                        |PE_true_false_5869                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_true_4656_U0                                        |PE_false_true_4656                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_false_5363_U0                                       |PE_false_false_5363                                       |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_true_false_5970_U0                                        |PE_true_false_5970                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_false_true_5464_U0                                        |PE_false_true_5464                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_true_false_6071_U0                                        |PE_true_false_6071                                        |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |PE_true_true_72_U0                                           |PE_true_true_72                                           |       10|       11|  33.330 ns|  36.663 ns|    8|    8|  loop rewind stp(delay=0 clock cycles(s))|
+        |dataflow_in_loop_tile_loop_A_Block_newFuncRoot177_proc73_U0  |dataflow_in_loop_tile_loop_A_Block_newFuncRoot177_proc73  |       12|       12|  39.996 ns|  39.996 ns|   12|   12|                                        no|
+        +-------------------------------------------------------------+----------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------+
 
         * Loop: 
         N/A
@@ -120,95 +122,97 @@
 |       Name      | BRAM_18K|  DSP |    FF   |   LUT  | URAM|
 +-----------------+---------+------+---------+--------+-----+
 |DSP              |        -|     -|        -|       -|    -|
-|Expression       |        -|     -|        0|      10|    -|
-|FIFO             |        0|     -|    22722|   15666|    -|
-|Instance         |        -|    64|     9208|    7386|    -|
+|Expression       |        -|     -|        0|     280|    -|
+|FIFO             |        0|     -|    28146|   19266|    -|
+|Instance         |        -|    64|    10211|    9080|    -|
 |Memory           |        -|     -|        -|       -|    -|
-|Multiplexer      |        -|     -|        -|       -|    -|
-|Register         |        -|     -|        -|       -|    -|
+|Multiplexer      |        -|     -|        -|     134|    -|
+|Register         |        -|     -|       67|       -|    -|
 +-----------------+---------+------+---------+--------+-----+
-|Total            |        0|    64|    31930|   23062|    0|
+|Total            |        0|    64|    38424|   28760|    0|
 +-----------------+---------+------+---------+--------+-----+
 |Available        |     1934|  1968|  1799680|  899840|  463|
 +-----------------+---------+------+---------+--------+-----+
-|Utilization (%)  |        0|     3|        1|       2|    0|
+|Utilization (%)  |        0|     3|        2|       3|    0|
 +-----------------+---------+------+---------+--------+-----+
 
 + Detail: 
     * Instance: 
-    +------------------------------------------------------------------+---------------------------------------------------------------+---------+----+------+------+-----+
-    |                             Instance                             |                             Module                            | BRAM_18K| DSP|  FF  |  LUT | URAM|
-    +------------------------------------------------------------------+---------------------------------------------------------------+---------+----+------+------+-----+
-    |PE3_U0                                                            |PE3                                                            |        0|   1|    86|    50|    0|
-    |PE_1019_U0                                                        |PE_1019                                                        |        0|   1|    87|    52|    0|
-    |PE_110_U0                                                         |PE_110                                                         |        0|   1|    87|    52|    0|
-    |PE_1120_U0                                                        |PE_1120                                                        |        0|   1|    87|    52|    0|
-    |PE_1221_U0                                                        |PE_1221                                                        |        0|   1|    87|    52|    0|
-    |PE_1322_U0                                                        |PE_1322                                                        |        0|   1|    87|    52|    0|
-    |PE_1423_U0                                                        |PE_1423                                                        |        0|   1|    87|    52|    0|
-    |PE_1524_U0                                                        |PE_1524                                                        |        0|   1|    87|    52|    0|
-    |PE_1625_U0                                                        |PE_1625                                                        |        0|   1|    87|    52|    0|
-    |PE_1726_U0                                                        |PE_1726                                                        |        0|   1|    86|    50|    0|
-    |PE_1827_U0                                                        |PE_1827                                                        |        0|   1|    86|    50|    0|
-    |PE_1928_U0                                                        |PE_1928                                                        |        0|   1|    87|    52|    0|
-    |PE_2029_U0                                                        |PE_2029                                                        |        0|   1|    87|    52|    0|
-    |PE_211_U0                                                         |PE_211                                                         |        0|   1|    87|    52|    0|
-    |PE_2130_U0                                                        |PE_2130                                                        |        0|   1|    87|    52|    0|
-    |PE_2231_U0                                                        |PE_2231                                                        |        0|   1|    87|    52|    0|
-    |PE_2332_U0                                                        |PE_2332                                                        |        0|   1|    87|    52|    0|
-    |PE_2433_U0                                                        |PE_2433                                                        |        0|   1|    87|    52|    0|
-    |PE_2534_U0                                                        |PE_2534                                                        |        0|   1|    87|    52|    0|
-    |PE_2635_U0                                                        |PE_2635                                                        |        0|   1|    86|    50|    0|
-    |PE_2736_U0                                                        |PE_2736                                                        |        0|   1|    86|    50|    0|
-    |PE_2837_U0                                                        |PE_2837                                                        |        0|   1|    87|    52|    0|
-    |PE_2938_U0                                                        |PE_2938                                                        |        0|   1|    87|    52|    0|
-    |PE_3039_U0                                                        |PE_3039                                                        |        0|   1|    87|    52|    0|
-    |PE_312_U0                                                         |PE_312                                                         |        0|   1|    87|    52|    0|
-    |PE_3140_U0                                                        |PE_3140                                                        |        0|   1|    87|    52|    0|
-    |PE_3241_U0                                                        |PE_3241                                                        |        0|   1|    87|    52|    0|
-    |PE_3342_U0                                                        |PE_3342                                                        |        0|   1|    87|    52|    0|
-    |PE_3443_U0                                                        |PE_3443                                                        |        0|   1|    87|    52|    0|
-    |PE_3544_U0                                                        |PE_3544                                                        |        0|   1|    86|    50|    0|
-    |PE_3645_U0                                                        |PE_3645                                                        |        0|   1|    86|    50|    0|
-    |PE_3746_U0                                                        |PE_3746                                                        |        0|   1|    87|    52|    0|
-    |PE_3847_U0                                                        |PE_3847                                                        |        0|   1|    87|    52|    0|
-    |PE_3948_U0                                                        |PE_3948                                                        |        0|   1|    87|    52|    0|
-    |PE_4049_U0                                                        |PE_4049                                                        |        0|   1|    87|    52|    0|
-    |PE_413_U0                                                         |PE_413                                                         |        0|   1|    87|    52|    0|
-    |PE_4150_U0                                                        |PE_4150                                                        |        0|   1|    87|    52|    0|
-    |PE_4251_U0                                                        |PE_4251                                                        |        0|   1|    87|    52|    0|
-    |PE_4352_U0                                                        |PE_4352                                                        |        0|   1|    87|    52|    0|
-    |PE_4453_U0                                                        |PE_4453                                                        |        0|   1|    86|    50|    0|
-    |PE_4554_U0                                                        |PE_4554                                                        |        0|   1|    86|    50|    0|
-    |PE_4655_U0                                                        |PE_4655                                                        |        0|   1|    87|    52|    0|
-    |PE_4756_U0                                                        |PE_4756                                                        |        0|   1|    87|    52|    0|
-    |PE_4857_U0                                                        |PE_4857                                                        |        0|   1|    87|    52|    0|
-    |PE_4958_U0                                                        |PE_4958                                                        |        0|   1|    87|    52|    0|
-    |PE_5059_U0                                                        |PE_5059                                                        |        0|   1|    87|    52|    0|
-    |PE_514_U0                                                         |PE_514                                                         |        0|   1|    87|    52|    0|
-    |PE_5160_U0                                                        |PE_5160                                                        |        0|   1|    87|    52|    0|
-    |PE_5261_U0                                                        |PE_5261                                                        |        0|   1|    87|    52|    0|
-    |PE_5362_U0                                                        |PE_5362                                                        |        0|   1|    86|    50|    0|
-    |PE_5463_U0                                                        |PE_5463                                                        |        0|   1|    86|    50|    0|
-    |PE_5564_U0                                                        |PE_5564                                                        |        0|   1|    87|    52|    0|
-    |PE_5665_U0                                                        |PE_5665                                                        |        0|   1|    87|    52|    0|
-    |PE_5766_U0                                                        |PE_5766                                                        |        0|   1|    87|    52|    0|
-    |PE_5867_U0                                                        |PE_5867                                                        |        0|   1|    87|    52|    0|
-    |PE_5968_U0                                                        |PE_5968                                                        |        0|   1|    87|    52|    0|
-    |PE_6069_U0                                                        |PE_6069                                                        |        0|   1|    87|    52|    0|
-    |PE_615_U0                                                         |PE_615                                                         |        0|   1|    87|    52|    0|
-    |PE_6170_U0                                                        |PE_6170                                                        |        0|   1|    87|    52|    0|
-    |PE_6271_U0                                                        |PE_6271                                                        |        0|   1|    86|    50|    0|
-    |PE_6372_U0                                                        |PE_6372                                                        |        0|   1|    86|    50|    0|
-    |PE_716_U0                                                         |PE_716                                                         |        0|   1|    87|    52|    0|
-    |PE_817_U0                                                         |PE_817                                                         |        0|   1|    86|    50|    0|
-    |PE_918_U0                                                         |PE_918                                                         |        0|   1|    86|    50|    0|
-    |dataflow_in_loop_tile_loop_A_Block_arrayidx4212_exit77_proc74_U0  |dataflow_in_loop_tile_loop_A_Block_arrayidx4212_exit77_proc74  |        0|   0|   532|  1634|    0|
-    |dataflow_in_loop_tile_loop_A_Block_newFuncRoot1_proc2_U0          |dataflow_in_loop_tile_loop_A_Block_newFuncRoot1_proc2          |        0|   0|  3114|  2406|    0|
-    |sink_streams73_U0                                                 |sink_streams73                                                 |        0|   0|     9|    48|    0|
-    +------------------------------------------------------------------+---------------------------------------------------------------+---------+----+------+------+-----+
-    |Total                                                             |                                                               |        0|  64|  9208|  7386|    0|
-    +------------------------------------------------------------------+---------------------------------------------------------------+---------+----+------+------+-----+
+    +-------------------------------------------------------------+----------------------------------------------------------+---------+----+------+------+-----+
+    |                           Instance                          |                          Module                          | BRAM_18K| DSP|  FF  |  LUT | URAM|
+    +-------------------------------------------------------------+----------------------------------------------------------+---------+----+------+------+-----+
+    |B_Buf_to_stream4_U0                                          |B_Buf_to_stream4                                          |        0|   0|   264|   792|    0|
+    |PE_false_false_1020_U0                                       |PE_false_false_1020                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_110_U0                                        |PE_false_false_110                                        |        0|   1|    87|    52|    0|
+    |PE_false_false_1121_U0                                       |PE_false_false_1121                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_1222_U0                                       |PE_false_false_1222                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_1323_U0                                       |PE_false_false_1323                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_1525_U0                                       |PE_false_false_1525                                       |        0|   1|    86|    50|    0|
+    |PE_false_false_1626_U0                                       |PE_false_false_1626                                       |        0|   1|    86|    50|    0|
+    |PE_false_false_1727_U0                                       |PE_false_false_1727                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_1828_U0                                       |PE_false_false_1828                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_1929_U0                                       |PE_false_false_1929                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_2030_U0                                       |PE_false_false_2030                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_211_U0                                        |PE_false_false_211                                        |        0|   1|    87|    52|    0|
+    |PE_false_false_2131_U0                                       |PE_false_false_2131                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_2333_U0                                       |PE_false_false_2333                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_2434_U0                                       |PE_false_false_2434                                       |        0|   1|    86|    50|    0|
+    |PE_false_false_2535_U0                                       |PE_false_false_2535                                       |        0|   1|    86|    50|    0|
+    |PE_false_false_2636_U0                                       |PE_false_false_2636                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_2737_U0                                       |PE_false_false_2737                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_2838_U0                                       |PE_false_false_2838                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_2939_U0                                       |PE_false_false_2939                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_312_U0                                        |PE_false_false_312                                        |        0|   1|    87|    52|    0|
+    |PE_false_false_3141_U0                                       |PE_false_false_3141                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_3242_U0                                       |PE_false_false_3242                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_3343_U0                                       |PE_false_false_3343                                       |        0|   1|    86|    50|    0|
+    |PE_false_false_3444_U0                                       |PE_false_false_3444                                       |        0|   1|    86|    50|    0|
+    |PE_false_false_3545_U0                                       |PE_false_false_3545                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_3646_U0                                       |PE_false_false_3646                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_3747_U0                                       |PE_false_false_3747                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_3949_U0                                       |PE_false_false_3949                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_4050_U0                                       |PE_false_false_4050                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_413_U0                                        |PE_false_false_413                                        |        0|   1|    87|    52|    0|
+    |PE_false_false_4151_U0                                       |PE_false_false_4151                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_4252_U0                                       |PE_false_false_4252                                       |        0|   1|    86|    50|    0|
+    |PE_false_false_4353_U0                                       |PE_false_false_4353                                       |        0|   1|    86|    50|    0|
+    |PE_false_false_4454_U0                                       |PE_false_false_4454                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_4555_U0                                       |PE_false_false_4555                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_4757_U0                                       |PE_false_false_4757                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_4858_U0                                       |PE_false_false_4858                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_4959_U0                                       |PE_false_false_4959                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_5_U0                                          |PE_false_false_5                                          |        0|   1|    86|    50|    0|
+    |PE_false_false_5060_U0                                       |PE_false_false_5060                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_514_U0                                        |PE_false_false_514                                        |        0|   1|    87|    52|    0|
+    |PE_false_false_5161_U0                                       |PE_false_false_5161                                       |        0|   1|    86|    50|    0|
+    |PE_false_false_5262_U0                                       |PE_false_false_5262                                       |        0|   1|    86|    50|    0|
+    |PE_false_false_5363_U0                                       |PE_false_false_5363                                       |        0|   1|    87|    52|    0|
+    |PE_false_false_615_U0                                        |PE_false_false_615                                        |        0|   1|    87|    52|    0|
+    |PE_false_false_717_U0                                        |PE_false_false_717                                        |        0|   1|    86|    50|    0|
+    |PE_false_false_818_U0                                        |PE_false_false_818                                        |        0|   1|    87|    52|    0|
+    |PE_false_false_919_U0                                        |PE_false_false_919                                        |        0|   1|    87|    52|    0|
+    |PE_false_true_1424_U0                                        |PE_false_true_1424                                        |        0|   1|    87|    50|    0|
+    |PE_false_true_16_U0                                          |PE_false_true_16                                          |        0|   1|    87|    50|    0|
+    |PE_false_true_2232_U0                                        |PE_false_true_2232                                        |        0|   1|    87|    50|    0|
+    |PE_false_true_3040_U0                                        |PE_false_true_3040                                        |        0|   1|    87|    50|    0|
+    |PE_false_true_3848_U0                                        |PE_false_true_3848                                        |        0|   1|    87|    50|    0|
+    |PE_false_true_4656_U0                                        |PE_false_true_4656                                        |        0|   1|    87|    50|    0|
+    |PE_false_true_5464_U0                                        |PE_false_true_5464                                        |        0|   1|    87|    50|    0|
+    |PE_true_false_5566_U0                                        |PE_true_false_5566                                        |        0|   1|    87|    50|    0|
+    |PE_true_false_5667_U0                                        |PE_true_false_5667                                        |        0|   1|    87|    50|    0|
+    |PE_true_false_5768_U0                                        |PE_true_false_5768                                        |        0|   1|    87|    50|    0|
+    |PE_true_false_5869_U0                                        |PE_true_false_5869                                        |        0|   1|    87|    50|    0|
+    |PE_true_false_5970_U0                                        |PE_true_false_5970                                        |        0|   1|    86|    48|    0|
+    |PE_true_false_6071_U0                                        |PE_true_false_6071                                        |        0|   1|    86|    48|    0|
+    |PE_true_false_65_U0                                          |PE_true_false_65                                          |        0|   1|    87|    50|    0|
+    |PE_true_true_72_U0                                           |PE_true_true_72                                           |        0|   1|    86|    46|    0|
+    |dataflow_in_loop_tile_loop_A_Block_newFuncRoot177_proc73_U0  |dataflow_in_loop_tile_loop_A_Block_newFuncRoot177_proc73  |        0|   0|   532|  1634|    0|
+    |entry_proc_U0                                                |entry_proc                                                |        0|   0|     3|    10|    0|
+    |load_tile_A2_U0                                              |load_tile_A2                                              |        0|   0|  3849|  2064|    0|
+    |tile_A_to_stream3_U0                                         |tile_A_to_stream3                                         |        0|   0|    10|  1314|    0|
+    +-------------------------------------------------------------+----------------------------------------------------------+---------+----+------+------+-----+
+    |Total                                                        |                                                          |        0|  64| 10211|  9080|    0|
+    +-------------------------------------------------------------+----------------------------------------------------------+---------+----+------+------+-----+
 
     * DSP: 
     N/A
@@ -217,241 +221,568 @@
     N/A
 
     * FIFO: 
-    +-----------------+---------+-----+----+-----+------+-----+---------+
-    |       Name      | BRAM_18K|  FF | LUT| URAM| Depth| Bits| Size:D*B|
-    +-----------------+---------+-----+----+-----+------+-----+---------+
-    |A_stream_10_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_11_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_12_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_13_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_14_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_15_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_16_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_17_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_17_i_U  |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_18_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_19_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_1_U     |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_20_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_21_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_22_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_23_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_24_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_25_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_26_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_26_i_U  |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_27_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_28_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_29_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_2_U     |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_30_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_31_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_32_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_33_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_34_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_35_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_35_i_U  |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_36_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_37_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_38_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_39_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_3_U     |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_40_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_41_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_42_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_43_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_44_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_44_i_U  |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_45_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_46_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_47_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_48_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_49_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_4_U     |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_50_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_51_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_52_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_53_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_53_i_U  |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_54_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_55_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_56_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_57_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_58_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_59_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_5_U     |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_60_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_61_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_62_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_62_i_U  |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_63_U    |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_6_U     |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_71_i_U  |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_7_U     |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_8_U     |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_8_i_U   |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_9_U     |        0|  109|   0|    -|     8|   32|      256|
-    |A_stream_U       |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_10_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_11_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_12_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_13_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_14_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_15_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_16_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_17_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_18_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_19_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_1_U     |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_20_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_21_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_22_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_23_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_24_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_25_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_26_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_27_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_28_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_29_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_2_U     |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_30_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_31_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_32_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_33_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_34_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_35_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_36_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_37_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_38_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_39_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_3_U     |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_40_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_41_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_42_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_43_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_44_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_45_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_46_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_47_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_48_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_49_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_4_U     |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_50_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_51_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_52_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_53_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_54_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_55_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_56_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_57_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_58_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_59_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_5_U     |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_60_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_61_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_62_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_63_U    |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_64_i_U  |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_65_i_U  |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_66_i_U  |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_67_i_U  |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_68_i_U  |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_69_i_U  |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_6_U     |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_70_i_U  |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_71_i_U  |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_7_U     |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_8_U     |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_9_U     |        0|  109|   0|    -|     8|   32|      256|
-    |B_stream_U       |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_10_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_11_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_12_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_13_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_14_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_15_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_16_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_17_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_18_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_19_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_1_U     |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_20_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_21_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_22_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_23_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_24_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_25_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_26_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_27_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_28_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_29_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_2_U     |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_30_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_31_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_32_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_33_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_34_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_35_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_36_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_37_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_38_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_39_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_3_U     |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_40_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_41_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_42_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_43_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_44_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_45_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_46_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_47_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_48_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_49_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_4_U     |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_50_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_51_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_52_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_53_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_54_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_55_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_56_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_57_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_58_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_59_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_5_U     |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_60_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_61_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_62_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_63_U    |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_6_U     |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_7_U     |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_8_U     |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_9_U     |        0|  109|   0|    -|     8|   32|      256|
-    |C_stream_U       |        0|  109|   0|    -|     8|   32|      256|
-    |tileA_c_U        |        0|   25|   0|    -|    17|    2|       34|
-    |tileB_c_U        |        0|   25|   0|    -|    17|    1|       17|
-    +-----------------+---------+-----+----+-----+------+-----+---------+
-    |Total            |        0|22722|   0|    0|  1698| 6659|    53299|
-    +-----------------+---------+-----+----+-----+------+-----+---------+
+    +---------------+---------+-----+----+-----+------+-----+---------+
+    |      Name     | BRAM_18K|  FF | LUT| URAM| Depth| Bits| Size:D*B|
+    +---------------+---------+-----+----+-----+------+-----+---------+
+    |A_TILE63_U     |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_10_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_11_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_12_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_13_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_14_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_15_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_16_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_17_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_18_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_19_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_1_U     |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_20_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_21_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_22_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_23_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_24_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_25_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_26_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_27_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_28_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_29_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_2_U     |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_30_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_31_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_32_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_33_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_34_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_35_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_36_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_37_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_38_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_39_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_3_U     |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_40_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_41_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_42_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_43_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_44_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_45_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_46_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_47_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_48_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_49_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_4_U     |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_50_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_51_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_52_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_53_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_54_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_55_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_56_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_57_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_58_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_59_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_5_U     |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_60_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_61_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_62_U    |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_6_U     |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_7_U     |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_8_U     |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_9_U     |        0|  103|   0|    -|     2|   32|       64|
+    |A_TILE_U       |        0|  103|   0|    -|     2|   32|       64|
+    |A_stream_10_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_11_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_12_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_13_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_14_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_15_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_16_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_17_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_18_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_19_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_1_U   |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_20_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_21_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_22_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_23_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_24_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_25_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_26_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_27_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_28_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_29_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_2_U   |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_30_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_31_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_32_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_33_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_34_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_35_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_36_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_37_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_38_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_39_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_3_U   |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_40_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_41_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_42_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_43_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_44_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_45_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_46_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_47_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_48_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_49_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_4_U   |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_50_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_51_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_52_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_53_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_54_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_55_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_56_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_57_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_58_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_59_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_5_U   |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_60_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_61_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_62_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_63_U  |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_6_U   |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_7_U   |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_8_U   |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_9_U   |        0|  112|   0|    -|    16|   32|      512|
+    |A_stream_U     |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_10_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_11_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_12_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_13_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_14_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_15_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_16_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_17_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_18_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_19_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_1_U   |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_20_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_21_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_22_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_23_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_24_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_25_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_26_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_27_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_28_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_29_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_2_U   |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_30_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_31_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_32_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_33_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_34_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_35_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_36_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_37_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_38_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_39_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_3_U   |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_40_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_41_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_42_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_43_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_44_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_45_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_46_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_47_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_48_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_49_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_4_U   |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_50_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_51_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_52_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_53_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_54_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_55_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_56_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_57_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_58_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_59_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_5_U   |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_60_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_61_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_62_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_63_U  |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_6_U   |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_7_U   |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_8_U   |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_9_U   |        0|  112|   0|    -|    16|   32|      512|
+    |B_stream_U     |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_10_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_11_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_12_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_13_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_14_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_15_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_16_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_17_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_18_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_19_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_1_U   |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_20_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_21_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_22_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_23_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_24_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_25_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_26_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_27_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_28_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_29_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_2_U   |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_30_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_31_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_32_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_33_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_34_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_35_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_36_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_37_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_38_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_39_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_3_U   |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_40_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_41_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_42_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_43_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_44_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_45_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_46_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_47_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_48_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_49_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_4_U   |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_50_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_51_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_52_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_53_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_54_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_55_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_56_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_57_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_58_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_59_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_5_U   |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_60_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_61_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_62_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_63_U  |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_6_U   |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_7_U   |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_8_U   |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_9_U   |        0|  112|   0|    -|    16|   32|      512|
+    |C_stream_U     |        0|  112|   0|    -|    16|   32|      512|
+    |tileA_c_U      |        0|   25|   0|    -|    19|    2|       38|
+    |tileB_c_U      |        0|   25|   0|    -|    19|    1|       19|
+    +---------------+---------+-----+----+-----+------+-----+---------+
+    |Total          |        0|28146|   0|    0|  3238| 8195|   102457|
+    +---------------+---------+-----+----+-----+------+-----+---------+
 
     * Expression: 
-    +-----------------------------------------------------------------------+----------+----+---+----+------------+------------+
-    |                             Variable Name                             | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
-    +-----------------------------------------------------------------------+----------+----+---+----+------------+------------+
-    |PE_716_U0_start_full_n                                                 |       and|   0|  0|   2|           1|           1|
-    |ap_idle                                                                |       and|   0|  0|   2|           1|           1|
-    |ap_sync_continue                                                       |       and|   0|  0|   2|           1|           1|
-    |ap_sync_done                                                           |       and|   0|  0|   2|           1|           1|
-    |dataflow_in_loop_tile_loop_A_Block_newFuncRoot1_proc2_U0_start_full_n  |       and|   0|  0|   2|           1|           1|
-    +-----------------------------------------------------------------------+----------+----+---+----+------------+------------+
-    |Total                                                                  |          |   0|  0|  10|           5|           5|
-    +-----------------------------------------------------------------------+----------+----+---+----+------------+------------+
+    +--------------------------------------+----------+----+---+----+------------+------------+
+    |             Variable Name            | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------------------------------+----------+----+---+----+------------+------------+
+    |B_Buf_to_stream4_U0_ap_start          |       and|   0|  0|   2|           1|           1|
+    |B_Buf_to_stream4_U0_start_full_n      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE                |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE63              |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_1              |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_10             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_11             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_12             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_13             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_14             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_15             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_16             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_17             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_18             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_19             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_2              |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_20             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_21             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_22             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_23             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_24             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_25             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_26             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_27             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_28             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_29             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_3              |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_30             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_31             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_32             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_33             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_34             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_35             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_36             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_37             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_38             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_39             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_4              |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_40             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_41             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_42             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_43             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_44             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_45             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_46             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_47             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_48             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_49             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_5              |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_50             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_51             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_52             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_53             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_54             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_55             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_56             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_57             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_58             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_59             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_6              |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_60             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_61             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_62             |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_7              |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_8              |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_A_TILE_9              |       and|   0|  0|   2|           1|           1|
+    |ap_idle                               |       and|   0|  0|   2|           1|           1|
+    |ap_sync_ready                         |       and|   0|  0|   2|           1|           1|
+    |entry_proc_U0_ap_start                |       and|   0|  0|   2|           1|           1|
+    |load_tile_A2_U0_ap_continue           |       and|   0|  0|   2|           1|           1|
+    |load_tile_A2_U0_ap_start              |       and|   0|  0|   2|           1|           1|
+    |tile_A_to_stream3_U0_ap_start         |       and|   0|  0|   2|           1|           1|
+    |tile_A_to_stream3_U0_start_full_n     |       and|   0|  0|   2|           1|           1|
+    |ap_sync_B_Buf_to_stream4_U0_ap_ready  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE          |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE63        |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_1        |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_10       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_11       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_12       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_13       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_14       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_15       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_16       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_17       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_18       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_19       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_2        |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_20       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_21       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_22       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_23       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_24       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_25       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_26       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_27       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_28       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_29       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_3        |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_30       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_31       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_32       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_33       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_34       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_35       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_36       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_37       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_38       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_39       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_4        |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_40       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_41       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_42       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_43       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_44       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_45       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_46       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_47       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_48       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_49       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_5        |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_50       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_51       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_52       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_53       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_54       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_55       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_56       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_57       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_58       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_59       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_6        |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_60       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_61       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_62       |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_7        |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_8        |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_A_TILE_9        |        or|   0|  0|   2|           1|           1|
+    |ap_sync_entry_proc_U0_ap_ready        |        or|   0|  0|   2|           1|           1|
+    |ap_sync_load_tile_A2_U0_ap_ready      |        or|   0|  0|   2|           1|           1|
+    +--------------------------------------+----------+----+---+----+------------+------------+
+    |Total                                 |          |   0|  0| 280|         140|         140|
+    +--------------------------------------+----------+----+---+----+------------+------------+
 
     * Multiplexer: 
-    N/A
+    +------------------------------------------+----+-----------+-----+-----------+
+    |                   Name                   | LUT| Input Size| Bits| Total Bits|
+    +------------------------------------------+----+-----------+-----+-----------+
+    |ap_sync_reg_B_Buf_to_stream4_U0_ap_ready  |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE          |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE63        |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_1        |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_10       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_11       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_12       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_13       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_14       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_15       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_16       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_17       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_18       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_19       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_2        |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_20       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_21       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_22       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_23       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_24       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_25       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_26       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_27       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_28       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_29       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_3        |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_30       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_31       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_32       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_33       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_34       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_35       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_36       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_37       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_38       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_39       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_4        |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_40       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_41       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_42       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_43       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_44       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_45       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_46       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_47       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_48       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_49       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_5        |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_50       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_51       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_52       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_53       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_54       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_55       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_56       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_57       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_58       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_59       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_6        |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_60       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_61       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_62       |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_7        |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_8        |   2|          2|    1|          2|
+    |ap_sync_reg_channel_write_A_TILE_9        |   2|          2|    1|          2|
+    |ap_sync_reg_entry_proc_U0_ap_ready        |   2|          2|    1|          2|
+    |ap_sync_reg_load_tile_A2_U0_ap_ready      |   2|          2|    1|          2|
+    +------------------------------------------+----+-----------+-----+-----------+
+    |Total                                     | 134|        134|   67|        134|
+    +------------------------------------------+----+-----------+-----+-----------+
 
     * Register: 
-    N/A
+    +------------------------------------------+---+----+-----+-----------+
+    |                   Name                   | FF| LUT| Bits| Const Bits|
+    +------------------------------------------+---+----+-----+-----------+
+    |ap_sync_reg_B_Buf_to_stream4_U0_ap_ready  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE          |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE63        |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_1        |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_10       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_11       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_12       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_13       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_14       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_15       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_16       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_17       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_18       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_19       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_2        |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_20       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_21       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_22       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_23       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_24       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_25       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_26       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_27       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_28       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_29       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_3        |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_30       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_31       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_32       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_33       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_34       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_35       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_36       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_37       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_38       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_39       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_4        |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_40       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_41       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_42       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_43       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_44       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_45       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_46       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_47       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_48       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_49       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_5        |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_50       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_51       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_52       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_53       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_54       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_55       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_56       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_57       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_58       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_59       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_6        |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_60       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_61       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_62       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_7        |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_8        |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_A_TILE_9        |  1|   0|    1|          0|
+    |ap_sync_reg_entry_proc_U0_ap_ready        |  1|   0|    1|          0|
+    |ap_sync_reg_load_tile_A2_U0_ap_ready      |  1|   0|    1|          0|
+    +------------------------------------------+---+----+-----+-----------+
+    |Total                                     | 67|   0|   67|          0|
+    +------------------------------------------+---+----+-----+-----------+
 
 
 
@@ -590,34 +921,13 @@
 |B_TILE_1_ap_vld   |   in|    1|     ap_none|                      B_TILE_1|       pointer|
 |B_TILE            |   in|   32|     ap_none|                        B_TILE|       pointer|
 |B_TILE_ap_vld     |   in|    1|     ap_none|                        B_TILE|       pointer|
+|A_in_dout         |   in|  256|     ap_fifo|                          A_in|       pointer|
+|A_in_empty_n      |   in|    1|     ap_fifo|                          A_in|       pointer|
+|A_in_read         |  out|    1|     ap_fifo|                          A_in|       pointer|
 |tileA             |   in|    3|     ap_none|                         tileA|        scalar|
 |tileA_ap_vld      |   in|    1|     ap_none|                         tileA|        scalar|
 |tileB             |   in|    1|     ap_none|                         tileB|        scalar|
 |tileB_ap_vld      |   in|    1|     ap_none|                         tileB|        scalar|
-|A_in_2_1_dout     |   in|  256|     ap_fifo|                      A_in_2_1|       pointer|
-|A_in_2_1_empty_n  |   in|    1|     ap_fifo|                      A_in_2_1|       pointer|
-|A_in_2_1_read     |  out|    1|     ap_fifo|                      A_in_2_1|       pointer|
-|A_in_2_0_dout     |   in|  256|     ap_fifo|                      A_in_2_0|       pointer|
-|A_in_2_0_empty_n  |   in|    1|     ap_fifo|                      A_in_2_0|       pointer|
-|A_in_2_0_read     |  out|    1|     ap_fifo|                      A_in_2_0|       pointer|
-|A_in_1_1_dout     |   in|  256|     ap_fifo|                      A_in_1_1|       pointer|
-|A_in_1_1_empty_n  |   in|    1|     ap_fifo|                      A_in_1_1|       pointer|
-|A_in_1_1_read     |  out|    1|     ap_fifo|                      A_in_1_1|       pointer|
-|A_in_1_0_dout     |   in|  256|     ap_fifo|                      A_in_1_0|       pointer|
-|A_in_1_0_empty_n  |   in|    1|     ap_fifo|                      A_in_1_0|       pointer|
-|A_in_1_0_read     |  out|    1|     ap_fifo|                      A_in_1_0|       pointer|
-|A_in_0_1_dout     |   in|  256|     ap_fifo|                      A_in_0_1|       pointer|
-|A_in_0_1_empty_n  |   in|    1|     ap_fifo|                      A_in_0_1|       pointer|
-|A_in_0_1_read     |  out|    1|     ap_fifo|                      A_in_0_1|       pointer|
-|A_in_0_0_dout     |   in|  256|     ap_fifo|                      A_in_0_0|       pointer|
-|A_in_0_0_empty_n  |   in|    1|     ap_fifo|                      A_in_0_0|       pointer|
-|A_in_0_0_read     |  out|    1|     ap_fifo|                      A_in_0_0|       pointer|
-|A_in_3_1_dout     |   in|  256|     ap_fifo|                      A_in_3_1|       pointer|
-|A_in_3_1_empty_n  |   in|    1|     ap_fifo|                      A_in_3_1|       pointer|
-|A_in_3_1_read     |  out|    1|     ap_fifo|                      A_in_3_1|       pointer|
-|A_in_3_0_dout     |   in|  256|     ap_fifo|                      A_in_3_0|       pointer|
-|A_in_3_0_empty_n  |   in|    1|     ap_fifo|                      A_in_3_0|       pointer|
-|A_in_3_0_read     |  out|    1|     ap_fifo|                      A_in_3_0|       pointer|
 |C_out_2_1_din     |  out|  256|     ap_fifo|                     C_out_2_1|       pointer|
 |C_out_2_1_full_n  |   in|    1|     ap_fifo|                     C_out_2_1|       pointer|
 |C_out_2_1_write   |  out|    1|     ap_fifo|                     C_out_2_1|       pointer|
