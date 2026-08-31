@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'entry_proc'
 ================================================================
-* Date:           Mon Aug 31 18:21:32 2026
+* Date:           Mon Aug 31 18:31:22 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        hls_project
@@ -86,16 +86,16 @@
     +-----------------+----------+----+---+----+------------+------------+
 
     * Multiplexer: 
-    +---------------+----+-----------+-----+-----------+
-    |      Name     | LUT| Input Size| Bits| Total Bits|
-    +---------------+----+-----------+-----+-----------+
-    |ap_done        |   2|          2|    1|          2|
-    |real_start     |   2|          2|    1|          2|
-    |tileA_c_blk_n  |   2|          2|    1|          2|
-    |tileB_c_blk_n  |   2|          2|    1|          2|
-    +---------------+----+-----------+-----+-----------+
-    |Total          |   8|          8|    4|          8|
-    +---------------+----+-----------+-----+-----------+
+    +-----------------+----+-----------+-----+-----------+
+    |       Name      | LUT| Input Size| Bits| Total Bits|
+    +-----------------+----+-----------+-----+-----------+
+    |ap_done          |   2|          2|    1|          2|
+    |real_start       |   2|          2|    1|          2|
+    |tileA_i_c_blk_n  |   2|          2|    1|          2|
+    |tileB_c_blk_n    |   2|          2|    1|          2|
+    +-----------------+----+-----------+-----+-----------+
+    |Total            |   8|          8|    4|          8|
+    +-----------------+----+-----------+-----+-----------+
 
     * Register: 
     +----------------+---+----+-----+-----------+
@@ -114,30 +114,30 @@
 == Interface
 ================================================================
 * Summary: 
-+------------------------+-----+-----+------------+--------------+--------------+
-|        RTL Ports       | Dir | Bits|  Protocol  | Source Object|    C Type    |
-+------------------------+-----+-----+------------+--------------+--------------+
-|ap_clk                  |   in|    1|  ap_ctrl_hs|    entry_proc|  return value|
-|ap_rst                  |   in|    1|  ap_ctrl_hs|    entry_proc|  return value|
-|ap_start                |   in|    1|  ap_ctrl_hs|    entry_proc|  return value|
-|start_full_n            |   in|    1|  ap_ctrl_hs|    entry_proc|  return value|
-|ap_done                 |  out|    1|  ap_ctrl_hs|    entry_proc|  return value|
-|ap_continue             |   in|    1|  ap_ctrl_hs|    entry_proc|  return value|
-|ap_idle                 |  out|    1|  ap_ctrl_hs|    entry_proc|  return value|
-|ap_ready                |  out|    1|  ap_ctrl_hs|    entry_proc|  return value|
-|start_out               |  out|    1|  ap_ctrl_hs|    entry_proc|  return value|
-|start_write             |  out|    1|  ap_ctrl_hs|    entry_proc|  return value|
-|tileA                   |   in|    2|     ap_none|         tileA|        scalar|
-|tileA_c_din             |  out|    2|     ap_fifo|       tileA_c|       pointer|
-|tileA_c_num_data_valid  |   in|    6|     ap_fifo|       tileA_c|       pointer|
-|tileA_c_fifo_cap        |   in|    6|     ap_fifo|       tileA_c|       pointer|
-|tileA_c_full_n          |   in|    1|     ap_fifo|       tileA_c|       pointer|
-|tileA_c_write           |  out|    1|     ap_fifo|       tileA_c|       pointer|
-|tileB                   |   in|    1|     ap_none|         tileB|        scalar|
-|tileB_c_din             |  out|    1|     ap_fifo|       tileB_c|       pointer|
-|tileB_c_num_data_valid  |   in|    6|     ap_fifo|       tileB_c|       pointer|
-|tileB_c_fifo_cap        |   in|    6|     ap_fifo|       tileB_c|       pointer|
-|tileB_c_full_n          |   in|    1|     ap_fifo|       tileB_c|       pointer|
-|tileB_c_write           |  out|    1|     ap_fifo|       tileB_c|       pointer|
-+------------------------+-----+-----+------------+--------------+--------------+
++--------------------------+-----+-----+------------+--------------+--------------+
+|         RTL Ports        | Dir | Bits|  Protocol  | Source Object|    C Type    |
++--------------------------+-----+-----+------------+--------------+--------------+
+|ap_clk                    |   in|    1|  ap_ctrl_hs|    entry_proc|  return value|
+|ap_rst                    |   in|    1|  ap_ctrl_hs|    entry_proc|  return value|
+|ap_start                  |   in|    1|  ap_ctrl_hs|    entry_proc|  return value|
+|start_full_n              |   in|    1|  ap_ctrl_hs|    entry_proc|  return value|
+|ap_done                   |  out|    1|  ap_ctrl_hs|    entry_proc|  return value|
+|ap_continue               |   in|    1|  ap_ctrl_hs|    entry_proc|  return value|
+|ap_idle                   |  out|    1|  ap_ctrl_hs|    entry_proc|  return value|
+|ap_ready                  |  out|    1|  ap_ctrl_hs|    entry_proc|  return value|
+|start_out                 |  out|    1|  ap_ctrl_hs|    entry_proc|  return value|
+|start_write               |  out|    1|  ap_ctrl_hs|    entry_proc|  return value|
+|tileA_i                   |   in|    2|     ap_none|       tileA_i|        scalar|
+|tileA_i_c_din             |  out|    2|     ap_fifo|     tileA_i_c|       pointer|
+|tileA_i_c_num_data_valid  |   in|    6|     ap_fifo|     tileA_i_c|       pointer|
+|tileA_i_c_fifo_cap        |   in|    6|     ap_fifo|     tileA_i_c|       pointer|
+|tileA_i_c_full_n          |   in|    1|     ap_fifo|     tileA_i_c|       pointer|
+|tileA_i_c_write           |  out|    1|     ap_fifo|     tileA_i_c|       pointer|
+|tileB                     |   in|    1|     ap_none|         tileB|        scalar|
+|tileB_c_din               |  out|    1|     ap_fifo|       tileB_c|       pointer|
+|tileB_c_num_data_valid    |   in|    6|     ap_fifo|       tileB_c|       pointer|
+|tileB_c_fifo_cap          |   in|    6|     ap_fifo|       tileB_c|       pointer|
+|tileB_c_full_n            |   in|    1|     ap_fifo|       tileB_c|       pointer|
+|tileB_c_write             |  out|    1|     ap_fifo|       tileB_c|       pointer|
++--------------------------+-----+-----+------------+--------------+--------------+
 

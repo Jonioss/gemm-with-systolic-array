@@ -35,7 +35,7 @@ void runSystolicArray(hls::stream<hls::vector<float, K>> &A_in,
 
     tile_loop_B:
     for(int tileB = 0; tileB < NUM_TILES_J; tileB++) {
-        // #pragma HLS DATAFLOW
+        #pragma HLS DATAFLOW
         
         B_Vec_to_Buf(B_in, B_TILE);
         

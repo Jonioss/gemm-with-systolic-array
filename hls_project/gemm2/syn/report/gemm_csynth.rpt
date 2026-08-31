@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'gemm'
 ================================================================
-* Date:           Mon Aug 31 18:21:44 2026
+* Date:           Mon Aug 31 18:31:37 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        hls_project
@@ -20,7 +20,7 @@
     +--------+---------+----------+------------+
     |  Clock |  Target | Estimated| Uncertainty|
     +--------+---------+----------+------------+
-    |ap_clk  |  3.33 ns|  2.641 ns|     0.90 ns|
+    |ap_clk  |  3.33 ns|  2.897 ns|     0.90 ns|
     +--------+---------+----------+------------+
 
 + Latency: 
@@ -29,7 +29,7 @@
     |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
     |   min   |   max   |    min   |    max   | min | max |   Type   |
     +---------+---------+----------+----------+-----+-----+----------+
-    |      276|      276|  0.920 us|  0.920 us|  184|  184|  dataflow|
+    |      276|      276|  0.920 us|  0.920 us|  175|  175|  dataflow|
     +---------+---------+----------+----------+-----+-----+----------+
 
     + Detail: 
@@ -38,9 +38,9 @@
         |                       |                    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
         |        Instance       |       Module       |   min   |   max   |    min   |    max   | min | max |   Type   |
         +-----------------------+--------------------+---------+---------+----------+----------+-----+-----+----------+
-        |entry_proc75_U0        |entry_proc75        |        0|        0|      0 ns|      0 ns|    0|    0|        no|
+        |entry_proc153_U0       |entry_proc153       |        0|        0|      0 ns|      0 ns|    0|    0|        no|
         |loadInputsFromDRAM_U0  |loadInputsFromDRAM  |      174|      174|  0.580 us|  0.580 us|  175|  175|  dataflow|
-        |runSystolicArray_U0    |runSystolicArray    |      183|      183|  0.610 us|  0.610 us|  183|  183|        no|
+        |runSystolicArray_U0    |runSystolicArray    |      169|      169|  0.563 us|  0.563 us|  169|  169|        no|
         |storeOutputToDRAM_U0   |storeOutputToDRAM   |      135|      135|  0.450 us|  0.450 us|  135|  135|        no|
         +-----------------------+--------------------+---------+---------+----------+----------+-----+-----+----------+
 
@@ -59,16 +59,16 @@
 |DSP              |        -|     -|        -|       -|    -|
 |Expression       |        -|     -|        0|      12|    -|
 |FIFO             |        0|     -|     8012|    4333|    -|
-|Instance         |      119|    64|    47904|   35354|    0|
+|Instance         |      119|    64|    56697|   42077|    0|
 |Memory           |        -|     -|        -|       -|    -|
 |Multiplexer      |        -|     -|        -|       4|    -|
 |Register         |        -|     -|        5|       -|    -|
 +-----------------+---------+------+---------+--------+-----+
-|Total            |      119|    64|    55921|   39703|    0|
+|Total            |      119|    64|    64714|   46426|    0|
 +-----------------+---------+------+---------+--------+-----+
 |Available        |     1934|  1968|  1799680|  899840|  463|
 +-----------------+---------+------+---------+--------+-----+
-|Utilization (%)  |        6|     3|        3|       4|    0|
+|Utilization (%)  |        6|     3|        3|       5|    0|
 +-----------------+---------+------+---------+--------+-----+
 
 + Detail: 
@@ -77,15 +77,15 @@
     |        Instance       |       Module       | BRAM_18K| DSP|   FF  |  LUT  | URAM|
     +-----------------------+--------------------+---------+----+-------+-------+-----+
     |control_s_axi_U        |control_s_axi       |        0|   0|    246|    424|    0|
-    |entry_proc75_U0        |entry_proc75        |        0|   0|      3|      8|    0|
+    |entry_proc153_U0       |entry_proc153       |        0|   0|      3|      8|    0|
     |gmem0_m_axi_U          |gmem0_m_axi         |       37|   0|   1970|   1528|    0|
     |gmem1_m_axi_U          |gmem1_m_axi         |       37|   0|   1970|   1528|    0|
     |gmem2_m_axi_U          |gmem2_m_axi         |       37|   0|   1970|   1528|    0|
     |loadInputsFromDRAM_U0  |loadInputsFromDRAM  |        8|   0|    328|    470|    0|
-    |runSystolicArray_U0    |runSystolicArray    |        0|  64|  40558|  28864|    0|
+    |runSystolicArray_U0    |runSystolicArray    |        0|  64|  49351|  35587|    0|
     |storeOutputToDRAM_U0   |storeOutputToDRAM   |        0|   0|    859|   1004|    0|
     +-----------------------+--------------------+---------+----+-------+-------+-----+
-    |Total                  |                    |      119|  64|  47904|  35354|    0|
+    |Total                  |                    |      119|  64|  56697|  42077|    0|
     +-----------------------+--------------------+---------+----+-------+-------+-----+
 
     * DSP: 
@@ -119,9 +119,9 @@
     +----------------------------------------+----------+----+---+----+------------+------------+
     |ap_idle                                 |       and|   0|  0|   2|           1|           1|
     |ap_sync_ready                           |       and|   0|  0|   2|           1|           1|
-    |entry_proc75_U0_ap_start                |       and|   0|  0|   2|           1|           1|
+    |entry_proc153_U0_ap_start               |       and|   0|  0|   2|           1|           1|
     |loadInputsFromDRAM_U0_ap_start          |       and|   0|  0|   2|           1|           1|
-    |ap_sync_entry_proc75_U0_ap_ready        |        or|   0|  0|   2|           1|           1|
+    |ap_sync_entry_proc153_U0_ap_ready       |        or|   0|  0|   2|           1|           1|
     |ap_sync_loadInputsFromDRAM_U0_ap_ready  |        or|   0|  0|   2|           1|           1|
     +----------------------------------------+----------+----+---+----+------------+------------+
     |Total                                   |          |   0|  0|  12|           6|           6|
@@ -131,7 +131,7 @@
     +--------------------------------------------+----+-----------+-----+-----------+
     |                    Name                    | LUT| Input Size| Bits| Total Bits|
     +--------------------------------------------+----+-----------+-----+-----------+
-    |ap_sync_reg_entry_proc75_U0_ap_ready        |   2|          2|    1|          2|
+    |ap_sync_reg_entry_proc153_U0_ap_ready       |   2|          2|    1|          2|
     |ap_sync_reg_loadInputsFromDRAM_U0_ap_ready  |   2|          2|    1|          2|
     +--------------------------------------------+----+-----------+-----+-----------+
     |Total                                       |   4|          4|    2|          4|
@@ -144,7 +144,7 @@
     |ap_rst_n_inv                                |  1|   0|    1|          0|
     |ap_rst_reg_1                                |  1|   0|    1|          0|
     |ap_rst_reg_2                                |  1|   0|    1|          0|
-    |ap_sync_reg_entry_proc75_U0_ap_ready        |  1|   0|    1|          0|
+    |ap_sync_reg_entry_proc153_U0_ap_ready       |  1|   0|    1|          0|
     |ap_sync_reg_loadInputsFromDRAM_U0_ap_ready  |  1|   0|    1|          0|
     +--------------------------------------------+---+----+-----+-----------+
     |Total                                       |  5|   0|    5|          0|
