@@ -6,17 +6,17 @@
 #include "math.h"
 #include "assert.h"
 
-#define I 32
-#define J 16
-#define K 8
+#define I 128
+#define J 128
+#define K 32
 
-#define S_A_I 8
-#define S_A_J 8
+#define S_A_I 16
+#define S_A_J 16
 
 #define NUM_TILES_I (I / S_A_I)
 #define NUM_TILES_J (J / S_A_J)
 
-#define VEC_SIZE 8
+#define VEC_SIZE 16
 #define BURST_LENGTH (4096 / 32)
 
 void gemm(const hls::burst_maxi<hls::vector<float, VEC_SIZE>> A_DRAM, 

@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'entry_proc'
 ================================================================
-* Date:           Mon Aug 31 18:31:22 2026
+* Date:           Tue Sep  1 15:24:20 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        hls_project
@@ -20,7 +20,7 @@
     +--------+---------+----------+------------+
     |  Clock |  Target | Estimated| Uncertainty|
     +--------+---------+----------+------------+
-    |ap_clk  |  3.33 ns|  1.739 ns|     0.90 ns|
+    |ap_clk  |  3.33 ns|  2.068 ns|     0.90 ns|
     +--------+---------+----------+------------+
 
 + Latency: 
@@ -127,16 +127,16 @@
 |ap_ready                  |  out|    1|  ap_ctrl_hs|    entry_proc|  return value|
 |start_out                 |  out|    1|  ap_ctrl_hs|    entry_proc|  return value|
 |start_write               |  out|    1|  ap_ctrl_hs|    entry_proc|  return value|
-|tileA_i                   |   in|    2|     ap_none|       tileA_i|        scalar|
-|tileA_i_c_din             |  out|    2|     ap_fifo|     tileA_i_c|       pointer|
-|tileA_i_c_num_data_valid  |   in|    6|     ap_fifo|     tileA_i_c|       pointer|
-|tileA_i_c_fifo_cap        |   in|    6|     ap_fifo|     tileA_i_c|       pointer|
+|tileA_i                   |   in|    3|     ap_none|       tileA_i|        scalar|
+|tileA_i_c_din             |  out|    3|     ap_fifo|     tileA_i_c|       pointer|
+|tileA_i_c_num_data_valid  |   in|    7|     ap_fifo|     tileA_i_c|       pointer|
+|tileA_i_c_fifo_cap        |   in|    7|     ap_fifo|     tileA_i_c|       pointer|
 |tileA_i_c_full_n          |   in|    1|     ap_fifo|     tileA_i_c|       pointer|
 |tileA_i_c_write           |  out|    1|     ap_fifo|     tileA_i_c|       pointer|
-|tileB                     |   in|    1|     ap_none|         tileB|        scalar|
-|tileB_c_din               |  out|    1|     ap_fifo|       tileB_c|       pointer|
-|tileB_c_num_data_valid    |   in|    6|     ap_fifo|       tileB_c|       pointer|
-|tileB_c_fifo_cap          |   in|    6|     ap_fifo|       tileB_c|       pointer|
+|tileB                     |   in|    3|     ap_none|         tileB|        scalar|
+|tileB_c_din               |  out|    3|     ap_fifo|       tileB_c|       pointer|
+|tileB_c_num_data_valid    |   in|    7|     ap_fifo|       tileB_c|       pointer|
+|tileB_c_fifo_cap          |   in|    7|     ap_fifo|       tileB_c|       pointer|
 |tileB_c_full_n            |   in|    1|     ap_fifo|       tileB_c|       pointer|
 |tileB_c_write             |  out|    1|     ap_fifo|       tileB_c|       pointer|
 +--------------------------+-----+-----+------------+--------------+--------------+
